@@ -1,0 +1,1 @@
+# plat-yonezawa-visit
