@@ -311,6 +311,32 @@ footer .col strong{display:block;color:#fff;letter-spacing:.20em;margin-bottom:6
   .topnav, .trade-banner, .preview-banner, .lang-switcher, .pb-detail-link{display:none !important;}
   .product-body{display:block !important;}
 }
+
+/* === Trade Tariff Index (目次) === */
+.toc-sec{padding:72px 0;}
+.toc-head{text-align:center;margin-bottom:40px;}
+.toc-head h2{font-size:34px;margin-top:6px;}
+.toc-head .lead{font-size:14px;color:var(--c-muted);max-width:60ch;margin:14px auto 0;line-height:1.8;}
+.toc-brand{margin-bottom:36px;}
+.toc-brand-head{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;border-bottom:1px solid var(--c-line);padding-bottom:12px;margin-bottom:18px;}
+.toc-brand-head .bn{font-family:var(--f-en);font-size:23px;font-weight:600;color:var(--c-deep);}
+body.lang-ja .toc-brand-head .bn,body.lang-zh .toc-brand-head .bn{font-family:inherit;}
+.toc-brand-head .bm{font-family:var(--f-ui);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--c-gold-deep);font-weight:600;}
+.toc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;}
+.toc-card{display:block;background:#fff;border:1px solid var(--c-line);border-radius:4px;padding:22px 24px;text-decoration:none;color:inherit;transition:.16s;}
+.toc-card:hover{border-color:var(--c-gold-soft);box-shadow:0 8px 24px rgba(46,31,28,.08);transform:translateY(-2px);}
+.toc-code{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.08em;color:var(--c-gold-deep);font-weight:600;}
+.toc-name{font-family:var(--f-en);font-size:20px;font-weight:600;color:var(--c-deep);margin-top:3px;}
+body.lang-zh .toc-name{font-family:var(--f-zh);}
+.toc-sub{font-family:var(--f-en);font-style:italic;color:var(--c-accent-dk);font-size:13.5px;margin-top:2px;}
+body.lang-ja .toc-sub,body.lang-zh .toc-sub{font-family:inherit;font-style:normal;}
+.toc-meta{font-family:var(--f-ui);font-size:12px;color:var(--c-muted);margin-top:12px;padding-top:10px;border-top:1px solid var(--c-line-soft);letter-spacing:.02em;}
+.toc-open{font-family:var(--f-ui);font-size:11.5px;color:var(--c-gold-deep);font-weight:600;margin-top:10px;}
+@media(max-width:560px){.toc-grid{grid-template-columns:1fr;}}
+
+.toc-card{padding:0;overflow:hidden;}
+.toc-card .toc-img{aspect-ratio:16/9;background-size:cover;background-position:center;background-color:var(--c-line-soft);}
+.toc-card .toc-body{padding:16px 22px 20px;}
 </style>
 </head>
 <body class="lang-en">
@@ -467,433 +493,81 @@ footer .col strong{display:block;color:#fff;letter-spacing:.20em;margin-bottom:6
 </section>
 
 
-<section class="brand-section" data-brand="silk" id="brand-silk">
+<section class="section toc-sec" id="trade-index">
   <div class="container">
-    <div class="brand-head">
-      <div class="num">01</div>
-      <div class="lhs">
-        <span class="eyebrow"><span class="en">COLLECTION 01 — SILK</span><span class="ja">コレクション 01 — 絹</span></span>
-        <h2 style="margin-top:6px;"><span class="en">The Colors of the Snow Country</span><span class="ja">雪国の色彩</span></h2>
-        <div class="tagline"><span class="en">— Weaving the Breath of Nature —</span><span class="ja">— 自然の息吹を織る —</span></div>
-        <div class="provider"><span class="en">Provider · Nitta Textile Arts Inc.</span><span class="ja">提供事業者 · 新田（株式会社新田）</span></div>
-      </div>
-      <div class="rhs">In a world dominated by fast fashion and digital color codes, true beauty is often lost in translation. But here, deep in the basin of Yonezawa, the colors are alive. Guided by the…</div>
+    <div class="toc-head">
+      <span class="eyebrow"><span class="en">Trade Tariff · Index</span><span class="ja">商談タリフ · 目次</span><span class="fr">Tarif pro · Index</span><span class="zh">商談報價 · 目次</span></span>
+      <h2><span class="en">Trade Tariff — Index</span><span class="ja">商談タリフ 目次</span><span class="fr">Tarif professionnel — Index</span><span class="zh">商談報價 — 目次</span></h2>
+      <p class="lead"><span class="en">Open each product's trade page. Prices are gross (incl. tax, retail). Net rates &amp; PDF on request.</span><span class="ja">各商品の商談ページへ。価格はGross（税込小売）。ネット料金・PDFは資料請求で。</span><span class="fr">Ouvrez la page de chaque produit. Prix bruts (TTC, détail). Tarifs nets &amp; PDF sur demande.</span><span class="zh">點選各商品的商談頁。價格為Gross（含稅零售）。淨價與PDF可索取。</span></p>
     </div>
-
-    <div class="b-heritage">
-      <div class="left"><span class="num">140+</span><span class="unit"><span class="en">years</span><span class="ja">年</span></span></div>
-      <div class="copy"><span class="en">One family. Five generations of dyers and weavers. Founded in 1884, in the basin of Yonezawa — where the colors of the 24 micro-seasons are still woven, by hand, into living silk.</span><span class="ja">ひとつの家。五代続く染師と織師。1884年、米沢盆地に創業。二十四節気の色彩を、今もなお手仕事で生きた絹に織り込み続ける。</span></div>
-      <div class="right"><span class="en">Founded 1884<br>Natural dyes &amp; Jacquard looms</span><span class="ja">明治十七年創業<br>天然染色とジャカード織機</span></div>
+    <div class="toc-brand" id="brand-silk">
+      <div class="toc-brand-head"><span class="bn">The Colors of the Snow Country</span><span class="bm">Silk · Nitta Textile Arts</span></div>
+      <div class="toc-grid">
+        <a class="toc-card" href="tariff_C-NTA-01.html">
+          <div class="toc-img" style="background-image:url('images/c-nta-01/shot-01.jpg')"></div>
+          <div class="toc-body">
+            <div class="toc-code">C-NTA-01</div>
+            <div class="toc-name">The Philosophy</div>
+            <div class="toc-sub"><span class="en">Weaving the Breath of Nature</span><span class="ja">自然の息吹を織る</span><span class="fr">Tisser le souffle de la nature</span><span class="zh">織就自然的氣息</span></div>
+            <div class="toc-meta">¥15,000 · 120 min · 2–7 pax</div>
+            <div class="toc-open"><span class="en">Open trade page →</span><span class="ja">商談ページを開く →</span><span class="fr">Ouvrir la page →</span><span class="zh">開啟商談頁 →</span></div>
+          </div>
+        </a>
+      </div>
     </div>
-
-    
-    <article class="product" data-pid="C-NTA-01">
-      <div class="product-head">
-        <div class="pid">C-NTA-01</div>
-        <div class="title">
-          <h3><span class="en">THE PHILOSOPHY</span><span class="ja">THE PHILOSOPHY</span></h3>
-          <div class="sub"><span class="en">— Weaving the Breath of Nature —</span><span class="ja">— 自然の息吹を織る —</span></div>
-        </div>
-        <div class="price">¥15,000<span class="unit"><span class="en">incl. tax / person</span><span class="ja">税込 / 1名</span></span></div>
-        <div class="toggle"></div>
-      </div>
-      <div class="product-body">
-        <div class="pb-grid">
-          <div>
-            <div class="pb-theme"><span class="en">Theme · Weaving the Rhythm of Nature — The Master's Dialogue</span><span class="ja">テーマ · 自然のリズムを織る ── 主の対話</span></div>
-            <p class="pb-summary"><span class="en">“In Yonezawa, seasons are not four, but twenty-four.” This exclusive session invites you into the private residence of the <em class="fig">Nitta family</em>, hosted by <em class="fig">Chairman Nitta</em> and his wife Mayumi. Access the “Forbidden Colors,” touch the essence of “Careful Living” through tea, dialogue, and a hands-on dyeing of the signature “<em class="fig">Silk Wave</em>.”</span><span class="ja">「米沢には、四季ではなく二十四の季節がある」。<em class="fig">新田会長</em>と<em class="fig">真弓夫人</em>がプライベート邸宅にお迎えする特別セッション。<em class="fig">「禁色」</em>のアーカイブへのアクセス、茶の儀、哲学的対話、シグネチャー<em class="fig">「シルクウェイブ」</em>の手染め体験。</span></p>
-            <div class="pb-highlights">
-              <h4><span class="en">Highlights</span><span class="ja">ハイライト</span></h4>
-              <ul>
-        <li>
-          <strong><span class="en">The Ritual of Welcome (Omotenashi)</span><span class="ja">歓迎の儀（おもてなし）</span></strong><br>
-          <span class="en">Begin in the <em class="fig">Nitta family</em>'s private tatami room with matcha and seasonal wagashi.</span><span class="ja"><em class="fig">新田家</em>の私室で、抹茶と季節の和菓子からはじまる。</span>
-        </li>
-        <li>
-          <strong><span class="en">The Alchemy of "<em class="fig">Silk Wave</em>"</span><span class="ja"><em class="fig">シルクウェイブ</em>の錬金術</span></strong><br>
-          <span class="en">Create your own masterpiece in rare silk fabric, dyed with natural seasonal pigments under the Master's guidance.</span><span class="ja">希少な絹<em class="fig">「シルクウェイブ」</em>に、二十四節気の天然染料で自らの作品を染め上げる。</span>
-        </li>
-        <li>
-          <strong><span class="en">The "Forbidden" Tour</span><span class="ja"><em class="fig">禁色</em>のツアー</span></strong><br>
-          <span class="en">While your silk dries, the Chairman escorts you into the working factory to hear the "heartbeat" of the looms.</span><span class="ja">絹の乾燥中、会長が稼働中の工場を案内し、機の鼓動を語る。</span>
-        </li>
-              </ul>
-            </div>
-            <div class="pb-schedule">
-              <h4><span class="en">Programme · 120 min</span><span class="ja">プログラム · 120 min</span></h4>
-              <table>
-        <tr><td class="time">00:00</td><td><span class="en">Welcome &amp; The Ritual — matcha &amp; wagashi by Mayumi-san in the private tatami room.</span><span class="ja">歓迎の儀 ── 私室で<em class="fig">真弓夫人</em>による抹茶と和菓子。</span></td></tr>
-        <tr><td class="time">00:45</td><td><span class="en">The Crafting Session — dyeing the "<em class="fig">Silk Wave</em>" scarf with natural pigments.</span><span class="ja">染色セッション ── 天然染料による<em class="fig">「シルクウェイブ」</em>スカーフ染め。</span></td></tr>
-        <tr><td class="time">01:25</td><td><span class="en">The Factory Walk — guided walkthrough of the production floor with the Chairman.</span><span class="ja">工場見学 ── 会長案内による稼働中の工場ツアー。</span></td></tr>
-        <tr><td class="time">01:50</td><td><span class="en">Unveiling — presentation of your finished "<em class="fig">Silk Wave</em>."</span><span class="ja">仕上がりお披露目 ── 完成した<em class="fig">シルクウェイブ</em>のお渡し。</span></td></tr>
-        <tr><td class="time">02:00</td><td><span class="en">End of tour.</span><span class="ja">終了。</span></td></tr>
-              </table>
-            </div>
-            <a class="pb-detail-link" href="tariff_C-NTA-01.html">
-              <span class="en">View detail page</span><span class="ja">詳細ページを開く</span>
-            </a>
+    <div class="toc-brand" id="brand-sake">
+      <div class="toc-brand-head"><span class="bn">The Soul of the Snow Country</span><span class="bm">Sake · Toko Brewery</span></div>
+      <div class="toc-grid">
+        <a class="toc-card" href="tariff_S-TKO-01.html">
+          <div class="toc-img" style="background-image:url('images/s-tko-01/shot-01.jpg')"></div>
+          <div class="toc-body">
+            <div class="toc-code">S-TKO-01</div>
+            <div class="toc-name">The Legacy &amp; The Master</div>
+            <div class="toc-sub"><span class="en">A Private Dialogue with the Brewer</span><span class="ja">杜氏との私的な対話</span><span class="fr">Un dialogue privé avec le maître brasseur</span><span class="zh">與杜氏的私密對話</span></div>
+            <div class="toc-meta">¥33,000 · 150 min · 2–8 pax</div>
+            <div class="toc-open"><span class="en">Open trade page →</span><span class="ja">商談ページを開く →</span><span class="fr">Ouvrir la page →</span><span class="zh">開啟商談頁 →</span></div>
           </div>
-          <div>
-            <div class="pb-spec">
-              <dl>
-                <dt>Duration</dt><dd><span class="en">2.0 hours / 120 min</span><span class="ja">2.0時間 / 120分</span></dd>
-                <dt>Min · Max</dt><dd>2 – 7 pax</dd>
-                <dt>Age</dt><dd><span class="en">12+</span><span class="ja">12歳以上</span></dd>
-                <dt><span class="en">Languages</span><span class="ja">言語</span></dt><dd><span class="en">EN · JA (interpreter recommended)</span><span class="ja">英語・日本語（通訳推奨）</span></dd>
-                <dt><span class="en">Venue</span><span class="ja">会場</span></dt><dd><span class="en">Nitta Textile Atelier, Yonezawa</span><span class="ja">新田織物アトリエ（米沢）</span></dd>
-                <dt><span class="en">Category</span><span class="ja">分類</span></dt><dd><span class="en">Silk / Heritage Craft</span><span class="ja">絹 / ヘリテージクラフト</span></dd>
-              </dl>
-              <div class="pb-price-block">
-                <div class="label"><span class="en">Retail Price (incl. tax)</span><span class="ja">希望小売価格（税込）</span></div>
-                <div class="val">¥15,000</div>
-                <div class="note"><span class="en">incl. tax / person</span><span class="ja">税込 / 1名</span></div>
-                <div class="note"><span class="en">Trade commission on request.</span><span class="ja">業界手数料は別途ご案内。</span></div>
-                <div class="min-chip"><span class="dot"></span><span class="en">Private session · By appointment only</span><span class="ja">プライベートセッション ・ 完全予約制</span></div>
-              </div>
-              <div class="pb-inclusion">
-                <strong><span class="en">Price includes</span><span class="ja">料金に含まれるもの</span></strong>
-                <span class="en">Full attendance by <em class="fig">Chairman Nitta</em> &amp; <em class="fig">Mrs. Mayumi</em> · Premium hospitality · "<em class="fig">Silk Wave</em>" silk scarf to take home · Exclusive private access · Insurance.</span><span class="ja"><em class="fig">新田会長</em>・<em class="fig">真弓夫人</em>によるフルアテンド／抹茶・和菓子／お持ち帰り用<em class="fig">シルクウェイブ</em>スカーフ／プライベートアクセス／保険。</span>
-              </div>
-            </div>
-          </div>
-        </div>
+        </a>
       </div>
-    </article>
+    </div>
+    <div class="toc-brand" id="brand-satoyama">
+      <div class="toc-brand-head"><span class="bn">The Other Side of the Mountain</span><span class="bm">Satoyama · Satoyama Sommelier</span></div>
+      <div class="toc-grid">
+        <a class="toc-card" href="tariff_O-STY-01.html">
+          <div class="toc-img" style="background-image:url('images/o-sty-01/shot-03.jpg')"></div>
+          <div class="toc-body">
+            <div class="toc-code">O-STY-01</div>
+            <div class="toc-name">Nature &amp; Season</div>
+            <div class="toc-sub"><span class="en">Living the 24 Micro-Seasons</span><span class="ja">二十四節気を生きる</span><span class="fr">Vivre les 24 micro-saisons</span><span class="zh">體驗二十四節氣</span></div>
+            <div class="toc-meta">¥200,000 · 150 min · 1–30 pax</div>
+            <div class="toc-open"><span class="en">Open trade page →</span><span class="ja">商談ページを開く →</span><span class="fr">Ouvrir la page →</span><span class="zh">開啟商談頁 →</span></div>
+          </div>
+        </a>
+        <a class="toc-card" href="tariff_O-STY-02.html">
+          <div class="toc-img" style="background-image:url('images/o-sty-02/shot-01.jpg')"></div>
+          <div class="toc-body">
+            <div class="toc-code">O-STY-02</div>
+            <div class="toc-name">Gastronomy &amp; Wisdom</div>
+            <div class="toc-sub"><span class="en">Tasting the Philosophy of the Land</span><span class="ja">土地の哲学を味わう</span><span class="fr">Goûter la philosophie du terroir</span><span class="zh">品味土地的哲學</span></div>
+            <div class="toc-meta">¥200,000 · 150 min · 1–30 pax</div>
+            <div class="toc-open"><span class="en">Open trade page →</span><span class="ja">商談ページを開く →</span><span class="fr">Ouvrir la page →</span><span class="zh">開啟商談頁 →</span></div>
+          </div>
+        </a>
+        <a class="toc-card" href="tariff_O-STY-03.html">
+          <div class="toc-img" style="background-image:url('images/o-sty-03/shot-01.jpg')"></div>
+          <div class="toc-body">
+            <div class="toc-code">O-STY-03</div>
+            <div class="toc-name">Culture &amp; Spirit</div>
+            <div class="toc-sub"><span class="en">The Aesthetics of Silence</span><span class="ja">静寂の美学</span><span class="fr">L'esthétique du silence</span><span class="zh">靜寂的美學</span></div>
+            <div class="toc-meta">¥200,000 · 150 min · 1–30 pax</div>
+            <div class="toc-open"><span class="en">Open trade page →</span><span class="ja">商談ページを開く →</span><span class="fr">Ouvrir la page →</span><span class="zh">開啟商談頁 →</span></div>
+          </div>
+        </a>
+      </div>
+    </div>
   </div>
 </section>
 
-<section class="brand-section" data-brand="sake" id="brand-sake">
-  <div class="container">
-    <div class="brand-head">
-      <div class="num">02</div>
-      <div class="lhs">
-        <span class="eyebrow"><span class="en">COLLECTION 02 — SAKE</span><span class="ja">コレクション 02 — 酒</span></span>
-        <h2 style="margin-top:6px;"><span class="en">The Soul of the Snow Country</span><span class="ja">雪国の魂</span></h2>
-        <div class="tagline"><span class="en">— Brewing the Legacy of Yonezawa —</span><span class="ja">— 米沢の系譜を醸す —</span></div>
-        <div class="provider"><span class="en">Provider · Toko Brewery (Kojima Sohonten)</span><span class="ja">提供事業者 · 東光（小嶋総本店）</span></div>
-      </div>
-      <div class="rhs">In the harsh winters of Yonezawa, sake brewing is more than a craft — it is the heartbeat of the community. For over four centuries, this brewery has stood as a pillar of local cul…</div>
-    </div>
-
-    <div class="b-heritage">
-      <div class="left"><span class="num">400+</span><span class="unit"><span class="en">years</span><span class="ja">年</span></span></div>
-      <div class="copy"><span class="en">One house. Four centuries. The soul of sake, brewed in the snow country of Yonezawa — guarded by the line of "Yazaemon" and the deity Omiwa Myojin.</span><span class="ja">ひとつの家。四百年の歳月。雪国・米沢で醸される酒の魂は、「弥左衛門」の系譜と、大神大明神の御加護のもとに受け継がれている。</span></div>
-      <div class="right"><span class="en">A Pillar of Local Culture<br>Branch shrine on the grounds</span><span class="ja">米沢文化の柱<br>敷地内に酒神の分社</span></div>
-    </div>
-
-    
-    <article class="product" data-pid="S-TKO-01">
-      <div class="product-head">
-        <div class="pid">S-TKO-01</div>
-        <div class="title">
-          <h3><span class="en">THE LEGACY &amp; THE MASTER</span><span class="ja">THE LEGACY &amp; THE MASTER</span></h3>
-          <div class="sub"><span class="en">— A Private Dialogue with the Brewer —</span><span class="ja">— 当主との対話 —</span></div>
-        </div>
-        <div class="price">¥33,000<span class="unit"><span class="en">incl. tax / person · Min. 2 pax</span><span class="ja">税込 / 1名 · 最少2名</span></span></div>
-        <div class="toggle"></div>
-      </div>
-      <div class="product-body">
-        <div class="pb-grid">
-          <div>
-            <div class="pb-theme"><span class="en">Theme · History &amp; Dialogue with the Owner — The Spirit of "Yazaemon"</span><span class="ja">テーマ · 歴史と当主との対話 ── 弥左衛門の精神</span></div>
-            <p class="pb-summary"><span class="en">The ultimate sake experience: a private audience with the brewery owner. Walk the brewery with the current <em class="fig">Chairman</em>, “<em class="fig">Yazaemon</em>,” and culminate in an exclusive lunch at the historic “<em class="fig">Jodan-no-Ma</em>.”</span><span class="ja">究極の酒蔵体験 ── <em class="fig">当主</em>自らによる迎賓。現当主<em class="fig">「弥左衛門」</em>と共に蔵を歩み、通常は要人のみを通す<em class="fig">「上段ノ間」</em>での米沢テロワール食材によるペアリングランチで締めくくる。</span></p>
-            <div class="pb-highlights">
-              <h4><span class="en">Highlights</span><span class="ja">ハイライト</span></h4>
-              <ul>
-        <li>
-          <strong><span class="en">Guided by the Master</span><span class="ja"><em class="fig">当主</em>自らの案内</span></strong><br>
-          <span class="en">A rare opportunity to tour the grounds with the <em class="fig">Chairman</em>, gaining direct insight into the family's 400-year philosophy.</span><span class="ja"><em class="fig">会長</em>同伴で蔵を巡り、400年の家訓と哲学を直接受け取る稀有な機会。</span>
-        </li>
-        <li>
-          <strong><span class="en">Spirit of Omiwa &amp; Daikoku-sama</span><span class="ja">大神様と大黒様の伝承</span></strong><br>
-          <span class="en">Visit the branch shrine of the sake deity and hear first-hand the legend of the spirit seen in the brewery.</span><span class="ja">酒神の分社を訪れ、蔵に現れた精霊の伝承を<em class="fig">当主</em>の言葉で聞く。</span>
-        </li>
-        <li>
-          <strong><span class="en">Exclusive Dining</span><span class="ja">非公開個室での饗応</span></strong><br>
-          <span class="en">A private pairing lunch at the historic "<em class="fig">Jodan-no-Ma</em>," featuring ingredients sourced from the local Yonezawa terroir.</span><span class="ja"><em class="fig">「上段ノ間」</em>での米沢テロワール食材を用いたプライベート・ペアリング昼食。</span>
-        </li>
-              </ul>
-            </div>
-            <div class="pb-schedule">
-              <h4><span class="en">Programme · 150 min</span><span class="ja">プログラム · 150 min</span></h4>
-              <table>
-        <tr><td class="time">11:00</td><td><span class="en">Arrival at Toko Brewery.</span><span class="ja">東光着。</span></td></tr>
-        <tr><td class="time">11:10</td><td><span class="en">[Private Tour] Walking through the history and brewing areas with the <em class="fig">Chairman</em>.</span><span class="ja">[私的見学] <em class="fig">当主</em>と共に歴史エリア・醸造エリアを歩く。</span></td></tr>
-        <tr><td class="time">12:00</td><td><span class="en">[Gastronomy] Special pairing lunch at "<em class="fig">Jodan-no-Ma</em>" — cuisine by <em class="fig">Ms. Atsuko</em> with seasonal Yonezawa ingredients.</span><span class="ja">[食] <em class="fig">「上段ノ間」</em>でのスペシャルペアリングランチ ── <em class="fig">淳子夫人</em>による米沢の季節料理。</span></td></tr>
-        <tr><td class="time">13:30</td><td><span class="en">End of tour.</span><span class="ja">終了。</span></td></tr>
-              </table>
-            </div>
-            <a class="pb-detail-link" href="tariff_S-TKO-01.html">
-              <span class="en">View detail page</span><span class="ja">詳細ページを開く</span>
-            </a>
-          </div>
-          <div>
-            <div class="pb-spec">
-              <dl>
-                <dt>Duration</dt><dd><span class="en">2.5 hours / 150 min</span><span class="ja">2.5時間 / 150分</span></dd>
-                <dt>Min · Max</dt><dd>2 – 8 pax</dd>
-                <dt>Age</dt><dd><span class="en">20+ (alcohol served)</span><span class="ja">20歳以上（酒類提供）</span></dd>
-                <dt><span class="en">Languages</span><span class="ja">言語</span></dt><dd><span class="en">EN · JA (interpreter recommended)</span><span class="ja">英語・日本語（通訳推奨）</span></dd>
-                <dt><span class="en">Venue</span><span class="ja">会場</span></dt><dd><span class="en">Toko Brewery, Yonezawa</span><span class="ja">東光（米沢）</span></dd>
-                <dt><span class="en">Category</span><span class="ja">分類</span></dt><dd><span class="en">Sake / Heritage &amp; Gastronomy</span><span class="ja">酒 / ヘリテージ＆ガストロノミー</span></dd>
-              </dl>
-              <div class="pb-price-block">
-                <div class="label"><span class="en">Retail Price (incl. tax)</span><span class="ja">希望小売価格（税込）</span></div>
-                <div class="val">¥33,000</div>
-                <div class="note"><span class="en">incl. tax / person · Min. 2 pax</span><span class="ja">税込 / 1名 · 最少2名</span></div>
-                <div class="note"><span class="en">Trade commission on request.</span><span class="ja">業界手数料は別途ご案内。</span></div>
-                <div class="min-chip"><span class="dot"></span><span class="en">Min. 2 participants · By appointment only</span><span class="ja">最少2名 ・ 完全予約制</span></div>
-              </div>
-              <div class="pb-inclusion">
-                <strong><span class="en">Price includes</span><span class="ja">料金に含まれるもの</span></strong>
-                <span class="en">Private guide by the <em class="fig">Chairman</em> · Special lunch course by <em class="fig">Ms. Atsuko</em> · Premium sake pairing · Private room charge.</span><span class="ja"><em class="fig">当主</em>によるプライベートガイド／<em class="fig">淳子夫人</em>による特別ランチコース／プレミアム酒のペアリング／個室料。</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </article>
-  </div>
-</section>
-
-<section class="brand-section" data-brand="satoyama" id="brand-satoyama">
-  <div class="container">
-    <div class="brand-head">
-      <div class="num">03</div>
-      <div class="lhs">
-        <span class="eyebrow"><span class="en">COLLECTION 03 — SATOYAMA</span><span class="ja">コレクション 03 — 里山</span></span>
-        <h2 style="margin-top:6px;"><span class="en">The Other Side of the Mountain</span><span class="ja">山の向こう側</span></h2>
-        <div class="tagline"><span class="en">— Unveiling the Authentic Japan —</span><span class="ja">— 真正の日本を解き明かす —</span></div>
-        <div class="provider"><span class="en">Provider · Satoyama Sommelier</span><span class="ja">提供事業者 · 里山ソムリエ（里山ビジョンハウス）</span></div>
-      </div>
-      <div class="rhs">Japan is often defined by its rapid modernisation and changing trends. But cross the peaks into the deep north of Yonezawa and you enter a different world. This is "The Other Side …</div>
-    </div>
-
-    <div class="b-heritage">
-      <div class="left"><span class="num">24</span><span class="unit"><span class="en">micro-seasons</span><span class="ja">節気</span></span></div>
-      <div class="copy"><span class="en">Twenty-four seasons, not four. The other side of the mountain — cherished by Dr. Edwin O. Reischauer as the home of Japan's true spirit, still shaped today by the warrior-farmer dignity of the “Harakata.”</span><span class="ja">四季ではなく、二十四節気。ライシャワー博士が日本の本質を見出した「山の向こう側」。今もなお、武家にして農たる「原方衆」の品位が、暮らしを律している。</span></div>
-      <div class="right"><span class="en">Private Satoyama<br>Heritage of the Harakata</span><span class="ja">プライベート里山<br>原方衆の系譜</span></div>
-    </div>
-
-    
-    <article class="product" data-pid="O-STY-01">
-      <div class="product-head">
-        <div class="pid">O-STY-01</div>
-        <div class="title">
-          <h3><span class="en">NATURE &amp; SEASON</span><span class="ja">NATURE &amp; SEASON</span></h3>
-          <div class="sub"><span class="en">— Living the 24 Micro-Seasons —</span><span class="ja">— 二十四節気を生きる —</span></div>
-        </div>
-        <div class="price">¥200,000<span class="unit"><span class="en">incl. tax / group up to 5 · +¥30,000 / add'l pax</span><span class="ja">税込 / 5名グループ · 追加 ¥30,000/名</span></span></div>
-        <div class="toggle"></div>
-      </div>
-      <div class="product-body">
-        <div class="pb-grid">
-          <div>
-            <div class="pb-theme"><span class="en">Theme · A Guided Walk Through the Living Forest</span><span class="ja">テーマ · 生きた森を歩く</span></div>
-            <p class="pb-summary"><span class="en">Walk through a private forest maintained by the Satoyama philosophy. Discover the subtle shifts of the season, culminating in a gastronomy lunch that strictly represents the specific micro-season of your visit.</span><span class="ja">「里山」哲学のもと整えられたプライベートな森を、ホスト案内で歩く。風の香り、土の感触まで ── その日の節気にしか宿らない兆しを発見し、訪問日の節気を厳密に反映したガストロノミーランチで締めくくる。</span></p>
-            <div class="pb-highlights">
-              <h4><span class="en">Highlights</span><span class="ja">ハイライト</span></h4>
-              <ul>
-        <li>
-          <strong><span class="en">Forest Bathing in a Private Satoyama</span><span class="ja">プライベート里山での森林浴</span></strong><br>
-          <span class="en">A guided walk focused on the 24 solar terms.</span><span class="ja">二十四節気にフォーカスしたガイドウォーク。</span>
-        </li>
-        <li>
-          <strong><span class="en">The Philosophy of "<em class="fig">Teire</em>" (Care)</span><span class="ja"><em class="fig">「手入れ」</em>の哲学</span></strong><br>
-          <span class="en">Learn how locals manage nature not by conquering but by caring for it.</span><span class="ja">自然を制するのではなく<em class="fig">「手入れ」</em>で共生する地域の智慧。</span>
-        </li>
-        <li>
-          <strong><span class="en">Seasonal Gastronomy</span><span class="ja">季節の食卓</span></strong><br>
-          <span class="en">A lunch menu strictly curated to the micro-season of the day.</span><span class="ja">当日の節気に厳格に従って構成されるコース。</span>
-        </li>
-              </ul>
-            </div>
-            <div class="pb-schedule">
-              <h4><span class="en">Programme · 150 min</span><span class="ja">プログラム · 150 min</span></h4>
-              <table>
-        <tr><td class="time">11:00</td><td><span class="en">Meet at JR Yonezawa Station (taxi transfer) or direct arrival.</span><span class="ja">JR米沢駅集合（タクシー移動）または現地直接到着。</span></td></tr>
-        <tr><td class="time">11:30</td><td><span class="en">"24 Micro-Seasons" forest walk — botanical signs of the season in the private forest.</span><span class="ja">「二十四節気」の森散策 ── プライベートな森で当日の節気の徴を読み解く。</span></td></tr>
-        <tr><td class="time">12:30</td><td><span class="en">[Lunch] Seasonal gastronomy at the reception room.</span><span class="ja">[昼食] 迎賓間での季節のガストロノミーランチ。</span></td></tr>
-        <tr><td class="time">13:30</td><td><span class="en">Relaxing time.</span><span class="ja">寛ぎの時間。</span></td></tr>
-        <tr><td class="time">13:50</td><td><span class="en">End of tour.</span><span class="ja">終了。</span></td></tr>
-              </table>
-            </div>
-            <a class="pb-detail-link" href="tariff_O-STY-01.html">
-              <span class="en">View detail page</span><span class="ja">詳細ページを開く</span>
-            </a>
-          </div>
-          <div>
-            <div class="pb-spec">
-              <dl>
-                <dt>Duration</dt><dd><span class="en">2.5 hours / 150 min</span><span class="ja">2.5時間 / 150分</span></dd>
-                <dt>Min · Max</dt><dd>1 – 30 pax</dd>
-                <dt>Age</dt><dd><span class="en">12+</span><span class="ja">12歳以上</span></dd>
-                <dt><span class="en">Languages</span><span class="ja">言語</span></dt><dd><span class="en">EN · JA</span><span class="ja">英語・日本語</span></dd>
-                <dt><span class="en">Venue</span><span class="ja">会場</span></dt><dd><span class="en">Private Satoyama, Yonezawa</span><span class="ja">プライベート里山（米沢）</span></dd>
-                <dt><span class="en">Category</span><span class="ja">分類</span></dt><dd><span class="en">Satoyama / Nature &amp; Gastronomy</span><span class="ja">里山 / 自然＆ガストロノミー</span></dd>
-              </dl>
-              <div class="pb-price-block">
-                <div class="label"><span class="en">Retail Price (incl. tax)</span><span class="ja">希望小売価格（税込）</span></div>
-                <div class="val">¥200,000</div>
-                <div class="note"><span class="en">incl. tax / group up to 5 · +¥30,000 / add'l pax</span><span class="ja">税込 / 5名グループ · 追加 ¥30,000/名</span></div>
-                <div class="note"><span class="en">Trade commission on request.</span><span class="ja">業界手数料は別途ご案内。</span></div>
-                <div class="min-chip"><span class="dot"></span><span class="en">Group experience · By appointment only</span><span class="ja">グループ体験 ・ 完全予約制</span></div>
-              </div>
-              <div class="pb-inclusion">
-                <strong><span class="en">Price includes</span><span class="ja">料金に含まれるもの</span></strong>
-                <span class="en">Private venue access · Host / guide fee · Forest walking tour · Special gastronomy lunch · Insurance.</span><span class="ja">プライベート会場アクセス／ホスト・ガイド料／森散策／特別ガストロノミーランチ／保険。</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </article>
-    <article class="product" data-pid="O-STY-02">
-      <div class="product-head">
-        <div class="pid">O-STY-02</div>
-        <div class="title">
-          <h3><span class="en">GASTRONOMY &amp; WISDOM</span><span class="ja">GASTRONOMY &amp; WISDOM</span></h3>
-          <div class="sub"><span class="en">— Tasting the Philosophy of "Katemono" —</span><span class="ja">— 「糅もの」の哲学を味わう —</span></div>
-        </div>
-        <div class="price">¥200,000<span class="unit"><span class="en">incl. tax / group up to 5 · +¥30,000 / add'l pax</span><span class="ja">税込 / 5名グループ · 追加 ¥30,000/名</span></span></div>
-        <div class="toggle"></div>
-      </div>
-      <div class="product-body">
-        <div class="pb-grid">
-          <div>
-            <div class="pb-theme"><span class="en">Theme · Forest Gastronomy &amp; Ancient Wisdom</span><span class="ja">テーマ · 森の食と古の智慧</span></div>
-            <p class="pb-summary"><span class="en">Discover the unique culinary philosophy of Yonezawa called <em class="fig">“Katemono”</em> — the wisdom of survival transformed into modern gastronomy. Enjoy a special full-course lunch paired with local wines.</span><span class="ja">米沢独自の食哲学<em class="fig">「糅もの」</em>── 生き延びるための智慧が現代のガストロノミーへと昇華した姿を解き明かす。「雑草」を宝に変える特別フルコースを、盆地のテロワールを表現するローカルワインと共に。</span></p>
-            <div class="pb-highlights">
-              <h4><span class="en">Highlights</span><span class="ja">ハイライト</span></h4>
-              <ul>
-        <li>
-          <strong><span class="en">Wisdom of "<em class="fig">Katemono</em>"</span><span class="ja"><em class="fig">「糅もの」</em>の智慧</span></strong><br>
-          <span class="en">Historical survival foods and botanical knowledge brought to the table.</span><span class="ja">救荒食の歴史と植物学の知が食卓へ。</span>
-        </li>
-        <li>
-          <strong><span class="en">Preservation &amp; Fermentation</span><span class="ja">保存と発酵</span></strong><br>
-          <span class="en">Taste ingredients aged or preserved through snowy winters.</span><span class="ja">雪に閉ざされる冬を越えてきた食材を味わう。</span>
-        </li>
-        <li>
-          <strong><span class="en">Terroir Pairing</span><span class="ja">テロワールのペアリング</span></strong><br>
-          <span class="en">Local ingredients paired with wines produced from the same soil.</span><span class="ja">同じ土が育てた食材とワインを合わせる。</span>
-        </li>
-              </ul>
-            </div>
-            <div class="pb-schedule">
-              <h4><span class="en">Programme · 150 min</span><span class="ja">プログラム · 150 min</span></h4>
-              <table>
-        <tr><td class="time">11:00</td><td><span class="en">Meet at JR Yonezawa Station (taxi transfer) or direct arrival.</span><span class="ja">JR米沢駅集合（タクシー移動）または現地到着。</span></td></tr>
-        <tr><td class="time">11:30</td><td><span class="en">[Food Wisdom] Botanical observation walk &amp; ingredient lecture — visualising the "wild pantry."</span><span class="ja">[食智慧] 植物観察ウォークと食材レクチャー ── 「野のパントリー」を可視化。</span></td></tr>
-        <tr><td class="time">12:15</td><td><span class="en">[Lunch] "<em class="fig">Katemono</em>" full course with detailed background &amp; wine pairing.</span><span class="ja">[昼食] <em class="fig">「糅もの」</em>フルコース、背景解説とワインのペアリング付き。</span></td></tr>
-        <tr><td class="time">13:50</td><td><span class="en">End of tour.</span><span class="ja">終了。</span></td></tr>
-              </table>
-            </div>
-            <a class="pb-detail-link" href="tariff_O-STY-02.html">
-              <span class="en">View detail page</span><span class="ja">詳細ページを開く</span>
-            </a>
-          </div>
-          <div>
-            <div class="pb-spec">
-              <dl>
-                <dt>Duration</dt><dd><span class="en">2.5 hours / 150 min</span><span class="ja">2.5時間 / 150分</span></dd>
-                <dt>Min · Max</dt><dd>1 – 30 pax</dd>
-                <dt>Age</dt><dd><span class="en">12+</span><span class="ja">12歳以上</span></dd>
-                <dt><span class="en">Languages</span><span class="ja">言語</span></dt><dd><span class="en">EN · JA</span><span class="ja">英語・日本語</span></dd>
-                <dt><span class="en">Venue</span><span class="ja">会場</span></dt><dd><span class="en">Private Satoyama, Yonezawa</span><span class="ja">プライベート里山（米沢）</span></dd>
-                <dt><span class="en">Category</span><span class="ja">分類</span></dt><dd><span class="en">Satoyama / Gastronomy &amp; Culture</span><span class="ja">里山 / ガストロノミー＆文化</span></dd>
-              </dl>
-              <div class="pb-price-block">
-                <div class="label"><span class="en">Retail Price (incl. tax)</span><span class="ja">希望小売価格（税込）</span></div>
-                <div class="val">¥200,000</div>
-                <div class="note"><span class="en">incl. tax / group up to 5 · +¥30,000 / add'l pax</span><span class="ja">税込 / 5名グループ · 追加 ¥30,000/名</span></div>
-                <div class="note"><span class="en">Trade commission on request.</span><span class="ja">業界手数料は別途ご案内。</span></div>
-                <div class="min-chip"><span class="dot"></span><span class="en">Group experience · By appointment only</span><span class="ja">グループ体験 ・ 完全予約制</span></div>
-              </div>
-              <div class="pb-inclusion">
-                <strong><span class="en">Price includes</span><span class="ja">料金に含まれるもの</span></strong>
-                <span class="en">Private venue access · Host / guide fee · Ingredient lecture · Special gastronomy lunch · Basic drink pairing · Insurance.</span><span class="ja">プライベート会場アクセス／ホスト・ガイド料／食材レクチャー／特別ガストロノミーランチ／基本ドリンクペアリング／保険。</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </article>
-    <article class="product" data-pid="O-STY-03">
-      <div class="product-head">
-        <div class="pid">O-STY-03</div>
-        <div class="title">
-          <h3><span class="en">CULTURE &amp; SPIRIT</span><span class="ja">CULTURE &amp; SPIRIT</span></h3>
-          <div class="sub"><span class="en">— The Aesthetics of Silence —</span><span class="ja">— 沈黙の美学 —</span></div>
-        </div>
-        <div class="price">¥200,000<span class="unit"><span class="en">incl. tax / group up to 5 · +¥30,000 / add'l pax</span><span class="ja">税込 / 5名グループ · 追加 ¥30,000/名</span></span></div>
-        <div class="toggle"></div>
-      </div>
-      <div class="product-body">
-        <div class="pb-grid">
-          <div>
-            <div class="pb-theme"><span class="en">Theme · The Spirit of the Samurai-Farmer</span><span class="ja">テーマ · 武家にして農 ── 原方衆の精神</span></div>
-            <p class="pb-summary"><span class="en">Experience the dignified lifestyle of the “<em class="fig">Harakata</em>.” In a private reception room, encounter the aesthetics of silence through <em class="fig">Nageire</em> flower arrangement or a tea ritual, followed by a meditative lunch.</span><span class="ja">武を捨て土を耕した<em class="fig">「原方衆」</em>── その品位ある暮らしを体感する。プライベートな迎賓間で、<em class="fig">投入花</em>あるいは茶の儀。日本の<em class="fig">「間」</em>── 余白の精神に触れた後、静謐な昼食で内なる静けさへと至る。</span></p>
-            <div class="pb-highlights">
-              <h4><span class="en">Highlights</span><span class="ja">ハイライト</span></h4>
-              <ul>
-        <li>
-          <strong><span class="en">The <em class="fig">Harakata</em> Spirit</span><span class="ja"><em class="fig">原方衆</em>の精神</span></strong><br>
-          <span class="en">Learn the history of the intellectual samurai-farmers.</span><span class="ja">知的武家農の歴史を学ぶ。</span>
-        </li>
-        <li>
-          <strong><span class="en">Mindfulness Ritual</span><span class="ja">マインドフルネスの儀</span></strong><br>
-          <span class="en">Experience <em class="fig">Nageire</em> or a tea ritual to centre your mind.</span><span class="ja"><em class="fig">投入花</em>または茶の儀で心を整える。</span>
-        </li>
-        <li>
-          <strong><span class="en">Aesthetics of Silence</span><span class="ja">沈黙の美学</span></strong><br>
-          <span class="en">Enjoy a quiet, meditative lunch in a space designed for tranquility.</span><span class="ja">静寂のために設えられた空間で、瞑想的な昼食を。</span>
-        </li>
-              </ul>
-            </div>
-            <div class="pb-schedule">
-              <h4><span class="en">Programme · 150 min</span><span class="ja">プログラム · 150 min</span></h4>
-              <table>
-        <tr><td class="time">11:00</td><td><span class="en">Meet at JR Yonezawa Station (taxi transfer) or direct arrival.</span><span class="ja">JR米沢駅集合または現地到着。</span></td></tr>
-        <tr><td class="time">11:30</td><td><span class="en">[Culture] "The Aesthetics of Silence" workshop — <em class="fig">Nageire</em> or tea ritual.</span><span class="ja">[文化] 「沈黙の美学」ワークショップ ── <em class="fig">投入花</em>または茶の儀。</span></td></tr>
-        <tr><td class="time">12:30</td><td><span class="en">[Lunch] Mindfulness lunch — gratitude &amp; silence.</span><span class="ja">[昼食] マインドフルネスランチ ── 感謝と静謐の中で。</span></td></tr>
-        <tr><td class="time">13:50</td><td><span class="en">End of tour.</span><span class="ja">終了。</span></td></tr>
-              </table>
-            </div>
-            <a class="pb-detail-link" href="tariff_O-STY-03.html">
-              <span class="en">View detail page</span><span class="ja">詳細ページを開く</span>
-            </a>
-          </div>
-          <div>
-            <div class="pb-spec">
-              <dl>
-                <dt>Duration</dt><dd><span class="en">2.5 hours / 150 min</span><span class="ja">2.5時間 / 150分</span></dd>
-                <dt>Min · Max</dt><dd>1 – 30 pax</dd>
-                <dt>Age</dt><dd><span class="en">12+ (under 12 by request)</span><span class="ja">12歳以上（12歳未満は要相談）</span></dd>
-                <dt><span class="en">Languages</span><span class="ja">言語</span></dt><dd><span class="en">EN · JA</span><span class="ja">英語・日本語</span></dd>
-                <dt><span class="en">Venue</span><span class="ja">会場</span></dt><dd><span class="en">Private Reception Room, Yonezawa</span><span class="ja">プライベート迎賓間（米沢）</span></dd>
-                <dt><span class="en">Category</span><span class="ja">分類</span></dt><dd><span class="en">Satoyama / Culture &amp; Wellness</span><span class="ja">里山 / 文化＆ウェルネス</span></dd>
-              </dl>
-              <div class="pb-price-block">
-                <div class="label"><span class="en">Retail Price (incl. tax)</span><span class="ja">希望小売価格（税込）</span></div>
-                <div class="val">¥200,000</div>
-                <div class="note"><span class="en">incl. tax / group up to 5 · +¥30,000 / add'l pax</span><span class="ja">税込 / 5名グループ · 追加 ¥30,000/名</span></div>
-                <div class="note"><span class="en">Trade commission on request.</span><span class="ja">業界手数料は別途ご案内。</span></div>
-                <div class="min-chip"><span class="dot"></span><span class="en">Group experience · By appointment only</span><span class="ja">グループ体験 ・ 完全予約制</span></div>
-              </div>
-              <div class="pb-inclusion">
-                <strong><span class="en">Price includes</span><span class="ja">料金に含まれるもの</span></strong>
-                <span class="en">Private venue access · Host / guide fee · Workshop (flower / tea) · Special gastronomy lunch · Insurance.</span><span class="ja">プライベート会場アクセス／ホスト・ガイド料／ワークショップ（花／茶）／特別ガストロノミーランチ／保険。</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </article>
-  </div>
-</section>
-
-<!-- TERMS -->
 <section class="terms" id="trade-terms">
   <div class="container">
     <span class="eyebrow"><span class="en">Trade Terms · Universal</span><span class="ja">取引条件・共通事項</span></span>
@@ -963,7 +637,7 @@ footer .col strong{display:block;color:#fff;letter-spacing:.20em;margin-bottom:6
       <div class="contact-info">
         <div>
           <div class="label"><span class="en">Trade enquiries</span><span class="ja">業界お問合せ</span></div>
-          <div class="v">trade@plat-yonezawa.jp</div>
+          <div class="v">info1@plat-yonezawa.jp</div>
         </div>
         <div>
           <div class="label"><span class="en">Headquarters</span><span class="ja">本社</span></div>
