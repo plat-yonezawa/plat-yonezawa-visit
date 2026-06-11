@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PLAT YONEZAWA — Destination Management · Yonezawa & Okitama, Japan (Travel Trade)</title>
+<meta name="description" content="PLAT YONEZAWA — land operator / DMC for Yonezawa & Okitama, Japan. Trade-only premium experiences in silk, sake and satoyama. For overseas agents, domestic DMCs and concierges. EN / JP / FR / 繁中.">
+<meta name="robots" content="noindex,nofollow"><!-- soft-launch: 直URL先行。本ローンチ時に index,follow へ戻す -->
+<meta property="og:title" content="PLAT YONEZAWA — The Snow Country, Curated for the Travel Trade">
+<meta property="og:description" content="Destination Management for Yonezawa & Okitama, Japan. Trade-only premium experiences.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Shippori+Mincho:wght@400;500;600;700&family=Noto+Serif+TC:wght@400;500;600&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --c-bg:#fbf6f1; --c-paper:#f5ece1; --c-card:#fff; --c-snow:#fafaf3;
+  --c-ink:#2b201d; --c-ink-soft:#52423d; --c-muted:#867872;
+  --c-deep:#2e1f1c; --c-deep-dk:#1c100e; --c-deep-mid:#42302a;
+  --c-line:#e0d2c4; --c-line-soft:#eee3d6;
+  --c-gold:#a8893a; --c-gold-soft:#d4c084; --c-gold-deep:#6b5418; --c-gold-bg:#f7eed7;
+  --c-accent:#c84b48; --c-accent-dk:#7a2521;
+  --f-en:'Cormorant Garamond','Shippori Mincho',serif;
+  --f-ja:'Shippori Mincho','Cormorant Garamond',serif;
+  --f-zh:'Noto Serif TC','Shippori Mincho',serif;
+  --f-ui:'Inter','Shippori Mincho',sans-serif;
+  --f-mono:'JetBrains Mono',monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{background:var(--c-bg);color:var(--c-ink);font-family:var(--f-en);line-height:1.72;font-size:16px;-webkit-font-smoothing:antialiased;font-weight:400;}
+
+/* ── i18n: hide all, show active ── */
+.en,.ja,.fr,.zh{display:none;}
+body.lang-en .en{display:initial;}
+body.lang-ja .ja{display:initial;}
+body.lang-fr .fr{display:initial;}
+body.lang-zh .zh{display:initial;}
+body.lang-ja{font-family:var(--f-ja);}
+body.lang-zh{font-family:var(--f-zh);}
+body.lang-ja h1,body.lang-ja h2,body.lang-ja h3,body.lang-ja h4{font-family:var(--f-ja);font-weight:600;}
+body.lang-zh h1,body.lang-zh h2,body.lang-zh h3,body.lang-zh h4{font-family:var(--f-zh);font-weight:600;}
+
+.container{max-width:1140px;margin:0 auto;padding:0 32px;}
+h1,h2,h3,h4{font-family:var(--f-en);font-weight:500;color:var(--c-deep);letter-spacing:.005em;line-height:1.18;}
+.eyebrow{font-family:var(--f-ui);text-transform:uppercase;letter-spacing:.28em;font-size:10.5px;font-weight:600;color:var(--c-accent);}
+p{margin-bottom:14px;}
+a{color:var(--c-deep);text-decoration:none;}
+.rule{height:1px;width:54px;background:var(--c-gold-soft);margin:18px 0;}
+.rule.center{margin:18px auto;}
+:focus-visible{outline:2px solid var(--c-gold-deep);outline-offset:2px;}
+section[id]{scroll-margin-top:78px;}
+
+/* ── Top bar ── */
+.topbar{position:sticky;top:0;z-index:100;background:rgba(251,246,241,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--c-line);}
+.topbar .inner{display:flex;align-items:center;gap:16px;padding:12px 32px;max-width:1140px;margin:0 auto;}
+.brand-mark{font-family:var(--f-en);font-size:18px;font-weight:600;letter-spacing:.16em;color:var(--c-deep);text-transform:uppercase;white-space:nowrap;}
+.brand-mark span{color:var(--c-gold-deep);}
+.trade-pill{font-family:var(--f-ui);font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--c-accent-dk);background:#fbe9e6;border:1px solid #f0c9c4;padding:5px 10px;border-radius:2px;white-space:nowrap;}
+.topbar .spacer{flex:1;}
+.nav-links{display:flex;gap:20px;}
+.nav-links a{font-family:var(--f-ui);font-size:12px;letter-spacing:.04em;color:var(--c-ink-soft);font-weight:500;transition:.15s;white-space:nowrap;}
+.nav-links a:hover{color:var(--c-gold-deep);}
+.lang-toggle{display:flex;border:1px solid var(--c-line);border-radius:2px;overflow:hidden;}
+.lang-toggle button{font-family:var(--f-ui);font-size:11px;font-weight:600;letter-spacing:.04em;padding:6px 9px;border:none;background:#fff;color:var(--c-muted);cursor:pointer;transition:.15s;border-left:1px solid var(--c-line);}
+.lang-toggle button:first-child{border-left:none;}
+.lang-toggle button[aria-pressed="true"]{background:var(--c-deep);color:var(--c-gold-soft);}
+.btn{display:inline-flex;align-items:center;gap:8px;font-family:var(--f-ui);font-size:12.5px;font-weight:600;letter-spacing:.04em;padding:11px 20px;border-radius:2px;cursor:pointer;transition:.18s;border:1px solid transparent;text-align:center;justify-content:center;}
+.btn.primary{background:var(--c-deep);color:var(--c-gold-soft);}
+.btn.primary:hover{background:var(--c-deep-dk);}
+.btn.ghost{background:transparent;color:var(--c-deep);border-color:var(--c-deep);}
+.btn.ghost:hover{background:var(--c-deep);color:var(--c-gold-soft);}
+.btn.gold{background:var(--c-gold-deep);color:#fff;}
+.btn.gold:hover{background:#54420f;}
+.topbar .btn.primary{padding:9px 16px;font-size:12px;white-space:nowrap;}
+
+/* ── Hero ── */
+.hero{position:relative;background:linear-gradient(160deg,#2e1f1c 0%,#1c100e 60%,#1a0f0c 100%);color:#f3e9dd;padding:96px 0 92px;overflow:hidden;}
+.hero::before{content:'';position:absolute;top:-30%;right:-12%;width:620px;height:620px;background:radial-gradient(circle,rgba(212,192,132,.13) 0%,transparent 62%);pointer-events:none;}
+.hero::after{content:'';position:absolute;left:0;bottom:0;width:100%;height:1px;background:linear-gradient(90deg,transparent,var(--c-gold) 35%,var(--c-gold) 65%,transparent);}
+.hero .eyebrow{color:var(--c-gold-soft);}
+.hero h1{color:#fff;font-size:56px;font-weight:500;margin:18px 0 6px;max-width:19ch;}
+body.lang-ja .hero h1,body.lang-zh .hero h1{font-size:40px;line-height:1.34;}
+.hero .promise{font-family:var(--f-en);font-size:21px;font-style:italic;color:var(--c-gold-soft);margin-bottom:22px;}
+body.lang-ja .hero .promise,body.lang-zh .hero .promise{font-family:inherit;font-style:normal;font-size:16px;}
+.hero .lede{font-size:16px;color:rgba(243,233,221,.82);max-width:60ch;line-height:1.85;margin-bottom:30px;}
+body.lang-ja .hero .lede,body.lang-zh .hero .lede{font-size:14.5px;}
+.hero .cta-row{display:flex;gap:14px;flex-wrap:wrap;align-items:center;}
+.hero .micro{font-family:var(--f-ui);font-size:11px;letter-spacing:.04em;color:rgba(243,233,221,.5);margin-top:18px;}
+
+/* ── Trust strip ── */
+.trust{background:var(--c-deep-dk);color:rgba(243,233,221,.7);border-bottom:1px solid rgba(212,192,132,.18);}
+.trust .inner{display:flex;flex-wrap:wrap;gap:14px 40px;justify-content:center;padding:20px 32px;max-width:1140px;margin:0 auto;font-family:var(--f-ui);font-size:11.5px;letter-spacing:.06em;}
+.trust b{color:var(--c-gold-soft);font-weight:600;}
+
+/* ── Section base ── */
+.section{padding:88px 0;}
+.section.paper{background:var(--c-paper);border-top:1px solid var(--c-line);border-bottom:1px solid var(--c-line);}
+.section.snow{background:var(--c-snow);}
+.section.deep{background:var(--c-deep);color:#f3e9dd;}
+.section.deep h2,.section.deep h3{color:#fff;}
+.section.deep .eyebrow{color:var(--c-gold-soft);}
+.section-head{margin-bottom:46px;}
+.section-head.center{text-align:center;}
+.section-head h2{font-size:38px;margin-top:10px;}
+body.lang-ja .section-head h2,body.lang-zh .section-head h2{font-size:27px;}
+.section-head .lead{font-size:15.5px;color:var(--c-ink-soft);max-width:62ch;margin-top:16px;line-height:1.9;}
+.section-head.center .lead{margin-left:auto;margin-right:auto;}
+.section.deep .section-head .lead{color:rgba(243,233,221,.78);}
+
+/* ── Segments ── */
+.seg-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;}
+.seg{background:var(--c-card);border:1px solid var(--c-line);border-radius:3px;padding:28px 24px;position:relative;overflow:hidden;transition:.18s;}
+.seg::before{content:'';position:absolute;top:0;left:0;width:100%;height:3px;background:var(--c-gold);}
+.seg:hover{transform:translateY(-3px);box-shadow:0 12px 30px rgba(46,31,28,.09);}
+.seg .num{font-family:var(--f-mono);font-size:11px;color:var(--c-gold-deep);letter-spacing:.1em;}
+.seg h3{font-size:21px;margin:8px 0 4px;}
+.seg .role{font-family:var(--f-ui);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--c-muted);font-weight:600;margin-bottom:12px;}
+.seg p{font-size:13px;color:var(--c-ink-soft);line-height:1.78;margin-bottom:0;}
+
+/* ── Brands / products ── */
+.brand-block{margin-bottom:40px;}
+.brand-block:last-child{margin-bottom:0;}
+.brand-head{display:flex;align-items:baseline;gap:16px;padding-bottom:14px;border-bottom:1px solid var(--c-line);margin-bottom:22px;flex-wrap:wrap;}
+.brand-head .b-name{font-family:var(--f-en);font-size:26px;font-weight:500;color:var(--c-deep);}
+.brand-head .b-meta{font-family:var(--f-ui);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--c-gold-deep);font-weight:600;}
+.prod-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px;}
+.prod{display:flex;flex-direction:column;gap:6px;background:var(--c-card);border:1px solid var(--c-line);border-radius:3px;padding:22px 24px;text-decoration:none;color:inherit;transition:.16s;position:relative;}
+.prod:hover{border-color:var(--c-gold-soft);box-shadow:0 8px 24px rgba(46,31,28,.07);transform:translateY(-2px);}
+.prod .code{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.08em;color:var(--c-gold-deep);font-weight:600;}
+.prod h4{font-family:var(--f-en);font-size:19px;font-weight:600;color:var(--c-deep);letter-spacing:0;text-transform:none;margin-top:2px;}
+.prod .tag{font-family:var(--f-en);font-size:14px;font-style:italic;color:var(--c-accent-dk);}
+body.lang-ja .prod .tag,body.lang-zh .prod .tag{font-family:inherit;font-style:normal;}
+.prod .open{font-family:var(--f-ui);font-size:11px;letter-spacing:.05em;color:var(--c-muted);margin-top:8px;}
+.prod:hover .open{color:var(--c-gold-deep);}
+
+/* ── Pillars ── */
+.pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;}
+.pillar .k{font-family:var(--f-en);font-size:44px;font-weight:500;color:var(--c-gold-soft);line-height:1;}
+.pillar h3{font-size:20px;margin:10px 0 8px;}
+.pillar p{font-size:13.5px;color:rgba(243,233,221,.78);line-height:1.8;margin-bottom:0;}
+
+/* ── Stats / steps ── */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;text-align:center;}
+.stat .n{font-family:var(--f-en);font-size:46px;font-weight:500;color:var(--c-gold-deep);line-height:1;}
+.stat .l{font-family:var(--f-ui);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--c-muted);font-weight:600;margin-top:8px;}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;}
+.step{padding:0 22px;position:relative;}
+.step:not(:last-child)::after{content:'';position:absolute;top:18px;right:-2px;width:1px;height:60%;background:var(--c-line);}
+.step .s-num{width:38px;height:38px;border-radius:50%;border:1px solid var(--c-gold-soft);color:var(--c-gold-deep);font-family:var(--f-en);font-size:18px;display:flex;align-items:center;justify-content:center;margin-bottom:14px;}
+.step h4{font-family:var(--f-en);font-size:17px;font-weight:600;letter-spacing:0;text-transform:none;color:var(--c-deep);margin-bottom:6px;}
+body.lang-ja .step h4,body.lang-zh .step h4{font-family:var(--f-ja);}
+body.lang-zh .step h4{font-family:var(--f-zh);}
+.step p{font-size:12.5px;color:var(--c-ink-soft);line-height:1.7;margin-bottom:0;}
+
+/* ── Contact ── */
+.contact-wrap{display:grid;grid-template-columns:1fr 1.05fr;gap:54px;align-items:start;}
+.contact-copy h2{font-size:34px;}
+body.lang-ja .contact-copy h2,body.lang-zh .contact-copy h2{font-size:25px;}
+.contact-copy .lead{color:rgba(243,233,221,.82);font-size:15px;line-height:1.9;margin-top:16px;}
+.contact-points{margin-top:26px;display:flex;flex-direction:column;gap:14px;}
+.cp{display:flex;gap:12px;align-items:flex-start;font-size:13.5px;color:rgba(243,233,221,.82);}
+.cp .ic{color:var(--c-gold-soft);font-family:var(--f-mono);font-size:13px;margin-top:2px;}
+.form-card{background:var(--c-snow);border:1px solid var(--c-gold-soft);border-radius:4px;padding:34px 32px;color:var(--c-ink);box-shadow:0 14px 40px rgba(0,0,0,.22);}
+.form-card .fc-head{font-family:var(--f-ui);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--c-gold-deep);font-weight:700;}
+.form-card h3{font-size:23px;margin:6px 0 4px;}
+.form-card .fc-sub{font-size:12.5px;color:var(--c-muted);margin-bottom:20px;}
+.field{margin-bottom:15px;}
+.field label{display:block;font-family:var(--f-ui);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--c-ink-soft);font-weight:600;margin-bottom:6px;}
+.field label .req{color:var(--c-accent);}
+.field input,.field select,.field textarea{width:100%;font-family:var(--f-ui);font-size:13.5px;color:var(--c-ink);background:#fff;border:1px solid var(--c-line);border-radius:2px;padding:11px 13px;transition:.15s;}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--c-gold);box-shadow:0 0 0 3px rgba(168,137,58,.12);}
+.field textarea{resize:vertical;min-height:74px;}
+.form-card .submit{width:100%;margin-top:4px;}
+.form-card .consent{font-family:var(--f-ui);font-size:10.5px;color:var(--c-muted);line-height:1.6;margin-top:12px;}
+.form-note{background:var(--c-gold-bg);border:1px dashed var(--c-gold-soft);border-radius:3px;padding:12px 14px;font-family:var(--f-ui);font-size:10.5px;color:var(--c-gold-deep);line-height:1.6;margin-bottom:18px;}
+.form-ok{display:none;background:#e9f3ea;border:1px solid #b7d8bd;color:#2d6b3a;border-radius:3px;padding:14px 16px;font-family:var(--f-ui);font-size:12.5px;line-height:1.6;margin-bottom:16px;}
+.form-ok.show{display:block;}
+
+/* ── Footer ── */
+footer{background:var(--c-deep-dk);color:rgba(243,233,221,.55);padding:54px 0 40px;font-family:var(--f-ui);border-top:1px solid rgba(212,192,132,.2);}
+footer .f-grid{display:flex;justify-content:space-between;flex-wrap:wrap;gap:24px;align-items:flex-end;}
+footer .f-brand{font-family:var(--f-en);font-size:20px;letter-spacing:.14em;color:var(--c-gold-soft);font-weight:600;text-transform:uppercase;}
+footer .f-tag{font-size:11.5px;margin-top:8px;letter-spacing:.04em;}
+footer .f-links{display:flex;gap:20px;font-size:11.5px;}
+footer .f-links a{color:rgba(243,233,221,.6);}
+footer .f-links a:hover{color:var(--c-gold-soft);}
+footer .f-legal{font-size:10px;letter-spacing:.05em;margin-top:28px;color:rgba(243,233,221,.35);}
+
+/* ── Responsive / mobile ── */
+@media (max-width:980px){
+  .seg-grid{grid-template-columns:repeat(2,1fr);}
+  .pillars{grid-template-columns:1fr;gap:18px;}
+  .stats{grid-template-columns:repeat(2,1fr);gap:28px;}
+  .steps{grid-template-columns:1fr 1fr;gap:30px 0;}
+  .step:nth-child(2)::after{display:none;}
+  .contact-wrap{grid-template-columns:1fr;gap:34px;}
+}
+@media (max-width:720px){
+  .topbar .inner{flex-wrap:wrap;gap:10px 12px;padding:10px 18px;}
+  .trade-pill{order:3;}
+  .topbar .spacer{display:none;}
+  .nav-links{order:5;width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch;gap:16px;padding-bottom:2px;border-top:1px solid var(--c-line-soft);padding-top:8px;}
+  .lang-toggle{order:4;margin-left:auto;}
+  .topbar .btn.primary{order:6;}
+}
+@media (max-width:640px){
+  .container{padding:0 22px;}
+  .hero{padding:60px 0 56px;}
+  .hero h1{font-size:38px;}
+  body.lang-ja .hero h1,body.lang-zh .hero h1{font-size:28px;}
+  .hero .cta-row .btn{flex:1 1 100%;}
+  .section{padding:56px 0;}
+  .section-head h2{font-size:27px;}
+  .seg-grid{grid-template-columns:1fr;}
+  .steps{grid-template-columns:1fr;}
+  .step{padding:0;}
+  .step:not(:last-child)::after{display:none;}
+  .stats{grid-template-columns:1fr 1fr;}
+}
+</style>
+</head>
+<body class="lang-en">
+
+<!-- ── Top bar ── -->
+<header class="topbar">
+  <div class="inner">
+    <a href="lp.html" class="brand-mark">PLAT <span>YONEZAWA</span></a>
+    <span class="trade-pill">Travel Trade Only</span>
+    <div class="spacer"></div>
+    <nav class="nav-links" aria-label="Section navigation">
+      <a href="#serve"><span class="en">Who We Serve</span><span class="ja">対象</span><span class="fr">Nos partenaires</span><span class="zh">服務對象</span></a>
+      <a href="#experiences"><span class="en">Experiences</span><span class="ja">体験</span><span class="fr">Expériences</span><span class="zh">體驗</span></a>
+      <a href="#how"><span class="en">How It Works</span><span class="ja">取引の流れ</span><span class="fr">Fonctionnement</span><span class="zh">流程</span></a>
+      <a href="tariff/Yonezawa_Tariff_v1_GrossOnly.html"><span class="en">Tariff</span><span class="ja">タリフ</span><span class="fr">Tarif</span><span class="zh">報價</span></a>
+    </nav>
+    <div class="lang-toggle" role="group" aria-label="Language">
+      <button data-lang="en" aria-pressed="true" onclick="setLang('en')">EN</button>
+      <button data-lang="ja" aria-pressed="false" onclick="setLang('ja')">日本語</button>
+      <button data-lang="fr" aria-pressed="false" onclick="setLang('fr')">FR</button>
+      <button data-lang="zh" aria-pressed="false" onclick="setLang('zh')">繁中</button>
+    </div>
+    <a href="#contact" class="btn primary"><span class="en">Request the tariff</span><span class="ja">資料請求</span><span class="fr">Demander le tarif</span><span class="zh">索取資料</span></a>
+  </div>
+</header>
+
+<!-- ── Hero ── -->
+<section class="hero">
+  <div class="container">
+    <span class="eyebrow"><span class="en">Destination Management · Yonezawa &amp; Okitama, Japan</span><span class="ja">デスティネーション・マネジメント · 山形県 米沢・置賜</span><span class="fr">Gestion de destination · Yonezawa &amp; Okitama, Japon</span><span class="zh">目的地管理 · 日本 米澤・置賜</span></span>
+    <h1>
+      <span class="en">The Snow Country, curated for the travel trade.</span>
+      <span class="ja">雪国の奥行きを、旅行業界のために。</span>
+      <span class="fr">Le Pays de Neige, conçu pour les professionnels du voyage.</span>
+      <span class="zh">為旅遊業界精選的雪國。</span>
+    </h1>
+    <p class="promise">
+      <span class="en">— Four hundred years of craft, made bookable. —</span>
+      <span class="ja">— 四百年の手しごとを、取引可能な一日に。 —</span>
+      <span class="fr">— Quatre siècles d'artisanat, désormais réservables. —</span>
+      <span class="zh">— 四百年的工藝，化為可預訂的體驗。 —</span>
+    </p>
+    <p class="lede">
+      <span class="en">PLAT YONEZAWA is the land operator for Yonezawa &amp; the Okitama region — silk, sake and satoyama experiences supplied as bookable parts to overseas agents, domestic DMCs and concierges. Not sold direct. Built for partners.</span>
+      <span class="ja">プラットヨネザワは、米沢・置賜エリアの手配業（ランドオペレーター）です。絹・酒・里山を軸とした高付加価値体験を、海外旅行会社・国内DMC・コンシェルジュへ<strong>「パーツ供給」</strong>するBtoBモデル。一般販売はしておりません。</span>
+      <span class="fr">PLAT YONEZAWA est l'opérateur réceptif de Yonezawa et de la région d'Okitama — des expériences autour de la soie, du saké et du satoyama, fournies comme modules réservables aux agences étrangères, DMC nationaux et concierges. Jamais en vente directe. Conçu pour les partenaires.</span>
+      <span class="zh">PLAT YONEZAWA 是米澤與置賜地區的在地旅遊操作商（land operator）——以絲綢、清酒與里山為主題的高附加價值體驗，作為可預訂的模組，提供給海外旅行社、國內DMC與禮賓服務。不直接銷售，專為合作夥伴打造。</span>
+    </p>
+    <div class="cta-row">
+      <a href="#contact" class="btn gold"><span class="en">Request the tariff</span><span class="ja">資料請求（タリフ請求）</span><span class="fr">Demander le tarif</span><span class="zh">索取報價資料</span></a>
+      <a href="tariff/Yonezawa_Tariff_v1_GrossOnly.html" class="btn ghost" style="color:#f3e9dd;border-color:rgba(212,192,132,.6);"><span class="en">View the 2026 tariff →</span><span class="ja">2026年版タリフを見る →</span><span class="fr">Voir le tarif 2026 →</span><span class="zh">查看 2026 報價 →</span></a>
+    </div>
+    <p class="micro"><span class="en">B2B · Trade only · Gross rates public, net rates on partnership.</span><span class="ja">B2B限定 · 小売価格（Gross）を公開、ネット価格は契約パートナーへ開示。</span><span class="fr">B2B · Réservé aux professionnels · Tarifs bruts publics, tarifs nets sur partenariat.</span><span class="zh">B2B · 僅限業界 · 公開零售價（Gross），淨價於締約後提供。</span></p>
+  </div>
+</section>
+
+<!-- ── Trust strip ── -->
+<div class="trust">
+  <div class="inner">
+    <span><b>3</b> <span class="en">maker houses</span><span class="ja">の名門</span><span class="fr">maisons artisanales</span><span class="zh">工藝名家</span></span>
+    <span><b>5</b> <span class="en">curated experiences</span><span class="ja">の厳選体験</span><span class="fr">expériences sélectionnées</span><span class="zh">項精選體驗</span></span>
+    <span><b>EN / JP / FR / 繁中</b> <span class="en">trade materials</span><span class="ja">対応資料</span><span class="fr">supports pro</span><span class="zh">業務資料</span></span>
+    <span><b>&lt;2</b> <span class="en">business-day reply</span><span class="ja">営業日以内に返信</span><span class="fr">jours ouvrés — réponse</span><span class="zh">個工作天內回覆</span></span>
+  </div>
+</div>
+
+<!-- ── Who we serve ── -->
+<section class="section" id="serve">
+  <div class="container">
+    <div class="section-head center">
+      <span class="eyebrow"><span class="en">Who We Serve</span><span class="ja">対象パートナー</span><span class="fr">Nos partenaires</span><span class="zh">服務對象</span></span>
+      <div class="rule center"></div>
+      <h2><span class="en">Built for four kinds of partner.</span><span class="ja">4種のパートナーのために。</span><span class="fr">Pensé pour quatre types de partenaires.</span><span class="zh">為四類合作夥伴而設。</span></h2>
+      <p class="lead"><span class="en">Every page, rate and guide on this site is written for the travel trade — never for the end consumer.</span><span class="ja">本サイトのページ・料金・ガイドはすべて旅行業界向けに設計されています。一般消費者向けではありません。</span><span class="fr">Chaque page, tarif et guide de ce site s'adresse aux professionnels du voyage — jamais au consommateur final.</span><span class="zh">本網站的所有頁面、價格與導覽資料皆為旅遊業界而設，並非提供給終端消費者。</span></p>
+    </div>
+    <div class="seg-grid">
+      <div class="seg">
+        <div class="num">01</div>
+        <h3><span class="en">Travel Agents</span><span class="ja">旅行会社</span><span class="fr">Agences de voyage</span><span class="zh">旅行社</span></h3>
+        <div class="role">AGT · Tour Operators</div>
+        <p><span class="en">Ready-to-sell, gross-priced experiences with EN/JP collateral your sales team can quote from today.</span><span class="ja">そのまま販売できるGross価格の体験。営業がすぐ見積りできるEN/JP資料付き。</span><span class="fr">Des expériences prêtes à vendre, en tarif brut, avec des supports que votre équipe peut chiffrer dès aujourd'hui.</span><span class="zh">可直接銷售的Gross定價體驗，附業務即可報價的多語資料。</span></p>
+      </div>
+      <div class="seg">
+        <div class="num">02</div>
+        <h3><span class="en">DMCs</span><span class="ja">国内・県内DMC</span><span class="fr">DMC</span><span class="zh">DMC</span></h3>
+        <div class="role">Domestic &amp; In-Prefecture</div>
+        <p><span class="en">A parts supplier of region-only, scarce experiences that larger operators can't reach — net rates and on-the-ground coordination under contract.</span><span class="ja">大手が届かない「地域限定・希少体験」のパーツ供給者。契約後にネット料金・現地手配を提供。</span><span class="fr">Un fournisseur de modules rares et exclusifs à la région, hors de portée des grands opérateurs — tarifs nets et coordination sur place sous contrat.</span><span class="zh">提供大型業者難以觸及的「在地限定・稀有體驗」模組；締約後提供淨價與在地協調。</span></p>
+      </div>
+      <div class="seg">
+        <div class="num">03</div>
+        <h3><span class="en">Concierges</span><span class="ja">コンシェルジュ</span><span class="fr">Concierges</span><span class="zh">禮賓服務</span></h3>
+        <div class="role">Les Clefs d'Or · Hotels</div>
+        <p><span class="en">Private, low-volume, high-trust access for guests who ask for something beyond the guidebook.</span><span class="ja">ガイドブックの先を求めるゲストへ。少数・高信頼のプライベート手配に対応。</span><span class="fr">Un accès privé, confidentiel et à faible volume pour les clients en quête d'expériences hors des sentiers battus.</span><span class="zh">為追求超越旅遊書的賓客，提供少量、私密且高度信任的安排。</span></p>
+      </div>
+      <div class="seg">
+        <div class="num">04</div>
+        <h3><span class="en">In-Japan Communities</span><span class="ja">在日コミュニティ</span><span class="fr">Communautés au Japon</span><span class="zh">在日社群</span></h3>
+        <div class="role">Mid-term · via operators</div>
+        <p><span class="en">Reaching affluent expat and connoisseur circles (American Club, gastronomy &amp; craft societies) through the specialist operators who curate for them.</span><span class="ja">在日外資系・美食/クラフト愛好コミュニティ（アメリカンクラブ等）へ、専門事業者経由でリーチする中期施策。</span><span class="fr">Atteindre les cercles d'expatriés et de connaisseurs (American Club, sociétés gastronomiques et artisanales) via les opérateurs spécialisés qui les fédèrent.</span><span class="zh">透過專業業者，觸及在日外籍與愛好者社群（美國俱樂部、美食與工藝協會等）的中期策略。</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Experiences ── -->
+<section class="section paper" id="experiences">
+  <div class="container">
+    <div class="section-head center">
+      <span class="eyebrow"><span class="en">The Portfolio · 2026</span><span class="ja">2026年 ポートフォリオ</span><span class="fr">Le Portfolio · 2026</span><span class="zh">2026 作品集</span></span>
+      <div class="rule center"></div>
+      <h2><span class="en">Three houses. Five experiences.</span><span class="ja">3つの名門、5つの体験。</span><span class="fr">Trois maisons. Cinq expériences.</span><span class="zh">三家名門，五項體驗。</span></h2>
+      <p class="lead"><span class="en">Each experience is anchored to a real maker — a textile house, a brewery, a satoyama sommelier — and detailed in its own trade tariff.</span><span class="ja">各体験は実在の作り手（織元・蔵元・里山ソムリエ）に紐づき、商品ごとの取引タリフで詳細を確認できます。</span><span class="fr">Chaque expérience repose sur un artisan réel — une maison textile, une brasserie, un sommelier du satoyama — et est détaillée dans son propre tarif professionnel.</span><span class="zh">每項體驗皆連結真實的作者——織造名家、釀酒藏元、里山侍酒師——並於各自的業務報價中詳述。</span></p>
+    </div>
+
+    <div class="brand-block">
+      <div class="brand-head">
+        <span class="b-name">The Colors of the Snow Country</span>
+        <span class="b-meta">Silk · Nitta Textile Arts</span>
+      </div>
+      <div class="prod-grid">
+        <a class="prod" href="tariff/tariff_C-NTA-01.html">
+          <span class="code">C-NTA-01</span>
+          <h4>The Philosophy</h4>
+          <span class="tag"><span class="en">Weaving the Breath of Nature</span><span class="ja">自然の息吹を織る</span><span class="fr">Tisser le souffle de la nature</span><span class="zh">織就自然的氣息</span></span>
+          <span class="open"><span class="en">Open tariff →</span><span class="ja">タリフを開く →</span><span class="fr">Ouvrir le tarif →</span><span class="zh">開啟報價 →</span></span>
+        </a>
+      </div>
+    </div>
+
+    <div class="brand-block">
+      <div class="brand-head">
+        <span class="b-name">The Soul of the Snow Country</span>
+        <span class="b-meta">Sake · Toko Brewery (Kojima Sohonten)</span>
+      </div>
+      <div class="prod-grid">
+        <a class="prod" href="tariff/tariff_S-TKO-01.html">
+          <span class="code">S-TKO-01</span>
+          <h4>The Legacy &amp; The Master</h4>
+          <span class="tag"><span class="en">A Private Dialogue with the Brewer</span><span class="ja">蔵元との private な対話</span><span class="fr">Un dialogue privé avec le maître brasseur</span><span class="zh">與杜氏的私密對話</span></span>
+          <span class="open"><span class="en">Open tariff →</span><span class="ja">タリフを開く →</span><span class="fr">Ouvrir le tarif →</span><span class="zh">開啟報價 →</span></span>
+        </a>
+      </div>
+    </div>
+
+    <div class="brand-block">
+      <div class="brand-head">
+        <span class="b-name">The Other Side of the Mountain</span>
+        <span class="b-meta">Satoyama · Satoyama Sommelier</span>
+      </div>
+      <div class="prod-grid">
+        <a class="prod" href="tariff/tariff_O-STY-01.html">
+          <span class="code">O-STY-01</span>
+          <h4>Nature &amp; Season</h4>
+          <span class="tag"><span class="en">Living the 24 Micro-Seasons</span><span class="ja">二十四節気を生きる</span><span class="fr">Vivre les 24 micro-saisons</span><span class="zh">體驗二十四節氣</span></span>
+          <span class="open"><span class="en">Open tariff →</span><span class="ja">タリフを開く →</span><span class="fr">Ouvrir le tarif →</span><span class="zh">開啟報價 →</span></span>
+        </a>
+        <a class="prod" href="tariff/tariff_O-STY-02.html">
+          <span class="code">O-STY-02</span>
+          <h4>Gastronomy &amp; Wisdom</h4>
+          <span class="tag"><span class="en">Tasting the Philosophy of the Land</span><span class="ja">土地の哲学を味わう</span><span class="fr">Goûter la philosophie du terroir</span><span class="zh">品味土地的哲學</span></span>
+          <span class="open"><span class="en">Open tariff →</span><span class="ja">タリフを開く →</span><span class="fr">Ouvrir le tarif →</span><span class="zh">開啟報價 →</span></span>
+        </a>
+        <a class="prod" href="tariff/tariff_O-STY-03.html">
+          <span class="code">O-STY-03</span>
+          <h4>Culture &amp; Spirit</h4>
+          <span class="tag"><span class="en">The Aesthetics of Silence</span><span class="ja">静寂の美学</span><span class="fr">L'esthétique du silence</span><span class="zh">靜寂的美學</span></span>
+          <span class="open"><span class="en">Open tariff →</span><span class="ja">タリフを開く →</span><span class="fr">Ouvrir le tarif →</span><span class="zh">開啟報價 →</span></span>
+        </a>
+      </div>
+    </div>
+
+    <div style="text-align:center;margin-top:40px;">
+      <a href="tariff/Yonezawa_Tariff_v1_GrossOnly.html" class="btn primary"><span class="en">View the full 2026 tariff →</span><span class="ja">2026年版タリフ（全5商品）→</span><span class="fr">Voir le tarif 2026 complet →</span><span class="zh">查看 2026 完整報價 →</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ── Why ── -->
+<section class="section deep" id="why">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow"><span class="en">Why Yonezawa</span><span class="ja">なぜ米沢か</span><span class="fr">Pourquoi Yonezawa</span><span class="zh">為何選擇米澤</span></span>
+      <div class="rule"></div>
+      <h2><span class="en">A castle town that kept making things.</span><span class="ja">「つくり続けた」城下町。</span><span class="fr">Une cité-château qui n'a jamais cessé de créer.</span><span class="zh">持續創造的城下町。</span></h2>
+      <p class="lead"><span class="en">For four centuries under the Uesugi clan, Yonezawa survived not by spectacle but by craft — silk, sake, and a deep satoyama food culture still alive in its workshops today.</span><span class="ja">上杉の城下町として四百年。米沢は華やかさではなく手しごとで生き抜いてきました。絹・酒・里山の食文化は、いまも工房の中で息づいています。</span><span class="fr">Pendant quatre siècles sous le clan Uesugi, Yonezawa a survécu non par le spectacle mais par l'artisanat — la soie, le saké et une riche culture culinaire du satoyama, toujours vivante dans ses ateliers.</span><span class="zh">在上杉家治理下的四百年間，米澤靠的不是華麗，而是工藝——絲綢、清酒，以及至今仍在工坊中延續的里山飲食文化。</span></p>
+    </div>
+    <div class="pillars">
+      <div class="pillar">
+        <div class="k">01</div>
+        <h3><span class="en">Real Makers, Not Sets</span><span class="ja">実在の作り手</span><span class="fr">De vrais artisans</span><span class="zh">真實的作者</span></h3>
+        <p><span class="en">Every experience happens with a named house — a weaver, a brewer, a forager — not a staged demonstration.</span><span class="ja">すべての体験は実名の作り手とともに。演出されたデモではありません。</span><span class="fr">Chaque expérience se vit avec une maison nommée — un tisserand, un brasseur, un cueilleur — jamais une démonstration mise en scène.</span><span class="zh">每項體驗皆與具名的名家同行——織者、釀者、採集者——而非排演的展示。</span></p>
+      </div>
+      <div class="pillar">
+        <div class="k">02</div>
+        <h3><span class="en">Trade-Grade Operation</span><span class="ja">業界品質の運営</span><span class="fr">Une exécution professionnelle</span><span class="zh">業界級的營運</span></h3>
+        <p><span class="en">Clear tariffs, defined inclusions, contracted net rates and a single local point of contact for every booking.</span><span class="ja">明快なタリフ、明確な含有内容、契約ベースのネット料金、予約ごとの一本化された現地窓口。</span><span class="fr">Des tarifs clairs, des prestations définies, des tarifs nets contractuels et un interlocuteur local unique pour chaque réservation.</span><span class="zh">清晰的報價、明確的內容、合約淨價，以及每筆預訂單一的在地窗口。</span></p>
+      </div>
+      <div class="pillar">
+        <div class="k">03</div>
+        <h3><span class="en">Story You Can Resell</span><span class="ja">再販できる物語</span><span class="fr">Un récit que vous pouvez revendre</span><span class="zh">可再販售的故事</span></h3>
+        <p><span class="en">Content guides, guide scripts and difficult-term notes give your team and interpreters a shared language.</span><span class="ja">コンテンツガイド・ガイド原稿・難訳語ノートが、営業と通訳に共通言語を提供します。</span><span class="fr">Guides de contenu, scripts et notes terminologiques offrent à vos équipes et interprètes un langage commun.</span><span class="zh">內容導覽、導覽腳本與難譯詞註解，為您的團隊與口譯提供共通語言。</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── How ── -->
+<section class="section snow" id="how">
+  <div class="container">
+    <div class="section-head center">
+      <span class="eyebrow"><span class="en">How It Works</span><span class="ja">取引の流れ</span><span class="fr">Fonctionnement</span><span class="zh">合作流程</span></span>
+      <div class="rule center"></div>
+      <h2><span class="en">From first look to confirmed booking.</span><span class="ja">資料閲覧から予約確定まで。</span><span class="fr">Du premier regard à la réservation confirmée.</span><span class="zh">從初次瀏覽到確認預訂。</span></h2>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="s-num">1</div>
+        <h4><span class="en">Browse the Tariff</span><span class="ja">タリフ閲覧</span><span class="fr">Consulter le tarif</span><span class="zh">瀏覽報價</span></h4>
+        <p><span class="en">Review gross-priced experiences and inclusions on this site — no login required.</span><span class="ja">本サイトでGross価格と含有内容を確認。ログイン不要。</span><span class="fr">Consultez les expériences en tarif brut et leurs prestations — sans connexion.</span><span class="zh">於本網站查看Gross定價與內容，無需登入。</span></p>
+      </div>
+      <div class="step">
+        <div class="s-num">2</div>
+        <h4><span class="en">Request the Tariff</span><span class="ja">資料請求</span><span class="fr">Demander le tarif</span><span class="zh">索取資料</span></h4>
+        <p><span class="en">Send the 30-second trade form. We reply within two business days with the PDF tariff.</span><span class="ja">30秒の取引フォームを送信。2営業日以内にPDFタリフを返信します。</span><span class="fr">Envoyez le formulaire pro (30 s). Réponse sous deux jours ouvrés avec le tarif PDF.</span><span class="zh">填寫30秒的業務表單，我們將於兩個工作天內回覆PDF報價。</span></p>
+      </div>
+      <div class="step">
+        <div class="s-num">3</div>
+        <h4><span class="en">Receive Net Rates</span><span class="ja">ネット料金開示</span><span class="fr">Recevoir les tarifs nets</span><span class="zh">取得淨價</span></h4>
+        <p><span class="en">On partnership, we share the net/commission PDF and availability.</span><span class="ja">契約後、ネット/コミッションPDFと空き状況を共有。</span><span class="fr">Sur partenariat, nous partageons le PDF net/commission et les disponibilités.</span><span class="zh">締約後，提供淨價/佣金PDF與可預訂狀況。</span></p>
+      </div>
+      <div class="step">
+        <div class="s-num">4</div>
+        <h4><span class="en">Book &amp; Operate</span><span class="ja">予約・催行</span><span class="fr">Réserver &amp; opérer</span><span class="zh">預訂與執行</span></h4>
+        <p><span class="en">One local contact coordinates makers, guides and logistics on the ground.</span><span class="ja">現地窓口が作り手・ガイド・手配を一括コーディネート。</span><span class="fr">Un interlocuteur local coordonne artisans, guides et logistique sur place.</span><span class="zh">由單一在地窗口統籌作者、導覽與現場安排。</span></p>
+      </div>
+    </div>
+    <div class="stats" style="margin-top:60px;">
+      <div class="stat"><div class="n">400+</div><div class="l"><span class="en">Years of Uesugi craft</span><span class="ja">上杉の手しごと（年）</span><span class="fr">ans d'artisanat Uesugi</span><span class="zh">上杉工藝（年）</span></div></div>
+      <div class="stat"><div class="n">3</div><div class="l"><span class="en">Maker houses</span><span class="ja">名門</span><span class="fr">maisons artisanales</span><span class="zh">工藝名家</span></div></div>
+      <div class="stat"><div class="n">5</div><div class="l"><span class="en">Trade experiences</span><span class="ja">取引体験</span><span class="fr">expériences pro</span><span class="zh">業務體驗</span></div></div>
+      <div class="stat"><div class="n">90<span style="font-size:24px;">min</span></div><div class="l"><span class="en">By bullet train from Tokyo</span><span class="ja">東京から新幹線</span><span class="fr">en Shinkansen depuis Tokyo</span><span class="zh">東京新幹線車程</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Contact ── -->
+<section class="section deep" id="contact">
+  <div class="container">
+    <div class="contact-wrap">
+      <div class="contact-copy">
+        <span class="eyebrow"><span class="en">Request the Tariff</span><span class="ja">資料請求</span><span class="fr">Demander le tarif</span><span class="zh">索取報價資料</span></span>
+        <h2><span class="en">Let's open the snow country to your guests.</span><span class="ja">あなたのゲストに、雪国の奥行きを。</span><span class="fr">Ouvrons le pays de neige à vos clients.</span><span class="zh">為您的賓客開啟雪國。</span></h2>
+        <p class="lead"><span class="en">Tell us who you are. We'll send the PDF tariff, availability and the partner pack — usually within two business days.</span><span class="ja">まずは貴社についてお聞かせください。PDFタリフ・空き状況・パートナーパックを、通常2営業日以内にお送りします。</span><span class="fr">Présentez-vous. Nous enverrons le tarif PDF, les disponibilités et le dossier partenaire — généralement sous deux jours ouvrés.</span><span class="zh">請告訴我們您的身分。我們通常會在兩個工作天內寄送PDF報價、可預訂狀況與合作夥伴資料。</span></p>
+        <div class="contact-points">
+          <div class="cp"><span class="ic">✓</span><span><span class="en">Trade only — we never compete with you on the consumer side.</span><span class="ja">業界限定。消費者向けの直販で競合しません。</span><span class="fr">Réservé aux pros — nous ne vous concurrençons jamais côté consommateur.</span><span class="zh">僅限業界——絕不在消費端與您競爭。</span></span></div>
+          <div class="cp"><span class="ic">✓</span><span><span class="en">EN / JP / FR / 繁中 materials ready.</span><span class="ja">EN/JP/FR/繁中の資料を即提供。</span><span class="fr">Supports EN / JP / FR / 繁中 disponibles.</span><span class="zh">備有 EN / JP / FR / 繁中 資料。</span></span></div>
+          <div class="cp"><span class="ic">✓</span><span><span class="en">One local contact, not a call center.</span><span class="ja">窓口は現地の担当者一人。コールセンターではありません。</span><span class="fr">Un interlocuteur local, pas un centre d'appels.</span><span class="zh">單一在地窗口，而非客服中心。</span></span></div>
+        </div>
+      </div>
+
+      <div class="form-card">
+        <div class="fc-head">Trade Inquiry</div>
+        <h3><span class="en">30-second introduction</span><span class="ja">30秒の自己紹介</span><span class="fr">Présentation en 30 secondes</span><span class="zh">30秒自我介紹</span></h3>
+        <p class="fc-sub"><span class="en">Three fields. That's all we need to start.</span><span class="ja">必要事項は3つだけ。</span><span class="fr">Trois champs. C'est tout pour commencer.</span><span class="zh">僅需三個欄位即可開始。</span></p>
+
+        <div class="form-note">
+          <span class="en">⚙ Connect this form to HubSpot Free Forms before launch — replace the form action / embed the HubSpot snippet here. The button below is the interim fallback (opens your email client).</span>
+          <span class="ja">⚙ 公開前に HubSpot Free Forms と接続してください（form action 差し替え or 埋め込み）。下部ボタンは暫定フォールバック（メールアプリが開きます）。</span>
+          <span class="fr">⚙ Connectez ce formulaire à HubSpot avant la mise en ligne. Le bouton ci-dessous est une solution provisoire (ouvre votre messagerie).</span>
+          <span class="zh">⚙ 上線前請將此表單接上 HubSpot。下方按鈕為暫定方案（會開啟您的郵件程式）。</span>
+        </div>
+
+        <div class="form-ok" id="formOk" role="status" aria-live="polite">
+          <span class="en">Thank you — opening your email client. We'll reply within two business days with the PDF tariff.</span>
+          <span class="ja">ありがとうございます。メールアプリを開きます。2営業日以内にPDFタリフを返信します。</span>
+          <span class="fr">Merci — ouverture de votre messagerie. Réponse sous deux jours ouvrés avec le tarif PDF.</span>
+          <span class="zh">感謝您——正在開啟郵件程式。我們將於兩個工作天內回覆PDF報價。</span>
+        </div>
+
+        <form id="tradeForm" onsubmit="return submitTrade(event)">
+          <div class="field">
+            <label for="f-name"><span class="en">Your name</span><span class="ja">お名前</span><span class="fr">Votre nom</span><span class="zh">您的姓名</span> <span class="req">*</span></label>
+            <input type="text" id="f-name" name="name" autocomplete="name" required>
+          </div>
+          <div class="field">
+            <label for="f-company"><span class="en">Company</span><span class="ja">会社名</span><span class="fr">Société</span><span class="zh">公司名稱</span> <span class="req">*</span></label>
+            <input type="text" id="f-company" name="company" autocomplete="organization" required>
+          </div>
+          <div class="field">
+            <label for="f-email"><span class="en">Work email</span><span class="ja">メールアドレス</span><span class="fr">E-mail professionnel</span><span class="zh">工作電子郵件</span> <span class="req">*</span></label>
+            <input type="email" id="f-email" name="email" autocomplete="email" inputmode="email" required>
+          </div>
+          <div class="field">
+            <label for="f-type"><span class="en">Partner type</span><span class="ja">パートナー種別</span><span class="fr">Type de partenaire</span><span class="zh">夥伴類型</span></label>
+            <select id="f-type" name="partner_type">
+              <option value="agent">Travel Agent / Tour Operator</option>
+              <option value="dmc">DMC / Inbound Operator</option>
+              <option value="concierge">Concierge (Les Clefs d'Or / Hotel)</option>
+              <option value="community">In-Japan Community / Operator</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="f-msg"><span class="en">What are you looking for? (optional)</span><span class="ja">ご要望（任意）</span><span class="fr">Que recherchez-vous ? (facultatif)</span><span class="zh">您的需求（選填）</span></label>
+            <textarea id="f-msg" name="message"></textarea>
+          </div>
+          <button type="submit" class="btn gold submit"><span class="en">Request the tariff (PDF)</span><span class="ja">資料請求（PDFタリフ）</span><span class="fr">Demander le tarif (PDF)</span><span class="zh">索取報價（PDF）</span></button>
+          <p class="consent"><span class="en">By submitting, you agree to be contacted about trade partnership. We do not sell your data.</span><span class="ja">送信により、取引に関するご連絡に同意いただいたものとします。データを第三者に販売することはありません。</span><span class="fr">En envoyant, vous acceptez d'être contacté au sujet d'un partenariat professionnel. Nous ne vendons pas vos données.</span><span class="zh">送出即表示您同意接受業務合作聯繫。我們不會販售您的資料。</span></p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Footer ── -->
+<footer>
+  <div class="container">
+    <div class="f-grid">
+      <div>
+        <div class="f-brand">PLAT YONEZAWA</div>
+        <div class="f-tag"><span class="en">Destination Management · Yonezawa &amp; Okitama, Japan · Travel Trade Only</span><span class="ja">デスティネーション・マネジメント · 山形県 米沢・置賜 · 業界限定</span><span class="fr">Gestion de destination · Yonezawa &amp; Okitama, Japon · Réservé aux professionnels</span><span class="zh">目的地管理 · 日本 米澤・置賜 · 僅限業界</span></div>
+      </div>
+      <div class="f-links">
+        <a href="#experiences"><span class="en">Experiences</span><span class="ja">体験</span><span class="fr">Expériences</span><span class="zh">體驗</span></a>
+        <a href="tariff/Yonezawa_Tariff_v1_GrossOnly.html"><span class="en">Tariff</span><span class="ja">タリフ</span><span class="fr">Tarif</span><span class="zh">報價</span></a>
+        <a href="#contact"><span class="en">Contact</span><span class="ja">お問い合わせ</span><span class="fr">Contact</span><span class="zh">聯絡</span></a>
+      </div>
+    </div>
+    <div class="f-legal">© 2026 PLAT YONEZAWA INC. · B2B trade materials. Rates and inclusions subject to contract.</div>
+  </div>
+</footer>
+
+<script>
+var LANGS=['en','ja','fr','zh'];
+var DOC_LANG={en:'en',ja:'ja',fr:'fr',zh:'zh-Hant'};
+function setLang(l){
+  if(LANGS.indexOf(l)<0)l='en';
+  document.body.className='lang-'+l;
+  document.documentElement.lang=DOC_LANG[l];
+  document.querySelectorAll('.lang-toggle button').forEach(function(b){
+    b.setAttribute('aria-pressed', b.getAttribute('data-lang')===l ? 'true':'false');
+  });
+  try{ localStorage.setItem('plat_lang', l); }catch(e){}
+}
+(function(){
+  var saved='en';
+  try{ saved=localStorage.getItem('plat_lang')||''; }catch(e){}
+  if(LANGS.indexOf(saved)<0){
+    var nav=(navigator.language||'en').toLowerCase();
+    if(nav.indexOf('ja')===0)saved='ja';
+    else if(nav.indexOf('fr')===0)saved='fr';
+    else if(nav.indexOf('zh')===0)saved='zh';
+    else saved='en';
+  }
+  setLang(saved);
+})();
+
+// Interim submit — show confirmation, then fall back to mailto until HubSpot Free Forms is connected.
+function submitTrade(e){
+  e.preventDefault();
+  var g=function(id){return (document.getElementById(id).value||'').trim();};
+  var name=g('f-name'),company=g('f-company'),email=g('f-email'),type=document.getElementById('f-type').value,msg=g('f-msg');
+  document.getElementById('formOk').classList.add('show');
+  var subject=encodeURIComponent('[Trade Inquiry] '+company+' / '+name);
+  var body=encodeURIComponent('Name: '+name+'\nCompany: '+company+'\nEmail: '+email+'\nPartner type: '+type+'\nMessage:\n'+msg+'\n');
+  // TODO: replace with HubSpot Free Forms endpoint before launch.
+  setTimeout(function(){ window.location.href='mailto:info@plat-yonezawa.com?subject='+subject+'&body='+body; }, 600);
+  return false;
+}
+</script>
+</body>
+</html>
