@@ -85,7 +85,7 @@ body.lang-ja em.fig{font-style:normal;}
 
 .hero{position:relative;color:var(--c-deep);overflow:hidden;min-height:620px;display:flex;align-items:flex-end;}
 .hero .hero-bg{position:absolute;inset:0;}
-.hero .hero-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(251,249,238,0) 0%,rgba(251,249,238,.18) 40%,rgba(251,249,238,.62) 100%);z-index:1;}
+.hero .hero-overlay{position:absolute;inset:0;background:linear-gradient(95deg,rgba(251,249,238,.94) 0%,rgba(251,249,238,.82) 38%,rgba(251,249,238,.44) 62%,rgba(251,249,238,0) 84%),linear-gradient(180deg,rgba(251,249,238,0) 30%,rgba(251,249,238,.52) 100%);z-index:1;}
 .hero .kanji{position:absolute;right:-20px;bottom:-60px;font-family:var(--f-ja);font-size:380px;line-height:1;color:rgba(46,31,28,.12);font-weight:500;user-select:none;z-index:1;}
 .hero-inner{position:relative;z-index:2;padding:104px 0 72px;width:100%;}
 .hero .collection-label{font-family:var(--f-ui);font-size:10px;letter-spacing:.36em;text-transform:uppercase;color:var(--c-deep);opacity:.78;}
@@ -224,6 +224,8 @@ footer .col strong{display:block;color:#fff;letter-spacing:.20em;margin-bottom:6
   h1{font-size:42px !important;} h2{font-size:30px;}
   .hero{min-height:auto;}
   .hero h1{font-size:38px;}
+  .hero .hero-overlay{background:linear-gradient(180deg,rgba(251,249,238,.50) 0%,rgba(251,249,238,.74) 52%,rgba(251,249,238,.93) 100%);}
+  .hero .hero-inner{padding-top:40px;padding-bottom:30px;}
   .hero .kanji{font-size:220px;bottom:-30px;}
   .syn-grid,.schedule-grid,.price-grid,.impact-inner,.contact-info{grid-template-columns:1fr !important;gap:32px;}
   .hl-grid,.terms-grid,.lineage-grid{grid-template-columns:1fr !important;}
@@ -237,6 +239,17 @@ footer .col strong{display:block;color:#fff;letter-spacing:.20em;margin-bottom:6
   .spec-cell:last-child{border-bottom:none;}
   .container{padding:0 22px;}
   .schedule-row{grid-template-columns:82px 56px 1fr;gap:14px;}
+}
+@media(max-width:600px){
+  .topnav-inner{height:auto;flex-wrap:wrap;padding:9px 18px;gap:8px 12px;}
+  .brand-lockup{gap:9px;}
+  .brand-lockup .logo{height:32px;}
+  .brand-lockup .b1{font-size:13px;letter-spacing:.18em;}
+  .brand-lockup .b2{font-size:8px;letter-spacing:.16em;}
+  .nav-right{order:3;width:100%;justify-content:flex-start;gap:12px 16px;flex-wrap:wrap;border-top:1px solid var(--c-line-soft);padding-top:8px;}
+  .nav-link{font-size:10px;letter-spacing:.12em;padding:2px 0;}
+  .lang-switcher{margin-left:auto;}
+  .lang-switcher button{padding:6px 9px;font-size:10px;letter-spacing:.08em;}
 }
 @media print{
   .topnav,.trade-banner,.preview-banner,.lang-switcher{display:none !important;}
@@ -284,7 +297,6 @@ footer .col strong{display:block;color:#fff;letter-spacing:.20em;margin-bottom:6
          style="width:100%;height:100%;object-fit:cover;display:block;">
   </div>
   <div class="hero-overlay"></div>
-  <span class="kanji" aria-hidden="true">絹</span>
   <div class="container hero-inner">
     <div class="collection-label">COLLECTION 01 — SILK <span style="opacity:.6;">· The Colors of the Snow Country</span></div>
     <div class="est-mark"><span class="en">Est. 1884 · Yonezawa, Yamagata</span><span class="ja">明治十七年創業 ・ 山形県米沢</span></div>
@@ -366,46 +378,6 @@ footer .col strong{display:block;color:#fff;letter-spacing:.20em;margin-bottom:6
   </div>
 </section>
 
-<section class="lineage">
-  <div class="container">
-    <span class="eyebrow"><span class="en">Color Lineage</span><span class="ja">色彩の系譜</span></span>
-    <h2><span class="en">Four threads, one cloth.</span><span class="ja">四つの糸、ひとつの布。</span></h2>
-    <p class="intro">
-      <span class="en">Every metre of Nitta silk is born from the same four threads — gathered, tended, and woven here in Yonezawa for one hundred and forty years.</span>
-      <span class="ja">新田の絹一寸は、この四つの糸から織られる。米沢の地で140年、変わらず集められ、育てられ、織られてきたもの。</span>
-    </p>
-    <div class="lineage-grid">
-        <div class="lineage-card">
-          <span class="kanji">紅</span>
-          <div class="num">01 · BENIBANA</div>
-          <h4><span class="en">Safflower</span><span class="ja">紅花</span></h4>
-          <div class="ja-label">紅</div>
-          <p><span class="en">Safflower petals, harvested at dawn in early July when the dye is at its purest.</span><span class="ja">早朝の紅花。7月上旬、色素がもっとも純粋な時刻に摘み取られる。</span></p>
-        </div>
-        <div class="lineage-card">
-          <span class="kanji">蚕</span>
-          <div class="num">02 · SILKWORM</div>
-          <h4><span class="en">Silkworm</span><span class="ja">かいこ</span></h4>
-          <div class="ja-label">蚕</div>
-          <p><span class="en">Cocoons reeled into thread by hands that know each fibre by name.</span><span class="ja">繭から手で繰り出される糸。一本一本に名を覚えた手による作業。</span></p>
-        </div>
-        <div class="lineage-card">
-          <span class="kanji">季</span>
-          <div class="num">03 · SEASONS</div>
-          <h4><span class="en">24 Micro-Seasons</span><span class="ja">二十四節気</span></h4>
-          <div class="ja-label">季</div>
-          <p><span class="en">Colors that exist only in this fortnight, drawn from the wind and light of right now.</span><span class="ja">この二週間にしか宿らぬ色。今の風と光から引き出される。</span></p>
-        </div>
-        <div class="lineage-card">
-          <span class="kanji">手</span>
-          <div class="num">04 · HANDS</div>
-          <h4><span class="en">The Nitta House</span><span class="ja">新田の家</span></h4>
-          <div class="ja-label">手</div>
-          <p><span class="en">Five generations stewarding the craft — Chairman, Mayumi, and the artisans to come.</span><span class="ja">五代の継承 ── 会長、真弓夫人、そしてこれから来る職人たち。</span></p>
-        </div>
-    </div>
-  </div>
-</section>
 
 <section class="section section-paper">
   <div class="container">
