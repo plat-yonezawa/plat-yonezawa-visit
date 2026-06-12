@@ -526,6 +526,14 @@ footer .f-legal{font-size:10px;letter-spacing:.05em;margin-top:28px;color:rgba(2
             </select>
           </div>
           <div class="field">
+            <label for="f-lang"><span class="en">Preferred tariff language</span><span class="ja">ご希望のタリフ言語</span><span class="fr">Langue du tarif souhaitée</span><span class="zh">希望的報價語言</span></label>
+            <select id="f-lang" name="tariff_language">
+              <option value="en">English</option>
+              <option value="fr">Français</option>
+              <option value="zh">繁體中文</option>
+            </select>
+          </div>
+          <div class="field">
             <label for="f-msg"><span class="en">What are you looking for? (optional)</span><span class="ja">ご要望（任意）</span><span class="fr">Que recherchez-vous ? (facultatif)</span><span class="zh">您的需求（選填）</span></label>
             <textarea id="f-msg" name="message"></textarea>
           </div>
@@ -583,10 +591,11 @@ function setLang(l){
 function submitTrade(e){
   e.preventDefault();
   var g=function(id){return (document.getElementById(id).value||'').trim();};
-  var name=g('f-name'),company=g('f-company'),email=g('f-email'),type=document.getElementById('f-type').value,msg=g('f-msg');
+  var name=g('f-name'),company=g('f-company'),email=g('f-email'),type=document.getElementById('f-type').value,lang=document.getElementById('f-lang').value,msg=g('f-msg');
+  var langName={en:'English',fr:'Français',zh:'繁體中文'}[lang]||lang;
   document.getElementById('formOk').classList.add('show');
   var subject=encodeURIComponent('[Trade Inquiry] '+company+' / '+name);
-  var body=encodeURIComponent('Name: '+name+'\nCompany: '+company+'\nEmail: '+email+'\nPartner type: '+type+'\nMessage:\n'+msg+'\n');
+  var body=encodeURIComponent('Name: '+name+'\nCompany: '+company+'\nEmail: '+email+'\nPartner type: '+type+'\nPreferred tariff language: '+langName+'\nMessage:\n'+msg+'\n');
   // TODO: replace with HubSpot Free Forms endpoint before launch.
   setTimeout(function(){ window.location.href='mailto:info1@plat-yonezawa.jp?subject='+subject+'&body='+body; }, 600);
   return false;

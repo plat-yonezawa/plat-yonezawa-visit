@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>O-STY-02 — Katemono Afternoon Tea | PLAT YONEZAWA Trade Tariff</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{  --serif:'Cormorant Garamond','Times New Roman',serif;
+  --ui:'Inter','Helvetica Neue',sans-serif;
+  --cjk:'Cormorant Garamond',serif;
+  --ink:#2a2622; --soft:#5b534c; --muted:#9a9289; --faint:#c9c1b6;
+  --gold:#a8893a; --gold-deep:#6b5418; --accent:#9f3f2f;
+  --line:#e4ddd1; --paper:#ffffff;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+@page{ size:A4; margin:0; }
+html,body{ background:#fff; color:var(--ink); font-family:var(--serif); -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+.page{ position:relative; width:210mm; height:297mm; padding:18mm 22mm 16mm; overflow:hidden;
+  page-break-after:always; display:flex; flex-direction:column; background:var(--paper); }
+.page:last-child{ page-break-after:auto; }
+.rh{ display:flex; justify-content:space-between; align-items:flex-end; font-family:var(--ui);
+  font-size:7.5pt; letter-spacing:.28em; color:var(--muted); text-transform:uppercase;
+  padding-bottom:7px; border-bottom:1px solid var(--line); }
+.rh .l{ color:var(--ink); letter-spacing:.34em; }
+.rf{ position:absolute; left:22mm; right:22mm; bottom:14mm; display:flex; justify-content:space-between;
+  align-items:center; font-family:var(--ui); font-size:7.5pt; letter-spacing:.24em; color:var(--muted);
+  text-transform:uppercase; padding-top:8px; border-top:1px solid var(--line); }
+.rf .num{ font-family:var(--serif); font-style:italic; font-size:10pt; letter-spacing:.05em; color:var(--gold); }
+.eyebrow{ font-family:var(--ui); font-size:8.5pt; letter-spacing:.30em; text-transform:uppercase; color:var(--gold); }
+.eyebrow.dim{ color:var(--muted); letter-spacing:.28em; }
+.vrule{ width:1px; height:34px; background:var(--gold); opacity:.8; margin:18px auto; }
+.cover-inner{ flex:1; display:flex; flex-direction:column; }
+.cover .hero{ width:100%; height:88mm; background-size:cover; background-position:center; border-radius:2px; }
+.cover .meta{ text-align:center; margin-top:auto; margin-bottom:auto; }
+.cover .coll{ margin-bottom:6px; }
+.cover .brandline{ font-family:var(--ui); font-size:8.5pt; letter-spacing:.28em; text-transform:uppercase; color:var(--muted); }
+.cover h1{ font-family:var(--serif); font-weight:500; font-size:46pt; line-height:1.04; letter-spacing:.01em; }
+.cover .sub{ font-size:17pt; color:var(--soft); margin-top:6px; }
+.cover .tag{ font-size:13pt; color:var(--ink); max-width:128mm; margin:0 auto; line-height:1.55; }
+.cover .host{ font-family:var(--ui); font-size:8.5pt; letter-spacing:.20em; text-transform:uppercase; color:var(--muted); margin-top:26px; }
+.exp-grid{ flex:1; display:grid; grid-template-columns:64mm 1fr; gap:14mm; margin-top:14mm; }
+.exp-grid .imgcol{ background-size:cover; background-position:center; border-radius:2px; min-height:150mm; }
+.exp .lead{ font-size:13.5pt; line-height:1.62; color:var(--ink); margin-top:14px; }
+.exp .div{ width:54px; height:1px; background:var(--faint); margin:26px 0 20px; }
+.prog{ margin-top:6px; }
+.prog .row{ display:grid; grid-template-columns:26mm 1fr; gap:10px; padding:9px 0; border-bottom:1px solid var(--line); align-items:baseline; }
+.prog .row:last-child{ border-bottom:none; }
+.prog .t{ font-family:var(--serif); font-style:italic; font-size:11.5pt; color:var(--gold-deep); white-space:nowrap; }
+.prog .d{ font-size:11pt; line-height:1.4; color:var(--soft); }
+.terms{ flex:1; display:flex; flex-direction:column; }
+.terms .topimg{ width:100%; height:74mm; background-size:cover; background-position:center; border-radius:2px; }
+.terms .price-wrap{ text-align:center; margin:22px 0 8px; }
+.terms .price{ font-family:var(--serif); font-size:40pt; font-weight:500; letter-spacing:.01em; }
+.terms .price-sub{ font-size:11.5pt; color:var(--soft); margin-top:4px; }
+.terms .appt{ font-size:11pt; color:var(--accent); margin-top:10px; }
+.terms .hr{ width:60%; height:1px; background:var(--line); margin:20px auto; }
+.spec{ display:grid; grid-template-columns:1fr 1fr; gap:14px 24px; max-width:152mm; margin:0 auto; }
+.spec .cell .l{ font-family:var(--ui); font-size:8pt; letter-spacing:.22em; text-transform:uppercase; color:var(--muted); }
+.spec .cell .v{ font-size:12.5pt; color:var(--ink); margin-top:3px; }
+.incl{ text-align:center; margin-top:24px; }
+.incl .h{ font-family:var(--ui); font-size:8.5pt; letter-spacing:.28em; text-transform:uppercase; color:var(--gold); }
+.incl ul{ list-style:none; margin-top:12px; }
+.incl li{ font-size:11.5pt; color:var(--soft); line-height:1.9; }
+.terms .enq{ text-align:center; margin-top:auto; margin-bottom:12mm; }
+.terms .enq .note{ font-size:11pt; color:var(--muted); }
+.terms .enq .mail{ font-weight:600; font-size:13.5pt; color:var(--ink); margin-top:6px; }
+
+</style>
+</head>
+<body>
+<section class="page cover">
+  <div class="rh"><span class="l">PLAT YONEZAWA</span><span>PLAT YONEZAWA · MMXXVI</span></div>
+  <div class="cover-inner">
+    <div class="hero" style="background-image:url('../images/o-sty-02/shot-01.jpg')"></div>
+    <div class="meta">
+      <div class="coll eyebrow">Collection III</div>
+      <div class="brandline">The Other Side of the Mountain</div>
+      <div class="vrule"></div>
+      <h1>Katemono Afternoon Tea</h1>
+      <div class="sub">An Afternoon of Wild Wisdom</div>
+      <div class="vrule"></div>
+      <p class="tag">An afternoon of wild Yonezawa wisdom, served as a Katemono tea.</p>
+      <div class="host">Hosted by Satoyama Sommelier — Mika Kuroda</div>
+    </div>
+  </div>
+  <div class="rf"><span>O-STY-02</span><span class="num">I</span><span>info1@plat-yonezawa.jp</span></div>
+</section>
+
+<section class="page exp">
+  <div class="rh"><span class="l">PLAT YONEZAWA</span><span>PLAT YONEZAWA · MMXXVI</span></div>
+  <div class="exp-grid">
+    <div class="imgcol" style="background-image:url('../images/o-sty-02/shot-03.jpg')"></div>
+    <div>
+      <div class="eyebrow">II · The Experience</div>
+      <p class="lead">A relaxed afternoon hosted by Satoyama Sommelier Mika Kuroda. The wild food wisdom of Yonezawa — foraged plants, nuts, and fermented preserves — is reimagined as a “Katemono Afternoon Tea”: a tiered stand of sweet and savoury small plates paired with herbal and Japanese teas. In a quiet reception room, guests touch the Japanese aesthetic of “Ma” (negative space) while Mika shares stories of the half-samurai, half-farmer life and the 24 solar terms. A lighter, shorter counterpart to the full-course lunch.</p>
+      <div class="div"></div>
+      <div class="eyebrow">Programme · 120 minutes</div>
+      <div class="prog">
+        <div class="row"><span class="t">2:00 p.m</span><span class="d">Meet at the Satoyama entrance / reception room.</span></div>
+        <div class="row"><span class="t">2:15 p.m</span><span class="d">[Tea] “Katemono” afternoon tea — a tiered stand of sweet &amp; savoury plates with tea / herbal pairing and the host’s narration.</span></div>
+        <div class="row"><span class="t">3:30 p.m</span><span class="d">Short forest stroll or relaxing time (optional).</span></div>
+        <div class="row"><span class="t">4:00 p.m</span><span class="d">End of experience.</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="rf"><span>O-STY-02</span><span class="num">II</span><span>info1@plat-yonezawa.jp</span></div>
+</section>
+
+<section class="page terms">
+  <div class="rh"><span class="l">PLAT YONEZAWA</span><span>PLAT YONEZAWA · MMXXVI</span></div>
+  <div class="topimg" style="background-image:url('../images/o-sty-02/shot-06.jpg')"></div>
+  <div class="eyebrow dim" style="text-align:center;margin-top:20px;">III · Terms</div>
+  <div class="price-wrap">
+    <div class="price">JPY 8,000</div>
+    <div class="price-sub">per person · inclusive of consumption tax</div>
+    <div class="appt">By appointment only · from 1 guest (minimum charge applies)</div>
+  </div>
+  <div class="hr"></div>
+  <div class="spec">
+    <div class="cell"><div class="l">Duration</div><div class="v">2 hours · 120 minutes</div></div>
+    <div class="cell"><div class="l">Capacity</div><div class="v">1 — 20 guests</div></div>
+    <div class="cell"><div class="l">Languages</div><div class="v">English · French</div></div>
+    <div class="cell"><div class="l">Venue</div><div class="v">Private Satoyama · Yonezawa, Yamagata</div></div>
+  </div>
+  <div class="incl">
+    <div class="h">What is included</div>
+    <ul>
+      <li>— Private venue access —</li>
+      <li>— Host fee (Mika Kuroda) —</li>
+      <li>— Katemono tea set —</li>
+      <li>— Drinks —</li>
+      <li>— Comprehensive insurance —</li>
+    </ul>
+  </div>
+  <div class="enq">
+    <p class="note">To enquire about availability, net rates, or familiarisation visits.</p>
+    <p class="mail">info1@plat-yonezawa.jp</p>
+  </div>
+  <div class="rf"><span>O-STY-02</span><span class="num">III</span><span>info1@plat-yonezawa.jp</span></div>
+</section>
+
+</body>
+</html>

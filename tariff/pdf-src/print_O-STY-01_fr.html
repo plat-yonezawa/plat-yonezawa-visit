@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>O-STY-01 — Gastronomy with Magari | PLAT YONEZAWA Trade Tariff</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{  --serif:'Cormorant Garamond','Times New Roman',serif;
+  --ui:'Inter','Helvetica Neue',sans-serif;
+  --cjk:'Cormorant Garamond',serif;
+  --ink:#2a2622; --soft:#5b534c; --muted:#9a9289; --faint:#c9c1b6;
+  --gold:#a8893a; --gold-deep:#6b5418; --accent:#9f3f2f;
+  --line:#e4ddd1; --paper:#ffffff;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+@page{ size:A4; margin:0; }
+html,body{ background:#fff; color:var(--ink); font-family:var(--serif); -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+.page{ position:relative; width:210mm; height:297mm; padding:18mm 22mm 16mm; overflow:hidden;
+  page-break-after:always; display:flex; flex-direction:column; background:var(--paper); }
+.page:last-child{ page-break-after:auto; }
+.rh{ display:flex; justify-content:space-between; align-items:flex-end; font-family:var(--ui);
+  font-size:7.5pt; letter-spacing:.28em; color:var(--muted); text-transform:uppercase;
+  padding-bottom:7px; border-bottom:1px solid var(--line); }
+.rh .l{ color:var(--ink); letter-spacing:.34em; }
+.rf{ position:absolute; left:22mm; right:22mm; bottom:14mm; display:flex; justify-content:space-between;
+  align-items:center; font-family:var(--ui); font-size:7.5pt; letter-spacing:.24em; color:var(--muted);
+  text-transform:uppercase; padding-top:8px; border-top:1px solid var(--line); }
+.rf .num{ font-family:var(--serif); font-style:italic; font-size:10pt; letter-spacing:.05em; color:var(--gold); }
+.eyebrow{ font-family:var(--ui); font-size:8.5pt; letter-spacing:.30em; text-transform:uppercase; color:var(--gold); }
+.eyebrow.dim{ color:var(--muted); letter-spacing:.28em; }
+.vrule{ width:1px; height:34px; background:var(--gold); opacity:.8; margin:18px auto; }
+.cover-inner{ flex:1; display:flex; flex-direction:column; }
+.cover .hero{ width:100%; height:88mm; background-size:cover; background-position:center; border-radius:2px; }
+.cover .meta{ text-align:center; margin-top:auto; margin-bottom:auto; }
+.cover .coll{ margin-bottom:6px; }
+.cover .brandline{ font-family:var(--ui); font-size:8.5pt; letter-spacing:.28em; text-transform:uppercase; color:var(--muted); }
+.cover h1{ font-family:var(--serif); font-weight:500; font-size:46pt; line-height:1.04; letter-spacing:.01em; }
+.cover .sub{ font-size:17pt; color:var(--soft); margin-top:6px; }
+.cover .tag{ font-size:13pt; color:var(--ink); max-width:128mm; margin:0 auto; line-height:1.55; }
+.cover .host{ font-family:var(--ui); font-size:8.5pt; letter-spacing:.20em; text-transform:uppercase; color:var(--muted); margin-top:26px; }
+.exp-grid{ flex:1; display:grid; grid-template-columns:64mm 1fr; gap:14mm; margin-top:14mm; }
+.exp-grid .imgcol{ background-size:cover; background-position:center; border-radius:2px; min-height:150mm; }
+.exp .lead{ font-size:13.5pt; line-height:1.62; color:var(--ink); margin-top:14px; }
+.exp .div{ width:54px; height:1px; background:var(--faint); margin:26px 0 20px; }
+.prog{ margin-top:6px; }
+.prog .row{ display:grid; grid-template-columns:26mm 1fr; gap:10px; padding:9px 0; border-bottom:1px solid var(--line); align-items:baseline; }
+.prog .row:last-child{ border-bottom:none; }
+.prog .t{ font-family:var(--serif); font-style:italic; font-size:11.5pt; color:var(--gold-deep); white-space:nowrap; }
+.prog .d{ font-size:11pt; line-height:1.4; color:var(--soft); }
+.terms{ flex:1; display:flex; flex-direction:column; }
+.terms .topimg{ width:100%; height:74mm; background-size:cover; background-position:center; border-radius:2px; }
+.terms .price-wrap{ text-align:center; margin:22px 0 8px; }
+.terms .price{ font-family:var(--serif); font-size:40pt; font-weight:500; letter-spacing:.01em; }
+.terms .price-sub{ font-size:11.5pt; color:var(--soft); margin-top:4px; }
+.terms .appt{ font-size:11pt; color:var(--accent); margin-top:10px; }
+.terms .hr{ width:60%; height:1px; background:var(--line); margin:20px auto; }
+.spec{ display:grid; grid-template-columns:1fr 1fr; gap:14px 24px; max-width:152mm; margin:0 auto; }
+.spec .cell .l{ font-family:var(--ui); font-size:8pt; letter-spacing:.22em; text-transform:uppercase; color:var(--muted); }
+.spec .cell .v{ font-size:12.5pt; color:var(--ink); margin-top:3px; }
+.incl{ text-align:center; margin-top:24px; }
+.incl .h{ font-family:var(--ui); font-size:8.5pt; letter-spacing:.28em; text-transform:uppercase; color:var(--gold); }
+.incl ul{ list-style:none; margin-top:12px; }
+.incl li{ font-size:11.5pt; color:var(--soft); line-height:1.9; }
+.terms .enq{ text-align:center; margin-top:auto; margin-bottom:12mm; }
+.terms .enq .note{ font-size:11pt; color:var(--muted); }
+.terms .enq .mail{ font-weight:600; font-size:13.5pt; color:var(--ink); margin-top:6px; }
+
+</style>
+</head>
+<body>
+<section class="page cover">
+  <div class="rh"><span class="l">PLAT YONEZAWA</span><span>PLAT YONEZAWA · MMXXVI</span></div>
+  <div class="cover-inner">
+    <div class="hero" style="background-image:url('../images/o-sty-01/shot-01.jpg')"></div>
+    <div class="meta">
+      <div class="coll eyebrow">Collection III</div>
+      <div class="brandline">The Other Side of the Mountain</div>
+      <div class="vrule"></div>
+      <h1>Gastronomy with Magari</h1>
+      <div class="sub">Une table italienne dans la forêt vivante</div>
+      <div class="vrule"></div>
+      <p class="tag">Une table italienne dressée dans une forêt satoyama vivante, au rythme des 24 micro-saisons.</p>
+      <div class="host">Sur l’invitation de Satoyama Sommelier × Yamazato Magari</div>
+    </div>
+  </div>
+  <div class="rf"><span>O-STY-01</span><span class="num">I</span><span>info1@plat-yonezawa.jp</span></div>
+</section>
+
+<section class="page exp">
+  <div class="rh"><span class="l">PLAT YONEZAWA</span><span>PLAT YONEZAWA · MMXXVI</span></div>
+  <div class="exp-grid">
+    <div class="imgcol" style="background-image:url('../images/o-sty-01/shot-03.jpg')"></div>
+    <div>
+      <div class="eyebrow">II · L'Expérience</div>
+      <p class="lead">Commencez par une promenade guidée dans une forêt satoyama privée, lue à travers le prisme des 24 micro-saisons. Puis le chef Takahiro Takasu, formé à Florence, du Yamazato Magari installe sa cuisine en forêt pour une collaboration exclusive avec la sommelière du satoyama, Mika Kuroda. Inspiré de la philosophie « Katemono » et des récoltes de saison de Yonezawa, chaque plat est accordé par le sommelier maison à des vins italiens et de Yamagata — un même voyage, de la marche en forêt à la dégustation de ses fruits.</p>
+      <div class="div"></div>
+      <div class="eyebrow">Programme · 150 minutes</div>
+      <div class="prog">
+        <div class="row"><span class="t">11:00 a.m</span><span class="d">Rendez-vous à la gare JR de Yonezawa (transfert en taxi) ou arrivée directe.</span></div>
+        <div class="row"><span class="t">11:30 a.m</span><span class="d">[Nature] Promenade en forêt « 24 micro-saisons » (env. 60 min).</span></div>
+        <div class="row"><span class="t">0:30 p.m</span><span class="d">[Déjeuner] Menu italien complet « Katemono × Magari », accords mets-vins du sommelier.</span></div>
+        <div class="row"><span class="t">1:30 p.m</span><span class="d">Temps de détente.</span></div>
+        <div class="row"><span class="t">1:50 p.m</span><span class="d">Fin de la visite.</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="rf"><span>O-STY-01</span><span class="num">II</span><span>info1@plat-yonezawa.jp</span></div>
+</section>
+
+<section class="page terms">
+  <div class="rh"><span class="l">PLAT YONEZAWA</span><span>PLAT YONEZAWA · MMXXVI</span></div>
+  <div class="topimg" style="background-image:url('../images/o-sty-01/shot-06.jpg')"></div>
+  <div class="eyebrow dim" style="text-align:center;margin-top:20px;">III · Modalités</div>
+  <div class="price-wrap">
+    <div class="price">JPY 15,000</div>
+    <div class="price-sub">par personne · taxe à la consommation incluse</div>
+    <div class="appt">Sur rendez-vous · minimum 15 personnes · 20 ans et plus</div>
+  </div>
+  <div class="hr"></div>
+  <div class="spec">
+    <div class="cell"><div class="l">Durée</div><div class="v">2,5 heures · 150 minutes</div></div>
+    <div class="cell"><div class="l">Capacité</div><div class="v">15 — 40 personnes</div></div>
+    <div class="cell"><div class="l">Langues</div><div class="v">Anglais · Français</div></div>
+    <div class="cell"><div class="l">Lieu</div><div class="v">Satoyama privé · Yonezawa, Yamagata</div></div>
+  </div>
+  <div class="incl">
+    <div class="h">Ce qui est inclus</div>
+    <ul>
+      <li>— Accès privatif au site —</li>
+      <li>— Honoraires d’hôte et de guide —</li>
+      <li>— Promenade en forêt guidée —</li>
+      <li>— Traiteur du chef sur place —</li>
+      <li>— Menu italien complet —</li>
+      <li>— Accord mets-vins par le sommelier —</li>
+      <li>— Assurance complète —</li>
+    </ul>
+  </div>
+  <div class="enq">
+    <p class="note">Pour toute demande de disponibilité, de tarifs nets ou de visites de familiarisation.</p>
+    <p class="mail">info1@plat-yonezawa.jp</p>
+  </div>
+  <div class="rf"><span>O-STY-01</span><span class="num">III</span><span>info1@plat-yonezawa.jp</span></div>
+</section>
+
+</body>
+</html>
