@@ -337,10 +337,12 @@ body.lang-ja .toc-sub,body.lang-zh .toc-sub{font-family:inherit;font-style:norma
 @media(max-width:560px){.toc-grid{grid-template-columns:1fr;}}
 
 .toc-card{padding:0;overflow:hidden;position:relative;}
-.toc-card .toc-img{aspect-ratio:16/9;background-size:cover;background-position:center;background-color:var(--c-line-soft);}
+.toc-card .toc-img{aspect-ratio:16/9;background-size:cover;background-position:center;background-color:var(--c-line-soft);position:relative;}
 .toc-card .toc-body{padding:16px 22px 20px;}
-.soon-badge{position:absolute;top:12px;left:12px;z-index:2;font-family:var(--f-ui);font-size:9.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#fff;background:var(--c-accent);padding:4px 10px;border-radius:999px;}
-.toc-card.is-soon .toc-img{filter:grayscale(.35) opacity(.85);}
+.toc-card.is-soon .toc-img{filter:grayscale(1) contrast(.92);}
+.soon-overlay{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;background:rgba(46,31,28,.62);z-index:2;}
+.soon-overlay .big{font-family:var(--f-ui);font-size:16px;font-weight:700;letter-spacing:.26em;text-transform:uppercase;color:#fff;border:1.5px solid rgba(255,255,255,.9);padding:10px 22px;border-radius:999px;}
+.soon-overlay .sub{font-family:var(--f-ui);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.82);}
 </style>
 </head>
 <body class="lang-en">
@@ -540,8 +542,12 @@ body.lang-ja .toc-sub,body.lang-zh .toc-sub{font-family:inherit;font-style:norma
           </div>
         </a>
         <a class="toc-card is-soon" href="tariff_O-STY-02.html">
-          <span class="soon-badge"><span class="en">Coming Soon</span><span class="ja">準備中</span><span class="fr">Bientôt disponible</span><span class="zh">即將推出</span></span>
-          <div class="toc-img" style="background-image:url('images/o-sty-02/shot-01.jpg')"></div>
+          <div class="toc-img" style="background-image:url('images/o-sty-02/shot-01.jpg')">
+            <div class="soon-overlay">
+              <span class="big"><span class="en">Coming Soon</span><span class="ja">準備中</span><span class="fr">Bientôt</span><span class="zh">即將推出</span></span>
+              <span class="sub"><span class="en">Content being finalised</span><span class="ja">内容準備中</span><span class="fr">En préparation</span><span class="zh">內容籌備中</span></span>
+            </div>
+          </div>
           <div class="toc-body">
             <div class="toc-code">O-STY-02</div>
             <div class="toc-name">Katemono Afternoon Tea</div>
