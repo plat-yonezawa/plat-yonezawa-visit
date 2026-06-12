@@ -277,7 +277,7 @@ onerror="this.onerror=null;this.src='images/brand/logo.png';">
       <a class="nav-link" href="../lp.html#contact"><span class="en">Contact</span><span class="ja">お問い合わせ</span></a>
 <div class="lang-switcher">
 <button data-lang="en" class="active">EN</button>
-<button data-lang="ja">日本語</button>
+
         <button data-lang="fr">FR</button>
         <button data-lang="zh">繁中</button>
 </div>
@@ -590,7 +590,7 @@ style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display
 
 <script>
 const buttons = document.querySelectorAll('.lang-switcher button[data-lang]');
-  const LANGS=['en','ja','fr','zh'];
+  const LANGS=['en','fr','zh'];
   function applyLang(lang){
     if(LANGS.indexOf(lang)<0)lang='en';
     document.body.classList.remove('lang-en','lang-ja','lang-fr','lang-zh');
@@ -609,7 +609,7 @@ const buttons = document.querySelectorAll('.lang-switcher button[data-lang]');
   (function(){
     var saved=''; try{saved=localStorage.getItem('plat_lang')||'';}catch(e){}
     if(LANGS.indexOf(saved)<0){var n=(navigator.language||'en').toLowerCase();
-      saved=n.indexOf('ja')===0?'ja':n.indexOf('fr')===0?'fr':n.indexOf('zh')===0?'zh':'en';}
+      saved=n.indexOf('fr')===0?'fr':n.indexOf('zh')===0?'zh':'en';}
     applyLang(saved);
   })();
 </script>

@@ -242,7 +242,6 @@ footer .f-legal{font-size:10px;letter-spacing:.05em;margin-top:28px;color:rgba(2
     </nav>
     <div class="lang-toggle" role="group" aria-label="Language">
       <button data-lang="en" aria-pressed="true" onclick="setLang('en')">EN</button>
-      <button data-lang="ja" aria-pressed="false" onclick="setLang('ja')">日本語</button>
       <button data-lang="fr" aria-pressed="false" onclick="setLang('fr')">FR</button>
       <button data-lang="zh" aria-pressed="false" onclick="setLang('zh')">繁中</button>
     </div>
@@ -557,7 +556,7 @@ footer .f-legal{font-size:10px;letter-spacing:.05em;margin-top:28px;color:rgba(2
 </footer>
 
 <script>
-var LANGS=['en','ja','fr','zh'];
+var LANGS=['en','fr','zh'];
 var DOC_LANG={en:'en',ja:'ja',fr:'fr',zh:'zh-Hant'};
 function setLang(l){
   if(LANGS.indexOf(l)<0)l='en';
@@ -573,8 +572,7 @@ function setLang(l){
   try{ saved=localStorage.getItem('plat_lang')||''; }catch(e){}
   if(LANGS.indexOf(saved)<0){
     var nav=(navigator.language||'en').toLowerCase();
-    if(nav.indexOf('ja')===0)saved='ja';
-    else if(nav.indexOf('fr')===0)saved='fr';
+    if(nav.indexOf('fr')===0)saved='fr';
     else if(nav.indexOf('zh')===0)saved='zh';
     else saved='en';
   }

@@ -277,7 +277,6 @@ footer .col strong{display:block;color:#fff;letter-spacing:.20em;margin-bottom:6
       <a class="nav-link" href="../lp.html#contact"><span class="en">Contact</span><span class="ja">お問い合わせ</span></a>
       <div class="lang-switcher">
         <button data-lang="en" class="active">EN</button>
-        <button data-lang="ja">日本語</button>
         <button data-lang="fr">FR</button>
         <button data-lang="zh">繁中</button>
       </div>
@@ -596,7 +595,7 @@ footer .col strong{display:block;color:#fff;letter-spacing:.20em;margin-bottom:6
 
 <script>
   const buttons = document.querySelectorAll('.lang-switcher button[data-lang]');
-  const LANGS=['en','ja','fr','zh'];
+  const LANGS=['en','fr','zh'];
   function applyLang(lang){
     if(LANGS.indexOf(lang)<0)lang='en';
     document.body.classList.remove('lang-en','lang-ja','lang-fr','lang-zh');
@@ -615,7 +614,7 @@ footer .col strong{display:block;color:#fff;letter-spacing:.20em;margin-bottom:6
   (function(){
     var saved=''; try{saved=localStorage.getItem('plat_lang')||'';}catch(e){}
     if(LANGS.indexOf(saved)<0){var n=(navigator.language||'en').toLowerCase();
-      saved=n.indexOf('ja')===0?'ja':n.indexOf('fr')===0?'fr':n.indexOf('zh')===0?'zh':'en';}
+      saved=n.indexOf('fr')===0?'fr':n.indexOf('zh')===0?'zh':'en';}
     applyLang(saved);
   })();
 </script>

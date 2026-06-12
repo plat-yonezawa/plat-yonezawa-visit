@@ -343,10 +343,6 @@ body.lang-ja .toc-sub,body.lang-zh .toc-sub{font-family:inherit;font-style:norma
 </head>
 <body class="lang-en">
 
-<div class="preview-banner">
-  <strong>UNIFIED TARIFF · TONE v3</strong> <span class="ver">REFINED</span>
-  ── 5商品統合タリフ。個別ページ（tariff_XXX.html）と同思想に揃えました。
-</div>
 
 <nav class="topnav">
   <div class="topnav-inner">
@@ -365,7 +361,6 @@ body.lang-ja .toc-sub,body.lang-zh .toc-sub{font-family:inherit;font-style:norma
       </div>
       <div class="lang-switcher" role="group" aria-label="Language">
         <button data-lang="en" class="active">EN</button>
-        <button data-lang="ja">日本語</button>
         <button data-lang="fr">FR</button>
         <button data-lang="zh">繁中</button>
       </div>
@@ -669,7 +664,7 @@ body.lang-ja .toc-sub,body.lang-zh .toc-sub{font-family:inherit;font-style:norma
 <script>
   // Language switcher
   const buttons = document.querySelectorAll('.lang-switcher button[data-lang]');
-  const LANGS=['en','ja','fr','zh'];
+  const LANGS=['en','fr','zh'];
   function applyLang(lang){
     if(LANGS.indexOf(lang)<0)lang='en';
     document.body.classList.remove('lang-en','lang-ja','lang-fr','lang-zh');
@@ -688,7 +683,7 @@ body.lang-ja .toc-sub,body.lang-zh .toc-sub{font-family:inherit;font-style:norma
   (function(){
     var saved=''; try{saved=localStorage.getItem('plat_lang')||'';}catch(e){}
     if(LANGS.indexOf(saved)<0){var n=(navigator.language||'en').toLowerCase();
-      saved=n.indexOf('ja')===0?'ja':n.indexOf('fr')===0?'fr':n.indexOf('zh')===0?'zh':'en';}
+      saved=n.indexOf('fr')===0?'fr':n.indexOf('zh')===0?'zh':'en';}
     applyLang(saved);
   })();
 
