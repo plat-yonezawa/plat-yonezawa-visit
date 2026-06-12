@@ -117,7 +117,7 @@ my %DATA;
 
 $DATA{'C-NTA-01'} = {
   roman=>'I', brand=>q{The Colors of the Snow Country}, title=>q{The Philosophy},
-  img=>['shot-01','shot-02','shot-06'], minutes=>{en=>q{120 minutes},fr=>q{120 minutes},zh=>q{120 分鐘}}, price=>q{JPY 30,000},
+  img=>['shot-01','shot-02','shot-06'], minutes=>{en=>q{120 minutes},fr=>q{120 minutes},zh=>q{120 分鐘}}, price=>q{JPY 33,000},
   en=>{ subtitle=>q{Weaving the Breath of Nature},
     tagline=>q{An exclusive afternoon with the master of a 140-year-old silk house.},
     host=>q{Hosted by Nitta Textile Arts Inc. — Est. 1884},
@@ -164,7 +164,7 @@ $DATA{'C-NTA-01'} = {
 
 $DATA{'S-TKO-01'} = {
   roman=>'II', brand=>q{The Soul of the Snow Country}, title=>q{The Legacy &amp; The Master},
-  img=>['shot-01','shot-03','shot-06'], minutes=>{en=>q{120–150 minutes},fr=>q{120–150 minutes},zh=>q{120–150 分鐘}}, price=>q{JPY 30,000},
+  img=>['shot-01','shot-03','shot-06'], minutes=>{en=>q{120–150 minutes},fr=>q{120–150 minutes},zh=>q{120–150 分鐘}}, price=>q{JPY 33,000},
   en=>{ subtitle=>q{A Private Dialogue with the Brewer},
     tagline=>q{A private audience with the 24th-generation master of a four-century sake house.},
     host=>q{Hosted by Toko Brewery (Kojima Sohonten) — four centuries of brewing},
@@ -255,7 +255,7 @@ $DATA{'O-STY-01'} = {
 
 $DATA{'O-STY-02'} = {
   roman=>'III', brand=>q{The Other Side of the Mountain}, title=>q{Katemono Afternoon Tea},
-  img=>['shot-01','shot-03','shot-06'], minutes=>{en=>q{120 minutes},fr=>q{120 minutes},zh=>q{120 分鐘}}, price=>q{JPY 8,000},
+  img=>['shot-01','shot-03','shot-06'], minutes=>{en=>q{120 minutes},fr=>q{120 minutes},zh=>q{120 分鐘}}, price=>q{JPY 12,000},
   en=>{ subtitle=>q{An Afternoon of Wild Wisdom},
     tagline=>q{An afternoon of wild Yonezawa wisdom, served as a Katemono tea.},
     host=>q{Hosted by Satoyama Sommelier — Mika Kuroda},
