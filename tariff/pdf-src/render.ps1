@@ -7,7 +7,8 @@ if (-not (Test-Path $chrome)) { $chrome = "C:\Program Files (x86)\Microsoft\Edge
 $src = $PSScriptRoot
 $dst = Join-Path (Split-Path $src -Parent) "pdf"
 $ud  = Join-Path $env:TEMP "chrome-pdf-profile"
-$codes = @("C-NTA-01","S-TKO-01","O-STY-01","O-STY-02","O-STY-03")
+# O-STY-02 は内容未確定のため配布対象から除外中（Coming Soon）。確定したらリストに戻す。
+$codes = @("C-NTA-01","S-TKO-01","O-STY-01","O-STY-03")
 $ok = 0
 foreach ($code in $codes) { foreach ($lang in @("en","fr","zh")) {
   $inPath = Join-Path $src ("print_{0}_{1}.html" -f $code,$lang)

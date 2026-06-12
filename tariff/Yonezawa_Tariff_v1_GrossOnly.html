@@ -336,9 +336,11 @@ body.lang-ja .toc-sub,body.lang-zh .toc-sub{font-family:inherit;font-style:norma
 .toc-open{font-family:var(--f-ui);font-size:11.5px;color:var(--c-gold-deep);font-weight:600;margin-top:10px;}
 @media(max-width:560px){.toc-grid{grid-template-columns:1fr;}}
 
-.toc-card{padding:0;overflow:hidden;}
+.toc-card{padding:0;overflow:hidden;position:relative;}
 .toc-card .toc-img{aspect-ratio:16/9;background-size:cover;background-position:center;background-color:var(--c-line-soft);}
 .toc-card .toc-body{padding:16px 22px 20px;}
+.soon-badge{position:absolute;top:12px;left:12px;z-index:2;font-family:var(--f-ui);font-size:9.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#fff;background:var(--c-accent);padding:4px 10px;border-radius:999px;}
+.toc-card.is-soon .toc-img{filter:grayscale(.35) opacity(.85);}
 </style>
 </head>
 <body class="lang-en">
@@ -537,7 +539,8 @@ body.lang-ja .toc-sub,body.lang-zh .toc-sub{font-family:inherit;font-style:norma
             <div class="toc-open"><span class="en">Open trade page →</span><span class="ja">商談ページを開く →</span><span class="fr">Ouvrir la page →</span><span class="zh">開啟商談頁 →</span></div>
           </div>
         </a>
-        <a class="toc-card" href="tariff_O-STY-02.html">
+        <a class="toc-card is-soon" href="tariff_O-STY-02.html">
+          <span class="soon-badge"><span class="en">Coming Soon</span><span class="ja">準備中</span><span class="fr">Bientôt disponible</span><span class="zh">即將推出</span></span>
           <div class="toc-img" style="background-image:url('images/o-sty-02/shot-01.jpg')"></div>
           <div class="toc-body">
             <div class="toc-code">O-STY-02</div>
