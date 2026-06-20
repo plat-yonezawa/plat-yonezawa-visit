@@ -136,6 +136,7 @@ body.lang-ja .section-head h2,body.lang-zh .section-head h2{font-size:27px;}
 body.lang-ja .prod .tag,body.lang-zh .prod .tag{font-family:inherit;font-style:normal;}
 .prod .open{font-family:var(--f-ui);font-size:11px;letter-spacing:.05em;color:var(--c-muted);margin-top:8px;}
 .prod:hover .open{color:var(--c-gold-deep);}
+.prod .soon{position:absolute;top:14px;right:14px;font-family:var(--f-ui);font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#fff;background:var(--c-accent);padding:4px 9px;border-radius:999px;}
 
 /* ── Pillars ── */
 .pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;}
@@ -174,6 +175,9 @@ body.lang-ja .contact-copy h2,body.lang-zh .contact-copy h2{font-size:25px;}
 .field input,.field select,.field textarea{width:100%;font-family:var(--f-ui);font-size:13.5px;color:var(--c-ink);background:#fff;border:1px solid var(--c-line);border-radius:2px;padding:11px 13px;transition:.15s;}
 .field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--c-gold);box-shadow:0 0 0 3px rgba(168,137,58,.12);}
 .field textarea{resize:vertical;min-height:74px;}
+.field .lang-opts{display:flex;flex-wrap:wrap;gap:10px 18px;margin-top:2px;}
+.field .lang-opts label{display:inline-flex;align-items:center;gap:7px;margin:0;text-transform:none;letter-spacing:0;font-size:13.5px;font-weight:400;color:var(--c-ink);cursor:pointer;}
+.field .lang-opts input[type=checkbox]{width:auto;margin:0;padding:0;accent-color:var(--c-gold);box-shadow:none;}
 .form-card .submit{width:100%;margin-top:4px;}
 .form-card .consent{font-family:var(--f-ui);font-size:10.5px;color:var(--c-muted);line-height:1.6;margin-top:12px;}
 .form-note{background:var(--c-gold-bg);border:1px dashed var(--c-gold-soft);border-radius:3px;padding:12px 14px;font-family:var(--f-ui);font-size:10.5px;color:var(--c-gold-deep);line-height:1.6;margin-bottom:18px;}
@@ -228,7 +232,7 @@ footer .f-legal{font-size:10px;letter-spacing:.05em;margin-top:28px;color:rgba(2
 <!-- ── Top bar ── -->
 <header class="topbar">
   <div class="inner">
-    <a href="lp.html" class="brand-lockup" aria-label="PLAT YONEZAWA">
+    <a href="/" class="brand-lockup" aria-label="PLAT YONEZAWA">
       <img class="bl-logo" src="images/brand/logo.svg" alt="PLAT YONEZAWA" onerror="this.style.display='none'">
       <span class="bl-txt"><span class="bl1">PLAT YONEZAWA</span><span class="bl2">Destination Management</span></span>
     </a>
@@ -380,6 +384,7 @@ footer .f-legal{font-size:10px;letter-spacing:.05em;margin-top:28px;color:rgba(2
           <span class="open"><span class="en">Open tariff →</span><span class="ja">タリフを開く →</span><span class="fr">Ouvrir le tarif →</span><span class="zh">開啟報價 →</span></span>
         </a>
         <a class="prod" href="tariff/tariff_O-STY-02.html">
+          <span class="soon"><span class="en">Coming Soon</span><span class="ja">準備中</span><span class="fr">Bientôt disponible</span><span class="zh">即將推出</span></span>
           <span class="code">O-STY-02</span>
           <h4>Katemono Afternoon Tea</h4>
           <span class="tag"><span class="en">An Afternoon of Wild Wisdom</span><span class="ja">野の智慧を味わう午後</span><span class="fr">Un après-midi de sagesse sauvage</span><span class="zh">野之智慧的午後</span></span>
@@ -526,6 +531,14 @@ footer .f-legal{font-size:10px;letter-spacing:.05em;margin-top:28px;color:rgba(2
             </select>
           </div>
           <div class="field">
+            <label><span class="en">Preferred tariff language(s)</span><span class="ja">ご希望のタリフ言語（複数選択可）</span><span class="fr">Langue(s) du tarif souhaitée(s)</span><span class="zh">希望的報價語言（可複選）</span></label>
+            <div class="lang-opts">
+              <label><input type="checkbox" name="tariff_language" value="English"><span>English</span></label>
+              <label><input type="checkbox" name="tariff_language" value="Français"><span>Français</span></label>
+              <label><input type="checkbox" name="tariff_language" value="繁體中文"><span>繁體中文</span></label>
+            </div>
+          </div>
+          <div class="field">
             <label for="f-msg"><span class="en">What are you looking for? (optional)</span><span class="ja">ご要望（任意）</span><span class="fr">Que recherchez-vous ? (facultatif)</span><span class="zh">您的需求（選填）</span></label>
             <textarea id="f-msg" name="message"></textarea>
           </div>
@@ -584,9 +597,11 @@ function submitTrade(e){
   e.preventDefault();
   var g=function(id){return (document.getElementById(id).value||'').trim();};
   var name=g('f-name'),company=g('f-company'),email=g('f-email'),type=document.getElementById('f-type').value,msg=g('f-msg');
+  var langEls=document.querySelectorAll('input[name="tariff_language"]:checked');
+  var langs=Array.prototype.map.call(langEls,function(x){return x.value;}).join(', ')||'(not specified)';
   document.getElementById('formOk').classList.add('show');
   var subject=encodeURIComponent('[Trade Inquiry] '+company+' / '+name);
-  var body=encodeURIComponent('Name: '+name+'\nCompany: '+company+'\nEmail: '+email+'\nPartner type: '+type+'\nMessage:\n'+msg+'\n');
+  var body=encodeURIComponent('Name: '+name+'\nCompany: '+company+'\nEmail: '+email+'\nPartner type: '+type+'\nPreferred tariff language(s): '+langs+'\nMessage:\n'+msg+'\n');
   // TODO: replace with HubSpot Free Forms endpoint before launch.
   setTimeout(function(){ window.location.href='mailto:info1@plat-yonezawa.jp?subject='+subject+'&body='+body; }, 600);
   return false;
