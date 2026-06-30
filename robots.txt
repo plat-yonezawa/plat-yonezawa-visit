@@ -1,0 +1,11 @@
+# PLAT YONEZAWA visit. — robots
+# soft-launch 中。各ページは meta robots=noindex のため、クロールされても索引されない。
+# 本ローンチ時に各ページの noindex を index へ切り替える（robots.txt は変更不要）。
+User-agent: *
+Allow: /
+Disallow: /guides/
+Disallow: /tariff/pdf/
+Disallow: /tariff/pdf-src/
+Disallow: /coming-soon.html
+
+Sitemap: https://visit.plat-yonezawa.com/sitemap.xml
