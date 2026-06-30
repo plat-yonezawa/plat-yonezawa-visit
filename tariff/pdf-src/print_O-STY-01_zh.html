@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<title>O-STY-01 — Gastronomy with Magari | PLAT YONEZAWA Trade Tariff</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Noto+Serif+TC:wght@400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{  --serif:'Cormorant Garamond','Noto Serif TC','Times New Roman',serif;
+  --ui:'Inter','Noto Serif TC','Helvetica Neue',sans-serif;
+  --cjk:'Noto Serif TC',serif;
+  --ink:#2a2622; --soft:#5b534c; --muted:#9a9289; --faint:#c9c1b6;
+  --gold:#a8893a; --gold-deep:#6b5418; --accent:#9f3f2f;
+  --line:#e4ddd1; --paper:#ffffff;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+@page{ size:A4; margin:0; }
+html,body{ background:#fff; color:var(--ink); font-family:var(--serif); -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+.page{ position:relative; width:210mm; height:297mm; padding:18mm 22mm 16mm; overflow:hidden;
+  page-break-after:always; display:flex; flex-direction:column; background:var(--paper); }
+.page:last-child{ page-break-after:auto; }
+.rh{ display:flex; justify-content:space-between; align-items:flex-end; font-family:var(--ui);
+  font-size:7.5pt; letter-spacing:.28em; color:var(--muted); text-transform:uppercase;
+  padding-bottom:7px; border-bottom:1px solid var(--line); }
+.rh .l{ color:var(--ink); letter-spacing:.34em; }
+.rf{ position:absolute; left:22mm; right:22mm; bottom:14mm; display:flex; justify-content:space-between;
+  align-items:center; font-family:var(--ui); font-size:7.5pt; letter-spacing:.24em; color:var(--muted);
+  text-transform:uppercase; padding-top:8px; border-top:1px solid var(--line); }
+.rf .num{ font-family:var(--serif); font-style:italic; font-size:10pt; letter-spacing:.05em; color:var(--gold); }
+.eyebrow{ font-family:var(--ui); font-size:8.5pt; letter-spacing:.30em; text-transform:uppercase; color:var(--gold); }
+.eyebrow.dim{ color:var(--muted); letter-spacing:.28em; }
+.vrule{ width:1px; height:34px; background:var(--gold); opacity:.8; margin:18px auto; }
+.cover-inner{ flex:1; display:flex; flex-direction:column; }
+.cover .hero{ width:100%; height:88mm; background-size:cover; background-position:center; border-radius:2px; }
+.cover .meta{ text-align:center; margin-top:auto; margin-bottom:auto; }
+.cover .coll{ margin-bottom:6px; }
+.cover .brandline{ font-family:var(--ui); font-size:8.5pt; letter-spacing:.28em; text-transform:uppercase; color:var(--muted); }
+.cover h1{ font-family:var(--serif); font-weight:500; font-size:46pt; line-height:1.04; letter-spacing:.01em; }
+.cover .sub{ font-size:17pt; color:var(--soft); margin-top:6px; }
+.cover .tag{ font-size:13pt; color:var(--ink); max-width:128mm; margin:0 auto; line-height:1.55; }
+.cover .host{ font-family:var(--ui); font-size:8.5pt; letter-spacing:.20em; text-transform:uppercase; color:var(--muted); margin-top:26px; }
+.exp-grid{ flex:1; display:grid; grid-template-columns:64mm 1fr; gap:14mm; margin-top:14mm; }
+.exp-grid .imgcol{ background-size:cover; background-position:center; border-radius:2px; min-height:150mm; }
+.exp .lead{ font-size:13.5pt; line-height:1.62; color:var(--ink); margin-top:14px; }
+.exp .div{ width:54px; height:1px; background:var(--faint); margin:26px 0 20px; }
+.prog{ margin-top:6px; }
+.prog .row{ display:grid; grid-template-columns:26mm 1fr; gap:10px; padding:9px 0; border-bottom:1px solid var(--line); align-items:baseline; }
+.prog .row:last-child{ border-bottom:none; }
+.prog .t{ font-family:var(--serif); font-style:italic; font-size:11.5pt; color:var(--gold-deep); white-space:nowrap; }
+.prog .d{ font-size:11pt; line-height:1.4; color:var(--soft); }
+.terms{ flex:1; display:flex; flex-direction:column; }
+.terms .topimg{ width:100%; height:74mm; background-size:cover; background-position:center; border-radius:2px; }
+.terms .price-wrap{ text-align:center; margin:22px 0 8px; }
+.terms .price{ font-family:var(--serif); font-size:40pt; font-weight:500; letter-spacing:.01em; }
+.terms .price-sub{ font-size:11.5pt; color:var(--soft); margin-top:4px; }
+.terms .appt{ font-size:11pt; color:var(--accent); margin-top:10px; }
+.terms .hr{ width:60%; height:1px; background:var(--line); margin:20px auto; }
+.spec{ display:grid; grid-template-columns:1fr 1fr; gap:14px 24px; max-width:152mm; margin:0 auto; }
+.spec .cell .l{ font-family:var(--ui); font-size:8pt; letter-spacing:.22em; text-transform:uppercase; color:var(--muted); }
+.spec .cell .v{ font-size:12.5pt; color:var(--ink); margin-top:3px; }
+.incl{ text-align:center; margin-top:24px; }
+.incl .h{ font-family:var(--ui); font-size:8.5pt; letter-spacing:.28em; text-transform:uppercase; color:var(--gold); }
+.incl ul{ list-style:none; margin-top:12px; }
+.incl li{ font-size:11.5pt; color:var(--soft); line-height:1.9; }
+.terms .enq{ text-align:center; margin-top:auto; margin-bottom:12mm; }
+.terms .enq .note{ font-size:11pt; color:var(--muted); }
+.terms .enq .mail{ font-weight:600; font-size:13.5pt; color:var(--ink); margin-top:6px; }
+.cover .sub,.cover .tag,.cover .host,.exp .lead,.prog .d,.terms .price-sub,
+.terms .appt,.spec .cell .v,.incl li,.terms .enq .note{ font-family:var(--cjk); font-style:normal; }
+.exp .lead{ line-height:1.95; }
+.incl li{ line-height:2.0; }
+.cover .tag{ line-height:1.7; }
+
+</style>
+</head>
+<body>
+<section class="page cover">
+  <div class="rh"><span class="l">PLAT YONEZAWA</span><span>PLAT YONEZAWA · MMXXVI</span></div>
+  <div class="cover-inner">
+    <div class="hero" style="background-image:url('../images/o-sty-01/shot-01.jpg')"></div>
+    <div class="meta">
+      <div class="coll eyebrow">第三系列 · Collection III</div>
+      <div class="brandline">The Other Side of the Mountain</div>
+      <div class="vrule"></div>
+      <h1>Gastronomy with Magari</h1>
+      <div class="sub">活森林中的義式餐桌</div>
+      <div class="vrule"></div>
+      <p class="tag">在生機盎然的里山森林中，依循二十四節氣而設的義式餐桌。</p>
+      <div class="host">由 Satoyama Sommelier × Yamazato Magari 主理</div>
+    </div>
+  </div>
+  <div class="rf"><span>O-STY-01</span><span class="num">I</span><span>info1@plat-yonezawa.jp</span></div>
+</section>
+
+<section class="page exp">
+  <div class="rh"><span class="l">PLAT YONEZAWA</span><span>PLAT YONEZAWA · MMXXVI</span></div>
+  <div class="exp-grid">
+    <div class="imgcol" style="background-image:url('../images/o-sty-01/shot-03.jpg')"></div>
+    <div>
+      <div class="eyebrow">II · 體驗</div>
+      <p class="lead">首先在私人里山森林中展開導覽散策，以二十四節氣的視角閱讀自然。隨後，曾於佛羅倫斯研修的「山里まがり」主廚高須崇大將廚房帶進森林，與里山侍酒師 Mika Kuroda（三佳）展開專屬聯名。以「かてもの」哲學與米澤當季食材為靈感，每道菜餚皆由駐店侍酒師搭配義大利與山形葡萄酒——從漫步森林到品味其恩澤，一氣呵成的旅程。</p>
+      <div class="div"></div>
+      <div class="eyebrow">流程 · 150 分鐘</div>
+      <div class="prog">
+        <div class="row"><span class="t">11:00 a.m</span><span class="d">於 JR 米澤站集合（計程車接駁）或現地直接抵達。</span></div>
+        <div class="row"><span class="t">11:30 a.m</span><span class="d">〔自然〕「二十四節氣」森林散策（約 60 分鐘）。</span></div>
+        <div class="row"><span class="t">0:30 p.m</span><span class="d">〔午宴〕「かてもの × Magari」義式全套餐，佐侍酒師選酒搭配。</span></div>
+        <div class="row"><span class="t">1:30 p.m</span><span class="d">悠閒時光。</span></div>
+        <div class="row"><span class="t">1:50 p.m</span><span class="d">行程結束。</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="rf"><span>O-STY-01</span><span class="num">II</span><span>info1@plat-yonezawa.jp</span></div>
+</section>
+
+<section class="page terms">
+  <div class="rh"><span class="l">PLAT YONEZAWA</span><span>PLAT YONEZAWA · MMXXVI</span></div>
+  <div class="topimg" style="background-image:url('../images/o-sty-01/shot-06.jpg')"></div>
+  <div class="eyebrow dim" style="text-align:center;margin-top:20px;">III · 條款</div>
+  <div class="price-wrap">
+    <div class="price">JPY 15,000</div>
+    <div class="price-sub">每位 · 含消費稅</div>
+    <div class="appt">僅限預約 · 最少 15 位 · 限 20 歲以上</div>
+  </div>
+  <div class="hr"></div>
+  <div class="spec">
+    <div class="cell"><div class="l">時長</div><div class="v">2.5 小時 · 150 分鐘</div></div>
+    <div class="cell"><div class="l">人數</div><div class="v">15 — 40 位</div></div>
+    <div class="cell"><div class="l">語言</div><div class="v">英語 · 法語</div></div>
+    <div class="cell"><div class="l">地點</div><div class="v">私人里山 · 山形縣米澤</div></div>
+  </div>
+  <div class="incl">
+    <div class="h">費用包含</div>
+    <ul>
+      <li>— 場地專屬使用 —</li>
+      <li>— 主持與導覽費 —</li>
+      <li>— 森林散策導覽 —</li>
+      <li>— 主廚到場外燴 —</li>
+      <li>— 完整義式套餐 —</li>
+      <li>— 侍酒師選酒搭配 —</li>
+      <li>— 完整保險 —</li>
+    </ul>
+  </div>
+  <div class="enq">
+    <p class="note">如需查詢檔期、淨價或考察行程，敬請與我們聯繫。</p>
+    <p class="mail">info1@plat-yonezawa.jp</p>
+  </div>
+  <div class="rf"><span>O-STY-01</span><span class="num">III</span><span>info1@plat-yonezawa.jp</span></div>
+</section>
+
+</body>
+</html>
