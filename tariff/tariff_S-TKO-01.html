@@ -277,7 +277,8 @@ onerror="this.onerror=null;this.src='images/brand/logo.png';">
 <a class="nav-link" href="/"><span class="en">Home</span><span class="ja">ホーム</span><span class="fr">Accueil</span><span class="zh">首頁</span></a>
       <a class="nav-link" href="/#experiences"><span class="en">All Products</span><span class="ja">一覧へ</span><span class="fr">Tous les produits</span><span class="zh">商品一覽</span></a>
       <a class="nav-link" href="/#contact"><span class="en">Contact</span><span class="ja">お問い合わせ</span><span class="fr">Contact</span><span class="zh">聯絡我們</span></a>
-<div class="lang-switcher">
+<a class="nav-cta" href="#request"><span class="en">Request</span><span class="ja">予約リクエスト</span><span class="fr">Réserver</span><span class="zh">預約申請</span></a>
+      <div class="lang-switcher">
 <button data-lang="en" class="active">EN</button>
 
         <button data-lang="fr">FR</button>
@@ -311,6 +312,7 @@ style="width:100%;height:100%;object-fit:cover;display:block;">
 <span class="b-name"><span class="en">The Soul of the Snow Country</span><span class="ja">雪国の魂</span><span class="fr">L'âme du pays de neige</span><span class="zh">雪國之魂</span></span>
 <span class="b-provider"><span class="en">Provider · Toko Brewery (Kojima Sohonten)</span><span class="ja">提供事業者 · 東光（小嶋総本店）</span><span class="fr">Prestataire · Brasserie Toko (Kojima Sohonten)</span><span class="zh">提供業者 · 東光酒造（小嶋總本店）</span></span>
 </div>
+    <div class="hero-cta"><a class="pcta" href="#request"><span class="en">Request a booking</span><span class="ja">予約リクエスト</span><span class="fr">Demande de réservation</span><span class="zh">預約申請</span></a></div>
 </div>
 </header>
 
@@ -491,6 +493,14 @@ style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display
 </div>
 </section>
 
+<div class="cta-band">
+  <div class="container">
+    <div class="k"><span class="en">Ready to include this in your itinerary?</span><span class="ja">旅程に組み込みますか？</span><span class="fr">Prêt à l'inscrire à votre itinéraire ?</span><span class="zh">準備好納入行程了嗎？</span></div>
+    <a class="pcta" href="#request"><span class="en">Request this experience</span><span class="ja">この体験を予約リクエスト</span><span class="fr">Demander cette expérience</span><span class="zh">申請此體驗</span></a>
+  </div>
+</div>
+
+
 <div class="venue-strip">
 <!-- SHOT 10 · SCENE · Venue facade -->
 <div class="shot" style="aspect-ratio:auto;height:280px;">
@@ -582,6 +592,109 @@ style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display
 </div>
 </section>
 
+
+<style id="reqcss">/*CTAS*/
+.pcta{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-family:var(--f-ui);font-size:13.5px;font-weight:600;letter-spacing:.06em;background:var(--c-gold-deep);color:#fff;border:1px solid var(--c-gold-deep);border-radius:6px;padding:14px 30px;min-height:48px;text-decoration:none;transition:.2s;cursor:pointer;}
+.pcta:hover{background:#54420f;border-color:#54420f;color:#fff;}
+.hero-cta{margin-top:32px;display:flex;gap:14px;flex-wrap:wrap;}
+.cta-band{background:var(--c-paper);text-align:center;padding:40px 0;border-bottom:1px solid var(--c-line-soft);}
+.cta-band .k{font-family:var(--f-ui);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--c-accent);margin-bottom:14px;}
+.nav-cta{font-family:var(--f-ui);font-size:12px;font-weight:600;letter-spacing:.04em;background:var(--c-gold-deep);color:#fff;border-radius:999px;padding:9px 16px;min-height:38px;display:inline-flex;align-items:center;text-decoration:none;border:none;white-space:nowrap;}
+.nav-cta:hover{background:#54420f;color:#fff;}
+@media(max-width:760px){.nav-cta{display:none;}}
+
+.req-card{background:#fff;border:1px solid var(--c-line);border-radius:10px;padding:34px 34px 30px;box-shadow:0 1px 3px rgba(46,31,28,.05);text-align:left;}
+.req-card .eyebrow{color:var(--c-accent);}
+.req-lead{font-size:15px;color:var(--c-deep-mid);margin:6px 0 4px;}
+.req-form{margin-top:22px;display:grid;grid-template-columns:1fr 1fr;gap:16px 20px;}
+.req-form .full{grid-column:1 / -1;}
+.req-form label.fl{display:block;font-family:var(--f-ui);font-size:10.5px;letter-spacing:.10em;text-transform:uppercase;color:var(--c-deep-mid);margin-bottom:6px;font-weight:600;}
+.req-form input,.req-form textarea{width:100%;font-family:var(--f-ui);font-size:14px;color:var(--c-ink);background:#fff;border:1px solid var(--c-line);border-radius:6px;padding:10px 12px;}
+.req-form input:focus,.req-form textarea:focus{outline:none;border-color:var(--c-gold);}
+.req-form .langs{display:flex;gap:18px;flex-wrap:wrap;}
+.req-form .langs label{display:inline-flex;align-items:center;gap:6px;font-family:var(--f-ui);font-size:13.5px;color:var(--c-ink);}
+.req-form .product{background:#f7eed7;border:1px dashed var(--c-gold);border-radius:6px;padding:11px 13px;font-family:var(--f-ui);font-size:14px;color:var(--c-deep);font-weight:600;}
+.req-btn{margin-top:4px;font-family:var(--f-ui);font-size:14px;font-weight:600;letter-spacing:.06em;background:var(--c-gold-deep);color:#fff;border:none;border-radius:6px;padding:14px 30px;min-height:48px;cursor:pointer;transition:.2s;}
+.req-btn:hover{background:#54420f;}
+.req-ok{display:none;margin-top:16px;padding:13px 16px;background:#eef2ec;border:1px solid var(--c-moss);border-radius:6px;font-family:var(--f-ui);font-size:13.5px;color:var(--c-deep);}
+.req-ok.show{display:block;}
+.req-note{font-family:var(--f-ui);font-size:11.5px;color:#867872;margin-top:12px;line-height:1.6;}
+@media(max-width:640px){.req-form{grid-template-columns:1fr;}.req-card{padding:24px 20px;}.req-form input,.req-form textarea{font-size:16px;}.req-btn{width:100%;}.req-form .langs{gap:10px 18px;}.req-form .langs label{padding:3px 0;min-height:32px;}}
+</style>
+
+<!--REQFORM-->
+<section class="section section-narrow" id="request" style="background:var(--c-paper);border-top:1px solid var(--c-line-soft);">
+  <div class="container">
+    <div class="req-card">
+      <span class="eyebrow"><span class="en">Request a booking</span><span class="ja">予約リクエスト</span><span class="fr">Demande de réservation</span><span class="zh">預約申請</span></span>
+      <h2 class="section-title"><span class="en">Request this experience</span><span class="ja">この体験を予約リクエスト</span><span class="fr">Demander cette expérience</span><span class="zh">申請此體驗</span></h2>
+      <p class="req-lead">
+        <span class="en">We'll confirm availability and net rates, then your PLAT YONEZAWA contact will get back to you. Trade-only, request-based — not an instant checkout.</span>
+        <span class="ja">在庫とネットレートを確認のうえ、担当より折り返します。トレード限定・リクエスト型（即時決済ではありません）。</span>
+        <span class="fr">Nous confirmons la disponibilité et les tarifs nets, puis votre interlocuteur PLAT YONEZAWA vous recontacte. Réservé aux professionnels, sur demande — pas de paiement immédiat.</span>
+        <span class="zh">我們將確認庫存與淨價後，由 PLAT YONEZAWA 專屬窗口與您聯繫。僅限業界・採申請制（非即時付款）。</span>
+      </p>
+
+      <!-- ▼ HubSpot 有効化時：このコメントを解除しフォームを埋込／下の暫定フォームは削除
+      <script charset="utf-8" src="//js.hsforms.net/forms/embed/v2.js"></script>
+      <div class="hs-form-frame" data-region="na1" data-portal-id="PORTAL_ID" data-form-id="FORM_ID"></div>
+      ▲ HubSpot埋込ここまで -->
+
+      <form class="req-form" id="reqForm" autocomplete="off" novalidate>
+        <div>
+          <label class="fl"><span class="en">Company</span><span class="ja">会社名</span><span class="fr">Société</span><span class="zh">公司名稱</span></label>
+          <input id="rq-company" type="text" required>
+        </div>
+        <div>
+          <label class="fl"><span class="en">Contact name</span><span class="ja">ご担当者名</span><span class="fr">Nom du contact</span><span class="zh">聯絡人</span></label>
+          <input id="rq-name" type="text" required>
+        </div>
+        <div>
+          <label class="fl"><span class="en">Email</span><span class="ja">メール</span><span class="fr">E-mail</span><span class="zh">電子郵件</span></label>
+          <input id="rq-email" type="email" required>
+        </div>
+        <div>
+          <label class="fl"><span class="en">Preferred date</span><span class="ja">希望日</span><span class="fr">Date souhaitée</span><span class="zh">希望日期</span></label>
+          <input id="rq-date" type="date">
+        </div>
+        <div>
+          <label class="fl"><span class="en">Number of guests</span><span class="ja">人数</span><span class="fr">Nombre de personnes</span><span class="zh">人數</span></label>
+          <input id="rq-pax" type="number" min="1" inputmode="numeric">
+        </div>
+        <div>
+          <label class="fl"><span class="en">Preferred language</span><span class="ja">希望言語</span><span class="fr">Langue souhaitée</span><span class="zh">希望語言</span></label>
+          <div class="langs">
+            <label><input type="checkbox" name="rq-lang" value="English"> English</label>
+            <label><input type="checkbox" name="rq-lang" value="Français"> Français</label>
+            <label><input type="checkbox" name="rq-lang" value="繁體中文"> 繁體中文</label>
+            <label><input type="checkbox" name="rq-lang" value="日本語"> 日本語</label>
+          </div>
+        </div>
+        <div class="full">
+          <label class="fl"><span class="en">Product (auto)</span><span class="ja">対象商品（自動）</span><span class="fr">Produit (auto)</span><span class="zh">對象商品（自動）</span></label>
+          <div class="product">S-TKO-01 — Sake / 東光 (Toko)</div>
+        </div>
+        <div class="full">
+          <label class="fl"><span class="en">Message (optional)</span><span class="ja">メッセージ（任意）</span><span class="fr">Message (facultatif)</span><span class="zh">訊息（選填）</span></label>
+          <textarea id="rq-msg" rows="3"></textarea>
+        </div>
+        <div class="full">
+          <button class="req-btn" type="submit"><span class="en">Send request</span><span class="ja">予約リクエストを送信</span><span class="fr">Envoyer la demande</span><span class="zh">送出申請</span></button>
+        </div>
+      </form>
+
+      <div class="req-ok" id="reqOk">
+        <span class="en">Thank you — your request has been prepared. Your email app will open; please send it, or write to info1@plat-yonezawa.jp. We'll be in touch.</span>
+        <span class="ja">ありがとうございます。メールアプリが開きますので送信してください（または info1@plat-yonezawa.jp まで）。担当より折り返します。</span>
+      </div>
+      <p class="req-note">
+        <span class="en">Form connection in progress (HubSpot). We also accept requests by email: info1@plat-yonezawa.jp</span>
+        <span class="ja">フォーム接続（HubSpot）準備中です。メールでも受け付けます：info1@plat-yonezawa.jp</span>
+      </p>
+    </div>
+  </div>
+</section>
+
 <footer>
 <div class="container footer-inner">
 <div class="col"><strong>PLAT YONEZAWA INC.</strong><span class="en">Yonezawa, Yamagata, Japan · plat-yonezawa.jp</span><span class="ja">山形県米沢市 · plat-yonezawa.jp</span><span class="fr">Yonezawa, Yamagata, Japon · plat-yonezawa.jp</span><span class="zh">日本山形縣米澤市 · plat-yonezawa.jp</span></div>
@@ -614,6 +727,21 @@ const buttons = document.querySelectorAll('.lang-switcher button[data-lang]');
       saved=n.indexOf('fr')===0?'fr':n.indexOf('zh')===0?'zh':'en';}
     applyLang(saved);
   })();
+</script>
+
+<script>
+(function(){
+  var f=document.getElementById('reqForm'); if(!f) return;
+  f.addEventListener('submit',function(e){
+    e.preventDefault();
+    var g=function(id){var el=document.getElementById(id);return el?(el.value||'').trim():'';};
+    var langs=[].slice.call(document.querySelectorAll('input[name="rq-lang"]:checked')).map(function(x){return x.value;}).join(', ');
+    document.getElementById('reqOk').classList.add('show');
+    var subj=encodeURIComponent('[Booking request] S-TKO-01 / '+g('rq-company'));
+    var body=encodeURIComponent('Product: S-TKO-01 — Sake / 東光 (Toko)\nCompany: '+g('rq-company')+'\nContact: '+g('rq-name')+'\nEmail: '+g('rq-email')+'\nPreferred date: '+g('rq-date')+'\nGuests: '+g('rq-pax')+'\nLanguages: '+langs+'\nMessage:\n'+g('rq-msg')+'\n');
+    setTimeout(function(){ window.location.href='mailto:info1@plat-yonezawa.jp?subject='+subj+'&body='+body; },350);
+  });
+})();
 </script>
 </body>
 </html>
