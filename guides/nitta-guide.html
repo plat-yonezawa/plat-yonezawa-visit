@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow">
+<title>新田織物 コンテンツガイド｜PLAT YONEZAWA</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Shippori+Mincho:wght@400;500;600;700&family=Noto+Serif+TC:wght@500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fbf6f1;--paper:#f3ede2;--card:#fff;--ink:#2b201d;--muted:#7f7166;--deep:#2e1f1c;--deep2:#3a2a24;--gold:#a8893a;--gold-deep:#6b5418;--gold-soft:#d4c084;--line:#e4d8c8;--accent:#a83a2b;
+--f-ja:'Shippori Mincho',serif;--f-en:'Cormorant Garamond','Shippori Mincho',serif;--f-tw:'Noto Serif TC',serif;--f-ui:'Inter','Shippori Mincho',sans-serif;}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-ja);line-height:1.85;font-size:16px}
+.wrap{max-width:1040px;margin:0 auto;padding:0 24px}
+/* language visibility (EN fallback via JS) */
+.en,.fr,.tw,.j,.e{}
+.fr,.tw{display:none}
+body.lang-fr .fr{display:initial}body.lang-fr .en{display:none}
+body.lang-tw .tw{display:initial}body.lang-tw .en{display:none}
+body.lang-tw{font-family:var(--f-tw)}
+/* mode visibility */
+body.mode-visitor .guide-only{display:none}
+body.mode-guide .visitor-only{display:none}
+/* switcher (image準拠・2段) */
+.sw{position:sticky;top:0;z-index:50}
+.sw .brandbar{background:var(--deep);display:flex;align-items:center;gap:12px;padding:8px 24px}
+.sw .brand{font-family:var(--f-en);font-weight:600;letter-spacing:.2em;color:#f3e9dd;font-size:14px}
+.sw .badge{font-family:var(--f-ui);font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#fff;background:var(--accent);padding:3px 8px;border-radius:999px}
+.sw .row{display:flex;background:var(--deep2)}
+.sw .row.langs{background:var(--deep)}
+.sw button{flex:1;background:transparent;border:none;color:rgba(243,233,221,.7);font-family:var(--f-ui);font-size:14px;padding:13px 8px;cursor:pointer;border-bottom:3px solid transparent;letter-spacing:.04em}
+.sw .row.langs button{border-bottom-color:transparent}
+.sw button:hover{color:#fff}
+.sw button.active{color:#fff;border-bottom-color:var(--gold-soft)}
+.sw .row.modes button.active{border-bottom-color:var(--accent)}
+.sw button.hide{display:none}
+.sw .lock{font-size:12px;opacity:.85}
+/* hero */
+.hero{background:linear-gradient(160deg,#2e1f1c,#1c100e);color:#f3e9dd;padding:44px 0 40px}
+.hero .eyebrow{font-family:var(--f-ui);letter-spacing:.28em;text-transform:uppercase;font-size:11px;color:var(--gold-soft)}
+.hero h1{font-weight:600;font-size:32px;margin:10px 0 6px;color:#fff}
+.hero h1.en,.hero h1.fr{font-family:var(--f-en)} .hero h1.tw{font-family:var(--f-tw)}
+.hero .sub{font-family:var(--f-en);font-style:italic;color:var(--gold-soft);font-size:18px}
+/* visitor */
+.vsec{background:#fff;border:1px solid var(--line);border-radius:12px;padding:22px 26px;margin:16px 0}
+.vsec h3{font-family:var(--f-en);font-size:23px;color:var(--deep);margin-bottom:8px}
+body.lang-tw .vsec h3{font-family:var(--f-tw)}
+.vsec p{font-family:var(--f-en);font-size:16.5px}
+body.lang-tw .vsec p{font-family:var(--f-tw)}
+.vcta{background:var(--deep);color:#f3e9dd;border-radius:12px;padding:26px;margin:18px 0;text-align:center}
+.vcta a{display:inline-block;margin-top:12px;font-family:var(--f-ui);font-size:13px;font-weight:600;background:var(--gold-deep);color:#fff;padding:13px 28px;border-radius:6px;text-decoration:none;min-height:48px;line-height:22px}
+/* guide gate */
+.gate{background:#fff;border:1px solid var(--line);border-radius:14px;padding:40px 30px;text-align:center;margin:26px 0;max-width:460px;margin-left:auto;margin-right:auto}
+body.guide-unlocked .gate{display:none}
+body:not(.guide-unlocked) .guide-body{display:none}
+.gate .lockicon{font-size:40px}
+.gate h2{font-family:var(--f-ja);font-size:20px;color:var(--deep);margin:8px 0 6px}
+.gate p{font-size:13px;color:var(--muted);margin-bottom:18px}
+.gate input{width:100%;font-family:var(--f-ui);font-size:16px;padding:12px 14px;border:1.5px solid var(--line);border-radius:8px;margin-bottom:12px}
+.gate button{width:100%;font-family:var(--f-ui);font-size:14px;font-weight:700;background:var(--deep);color:var(--gold-soft);border:none;border-radius:8px;padding:13px;cursor:pointer;min-height:48px}
+.gate .note{font-size:11px;color:#a89;margin-top:12px}
+/* guide body */
+h2.sec{font-family:var(--f-ja);font-size:23px;color:var(--deep);margin:40px 0 14px;padding-bottom:8px;border-bottom:2px solid var(--gold-soft)}
+.info{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--gold);border-radius:8px;padding:16px 20px;margin:22px 0;font-size:14px}
+.info b{color:var(--deep)}
+table{width:100%;border-collapse:collapse;font-size:13.5px;background:#fff;border:1px solid var(--line);border-radius:8px;overflow:hidden;margin:10px 0}
+th,td{text-align:left;padding:9px 11px;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:var(--paper);font-family:var(--f-ui);font-size:11px;color:var(--muted);text-transform:uppercase}
+td.sub,.en2{color:var(--muted);font-size:12px;font-family:var(--f-ui)} .en2{margin-top:3px} .e2{font-family:var(--f-ui);font-size:13px}
+.scenenav{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:14px 16px;margin:16px 0}
+.scenenav a{display:inline-block;font-family:var(--f-ui);font-size:12px;color:var(--deep);background:#fff;border:1px solid var(--line);border-radius:6px;padding:4px 9px;margin:3px 3px 0 0;text-decoration:none}
+.scene{background:#fff;border:1px solid var(--line);border-radius:12px;padding:22px 24px;margin:14px 0;scroll-margin-top:120px}
+.scene-head{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;border-bottom:1px solid var(--line);padding-bottom:10px;margin-bottom:12px}
+.snum{font-family:var(--f-en);font-size:28px;color:var(--gold)}
+.scene-head h3{font-family:var(--f-ja);font-size:19px;color:var(--deep);flex:1}
+.mins{font-family:var(--f-ui);font-size:11px;color:var(--muted)}
+.note{background:#f7f3ea;border:1px solid var(--line);border-radius:8px;padding:9px 13px;margin-bottom:12px;font-size:13px}
+.note .lbl,.tip .lbl{display:block;font-family:var(--f-ui);font-size:10px;font-weight:700;color:var(--muted);margin-bottom:2px;text-transform:uppercase}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.col .flag{font-family:var(--f-ui);font-size:11px;font-weight:700;color:var(--muted);margin-bottom:6px;border-bottom:1px dashed var(--line);padding-bottom:3px}
+.col.e{font-family:var(--f-en);font-size:15px} .col p{margin-bottom:11px}
+.tip{background:#fbf3dc;border:1px solid var(--gold-soft);border-radius:8px;padding:9px 13px;margin-top:12px;font-size:12.5px;color:var(--gold-deep)}
+@media(max-width:800px){.cols{grid-template-columns:1fr}}
+footer{background:var(--deep);color:rgba(243,233,221,.7);font-family:var(--f-ui);font-size:12px;text-align:center;padding:24px;margin-top:38px}
+</style>
+</head>
+<body class="mode-visitor lang-en">
+<div class="sw">
+  <div class="brandbar"><span class="brand">PLAT YONEZAWA</span><span class="badge">Nitta Textile</span></div>
+  <div class="row langs">
+    <button data-lang="ja" data-modes="guide">🇯🇵 日本語</button>
+    <button data-lang="en" data-modes="visitor,guide" class="active">🇬🇧 English</button>
+    <button data-lang="fr" data-modes="visitor">🇫🇷 Français</button>
+    <button data-lang="tw" data-modes="visitor">🇹🇼 繁體中文</button>
+  </div>
+  <div class="row modes">
+    <button data-mode="visitor" class="active">🧭 <span style="margin-left:4px">Visitors</span></button>
+    <button data-mode="guide">🔑 <span style="margin-left:4px">Staff Only — Guide Team</span></button>
+  </div>
+</div>
+
+<header class="hero"><div class="wrap">
+  <div class="eyebrow">Nitta Textile · 米沢織・紅花染</div>
+  <h1 class="en">Nitta Textile</h1><h1 class="fr">Nitta Textile</h1><h1 class="tw">新田織物</h1>
+  <div class="sub">Silk &amp; Safflower — a samurai family, weaving for five generations</div>
+</div></header>
+
+<div class="wrap">
+
+  <!-- ===== VISITOR (public) ===== -->
+  <div class="visitor-only">
+    <section class="vsec">
+  <h3><span class="en">A Samurai Family, Weaving for Five Generations</span><span class="fr">Une famille de samouraïs, cinq générations de tissage</span><span class="tw">武士家族，五代織藝傳承</span></h3>
+  <p><span class="en">For over 140 years, the Nitta family has woven silk in Yonezawa. Founded in 1884, we were originally a samurai family who turned to textiles when the age of the sword ended. This house, built in 1925, is over 100 years old — and the 4th and 5th generations still weave here today.</span><span class="fr">Depuis plus de 140 ans, la famille Nitta tisse la soie à Yonezawa. Fondée en 1884, notre famille était à l'origine une famille de samouraïs qui se tourna vers le textile à la fin de l'ère du sabre. Cette maison, bâtie en 1925, a plus de 100 ans — et les 4e et 5e générations y tissent encore aujourd'hui.</span><span class="tw">一百四十多年來，新田家族在米澤織就絲綢。我們1884年創業，原是武士家族，於刀劍時代結束後轉投紡織。這棟宅邸建於1925年，已逾百年——第四代與第五代至今仍在此織布。</span></p>
+</section>
+<section class="vsec">
+  <h3><span class="en">The Lord Who Turned Poverty into Craft</span><span class="fr">Le seigneur qui fit de la pauvreté un art</span><span class="tw">化貧困為工藝的藩主</span></h3>
+  <p><span class="en">Yonezawa was once a poor domain. Its 9th lord, Yozan Uesugi, encouraged his samurai to take up crafts — weaving, dyeing, papermaking — that could be done at home. Silk weaving became the town's soul, and 250 years later that spirit still lives here.</span><span class="fr">Yonezawa fut jadis un domaine pauvre. Son 9e seigneur, Yozan Uesugi, encouragea ses samouraïs à pratiquer des métiers — tissage, teinture, papier — réalisables à la maison. Le tissage de la soie devint l'âme de la ville, et 250 ans plus tard cet esprit demeure.</span><span class="tw">米澤昔為貧困之藩。第九代藩主上杉鷹山鼓勵武士從事可在家中進行的工藝——織布、染色、造紙。絲織遂成城市之魂，二百五十年後，這份精神依然長存。</span></p>
+</section>
+<section class="vsec">
+  <h3><span class="en">Benibana — The Red of Yamagata</span><span class="fr">Benibana — le rouge de Yamagata</span><span class="tw">紅花——山形之紅</span></h3>
+  <p><span class="en">Our signature is benibana (safflower) dyeing — a red once as valuable as gold. Revived by the family in the 1960s, it is dyed only in winter, when the cold brings out the most beautiful red. From one flower we draw red and yellow, and with other plants, green and purple.</span><span class="fr">Notre signature est la teinture au benibana (carthame) — un rouge jadis aussi précieux que l'or. Ressuscitée dans les années 1960, elle ne se teint qu'en hiver, quand le froid révèle le plus beau rouge. D'une seule fleur naissent le rouge et le jaune, et avec d'autres plantes, le vert et le violet.</span><span class="tw">我們的招牌是紅花染——一種曾與黃金等值的紅。家族於1960年代復興此技，僅於冬季染製，愈寒冷，紅色愈美。一朵花可取紅與黃，並與其他植物調出綠與紫。</span></p>
+</section>
+<section class="vsec">
+  <h3><span class="en">What You'll Experience</span><span class="fr">Ce que vous vivrez</span><span class="tw">您將體驗的</span></h3>
+  <p><span class="en">A private visit into a living workshop: a four-season garden seen through 100-year-old glass; a pillar-less tea room co-created with media artist Yoichi Ochiai; a century-old Jacquard loom still running; and dyeing your own safflower handkerchief — one of a kind in the world.</span><span class="fr">Une visite privée au cœur d'un atelier vivant : un jardin aux quatre saisons vu à travers un verre centenaire ; un salon de thé sans pilier, co-créé avec l'artiste Yoichi Ochiai ; un métier Jacquard centenaire toujours en marche ; et la teinture de votre propre mouchoir au carthame — unique au monde.</span><span class="tw">一場走進活工坊的私人造訪：透過百年玻璃眺望的四季庭園；與媒體藝術家落合陽一共創的無柱茶室；仍在運轉的百年提花織機；並親手染製專屬您的紅花手帕——世上僅此一件。</span></p>
+</section>
+<section class="vsec">
+  <h3><span class="en">Good to Know</span><span class="fr">Bon à savoir</span><span class="tw">實用資訊</span></h3>
+  <p><span class="en">Duration about 60–90 minutes. Handkerchief dyeing is available year-round. Kimono and obi are made to measure. Each September, Yonezawa opens its workshops for the “Open Factory” event.</span><span class="fr">Durée : environ 60 à 90 minutes. La teinture de mouchoir est proposée toute l'année. Kimonos et obis sont faits sur mesure. Chaque septembre, Yonezawa ouvre ses ateliers lors de l'« Open Factory ».</span><span class="tw">體驗約60〜90分鐘。手帕染色全年皆可。和服與腰帶皆為量身訂製。每年九月，米澤舉辦「Open Factory」開放工坊活動。</span></p>
+</section>
+    <div class="vcta">
+      <div style="font-family:var(--f-ui);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-soft)">For the travel trade</div>
+      <div style="font-family:var(--f-en);font-size:22px;margin:6px 0 2px">Bring this experience to your clients</div>
+      <a href="/tariff/tariff_C-NTA-01.html"><span class="en">View the tariff →</span><span class="fr">Voir le tarif →</span><span class="tw">查看報價 →</span></a>
+    </div>
+  </div>
+
+  <!-- ===== GUIDE (auth) ===== -->
+  <div class="guide-only">
+    <!-- 暫定ゲート（クライアント側・叩き台）：本番は Cloudflare Access（メール認証）に置換 -->
+    <div class="gate">
+      <div class="lockicon">🔑</div>
+      <h2>Staff Only — Guide Team</h2>
+      <p>For guide-team members only. Register your email to view.<br><span style="font-size:12px">ガイドチーム専用です。メールアドレスを登録してご覧ください。</span></p>
+      <form id="gateForm" autocomplete="off">
+        <input id="gEmail" type="email" placeholder="you@example.com" required>
+        <button type="submit">Access the guide →</button>
+      </form>
+      <div class="note">Interim gate (prototype): client-side registration for now. Production will be protected by <b>Cloudflare Access</b> (email login · 3-hour session · email logged to CRM).</div>
+    </div>
+
+    <div class="guide-body">
+      <div class="info">
+        <div><b>施設</b>：株式会社新田（米沢織・紅花染め工房／米沢市／明治17年〈1884年〉創業）</div>
+        <div><b>想定時間</b>：約60〜90分（フル）／30分（ハイライト）　<b>構成</b>：玄関→ギャラリー→お茶室→お庭→紅花染め体験→2階工場→ショールーム→お見送り</div>
+        <div><b>使い方</b>：日本語＝新田さん本人用／英語＝ガイド・通訳用。〔 〕＝ステージディレクション。仏・繁中は下部「現場フレーズ集」を参照。</div>
+      </div>
+      <h2 class="sec">👥 登場人物（新田家）</h2>
+      <table><tr><th>世代</th><th>お名前</th><th>役職</th><th>役割</th></tr>
+      <tr><td>3代目</td><td><b>新田 秀治・富子</b></td><td>創業者の孫</td><td>紅花染め復興／紅花紬発表(1966)</td></tr>
+      <tr><td>4代目</td><td><b>新田 英行</b></td><td>代表取締役会長</td><td>本ガイドの語り手</td></tr>
+      <tr><td>5代目</td><td><b>新田 源太郎</b></td><td>代表取締役社長</td><td>現役の作り手／落合陽一氏コラボ</td></tr></table>
+
+      <h2 class="sec">🗣 現場フレーズ集（仏・繁中の言い回し）</h2>
+      <table><tr><th>場面</th><th>English</th><th>Français</th><th>繁體中文</th></tr><tr><td>ようこそ／歓迎</td><td class="e2">Welcome to Nitta.</td><td class="e2">Bienvenue chez Nitta.</td><td class="e2">歡迎光臨新田。</td></tr><tr><td>遠路のお礼</td><td class="e2">Thank you for coming all the way to Yonezawa.</td><td class="e2">Merci d'être venus jusqu'à Yonezawa.</td><td class="e2">感謝您遠道而來米澤。</td></tr><tr><td>ごゆっくり</td><td class="e2">Please take your time.</td><td class="e2">Prenez votre temps.</td><td class="e2">請慢慢參觀。</td></tr><tr><td>これは紅花です</td><td class="e2">This is benibana — safflower.</td><td class="e2">Ceci est du benibana — du carthame.</td><td class="e2">這是紅花。</td></tr><tr><td>金と同じ価値</td><td class="e2">Once as valuable as gold.</td><td class="e2">Jadis aussi précieux que l'or.</td><td class="e2">曾與黃金等值。</td></tr><tr><td>世界に1枚</td><td class="e2">One of a kind in the world.</td><td class="e2">Unique au monde.</td><td class="e2">世上僅此一件。</td></tr><tr><td>またどうぞ</td><td class="e2">Please come again anytime.</td><td class="e2">Revenez quand vous voulez.</td><td class="e2">歡迎再度光臨。</td></tr></table>
+
+      <div class="scenenav"><a href="#s1">01 玄関・ご挨拶</a><a href="#s2">02 ギャラリー — 上杉鷹山の物語</a><a href="#s3">03 米沢織のヒット商品「かみしも生地」</a><a href="#s4">04 絹の現在 — どこから来るのか？</a><a href="#s5">05 江戸の手仕事から明治の工場へ</a><a href="#s6">06 お茶室で一服</a><a href="#s7">07 お庭 — 四季を表現した日本庭園</a><a href="#s8">08 紅花染め体験 — 山形の赤</a><a href="#s9">09 2階工場 — 染色記録と糸繰り</a><a href="#s10">10 ジャガード織機と紋紙の歴史</a><a href="#s11">11 帯のデザイン — 1本5.5m、5本まとめて織る</a><a href="#s12">12 ショールーム — 商品と海外展開</a><a href="#s13">13 オープンファクトリーと業界の今</a><a href="#s14">14 お見送り</a></div>
+      <h2 class="sec">🎬 シーン別スクリプト</h2>
+      <section class="scene" id="s1">
+  <div class="scene-head"><span class="snum">01</span><h3>玄関・ご挨拶</h3><span class="mins">標準 3分 ／ ハイライト 2分</span></div>
+  <div class="note"><span class="lbl">動線・準備</span>玄関で靴を脱いでいただく（スリッパ）。「足のままで大丈夫ですか？」と一声。ご年配には腰掛けを用意。</div>
+  <div class="cols">
+    <div class="col j"><div class="flag">🇯🇵 日本語（新田さん）</div><p>新田です。本日は遠いところ、ようこそお越しくださいました。私、<b>新田英行</b>と申します。会社では会長を務めております。</p>
+<p>このお家は<b>1925年（大正14年）</b>に建てられたもので、<b>今年でちょうど築101年</b>になります。私で<b>4代目</b>、いま大阪に出ております息子の<b>源太郎</b>が<b>5代目</b>の社長として後を継いでくれています。</p>
+<p>もともと、うちは<b>侍の家系</b>です。約120年前、明治政府が「武士はもう要らない」と決めたときに、この織物ビジネスに完全に切り替えました。会社としては<b>明治17年（1884年）創業</b>、それ以来ずっとこの場所で織物を続けています。</p>
+<p>今日は、米沢の織物の歴史と、うちで守っている<b>紅花染め</b>という技術をご紹介します。ゆっくり見ていってください。</p></div>
+    <div class="col e"><div class="flag">🇬🇧 English (guide)</div><p>Welcome to Nitta. Thank you so much for coming all the way to Yonezawa. My name is <b>Hideyuki Nitta</b>, the <b>4th-generation Chairman</b>.</p>
+<p>This house was built in <b>1925 — exactly 101 years old this year</b>. My son <b>Gentaro Nitta</b>, currently based in Osaka, is the <b>5th-generation President</b>, carrying on the business.</p>
+<p>Our family was originally a <b>samurai family</b>. About 120 years ago, when the Meiji government decided Japan no longer needed samurai, our family switched completely to this textile business. The company was officially founded in <b>1884 (Meiji 17)</b>, and we have been weaving in this place ever since.</p>
+<p>Today, I'd like to share the history of Yonezawa textiles and the natural dyeing technique called <b>benibana-zome (safflower dyeing)</b> that our family has preserved. Please take your time.</p></div>
+  </div>
+  <div class="tip"><span class="lbl">💡 ガイドTips</span>「サムライ家系」は欧米客に必ず刺さるので最初に言う。明治政府＝1868年、廃刀令＝1876年（120年前ストーリーの根拠）。</div>
+</section>
+<section class="scene" id="s2">
+  <div class="scene-head"><span class="snum">02</span><h3>ギャラリー — 上杉鷹山の物語</h3><span class="mins">標準 8分 ／ ハイライト 4分</span></div>
+  <div class="note"><span class="lbl">動線・準備</span>鷹山公の肖像・展示物の前へ。養蚕の繭・生糸・綿状シルクをトレイで提示。袴のミニチュア/実物も。</div>
+  <div class="cols">
+    <div class="col j"><div class="flag">🇯🇵 日本語（新田さん）</div><p>こちらが米沢藩9代藩主、<b>上杉鷹山公</b>です。この方を知っていただくと、米沢のものづくりがすべてつながります。</p>
+<p>米沢藩は江戸時代、非常に貧しい藩でした。16世紀末の大きな内戦で上杉家は「<b>負け組</b>」に入り、徳川幕府に領地を大きく減らされた。税収は減ったのに家臣の数は多い、という苦しい状態でした。</p>
+<p>そこで鷹山公は武士に「<b>刀以外の仕事</b>」を奨励しました。<b>織物・農業・漆器・和紙・刃物</b>——家の中でやれる仕事だから、奥さんや家族も手伝える。武士のプライドを傷つけずに副業ができるようにした。これが米沢のものづくりの原点です。</p>
+<p>特に力を入れたのが<b>養蚕と織物</b>。〔繭・生糸を見せる〕これが「<b>おかいこさん</b>」と呼ばれる蚕の繭で、ここから糸を取り、綿状にして絹糸に引き伸ばします。桑を植え、蚕を飼い、糸を取り、織物にする——という一連の産業を米沢に根付かせました。</p>
+<p><b>250年経った今</b>も、鷹山公が始めた多くの産業がこの街に残っています。私たちはそのいちばん端っこにいる、というわけです。</p></div>
+    <div class="col e"><div class="flag">🇬🇧 English (guide)</div><p>This is <b>Lord Yozan Uesugi</b>, the 9th-generation lord of the Yonezawa domain. If you understand this one person, everything about Yonezawa craftsmanship makes sense.</p>
+<p>During the Edo period, Yonezawa was a very poor domain. After a major civil war at the end of the 16th century, the Uesugi clan ended up on the <b>losing side</b>. The shogunate cut our land sharply, so tax income dropped — but the number of samurai we had to feed stayed the same. The domain was almost bankrupt.</p>
+<p>So Lord Yozan encouraged his samurai to take up <b>work other than the sword</b>: weaving, agriculture, lacquerware, paper-making, knife-making — anything that could be done <b>inside the house</b>, so the family could help. It let them earn a living without losing samurai pride. This is the origin of craftsmanship in Yonezawa.</p>
+<p>He focused on <b>silk farming and weaving</b>. 〔Show cocoons / raw silk〕 These are silkworm cocoons — we call them “okaikosan.” We unravel the cocoon, fluff it like cotton, and pull it into silk thread. Lord Yozan built the entire silk industry from the ground up.</p>
+<p><b>250 years later</b>, many of the industries he started are still alive in this town. Our family is one of the last pieces of that puzzle.</p></div>
+  </div>
+  <div class="tip"><span class="lbl">💡 ガイドTips</span>“Lord Yozan Uesugi” と必ず "Lord" を付ける。「負け組」"losing side" は笑いを取れる定番。</div>
+</section>
+<section class="scene" id="s3">
+  <div class="scene-head"><span class="snum">03</span><h3>米沢織のヒット商品「かみしも生地」</h3><span class="mins">標準 7分 ／ ハイライト 3分</span></div>
+  <div class="note"><span class="lbl">動線・準備</span>〔本物の袴／機械織りと手織りのサンプル〕を提示。縦糸と横糸を別の色で示せると尚良し。</div>
+  <div class="cols">
+    <div class="col j"><div class="flag">🇯🇵 日本語（新田さん）</div><p>これが武士の履いた<b>袴（はかま）</b>です。〔袴を広げる〕米沢で大ヒットしたのは、この袴に使う「<b>かみしも生地</b>」でした。</p>
+<p>もともと、かみしもの生地は<b>縦も横も麻</b>で、ゴワゴワして着づらかった。鷹山公が絹を奨励した時、うちの初代が「<b>縦糸を絹に変えてみたら？</b>」と考えたんです。</p>
+<p>すると<b>縦は絹、横は麻</b>の組み合わせがピタッとはまった。絹のしなやかさと麻の腰が両立して着やすい袴になり、これが大ヒット。「<b>かみしもの生地といえば米沢</b>」と全国に知られました。</p>
+<p>うちの初代は、まさにそのかみしもを織って、この家を建てたんです。〔家を見回す〕〔機械織りと手織りを比べる〕こちらが<b>機械織り</b>、こちらが<b>手織り</b>。手織りは今、私の息子が織っています。</p></div>
+    <div class="col e"><div class="flag">🇬🇧 English (guide)</div><p>This is a <b>hakama</b>, the formal trouser-skirt samurai wore. 〔Show hakama〕 The textile that made Yonezawa famous nationally was the fabric for these hakama, called <b>“kamishimo-jiji.”</b></p>
+<p>Originally kamishimo used <b>hemp for both warp and weft</b> — stiff and scratchy. When Lord Yozan promoted silk, our <b>1st-generation ancestor</b> had an idea: <i>“What if we replace the vertical thread with silk?”</i></p>
+<p><b>Silk for the warp, hemp for the weft</b> — the result was magic. Softness of silk plus the firm body of hemp. It became a huge hit; “kamishimo from Yonezawa” became the gold standard nationwide.</p>
+<p>Our 1st-generation ancestor built <b>this very house</b> with that income. 〔Gesture around〕 〔Compare samples〕 This is <b>machine-woven</b>; this one is <b>hand-woven</b> — by my son.</p></div>
+  </div>
+  
+</section>
+<section class="scene" id="s4">
+  <div class="scene-head"><span class="snum">04</span><h3>絹の現在 — どこから来るのか？</h3><span class="mins">標準 3分 ／ ハイライト スキップ</span></div>
+  
+  <div class="cols">
+    <div class="col j"><div class="flag">🇯🇵 日本語（新田さん）</div><p>よく聞かれます——「絹は今もここで作っているんですか？」と。昔は米沢でも養蚕していましたが、今はほとんど輸入です。</p>
+<p>内訳は概ね：<b>中国 約80%</b>／ブラジル（「ブラジルタックス」）数%／インド（<b>野蚕＝オーガニックシルク</b>）一部／タイ 一部／<b>日本産はわずか10%程度</b>。</p>
+<p>中国産が圧倒的。ブラジルは高品質。インドの<b>野蚕（やさん）</b>は自然の中で育つ蚕の糸でオーガニックシルクとして珍重されます。日本産は1割ほど。寂しいですが、これが現実です。</p></div>
+    <div class="col e"><div class="flag">🇬🇧 English (guide)</div><p>A common question: <i>“Is the silk still produced here?”</i> We used to raise silkworms in Yonezawa; today most silk is imported.</p>
+<p>Roughly: <b>China ~80%</b> / Brazil (“Brazil-tax”) a few % / India (<b>wild silk = organic</b>) small share / Thailand small share / <b>Japan only ~10%</b>.</p>
+<p>China dominates; Brazilian silk is high quality. From India comes <b>wild silk (yasan)</b>, harvested in nature and prized as organic silk. Japanese silk is only about 10% today — a bit sad, but that's the reality.</p></div>
+  </div>
+  <div class="tip"><span class="lbl">💡 ガイドTips</span>インドネシア等のお客様には「御国にも野蚕がありますか？」と振ると会話が弾む。</div>
+</section>
+<section class="scene" id="s5">
+  <div class="scene-head"><span class="snum">05</span><h3>江戸の手仕事から明治の工場へ</h3><span class="mins">標準 5分 ／ ハイライト 2分</span></div>
+  
+  <div class="cols">
+    <div class="col j"><div class="flag">🇯🇵 日本語（新田さん）</div><p>米沢の面白さは、<b>侍の奥さんや娘さんがものづくりをした</b>点です。家の中で機を織っていた。これが米沢の特徴です。</p>
+<p>工場形式に変わったのは<b>明治時代</b>——だいたい150年前。最初は手織りの工場、今は<b>モーター付きの機械</b>です。うちの工場は<b>明治17年（141年前）</b>に正式スタート。皆で織機を持ち寄り本格的な工場にしました。</p>
+<p>〔工場を指して〕後ほど2階をお見せします。今日はお休みで機械の音はしませんが、珍しい<b>「静かな工場」</b>を見ていただけます。</p></div>
+    <div class="col e"><div class="flag">🇬🇧 English (guide)</div><p>What is unique about Yonezawa is that <b>the wives and daughters of samurai families</b> were the actual makers, weaving inside the house.</p>
+<p>It shifted to a <b>factory format in the Meiji era</b> — about 150 years ago. First hand-looms, today motorized looms. Our factory officially started in <b>Meiji 17 (141 years ago)</b>, when people gathered their looms into a proper factory.</p>
+<p>〔Point to workshop〕 I'll show you the 2nd floor later. Today it's on holiday, so no machine noise — but you'll see something rare: a <b>silent factory</b>.</p></div>
+  </div>
+  <div class="tip"><span class="lbl">💡 ガイドTips</span>平日訪問なら「動いている音をお聞きください」に差し替え。</div>
+</section>
+<section class="scene" id="s6">
+  <div class="scene-head"><span class="snum">06</span><h3>お茶室で一服</h3><span class="mins">標準 8分 ／ ハイライト スキップ／5分</span></div>
+  <div class="note"><span class="lbl">動線・準備</span>抹茶と和菓子を準備。座布団（紅花染めの絹）を指差せる位置に。</div>
+  <div class="cols">
+    <div class="col j"><div class="flag">🇯🇵 日本語（新田さん）</div><p>こちらで一服しましょう。これは「<b>和菓子</b>」、中身は「<b>あんこ</b>」（豆のペースト）。少し甘く、抹茶とよく合います。</p>
+<p>〔座布団を指す〕この座布団も<b>紅花で染めた絹</b>、緑の紐も紅花染めです。紅花からは赤だけでなく<b>黄</b>、他の植物と合わせて<b>緑や紫</b>も作れます。</p>
+<p>そしてこの<b>茶室</b>は、メディアアーティスト<b>落合陽一さん</b>（筑波大学准教授・「デジタルネイチャー」提唱）と5代目<b>源太郎</b>のコラボ作品「<b>ヌベルニ庵（Null-Beni-An / Nouvelle Néant）</b>」。「Craft × Tech 東北プロジェクト 2024」の一環で生まれました。</p>
+<p>この茶室は<b>柱がない</b>のが特徴。中央の天然木と四隅の<b>紅花染めの紐</b>の張力で全体を支える「<b>テンセグリティ構造</b>」。<b>置賜紬</b>の紅花染め生地でできた<b>移動式の茶室</b>で、うちの織物の見本にもなっています。</p></div>
+    <div class="col e"><div class="flag">🇬🇧 English (guide)</div><p>Let's take a short break with tea. This is <b>wagashi</b>, a traditional sweet; the filling is <b>anko</b> (sweet red bean paste), mildly sweet and balancing matcha well.</p>
+<p>〔Point at cushions〕 These cushions are <b>silk dyed with benibana (safflower)</b>; the green cord too. From safflower we get not only <b>red</b> but <b>yellow</b>, and combined with other plants, <b>green and purple</b>.</p>
+<p>This <b>tea room</b> is a collaboration between media artist <b>Yoichi Ochiai</b> (Assoc. Prof., University of Tsukuba; “Digital Nature”) and my son <b>Gentaro</b>, titled <b>“Null-Beni-An / Nouvelle Néant”</b> — from the <b>Craft × Tech Tohoku Project 2024</b>.</p>
+<p>It has <b>no pillars</b>: one central wooden piece plus four <b>benibana-dyed cords</b> hold it entirely by <b>tensegrity</b>. Made of <b>Oitama-tsumugi</b> dyed with safflower, it can be disassembled and moved — a living showroom of our textiles.</p></div>
+  </div>
+  <div class="tip"><span class="lbl">💡 ガイドTips</span>落合陽一は欧米・アジアの美術/テック界隈で通る。"Yoichi Ochiai" "Digital Nature" "Tsukuba" を覚えておく。</div>
+</section>
+<section class="scene" id="s7">
+  <div class="scene-head"><span class="snum">07</span><h3>お庭 — 四季を表現した日本庭園</h3><span class="mins">標準 10分 ／ ハイライト 3分</span></div>
+  <div class="note"><span class="lbl">動線・準備</span>縁側/応接間のガラス越しに池の見える場所へ。大正ガラスを指し示せる位置で。</div>
+  <div class="cols">
+    <div class="col j"><div class="flag">🇯🇵 日本語（新田さん）</div><p>建物はちょうど<b>築100年</b>。窓を見てください。少し歪んで見えるでしょう？これは「<b>大正ガラス（流し込みガラス）</b>」、当時の技法の<b>手作りガラス</b>です。子どもには「この辺で遊んじゃダメ」と言っています。</p>
+<p>このお庭は<b>日本の四季</b>を一つの空間で表現。〔池〕<b>海・湖</b>を表し、底から<b>井戸水</b>が湧き冬も水温一定で鯉が快適。〔大きな石〕<b>山石</b>＝山。〔別の石〕<b>川石</b>。松・もみじ・盆栽も意味があり、秋はもみじが真っ赤に。</p>
+<p>〔紅花の木〕これが<b>紅花の木</b>——<b>山形県の保護木</b>。普通は寺社の木が選ばれるので、民家の庭の木の指定は非常に珍しい。</p>
+<p>冬は雪が<b>1メートル30センチ</b>ほど。毎年雪囲いで守り、松は<b>職人が7月に手で</b>カットします。</p></div>
+    <div class="col e"><div class="flag">🇬🇧 English (guide)</div><p>This building is exactly <b>100 years old</b>. The window glass is a bit wavy, isn't it? This is <b>Taisho glass (poured glass)</b> — handmade glass of that era. I always tell the children not to play near it.</p>
+<p>This garden expresses <b>all four seasons in one space</b>. 〔Pond〕 represents the <b>sea/lake</b>; underground spring water keeps it stable so the koi winter comfortably. 〔Large stone〕 a <b>mountain stone</b>; 〔another〕 a <b>river stone</b>. Pine, maple, bonsai all carry meaning; the maple turns deep red in autumn.</p>
+<p>〔Safflower tree〕 This is the <b>safflower tree</b>, designated a <b>protected tree by Yamagata Prefecture</b> — very rare for a private garden.</p>
+<p>Winter brings about <b>1.3 m of snow</b>; we wrap the trees yearly, and a craftsman prunes the pines <b>by hand in July</b>.</p></div>
+  </div>
+  <div class="tip"><span class="lbl">💡 ガイドTips</span>紅花の保護木は新田家のユニークセリングポイント。繰り返し言ってよい。</div>
+</section>
+<section class="scene" id="s8">
+  <div class="scene-head"><span class="snum">08</span><h3>紅花染め体験 — 山形の赤</h3><span class="mins">標準 20分 ／ ハイライト 10分</span></div>
+  <div class="note"><span class="lbl">動線・準備</span>染料作りの工程は冬限定（寒いほど赤が綺麗）。ハンカチ染め体験は通年可。参加者の名前を聞きハンカチに書く。</div>
+  <div class="cols">
+    <div class="col j"><div class="flag">🇯🇵 日本語（新田さん）</div><p><b>【紅花とは】</b>これが<b>紅花（べにばな／safflower）</b>を乾燥させたもので、<b>赤の原料</b>。江戸時代から山形で盛んに栽培され、今も<b>日本一の産地</b>。当時は<b>京都</b>へ運ばれ、職人が<b>口紅</b>や「<b>玉虫色</b>」の高級な紅に仕上げました。紅花の赤は当時<b>金と同じくらい価値</b>があった。3代目<b>秀治・富子</b>夫妻が昭和38年（1963年）頃から再興し、1966年「<b>紅花紬</b>」として世に。今は4代目英行・5代目源太郎が継承。</p>
+<p><b>【なぜ冬に染めるか】</b><b>冬にしか染めない</b>。<b>寒いほど赤がきれいに発色</b>し、夏は染めません。</p>
+<p><b>【pHのマジック】</b>色素を定着させるにはpH調整が要。①<b>アルカリ性</b>に（〔灰〕アカザを燃やした灰）②紅花を漬ける③<b>酸</b>を加える（〔米酢〕）④中和に近づくと<b>赤</b>が出る。紅花染めは「pHを操る化学」——すべて<b>自然のものだけ</b>。</p>
+<p><b>【ハンカチを染める】</b>絹は吸い込みが早いので今日は<b>綿のハンカチ</b>。<b>扇子畳み</b>（屏風状にジグザグ）→三角形に折り直し→<b>輪ゴム</b>で数カ所縛る。縛った所は染まらず<b>白い模様</b>に。開くまでのお楽しみ。</p>
+<p><b>【多彩な色】</b>紅花＝赤・黄／藍＝青／紅花+藍＝紫／赤+黄＝緑／栗のイガ・くるみの皮(+鉄媒染)＝茶。<b>鉄媒染</b>は鉄分で色を留める重要工程。</p>
+<p><b>【紅花餅と京都】</b>〔花餅〕摘んだ紅花を<b>足で踏んで</b>団子状に固め、発酵・乾燥させた「<b>紅花餅</b>」。この形で京都へ運び、京都の職人が口紅や玉虫色に仕上げました。</p></div>
+    <div class="col e"><div class="flag">🇬🇧 English (guide)</div><p><b>[What is benibana]</b> Dried <b>benibana — safflower</b>, the raw material for <b>red dye</b>. Cultivated in Yamagata since the Edo period; still Japan's <b>number-one producer</b>. It was carried to <b>Kyoto</b>, where artisans made <b>lipstick</b> and a premium red called <b>“tamamushi-iro.”</b> Back then this red was <b>as valuable as gold</b>. My parents, the <b>3rd-generation Shuji & Tomiko</b>, revived the technique from ~1963, releasing <b>“Benibana-tsumugi”</b> in 1966; my son and I continue it.</p>
+<p><b>[Why dye in winter]</b> We <b>only dye in winter</b> — the <b>colder it is, the more beautiful the red</b>. Never in summer.</p>
+<p><b>[The pH magic]</b> To fix the pigment, pH control is essential: ① make it <b>alkaline</b> (〔ash〕 from the plant “akaza”) ② soak the safflower ③ add <b>acid</b> (〔rice vinegar〕) ④ near neutral, the <b>red emerges</b>. It's <b>chemistry</b> — using <b>only natural ingredients</b>.</p>
+<p><b>[Dye a handkerchief]</b> Silk absorbs fast, so today we use <b>cotton</b>. <b>Fan-fold (ougi-datami)</b> → fold into a triangle → tie with <b>rubber bands</b>. Tied parts resist dye and stay <b>white</b> — the design is a surprise until you open it.</p>
+<p><b>[A palette of colors]</b> safflower = red/yellow; indigo = blue; safflower+indigo = purple; red+yellow = green; chestnut burr / walnut husk (+iron mordant) = brown. <b>Iron mordanting</b> fixes the color.</p>
+<p><b>[Benibana-mochi & Kyoto]</b> 〔flower cake〕 Picked safflower is <b>stamped by foot</b> into a fermented, dried cake — <b>benibana-mochi</b> — easy to carry to Kyoto, where only Kyoto artisans finished it into lipstick and tamamushi-iro.</p></div>
+  </div>
+  <div class="tip"><span class="lbl">💡 ガイドTips</span>pH（化学）の説明は英語で難解。図示 or シンプルに "alkali first, then acid, then red comes out" に切替えると◎。「酢の匂い」と言われたら「天然の証拠です」と笑顔で。</div>
+</section>
+<section class="scene" id="s9">
+  <div class="scene-head"><span class="snum">09</span><h3>2階工場 — 染色記録と糸繰り</h3><span class="mins">標準 7分 ／ ハイライト 3分</span></div>
+  
+  <div class="cols">
+    <div class="col j"><div class="flag">🇯🇵 日本語（新田さん）</div><p>2階の工場をご案内します。〔染色機の前で〕こちらが<b>染色機</b>。手作業と機械の両方で染料を煮出して染めます。</p>
+<p>〔染色記録ノート〕これが大事な<b>染色記録ノート</b>。<b>いつ・どんな材料で・どんな手順で</b>染めたかを全て記録。お客様に「以前のあの色をもう一度」と言われた時、これを見れば再現できる。<b>色を再現可能にするレシピ集</b>です。</p>
+<p>〔糸巻き機〕下で染めた糸を<b>ボビン</b>に巻き、<b>縦糸</b>として使えるように並べます。この機械の原型は<b>トヨタ佐吉</b>——お母さんの手織りを楽にしようと発明したもので、10年後に米沢へ入ってきました。</p></div>
+    <div class="col e"><div class="flag">🇬🇧 English (guide)</div><p>Let me take you upstairs. 〔At the dyeing equipment〕 This is our <b>dyeing equipment</b> — we dye by hand and by machine, simmering plants and materials.</p>
+<p>〔Show dyeing log〕 This is important: our <b>dyeing log</b>. Every job records <b>the date, materials, exact procedure</b>. When a customer says <i>“make that color again,”</i> we reproduce it exactly. It's our <b>recipe book</b> for repeatable color.</p>
+<p>〔At the winding machine〕 This winds dyed thread onto <b>bobbins</b>, aligned as <b>warp</b>. This machine was originally invented by <b>Sakichi Toyoda</b> — founder of what became <b>Toyota</b> — to ease his mother's hand-weaving. It reached Yonezawa about 10 years later.</p></div>
+  </div>
+  <div class="tip"><span class="lbl">💡 ガイドTips</span>"Toyota = the car company" は欧米客に鉄板。</div>
+</section>
+<section class="scene" id="s10">
+  <div class="scene-head"><span class="snum">10</span><h3>ジャガード織機と紋紙の歴史</h3><span class="mins">標準 8分 ／ ハイライト 5分</span></div>
+  
+  <div class="cols">
+    <div class="col j"><div class="flag">🇯🇵 日本語（新田さん）</div><p>これが<b>ジャガード織機</b>。〔上〕この「<b>紋紙（もんがみ）</b>」という穴あき厚紙の<b>穴の配置で柄が決まる</b>。今は紅花の柄。〔針〕<b>金属の針</b>が穴に応じて上下し、<b>縦糸</b>が持ち上がり、隙間に<b>シャトル</b>が<b>横糸</b>を通す。針は磨いておかないと縦糸を傷つけます。</p>
+<p>〔紋紙→レコード→フロッピー→USB〕<b>紋紙の進化</b>が面白い：①紙の紋紙②レコード盤型③フロッピー④今は<b>USB</b>。新しい技術は導入しつつ<b>古いものも使えるように維持</b>する——これがうちのやり方。</p>
+<p>〔別の織機〕この織機は<b>100年前にアメリカ・マサチューセッツ州ウースター市</b>へ渡りました。明治末の博覧会で職人が現地で実演。<b>分解できる</b>んです。</p>
+<p>〔足踏み織機〕足で交互に踏むと開き、<b>平織り・綾織り</b>など踏み方で変わる。良い運動です。今、息子がこれで織っています。いつか<b>UNESCO無形文化遺産</b>に登録される日が来れば、と思っています。</p></div>
+    <div class="col e"><div class="flag">🇬🇧 English (guide)</div><p>This is our <b>Jacquard loom</b>. 〔Top〕 A punched card called <b>“mongami”</b> — <b>the holes determine the design</b> (a safflower pattern now). 〔Needles〕 <b>Metal needles</b> rise/fall per the holes, lifting the <b>warp</b> so a <b>shuttle</b> carries the <b>weft</b>. Needles must be polished or they damage the warp.</p>
+<p>〔mongami → record → floppy → USB〕 The evolution is fascinating: ① paper mongami ② record-disk ③ floppy ④ today <b>USB</b>. We adopt the new but <b>maintain the old</b> — our philosophy.</p>
+<p>〔Another loom〕 This loom <b>traveled to Worcester, Massachusetts, USA</b> about 100 years ago, assembled before an American audience at a Meiji-era exhibition. It <b>disassembles</b>.</p>
+<p>〔Foot-pedal loom〕 Different pedaling makes <b>plain weave, twill</b>, and more — great exercise. My son weaves on it today. One day I hope these become <b>UNESCO Intangible Cultural Heritage</b>.</p></div>
+  </div>
+  <div class="tip"><span class="lbl">💡 ガイドTips</span>紋紙→USB は世代別アナロジー（コンピュータ史）で響く。"Worcester" は「ウースター」。</div>
+</section>
+<section class="scene" id="s11">
+  <div class="scene-head"><span class="snum">11</span><h3>帯のデザイン — 1本5.5m、5本まとめて織る</h3><span class="mins">標準 4分 ／ ハイライト 2分</span></div>
+  
+  <div class="cols">
+    <div class="col j"><div class="flag">🇯🇵 日本語（新田さん）</div><p>織りかけの<b>帯（おび）</b>です。帯は1本約<b>5.5メートル</b>。1本ずつではなく<b>5本分</b>をまとめて織り、1本終わると次は別の柄——と続けて織れる設計（<b>約27.5m</b>を1セット）。</p>
+<p>〔白い部分〕ここが<b>デザインパターン</b>。緑・赤・黄の下色の上に、デザイナーの図案を一目ずつ拾って追う。〔針〕<b>針の打ち方</b>で柄が決まるので、幅を変えたければ<b>針を全部打ち替える</b>——大変な作業です。</p></div>
+    <div class="col e"><div class="flag">🇬🇧 English (guide)</div><p>An <b>obi (kimono sash)</b> in mid-weaving. One obi is about <b>5.5 m</b>. We weave <b>five back-to-back</b>, each with a different pattern (one set ~<b>27.5 m</b>).</p>
+<p>〔White sections〕 the <b>design pattern</b>, followed stitch by stitch over the base color. 〔Needles〕 their arrangement sets the design; widening the obi means <b>replacing every needle</b>.</p></div>
+  </div>
+  
+</section>
+<section class="scene" id="s12">
+  <div class="scene-head"><span class="snum">12</span><h3>ショールーム — 商品と海外展開</h3><span class="mins">標準 10分 ／ ハイライト 5分</span></div>
+  <div class="note"><span class="lbl">動線・準備</span>商品を見せながら。色の意味は後半のカラーミーニング表を参照。</div>
+  <div class="cols">
+    <div class="col j"><div class="flag">🇯🇵 日本語（新田さん）</div><p>ショールームへどうぞ。〔夏の着物〕日本の着物は<b>寸法を測りオーダーメイド</b>。〔帯〕先ほどの<b>帯</b>は<b>1本ずつ柄が違い</b>、同じものは2つとありません。〔紅花染めの帯〕うちの代表作の一つ。</p>
+<p>〔20年前のヒット商品〕私の代でヒットした商品。〔パリEXPO〕昨年<b>パリ「JAPAN EXPO」</b>で紹介した商品——糸も織りも縫製も<b>すべてこの工場で仕上げ</b>ました。〔鯉のぼり〕男の子のお祝いに。</p>
+<p>そして——<b>色にはそれぞれ意味</b>があります（下表）。</p></div>
+    <div class="col e"><div class="flag">🇬🇧 English (guide)</div><p>Welcome to the showroom. 〔Summer kimono〕 Japanese kimono are <b>made-to-measure</b>. 〔Obi〕 <b>Every obi differs</b> — no two alike. 〔Benibana obi〕 one of our signature pieces.</p>
+<p>〔20-year-old design〕 a hit from my generation. 〔Paris EXPO〕 shown last year at <b>JAPAN EXPO in Paris</b> — thread, weaving, sewing all <b>done in this workshop</b>. 〔Koinobori〕 a carp streamer, to celebrate boys.</p>
+<p>And — <b>each color carries a meaning</b> (see the table below).</p></div>
+  </div>
+  <div class="tip"><span class="lbl">💡 ガイドTips</span>東南アジア・台湾のお客様には縁起色（黒・赤）が刺さる。仏・南欧客には「ストーリーのある商品」を推す。</div>
+</section>
+<section class="scene" id="s13">
+  <div class="scene-head"><span class="snum">13</span><h3>オープンファクトリーと業界の今</h3><span class="mins">標準 3分 ／ ハイライト スキップ</span></div>
+  
+  <div class="cols">
+    <div class="col j"><div class="flag">🇯🇵 日本語（新田さん）</div><p>最後に業界の現状を少し。米沢では毎年<b>9月に「オープンファクトリー」</b>を開催し、普段閉じている工場を数社が一斉開放します。再訪なら9月もおすすめ。</p>
+<p>最近は<b>専門のメンテナンス屋さんが減り</b>、古いジャガード織機を直せる人が少ない。だからうちは<b>メンテナンスも自分たちで</b>——技術を残すとはそういうことだと思っています。</p>
+<p><b>トヨタの方たち</b>が業務改善の<b>研修で工場見学</b>にいらっしゃることも。100年の鉄の機械が今も正確に動く様子を見に来られます。</p></div>
+    <div class="col e"><div class="flag">🇬🇧 English (guide)</div><p>A quick word on the industry. Each <b>September, Yonezawa hosts an “Open Factory”</b> — several usually-closed factories open together. If you return, <b>September is recommended</b>.</p>
+<p>These days <b>specialized maintenance shops are disappearing</b>; few can repair old Jacquard looms. So we do <b>all maintenance in-house</b> — preserving the technique means preserving the machines.</p>
+<p>Sometimes <b>Toyota team members</b> visit for <b>business-improvement training</b>, to see how 100-year-old iron machines still run with such precision.</p></div>
+  </div>
+  <div class="tip"><span class="lbl">💡 ガイドTips</span>9月オープンファクトリーは強い再訪フック。連絡先・公式SNSを案内すると効果的。</div>
+</section>
+<section class="scene" id="s14">
+  <div class="scene-head"><span class="snum">14</span><h3>お見送り</h3><span class="mins">標準 2分 ／ ハイライト 2分</span></div>
+  
+  <div class="cols">
+    <div class="col j"><div class="flag">🇯🇵 日本語（新田さん）</div><p>本日は遠いところ、ありがとうございました。最初にお話しした<b>上杉鷹山公</b>が250年前に始めた文化・産業が、今も米沢に残っています。私たちはその一端を守るに過ぎませんが、海外の方に見ていただけることが何よりの励みです。</p>
+<p>染めていただいたハンカチは<b>世界に1枚だけ</b>。お国で米沢を少し思い出していただけたら嬉しいです。またいつでもいらしてください。お元気で。</p></div>
+    <div class="col e"><div class="flag">🇬🇧 English (guide)</div><p>Thank you so much for coming all the way to Yonezawa. The culture and industry <b>Lord Yozan Uesugi</b> began 250 years ago still lives here. We are only a small part of that legacy, but visitors like you are our greatest encouragement.</p>
+<p>The handkerchief you dyed is <b>one-of-a-kind in the world</b>. We hope it helps you remember Yonezawa. Please come back anytime — take care and safe travels.</p></div>
+  </div>
+  
+</section>
+
+      <h2 class="sec">❓ 想定FAQ</h2><table><tr><th style="width:44%">Q</th><th>A</th></tr><tr><td class="q"><b>Q.</b> シルクは今もご自分で養蚕を？<div class="en2">Is the silk still produced here?</div></td><td>今は約90%が輸入（中国80%等）、日本産は約10%。米沢でも昔は養蚕していた。<div class="en2">~90% imported (China ~80%), only ~10% Japanese. Yonezawa used to raise silkworms.</div></td></tr><tr><td class="q"><b>Q.</b> 紅花染めはいつでも体験できる？<div class="en2">Can I always try safflower dyeing?</div></td><td>染料作りは<b>冬限定</b>（寒いほど赤が綺麗）。<b>ハンカチ染め体験は通年</b>可。<div class="en2">Dye-making is <b>winter-only</b>; the <b>handkerchief experience is year-round</b>.</div></td></tr><tr><td class="q"><b>Q.</b> 工場は何人で？<div class="en2">How many people run the factory?</div></td><td>職人数名。1人で機械2台、ベテランで3台。標準は1人2台。<div class="en2">A few artisans. One person runs 2 looms (veterans 3).</div></td></tr><tr><td class="q"><b>Q.</b> 着物のオーダーは可能？<div class="en2">Can I order a kimono?</div></td><td>はい、寸法を取りオーダーメイド。納期・価格は商品による。<div class="en2">Yes — made-to-measure; lead time and price vary.</div></td></tr><tr><td class="q"><b>Q.</b> 海外発送は？<div class="en2">Overseas shipping?</div></td><td>ハンカチ・小物は可能。帯・着物は要相談。<div class="en2">Small items yes; obi/kimono on request.</div></td></tr><tr><td class="q"><b>Q.</b> この織機は何年前のもの？<div class="en2">How old is this loom?</div></td><td>トヨタ佐吉発明→約10年後に米沢へ。<b>100年以上</b>現役の機械あり。<div class="en2">Invented by Sakichi Toyoda; some run <b>100+ years</b>.</div></td></tr><tr><td class="q"><b>Q.</b> なぜ「侍の家」が織物を？<div class="en2">Why did a samurai family start weaving?</div></td><td>江戸期の財政難で武士に副業奨励。「家の中で出来る仕事」＝織物でプライドを保ち家計を支えた。<div class="en2">Edo-era hardship; weaving could be done at home, preserving pride while supporting the household.</div></td></tr><tr><td class="q"><b>Q.</b> UNESCO登録は？<div class="en2">UNESCO registration?</div></td><td>いつか登録される日を願う。技術と道具の両方を守るのが先決。<div class="en2">We hope so one day; preserving both technique and tools comes first.</div></td></tr></table>
+      <h2 class="sec">🎨 色の意味</h2><table><tr><th>色</th><th>意味</th><th>Meaning</th></tr><tr><td>🔴 赤</td><td>魔除け・健康・家族の安全</td><td class="sub">Protection from evil, health, family safety</td></tr><tr><td>🟡 黄</td><td>金運・希望・健康・エネルギー</td><td class="sub">Wealth, hope, health, energy</td></tr><tr><td>🟠 オレンジ</td><td>悪いエネルギーから守る</td><td class="sub">Shields from bad energy</td></tr><tr><td>🔵 青</td><td>学問運・才能開花・商売運</td><td class="sub">Study, talent, business luck</td></tr><tr><td>⚫ 黒</td><td>商売繁盛・長く続くビジネス</td><td class="sub">Long-lasting business success</td></tr></table>
+      <h2 class="sec">📚 用語集（日英）</h2><table><tr><th>日本語</th><th>English</th><th>補足</th></tr><tr><td>紅花</td><td>safflower / benibana</td><td class="sub">山形県の県花</td></tr><tr><td>紅花餅</td><td>safflower cake / benibana-mochi</td><td class="sub">京都へ運ぶ形態</td></tr><tr><td>玉虫色</td><td>tamamushi-iro</td><td class="sub">金色がかった緑を含む赤</td></tr><tr><td>染色記録</td><td>dyeing log / recipe book</td><td class="sub">再現性の要</td></tr><tr><td>紋紙</td><td>mongami / punched card</td><td class="sub">ジャガードのデータ</td></tr><tr><td>ジャガード織機</td><td>Jacquard loom</td><td class="sub">紋紙で柄を制御</td></tr><tr><td>シャトル</td><td>shuttle</td><td class="sub">横糸を運ぶ道具</td></tr><tr><td>縦糸 / 横糸</td><td>warp / weft</td><td class="sub">機の糸 / シャトルで通す糸</td></tr><tr><td>鉄媒染</td><td>iron mordanting</td><td class="sub">茶色などを定着</td></tr><tr><td>灰汁</td><td>lye / ash extract</td><td class="sub">アルカリ源（アカザ灰）</td></tr><tr><td>かみしも生地</td><td>kamishimo fabric</td><td class="sub">縦＝絹／横＝麻</td></tr><tr><td>養蚕</td><td>sericulture</td><td class="sub">蚕を飼い絹を作る</td></tr><tr><td>上杉鷹山</td><td>Lord Yozan Uesugi</td><td class="sub">米沢藩9代藩主</td></tr><tr><td>平織り / 綾織り</td><td>plain weave / twill</td><td class="sub">基本 / 斜めの織り目</td></tr></table>
+      <h2 class="sec">⏱ タイミング表</h2><table><tr><th>#</th><th>シーン</th><th>標準</th><th>ハイライト</th></tr><tr><td>1</td><td>玄関・ご挨拶</td><td>3分</td><td>2分</td></tr><tr><td>2</td><td>ギャラリー／上杉鷹山</td><td>8分</td><td>4分</td></tr><tr><td>3</td><td>かみしも生地</td><td>7分</td><td>3分</td></tr><tr><td>4</td><td>絹の現在</td><td>3分</td><td>スキップ</td></tr><tr><td>5</td><td>江戸→明治の工場化</td><td>5分</td><td>2分</td></tr><tr><td>6</td><td>お茶室</td><td>8分</td><td>スキップ／5分</td></tr><tr><td>7</td><td>庭園・四季</td><td>10分</td><td>3分</td></tr><tr><td>8</td><td>紅花染め体験</td><td>20分</td><td>10分</td></tr><tr><td>9</td><td>2階・染色記録</td><td>7分</td><td>3分</td></tr><tr><td>10</td><td>ジャガード織機</td><td>8分</td><td>5分</td></tr><tr><td>11</td><td>帯のデザイン</td><td>4分</td><td>2分</td></tr><tr><td>12</td><td>ショールーム＆色</td><td>10分</td><td>5分</td></tr><tr><td>13</td><td>オープンファクトリー</td><td>3分</td><td>スキップ</td></tr><tr><td>14</td><td>お見送り</td><td>2分</td><td>2分</td></tr><tr><td></td><td>合計</td><td>約98分</td><td>約46分</td></tr></table>
+      <h2 class="sec">🌏 客層別ハイライト</h2><table><tr><th style="width:210px">客層</th><th>推し要素</th></tr><tr><td><b>欧米・北米</b></td><td>マサチューセッツに渡った織機／トヨタ佐吉の原型機／UNESCO候補級技術／紅花染め（pHのサイエンス）</td></tr><tr><td><b>フランス・南欧</b></td><td>パリJAPAN EXPO出展／家族4代・紅花復活のストーリー／大正ガラス・四季の庭の美学</td></tr><tr><td><b>アジア（台・香・新・泰・尼・馬）</b></td><td>色の意味（縁起の黒・赤）／オーダーメイド着物・帯／商売繁盛モチーフ／鯉のぼり</td></tr><tr><td><b>視察団・業界関係者</b></td><td>工場メンテ自社対応／紋紙→USBの系譜／染色記録＝再現性／オープンファクトリー（9月）</td></tr></table>
+    </div>
+  </div>
+
+</div>
+<footer>© 2026 PLAT YONEZAWA, Inc. ・ Nitta Textile Content Guide<br>Visitors = public ／ Staff Only = authenticated (interim gate; production via Cloudflare Access)</footer>
+
+<script>
+(function(){
+  var body=document.body;
+  var langBtns=document.querySelectorAll('.sw .langs button');
+  var modeBtns=document.querySelectorAll('.sw .modes button');
+  function applyFallback(){
+    // 未訳spanはEN表示（fr/tw選択時）
+    var lang=(body.className.match(/lang-(\w+)/)||[])[1];
+    document.querySelectorAll('span.en').forEach(function(en){
+      en.style.display='';
+      if(lang==='en'||!lang)return;
+      var p=en.parentNode; var act=p.querySelector(':scope > span.'+lang);
+      if(!act || !act.textContent.trim()) en.style.display='initial';
+    });
+  }
+  function setLang(l){
+    body.className=body.className.replace(/lang-\w+/,'').trim()+' lang-'+l;
+    langBtns.forEach(function(b){b.classList.toggle('active',b.dataset.lang===l);});
+    applyFallback();
+  }
+  function availLangs(mode){var r=[];langBtns.forEach(function(b){var ok=b.dataset.modes.split(',').indexOf(mode)>=0;b.classList.toggle('hide',!ok);if(ok)r.push(b.dataset.lang);});return r;}
+  function setMode(m){
+    body.className=body.className.replace(/mode-\w+/,'').trim();
+    body.classList.add('mode-'+m);
+    modeBtns.forEach(function(b){b.classList.toggle('active',b.dataset.mode===m);});
+    var av=availLangs(m);
+    var cur=(body.className.match(/lang-(\w+)/)||[])[1];
+    if(av.indexOf(cur)<0) setLang(m==='guide'?'ja':'en'); else applyFallback();
+  }
+  langBtns.forEach(function(b){b.addEventListener('click',function(){setLang(b.dataset.lang);});});
+  modeBtns.forEach(function(b){b.addEventListener('click',function(){setMode(b.dataset.mode);});});
+  // 暫定ゲート
+  var gf=document.getElementById('gateForm');
+  if(gf){
+    // 既登録なら解錠
+    try{ if(localStorage.getItem('nitta_guide_email')) body.classList.add('guide-unlocked'); }catch(e){}
+    gf.addEventListener('submit',function(e){
+      e.preventDefault();
+      var v=(document.getElementById('gEmail').value||'').trim();
+      if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v)) return;
+      try{ localStorage.setItem('nitta_guide_email', v); }catch(e){}
+      body.classList.add('guide-unlocked');
+      // TODO(本番): ここでメールをCRM(HubSpot)へ送信 or Cloudflare Accessに委譲
+    });
+  }
+  setMode('visitor'); setLang('en');
+})();
+</script>
+</body>
+</html>
