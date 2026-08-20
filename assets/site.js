@@ -20,7 +20,7 @@
    ============================================================ */
 (function () {
   // ===== CONFIG（本番化時にここを編集） =====
-  var GA4_ID       = 'G-XXXXXXXXXX';   // TODO: GA4管理画面 →「データストリーム」→ 測定ID（陽平）
+  var GA4_ID       = 'G-35LZ144XYC';   // ✅ GA4測定ID（プロパティ PLAT YONEZAWA visit. / ストリーム visit）
   var CLARITY_ID   = 'CLARITYXXXX';    // TODO: Microsoft Clarity プロジェクトID（陽平）
   var HUBSPOT_ID   = '245638622';      // ✅ HubSpot ポータルID（na2）投入済み（同意後にロード）
   var COOKIEBOT_ID = 'CBID-XXXXXXXX';  // TODO: Cookiebot グループID（同意管理／これが入ると統計系がロード）
