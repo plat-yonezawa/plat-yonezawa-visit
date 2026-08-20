@@ -70,6 +70,21 @@
   try { isInternal = localStorage.getItem('plat_internal') === '1'; } catch (e) {}
   window.plat.internal = isInternal;
   if (isInternal) { try { console.info('[plat] 社内トラフィック（internal）として計測されます'); } catch (e) {} }
+  // ?internal を明示的に使った時だけ、画面に確認トーストを出す（スマホでも確認できるように）
+  if (_int === '1' || _int === '0') {
+    var _show = function () {
+      try {
+        var t = document.createElement('div');
+        t.textContent = (_int === '1')
+          ? '✓ この端末を「社内」として登録しました（GA4の計測から除外できます）'
+          : '社内トラフィックの登録を解除しました';
+        t.style.cssText = 'position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:99999;background:#2e1f1c;color:#f3e9dd;font:14px/1.6 -apple-system,\'Hiragino Sans\',sans-serif;padding:12px 18px;border-radius:10px;box-shadow:0 6px 24px rgba(0,0,0,.35);max-width:90%;text-align:center';
+        document.body.appendChild(t);
+        setTimeout(function () { t.style.transition = 'opacity .5s'; t.style.opacity = '0'; setTimeout(function () { if (t.parentNode) t.parentNode.removeChild(t); }, 500); }, 4500);
+      } catch (e) {}
+    };
+    if (document.body) _show(); else document.addEventListener('DOMContentLoaded', _show);
+  }
 
   // ===== Consent Mode v2（既定 denied／同意後に update） =====
   gtag('consent', 'default', {
