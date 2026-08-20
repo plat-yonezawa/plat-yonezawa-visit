@@ -679,12 +679,12 @@ footer .col strong{display:block;color:#fff;letter-spacing:.20em;margin-bottom:6
       </form>
 
       <div class="req-ok" id="reqOk">
-        <span class="en">Thank you — your request has been prepared. Your email app will open; please send it, or write to info1@plat-yonezawa.jp. We'll be in touch.</span>
-        <span class="ja">ありがとうございます。メールアプリが開きますので送信してください（または info1@plat-yonezawa.jp まで）。担当より折り返します。</span>
+        <span class="en">Thank you — your request has been sent to our team. We'll be in touch shortly.</span>
+        <span class="ja">ありがとうございます。予約リクエストを送信しました。担当より折り返します。</span>
       </div>
       <p class="req-note">
-        <span class="en">Form connection in progress (HubSpot). We also accept requests by email: info1@plat-yonezawa.jp</span>
-        <span class="ja">フォーム接続（HubSpot）準備中です。メールでも受け付けます：info1@plat-yonezawa.jp</span>
+        <span class="en">You can also reach us by email: info1@plat-yonezawa.jp</span>
+        <span class="ja">メールでも受け付けます：info1@plat-yonezawa.jp</span>
       </p>
     </div>
   </div>
@@ -727,14 +727,38 @@ footer .col strong{display:block;color:#fff;letter-spacing:.20em;margin-bottom:6
 <script>
 (function(){
   var f=document.getElementById('reqForm'); if(!f) return;
+  var PORTAL='245638622', FORMID='7953df0d-367f-44b2-a872-99de36d09424';
+  var g=function(id){var el=document.getElementById(id);return el?(el.value||'').trim():'';};
+  function cookie(n){var m=document.cookie.match('(^|;)\\s*'+n+'\\s*=\\s*([^;]+)');return m?m.pop():'';}
   f.addEventListener('submit',function(e){
     e.preventDefault();
-    var g=function(id){var el=document.getElementById(id);return el?(el.value||'').trim():'';};
+    var pe=f.querySelector('.product'); var product=pe?(pe.textContent||'').trim():'';
     var langs=[].slice.call(document.querySelectorAll('input[name="rq-lang"]:checked')).map(function(x){return x.value;}).join(', ');
-    document.getElementById('reqOk').classList.add('show');
-    var subj=encodeURIComponent('[Booking request] O-STY-03 / '+g('rq-company'));
-    var body=encodeURIComponent('Product: O-STY-03 — Forest Bathing with Mika\nCompany: '+g('rq-company')+'\nContact: '+g('rq-name')+'\nEmail: '+g('rq-email')+'\nPreferred date: '+g('rq-date')+'\nGuests: '+g('rq-pax')+'\nLanguages: '+langs+'\nMessage:\n'+g('rq-msg')+'\n');
-    setTimeout(function(){ window.location.href='mailto:info1@plat-yonezawa.jp?subject='+subj+'&body='+body; },350);
+    var utm=(window.plat&&window.plat.utm)||{};
+    var msg='【予約リクエスト / Booking request】\n対象商品(Product): '+product
+      +'\n希望日(Date): '+g('rq-date')+'\n人数(Guests): '+g('rq-pax')+'\n希望言語(Languages): '+langs
+      +'\nメッセージ(Message):\n'+g('rq-msg')
+      +'\n---\n流入(UTM): '+(utm.utm_source||'-')+' / '+(utm.utm_medium||'-')+' / '+(utm.utm_campaign||'-')+' / '+(utm.utm_content||'-');
+    var payload={fields:[
+      {name:'email',value:g('rq-email')},
+      {name:'firstname',value:g('rq-name')},
+      {name:'company',value:g('rq-company')},
+      {name:'message',value:msg}
+    ],context:{pageUri:location.href,pageName:document.title}};
+    var hutk=cookie('hubspotutk'); if(hutk)payload.context.hutk=hutk;
+    var btn=f.querySelector('button[type=submit]'); if(btn)btn.disabled=true;
+    fetch('https://api.hsforms.com/submissions/v3/integration/submit/'+PORTAL+'/'+FORMID,{
+      method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)
+    }).then(function(r){
+      if(!r.ok) throw new Error('hs '+r.status);
+      document.getElementById('reqOk').classList.add('show');
+      try{f.reset();}catch(_){}
+      if(window.plat&&window.plat.track)window.plat.track('booking_request',{product:product});
+    }).catch(function(){
+      var subj=encodeURIComponent('[Booking request] '+product+' / '+g('rq-company'));
+      var body=encodeURIComponent(msg+'\n\nCompany: '+g('rq-company')+'\nContact: '+g('rq-name')+'\nEmail: '+g('rq-email'));
+      window.location.href='mailto:info1@plat-yonezawa.jp?subject='+subj+'&body='+body;
+    }).then(function(){ if(btn)btn.disabled=false; });
   });
 })();
 </script>
