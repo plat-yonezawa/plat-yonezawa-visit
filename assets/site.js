@@ -58,6 +58,19 @@
     });
   };
 
+  // ===== 社内トラフィック判定（?internal=1 で端末を社内扱い／?internal=0 で解除）=====
+  //  チームは各端末で一度だけ  /lp?internal=1  を開けば、その端末は以降 GA4 に
+  //  traffic_type=internal を送る → GA4「内部トラフィック」データフィルタで除外できる（IP不要・全回線対応）。
+  try {
+    var _int = new URLSearchParams(location.search).get('internal');
+    if (_int === '1') localStorage.setItem('plat_internal', '1');
+    if (_int === '0') localStorage.removeItem('plat_internal');
+  } catch (e) {}
+  var isInternal = false;
+  try { isInternal = localStorage.getItem('plat_internal') === '1'; } catch (e) {}
+  window.plat.internal = isInternal;
+  if (isInternal) { try { console.info('[plat] 社内トラフィック（internal）として計測されます'); } catch (e) {} }
+
   // ===== Consent Mode v2（既定 denied／同意後に update） =====
   gtag('consent', 'default', {
     ad_storage:'denied', analytics_storage:'denied',
@@ -71,7 +84,11 @@
     document.head.appendChild(s);
     gtag('js', new Date());
     // UTMはGA4が自動でsource/medium/campaignに取り込む。content粒度も送る。
-    gtag('config', GA4_ID, { anonymize_ip:true, campaign_content: stored.utm_content || undefined });
+    // 社内端末（isInternal）は traffic_type=internal を付与 → GA4データフィルタで除外可能。
+    gtag('config', GA4_ID, Object.assign(
+      { anonymize_ip:true, campaign_content: stored.utm_content || undefined },
+      isInternal ? { traffic_type:'internal' } : {}
+    ));
   }
 
   // ===== 同意後にのみロードするもの（Clarity / HubSpot / GA4のstorage許可） =====
