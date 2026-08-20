@@ -9,7 +9,8 @@
 <meta name="google-site-verification" content="PASTE_TOKEN_HERE"> -->
 <title>PLAT YONEZAWA</title>
 <meta http-equiv="refresh" content="0; url=/lp">
-<script>location.replace('/lp' + location.hash);</script>
+<!-- QR/UTM: ルート着地時も検索クエリ(utm_*)を /lp へ引き継ぐ（経路計測を落とさない） -->
+<script>location.replace('/lp' + location.search + location.hash);</script>
 <style>
   body{font-family:-apple-system,"Hiragino Sans","Noto Sans JP",sans-serif;background:#fbf6f1;color:#2e1f1c;display:flex;min-height:100vh;align-items:center;justify-content:center;margin:0;padding:24px;text-align:center;line-height:1.7}
   a{color:#a8893a;font-weight:600}

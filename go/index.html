@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow">
+<title>Redirecting… | PLAT YONEZAWA</title>
+<!-- ============================================================
+  QR / 経路リダイレクタ  （visit.plat-yonezawa.com/go/?c=<コード>）
+  ・QRには この /go/?c=<コード> を印刷する（きれいURL・後から差し替え可）。
+  ・下の CAMPAIGNS にコードを1行足すだけで、遷移先＋UTM が自動付与される。
+  ・UTM は site.js が初回タッチで保持 → GA4（source/medium/campaign/content）
+    ＋ 予約フォームの hidden（HubSpot）へ自動で流れる。
+  ・コードが未登録/未指定なら /lp へ素通し（計測なし）。
+
+  ▼ コードの足し方（例）
+    'expo-sapporo': { to:'/lp', source:'expo', medium:'print', campaign:'sapporo2026', content:'booth' },
+  ▼ 命名規約（推奨・小文字・ハイフン）
+    source = 出どころ（expo / namecard / email / concierge / pitchbook / arcadia …）
+    medium = 手段（print=QR/紙, email, referral, pdf, social …）
+    campaign = 施策名（例 tokyo2026, autumn-sales）
+    content = 素材の区別（booth, flyer-a, card-front, product code …）
+============================================================ -->
+<script>
+(function () {
+  var CAMPAIGNS = {
+    // --- 展示会・商談会 ---
+    'expo':      { to:'/lp', source:'expo',      medium:'print',    campaign:'tradeshow-2026', content:'booth' },
+    // --- 名刺 / 紙資料 ---
+    'card':      { to:'/lp', source:'namecard',  medium:'print',    campaign:'sales',          content:'card-front' },
+    'flyer':     { to:'/lp', source:'flyer',     medium:'print',    campaign:'sales',          content:'flyer-a' },
+    // --- メール営業 ---
+    'email':     { to:'/lp', source:'email',     medium:'email',    campaign:'outreach' },
+    // --- コンシェルジュ / 送客 ---
+    'concierge': { to:'/lp', source:'concierge', medium:'referral', campaign:'lesclefsdor' },
+    // --- ピッチブック(PDF) ---
+    'pitch':     { to:'/lp', source:'pitchbook', medium:'pdf',      campaign:'sales' }
+  };
+  var DEFAULT_TO = '/lp';
+
+  function pick(name){ return new URLSearchParams(location.search).get(name); }
+  var code = (pick('c') || '').toLowerCase().trim();
+  var cfg  = CAMPAIGNS[code];
+
+  var url;
+  if (cfg) {
+    var q = new URLSearchParams();
+    q.set('utm_source',   cfg.source   || code);
+    q.set('utm_medium',   cfg.medium   || 'qr');
+    if (cfg.campaign) q.set('utm_campaign', cfg.campaign);
+    if (cfg.content)  q.set('utm_content',  cfg.content);
+    // 印刷QRに直接パラメータを足したい場合も許可（例 /go/?c=card&utm_content=osaka）
+    ['utm_campaign','utm_content','utm_term'].forEach(function(k){
+      var v = pick(k); if (v) q.set(k, v);
+    });
+    url = (cfg.to || DEFAULT_TO) + '?' + q.toString();
+  } else {
+    url = DEFAULT_TO; // 未登録コード or c指定なし → 素通し
+  }
+  location.replace(url);
+})();
+</script>
+<style>
+  body{font-family:-apple-system,"Hiragino Sans","Noto Sans JP",sans-serif;background:#fbf6f1;color:#2e1f1c;display:flex;min-height:100vh;align-items:center;justify-content:center;margin:0;padding:24px;text-align:center;line-height:1.7}
+  a{color:#a8893a;font-weight:600}
+</style>
+</head>
+<body>
+  <p>PLAT YONEZAWA — <a href="/lp">Redirecting… / 移動します</a></p>
+</body>
+</html>
