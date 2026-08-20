@@ -23,7 +23,7 @@
   var GA4_ID       = 'G-35LZ144XYC';   // ✅ GA4測定ID（プロパティ PLAT YONEZAWA visit. / ストリーム visit）
   var CLARITY_ID   = 'y54g62olp2';     // ✅ Microsoft Clarity プロジェクトID（同意後にロード＝要Cookiebot）
   var HUBSPOT_ID   = '245638622';      // ✅ HubSpot ポータルID（na2）投入済み（同意後にロード）
-  var COOKIEBOT_ID = 'CBID-XXXXXXXX';  // TODO: Cookiebot グループID（同意管理／これが入ると統計系がロード）
+  var COOKIEBOT_ID = '9b7066ad-aeed-4c94-9f9c-67cf32ce4475';  // ✅ Cookiebot ID（同意管理／これで Clarity・HubSpot が同意後に解禁）
   var ph = function (v) { return !v || v.indexOf('XXXX') >= 0; };
 
   // ===== dataLayer / gtag shim（常に用意） =====
