@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- PLAT YONEZAWA visit. 公開URL（本ローンチ時にGSCへ送信）。
-     ※ guides/（PIN保護・private）・tariff/pdf（資料請求で送付）・リダイレクト系は除外。
-     ※ O-STY-02 は Coming Soon のため確定後に追加。 -->
+<!-- PLAT YONEZAWA visit. 公開URL（本ローンチ済・GSCへ送信して運用）。
+     対象＝LP＋LPが直接リンクする商品タリフ5ページ（すべて index,follow）。
+     ※ guides/（PIN保護・private）・tariff/pdf（資料請求で送付）・
+        tariff/Yonezawa_Tariff_v1_GrossOnly.html（5ページと内容重複のため noindex 維持）・
+        リダイレクト系（/ → /lp）は除外。 -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://visit.plat-yonezawa.com/lp</loc>
@@ -18,6 +20,10 @@
   </url>
   <url>
     <loc>https://visit.plat-yonezawa.com/tariff/tariff_O-STY-01.html</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://visit.plat-yonezawa.com/tariff/tariff_O-STY-02.html</loc>
     <priority>0.8</priority>
   </url>
   <url>
