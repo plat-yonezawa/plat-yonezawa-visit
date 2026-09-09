@@ -597,15 +597,46 @@ function setLang(l){
 // Interim submit — show confirmation, then fall back to mailto until HubSpot Free Forms is connected.
 function submitTrade(e){
   e.preventDefault();
-  var g=function(id){return (document.getElementById(id).value||'').trim();};
-  var name=g('f-name'),company=g('f-company'),email=g('f-email'),type=document.getElementById('f-type').value,msg=g('f-msg');
-  var langEls=document.querySelectorAll('input[name="tariff_language"]:checked');
-  var langs=Array.prototype.map.call(langEls,function(x){return x.value;}).join(', ')||'(not specified)';
-  document.getElementById('formOk').classList.add('show');
-  var subject=encodeURIComponent('[Trade Inquiry] '+company+' / '+name);
-  var body=encodeURIComponent('Name: '+name+'\nCompany: '+company+'\nEmail: '+email+'\nPartner type: '+type+'\nPreferred tariff language(s): '+langs+'\nMessage:\n'+msg+'\n');
-  // TODO: replace with HubSpot Free Forms endpoint before launch.
-  setTimeout(function(){ window.location.href='mailto:info1@plat-yonezawa.jp?subject='+subject+'&body='+body; }, 600);
+  // 体験ページ（#reqForm）と同じ HubSpot フォームへ集約して送信する。
+  // 種別は inquiry_type（資料請求／予約リクエスト）で区別し、message 先頭にも明記する。
+  var PORTAL='245638622', FORMID='7953df0d-367f-44b2-a872-99de36d09424';
+  var g=function(id){var el=document.getElementById(id);return el?(el.value||'').trim():'';};
+  function cookie(n){var m=document.cookie.match('(^|;)\\s*'+n+'\\s*=\\s*([^;]+)');return m?m.pop():'';}
+  var name=g('f-name'), company=g('f-company'), email=g('f-email'),
+      type=(document.getElementById('f-type')||{}).value||'', msg=g('f-msg');
+  var langs=Array.prototype.map.call(document.querySelectorAll('input[name="tariff_language"]:checked'),
+      function(x){return x.value;}).join(', ')||'(not specified)';
+  var utm=(window.plat&&window.plat.utm)||{};
+  var body='【資料請求 / Tariff request】'
+    +'\n種別(Type): 資料請求（Tariff request）'
+    +'\nパートナー種別(Partner type): '+type
+    +'\n希望言語(Tariff language): '+langs
+    +'\nメッセージ(Message):\n'+msg
+    +'\n---\n流入(UTM): '+(utm.utm_source||'-')+' / '+(utm.utm_medium||'-')+' / '+(utm.utm_campaign||'-')+' / '+(utm.utm_content||'-');
+  var payload={fields:[
+    {name:'email',value:email},
+    {name:'firstname',value:name},
+    {name:'company',value:company},
+    {name:'message',value:body},
+    {name:'inquiry_type',value:'資料請求'}
+  ],context:{pageUri:location.href,pageName:document.title}};
+  var hutk=cookie('hubspotutk'); if(hutk)payload.context.hutk=hutk;
+  var btn=document.querySelector('#tradeForm button[type=submit],#tradeForm .btn-submit');
+  if(btn)btn.disabled=true;
+  fetch('https://api.hsforms.com/submissions/v3/integration/submit/'+PORTAL+'/'+FORMID,{
+    method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)
+  }).then(function(r){
+    if(!r.ok) throw new Error('hs '+r.status);
+    document.getElementById('formOk').classList.add('show');
+    try{document.getElementById('tradeForm').reset();}catch(_){}
+    if(window.plat&&window.plat.track)window.plat.track('tariff_request',{partner_type:type});
+  }).catch(function(){
+    // 送信に失敗したときだけ従来のメール送付にフォールバック（取りこぼし防止）
+    document.getElementById('formOk').classList.add('show');
+    var subject=encodeURIComponent('[Trade Inquiry] '+company+' / '+name);
+    var mbody=encodeURIComponent('Name: '+name+'\nCompany: '+company+'\nEmail: '+email+'\nPartner type: '+type+'\nPreferred tariff language(s): '+langs+'\nMessage:\n'+msg+'\n');
+    setTimeout(function(){ window.location.href='mailto:info1@plat-yonezawa.jp?subject='+subject+'&body='+mbody; }, 600);
+  }).then(function(){ if(btn)btn.disabled=false; });
   return false;
 }
 </script>

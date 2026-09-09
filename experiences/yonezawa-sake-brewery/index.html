@@ -748,7 +748,8 @@ const buttons = document.querySelectorAll('.lang-switcher button[data-lang]');
       {name:'email',value:g('rq-email')},
       {name:'firstname',value:g('rq-name')},
       {name:'company',value:g('rq-company')},
-      {name:'message',value:msg}
+      {name:'message',value:msg},
+      {name:'inquiry_type',value:'予約リクエスト'}
     ],context:{pageUri:location.href,pageName:document.title}};
     var hutk=cookie('hubspotutk'); if(hutk)payload.context.hutk=hutk;
     var btn=f.querySelector('button[type=submit]'); if(btn)btn.disabled=true;
