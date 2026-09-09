@@ -510,7 +510,7 @@ footer{background:var(--deep);color:rgba(243,233,221,.7);font-family:var(--f-ui)
     <div class="vcta">
       <div class="vcta-eyebrow">{cta_eyebrow}</div>
       <div class="vcta-title">{cta_title}</div>
-      <a href="/tariff/tariff_C-NTA-01.html">{cta_link}</a>
+      <a href="/experiences/yonezawa-silk-weaving/">{cta_link}</a>
     </div>
   </div>
 

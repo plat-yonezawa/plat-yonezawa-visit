@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- PLAT YONEZAWA visit. 公開URL（本ローンチ済・GSCへ送信して運用）。
-     対象＝LP＋公開中の商品タリフ4ページ（すべて index,follow）。
+     対象＝LP＋公開中の体験ページ4本（/experiences/…・すべて index,follow）。
+     ※ 旧URL（/tariff/tariff_*.html）は新URLへ転送するスタブを設置。
      ※ O-STY-02 は Coming Soon リダイレクト中のため除外（商品確定後に追加）。
      ※ guides/（PIN保護・private）・tariff/pdf（資料請求で送付）・
         tariff/Yonezawa_Tariff_v1_GrossOnly.html（5ページと内容重複のため noindex 維持）・
@@ -12,19 +13,19 @@
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://visit.plat-yonezawa.com/tariff/tariff_C-NTA-01.html</loc>
+    <loc>https://visit.plat-yonezawa.com/experiences/yonezawa-silk-weaving/</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://visit.plat-yonezawa.com/tariff/tariff_S-TKO-01.html</loc>
+    <loc>https://visit.plat-yonezawa.com/experiences/yonezawa-sake-brewery/</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://visit.plat-yonezawa.com/tariff/tariff_O-STY-01.html</loc>
+    <loc>https://visit.plat-yonezawa.com/experiences/yamagata-satoyama-gastronomy/</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://visit.plat-yonezawa.com/tariff/tariff_O-STY-03.html</loc>
+    <loc>https://visit.plat-yonezawa.com/experiences/yamagata-forest-bathing/</loc>
     <priority>0.8</priority>
   </url>
 </urlset>
