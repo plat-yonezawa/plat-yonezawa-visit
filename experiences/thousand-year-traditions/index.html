@@ -504,6 +504,7 @@ style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-
 <span class="eyebrow"><span class="en">Specifications</span><span class="ja">仕様</span><span class="fr">Caractéristiques</span><span class="zh">規格</span></span>
 <h2 class="section-title"><span class="en">Everything at a glance.</span><span class="ja">一目でわかる仕様</span><span class="fr">Tout en un coup d'œil.</span><span class="zh">一目了然的規格</span></h2>
 <!--AUTO:spec--><div class="spec-table" style="margin-top:36px;">
+<div class="spec-cell"><div class="l"><span class="en">Product name</span><span class="ja">商品名</span><span class="fr">Nom du produit</span><span class="zh">商品名稱</span></div><div class="v"><span class="en">Thousand-Year-Old Traditions — The Sacred Dances of Okitama</span><span class="ja">千年の舞（Thousand-Year-Old Traditions）</span><span class="fr">Traditions millénaires — Les danses sacrées d’Okitama</span><span class="zh">千年之舞（Thousand-Year-Old Traditions）</span></div></div>
 <div class="spec-cell"><div class="l"><span class="en">Operated &amp; sold by</span><span class="ja">催行・販売事業者</span><span class="fr">Opéré et vendu par</span><span class="zh">企劃執行・銷售</span></div><div class="v"><span class="en">Yamagata Arcadia Tourism Bureau</span><span class="ja">やまがたアルカディア観光局</span><span class="fr">Office de tourisme Yamagata Arcadia</span><span class="zh">山形阿卡迪亞觀光局</span></div></div>
 <div class="spec-cell"><div class="l"><span class="en">Duration</span><span class="ja">所要時間</span><span class="fr">Durée</span><span class="zh">所需時間</span></div><div class="v"><span class="en">3 days / 2 nights (2 breakfasts, 3 lunches, 2 dinners)</span><span class="ja">2泊3日（朝2・昼3・夕2）</span><span class="fr">3 jours / 2 nuits (2 petits-déj., 3 déj., 2 dîners)</span><span class="zh">3天2夜（早餐2・午餐3・晚餐2）</span></div></div>
 <div class="spec-cell"><div class="l"><span class="en">Min · Max</span><span class="ja">最少・最大</span><span class="fr">Min · Max</span><span class="zh">最少・最多</span></div><div class="v">2 – 7 pax</div></div>
@@ -513,6 +514,7 @@ style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-
 <div class="spec-cell"><div class="l"><span class="en">Category</span><span class="ja">分類</span><span class="fr">Catégorie</span><span class="zh">分類</span></div><div class="v"><span class="en">Private Tour / Heritage &amp; Nature</span><span class="ja">プライベートツアー / ヘリテージ＆ネイチャー</span><span class="fr">Voyage privé / Patrimoine &amp; nature</span><span class="zh">包團行程 / 傳承與自然</span></div></div>
 <div class="spec-cell"><div class="l"><span class="en">Available period</span><span class="ja">催行期間</span><span class="fr">Période</span><span class="zh">可預約期間</span></div><div class="v"><span class="en">9 May – 15 Nov 2026 (some dates unavailable)</span><span class="ja">2026年5月9日〜11月15日（受入不可の日あり）</span><span class="fr">9 mai – 15 nov. 2026 (certaines dates indisponibles)</span><span class="zh">2026年5月9日～11月15日（部分日期無法接待）</span></div></div>
 <div class="spec-cell"><div class="l"><span class="en">Booking deadline</span><span class="ja">予約受付</span><span class="fr">Délai de réservation</span><span class="zh">預約期限</span></div><div class="v"><span class="en">30 days prior to the date</span><span class="ja">希望日の30日前まで</span><span class="fr">Jusqu’à 30 jours avant la date</span><span class="zh">希望日的30天前</span></div></div>
+<div class="spec-cell"><div class="l"><span class="en">Official page</span><span class="ja">公式ページ</span><span class="fr">Page officielle</span><span class="zh">官方頁面</span></div><div class="v"><a href="https://arcadia-kanko.jp/discover-yamagata/" target="_blank" rel="noopener" style="color:inherit;">arcadia-kanko.jp/discover-yamagata</a></div></div>
 </div>
 </div><!--/AUTO:spec-->
 </section>
@@ -617,6 +619,18 @@ style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display
 .req-ok.show{display:block;}
 .req-note{font-family:var(--f-ui);font-size:11.5px;color:#867872;margin-top:12px;line-height:1.6;}
 @media(max-width:640px){.req-form{grid-template-columns:1fr;}.req-card{padding:24px 20px;}.req-form input,.req-form textarea{font-size:16px;}.req-btn{width:100%;}.req-form .langs{gap:10px 18px;}.req-form .langs label{padding:3px 0;min-height:32px;}}
+</style>
+
+<style id="lang4css">
+/* このページは言語ボタンが4つ（EN / 日本語 / FR / 繁中）。テンプレートの
+   ヘッダーは3つ前提で、既定の折り返しが効き始める幅より少し上（およそ
+   700〜800px）で最後の「繁中」が右端から数pxはみ出す。折り返しの開始を
+   広げて逃がす。デスクトップ幅の見た目は変わらない。 */
+@media (max-width: 900px){
+  .topnav-inner{flex-wrap:wrap;row-gap:10px;}
+  .nav-right{flex-wrap:wrap;}
+  .lang-switcher{margin-left:auto;}
+}
 </style>
 
 <footer>
