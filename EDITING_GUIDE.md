@@ -134,3 +134,22 @@ git push origin main
 - Notion「商品タリフDB」= 事実の正本
 - 社内PMダッシュボード（Project Hub）= `pm.plat-yonezawa.com`（Cloudflare Access・社内）
 - 編集の細則・背景は本ガイドを更新して共有すること。
+
+---
+
+## 11. パスワードで保護している商品（2026-09-20 追加）
+
+`experiences/nagai-black-lion/`（`P-KRJ-01`）と `experiences/thousand-year-traditions/`（`P-SEN-01`）は、
+**このリポジトリの外＝Cloudflare Worker `plat-kv` の `gate.js`** で共有パスワードを掛けている。
+
+- GitHub Pages 自体は誰でも取得できる。**守っているのは Worker のルートだけ**なので、
+  `plat-yonezawa/plat-dashboard` の `workers/plat-kv/wrangler.toml` に載っている
+  `[[routes]]` を消すと、その瞬間から誰でも見られる状態になる。
+- ルートは**ページと画像の両方**に張ってある（`/experiences/<slug>*` と `/tariff/images/<pid>/*`）。
+  画像の置き場所を変えるときは、ルートと `gate.js` の `prefixes` も一緒に直すこと。
+- パスワードの変更・締め出しは `npx wrangler secret put GATE_KUROSHISHI` → `npx wrangler deploy`。
+  変更すると配布済みのログイン状態は全部切れる。
+- この2本は **`/lp.html` の商品一覧には載せていない**（パスワード配布先にだけ直URLで渡す想定）。
+  一覧に載せる判断をしたら、鍵付きである旨が分かる表示にすること。
+- 言語切替は既存4言語に加えて **日本語ボタンを出している**（`LANGS` に `ja` を追加）。
+  他の体験ページは EN/FR/繁中 の3ボタンのままなので、揃えるかどうかは別途判断。
