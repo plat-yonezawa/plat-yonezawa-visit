@@ -489,10 +489,13 @@ style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display
 </div>
 
 
+<!-- 帯の高さは画面幅に追従させる。280px 固定だと、広い画面では被写体が
+     上下から切り落とされて「中途半端な切れ方」になる。object-position で
+     写真ごとに見せたい高さを指定する。 -->
 <div class="venue-strip">
-<div class="shot" style="aspect-ratio:auto;height:280px;">
-<img src="/tariff/images/p-sen-01/shot-07.jpg" alt="Interior of Yamagata The Takinami"
-style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;">
+<div class="shot" style="aspect-ratio:auto;height:clamp(220px, 30vw, 460px);">
+<img src="/tariff/images/p-sen-01/shot-07.jpg" alt="Yamagata The Takinami at dusk — thatched eaves and the lit garden approach"
+style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 62%;display:block;">
 </div>
 </div>
 
