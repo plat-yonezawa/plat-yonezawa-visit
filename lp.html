@@ -140,6 +140,12 @@ body.lang-ja .prod .tag,body.lang-zh .prod .tag{font-family:inherit;font-style:n
 .prod .open{font-family:var(--f-ui);font-size:11px;letter-spacing:.05em;color:var(--c-muted);margin-top:8px;}
 .prod:hover .open{color:var(--c-gold-deep);}
 .prod .soon{position:absolute;top:14px;right:14px;font-family:var(--f-ui);font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#fff;background:var(--c-accent);padding:4px 9px;border-radius:999px;}
+/* 鍵つきの商品につける印。一覧には出すが、開くにはパスワードが要る。 */
+.prod .locked{position:absolute;top:14px;right:14px;font-family:var(--f-ui);font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#fff;background:var(--c-deep-mid);padding:4px 9px;border-radius:999px;}
+.prod .locked::before{content:"\1F512 ";}
+/* 取扱事業者が他社の商品ブロックにつける注記。 */
+.operator-note{font-size:13.5px;line-height:1.8;color:var(--c-ink-soft);background:var(--c-snow);border-left:3px solid var(--c-moss);padding:12px 16px;margin:-8px 0 20px;border-radius:0 3px 3px 0;}
+.operator-note strong{color:var(--c-deep);}
 
 /* ── Pillars ── */
 .pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;}
@@ -341,8 +347,8 @@ footer .f-legal{font-size:10px;letter-spacing:.05em;margin-top:28px;color:rgba(2
     <div class="section-head center">
       <span class="eyebrow"><span class="en">The Portfolio · 2026</span><span class="ja">2026年 ポートフォリオ</span><span class="fr">Le Portfolio · 2026</span><span class="zh">2026 作品集</span></span>
       <div class="rule center"></div>
-      <h2><span class="en">Three houses. Five experiences.</span><span class="ja">3つの名門、5つの体験。</span><span class="fr">Trois maisons. Cinq expériences.</span><span class="zh">三家名門，五項體驗。</span></h2>
-      <p class="lead"><span class="en">Each experience is anchored to a real maker — a textile house, a brewery, a satoyama sommelier — and detailed in its own trade tariff.</span><span class="ja">各体験は実在の作り手（織元・蔵元・里山ソムリエ）に紐づき、商品ごとの取引タリフで詳細を確認できます。</span><span class="fr">Chaque expérience repose sur un artisan réel — une maison textile, une brasserie, un sommelier du satoyama — et est détaillée dans son propre tarif professionnel.</span><span class="zh">每項體驗皆連結真實的作者——織造名家、釀酒藏元、里山侍酒師——並於各自的業務報價中詳述。</span></p>
+      <h2><span class="en">Four partners. Seven experiences.</span><span class="ja">4つの担い手、7つの体験。</span><span class="fr">Quatre partenaires. Sept expériences.</span><span class="zh">四組夥伴，七項體驗。</span></h2>
+      <p class="lead"><span class="en">Each experience is anchored to a real maker — a textile house, a brewery, a satoyama sommelier, a shrine's lion troupe — and detailed in its own trade tariff.</span><span class="ja">各体験は実在の作り手（織元・蔵元・里山ソムリエ・神社の獅子連）に紐づき、商品ごとの取引タリフで詳細を確認できます。</span><span class="fr">Chaque expérience repose sur un artisan réel — une maison textile, une brasserie, un sommelier du satoyama, la troupe du lion d'un sanctuaire — et est détaillée dans son propre tarif professionnel.</span><span class="zh">每項體驗皆連結真實的作者——織造名家、釀酒藏元、里山侍酒師、神社的獅子連——並於各自的業務報價中詳述。</span></p>
     </div>
 
     <div class="brand-block">
@@ -403,8 +409,33 @@ footer .f-legal{font-size:10px;letter-spacing:.05em;margin-top:28px;color:rgba(2
       </div>
     </div>
 
+    <div class="brand-block">
+      <div class="brand-head">
+        <span class="b-name">The Prayer of the Snow Country</span>
+        <span class="b-meta">Sacred · Yamagata Arcadia Tourism Bureau</span>
+      </div>
+      <p class="operator-note">
+        <span class="en">Operated and sold by the <strong>Yamagata Arcadia Tourism Bureau</strong>. Presented here by PLAT YONEZAWA — enquiries go directly to the bureau. These two tariffs are password-protected; ask your PLAT YONEZAWA contact for access.</span><span class="ja">催行・販売は<strong>やまがたアルカディア観光局</strong>です。当社は資料を掲載している立場で、お問い合わせは同局へ直接おつなぎします。この2本はパスワードで保護しています。閲覧をご希望の場合は担当までご連絡ください。</span><span class="fr">Opéré et vendu par l'<strong>Office de tourisme Yamagata Arcadia</strong>. Présenté ici par PLAT YONEZAWA — les demandes sont adressées directement à l'office. Ces deux tarifs sont protégés par mot de passe ; contactez votre interlocuteur pour y accéder.</span><span class="zh">由<strong>山形阿卡迪亞觀光局</strong>負責執行與銷售。本站僅為刊載，洽詢將直接轉至該局。此兩份報價設有密碼保護，如需瀏覽請與您的窗口聯繫。</span>
+      </p>
+      <div class="prod-grid">
+        <a class="prod" href="/experiences/nagai-black-lion/">
+          <span class="locked"><span class="en">Password</span><span class="ja">パスワード</span><span class="fr">Mot de passe</span><span class="zh">密碼</span></span>
+          <span class="code">P-KRJ-01</span>
+          <h4>The Black Lion &amp; The River God</h4>
+          <span class="tag"><span class="en">A Shrine Opened for You Alone</span><span class="ja">あなたのためだけに開く社</span><span class="fr">Un sanctuaire ouvert pour vous seuls</span><span class="zh">為您獨啟的神社</span></span>
+          <span class="open"><span class="en">Open tariff →</span><span class="ja">タリフを開く →</span><span class="fr">Ouvrir le tarif →</span><span class="zh">開啟報價 →</span></span>
+        </a>
+        <a class="prod" href="/experiences/thousand-year-traditions/">
+          <span class="locked"><span class="en">Password</span><span class="ja">パスワード</span><span class="fr">Mot de passe</span><span class="zh">密碼</span></span>
+          <span class="code">P-SEN-01</span>
+          <h4>Thousand-Year-Old Traditions</h4>
+          <span class="tag"><span class="en">The Sacred Dances of Okitama · 3 days</span><span class="ja">置賜、千年の舞 ・ 2泊3日</span><span class="fr">Les danses sacrées d'Okitama · 3 jours</span><span class="zh">置賜的神聖之舞 · 3天2夜</span></span>
+          <span class="open"><span class="en">Open tariff →</span><span class="ja">タリフを開く →</span><span class="fr">Ouvrir le tarif →</span><span class="zh">開啟報價 →</span></span>
+        </a>
+      </div>
+    </div>
     <div style="text-align:center;margin-top:40px;">
-      <a href="#experiences" class="btn primary"><span class="en">View the full 2026 tariff →</span><span class="ja">2026年版タリフ（全5商品）→</span><span class="fr">Voir le tarif 2026 complet →</span><span class="zh">查看 2026 完整報價 →</span></a>
+      <a href="#experiences" class="btn primary"><span class="en">View the full 2026 tariff →</span><span class="ja">2026年版タリフ（全7商品）→</span><span class="fr">Voir le tarif 2026 complet →</span><span class="zh">查看 2026 完整報價 →</span></a>
     </div>
   </div>
 </section>
