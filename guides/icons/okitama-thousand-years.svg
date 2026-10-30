@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120">
+  <!-- 置賜、千年の舞：船でしか入れない渓谷と小舟、奥に社の鳥居 -->
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#E9E2CF"/><stop offset="1" stop-color="#CFD8C4"/>
+    </linearGradient>
+    <linearGradient id="river" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#5E8E8A"/><stop offset="1" stop-color="#2F5C5E"/>
+    </linearGradient>
+  </defs>
+  <rect width="120" height="120" fill="url(#sky)"/>
+  <!-- 遠景の山 -->
+  <path d="M0 52l18-14 16 10 18-16 16 12 20-14 18 14 14-6v20H0z" fill="#9DB39A"/>
+  <!-- 奥の鳥居（朱） -->
+  <g fill="#B5452F">
+    <path d="M52 40c5 1 11 1 16 0l-.6 2.4c-5 .8-10 .8-14.8 0z"/>
+    <rect x="53.5" y="44" width="13" height="1.6"/>
+    <rect x="55" y="42" width="1.8" height="10"/><rect x="63.2" y="42" width="1.8" height="10"/>
+  </g>
+  <!-- 渓谷の崖（左右） -->
+  <path d="M0 40c10 4 16 14 22 28 4 10 8 22 10 52H0z" fill="#3F5B45"/>
+  <path d="M120 38c-12 6-18 16-24 30-4 10-8 22-10 52h34z" fill="#34503C"/>
+  <path d="M0 58c8 4 12 12 16 22M120 56c-8 4-13 13-17 24" stroke="#5F7D63" stroke-width="2" fill="none"/>
+  <!-- 川 -->
+  <path d="M38 56h44c-2 20-4 40-6 64H44c-2-24-4-44-6-64z" fill="url(#river)"/>
+  <g stroke="#CFE3DE" stroke-width="1.2" stroke-linecap="round" opacity=".7"><path d="M50 74h8M60 86h10M48 100h9"/></g>
+  <!-- 小舟と人 -->
+  <path d="M46 92h28l-4 6H50z" fill="#2B211A"/>
+  <path d="M56 92v-8M62 92v-7" stroke="#2B211A" stroke-width="2.4" stroke-linecap="round"/>
+  <circle cx="56" cy="82" r="2.2" fill="#2B211A"/><circle cx="62" cy="83" r="2.2" fill="#2B211A"/>
+  <path d="M66 86l10 14" stroke="#2B211A" stroke-width="1.6" stroke-linecap="round"/>
+  <!-- 和紙のひとひら -->
+  <rect x="86" y="18" width="16" height="20" rx="1" fill="#FBF8F0" transform="rotate(12 94 28)"/>
+  <path d="M89 24l10 2M88 28l10 2M87 32l9 2" stroke="#D8CDB4" stroke-width=".8" transform="rotate(12 94 28)"/>
+</svg>

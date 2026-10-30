@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120">
+  <!-- 長井の黒獅子：夕刻の社にあらわれる黒獅子の頭（鱗の名残・金の眼・白い髭） -->
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1B1F3A"/><stop offset=".65" stop-color="#3A1F2E"/><stop offset="1" stop-color="#7A2A2A"/>
+    </linearGradient>
+    <radialGradient id="glow" cx=".5" cy=".55" r=".5">
+      <stop offset="0" stop-color="#F2A75A" stop-opacity=".55"/><stop offset="1" stop-color="#F2A75A" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="head" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2A2A30"/><stop offset="1" stop-color="#0D0D10"/>
+    </linearGradient>
+  </defs>
+  <rect width="120" height="120" fill="url(#bg)"/>
+  <circle cx="60" cy="62" r="56" fill="url(#glow)"/>
+  <!-- 頭 -->
+  <path d="M28 58c0-20 14-34 32-34s32 14 32 34c0 9-3 16-8 22H36c-5-6-8-13-8-22z" fill="url(#head)"/>
+  <!-- 鱗の名残 -->
+  <g fill="none" stroke="#5A5A66" stroke-width="1.2" opacity=".9">
+    <path d="M44 34c3 3 6 3 9 0M56 30c3 3 6 3 9 0M68 34c3 3 6 3 9 0"/>
+    <path d="M38 42c3 3 6 3 9 0M74 42c3 3 6 3 9 0"/>
+  </g>
+  <!-- 眉と眼（金） -->
+  <path d="M38 50c5-6 13-6 17-1M65 49c4-5 12-5 17 1" stroke="#D9A441" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <circle cx="46" cy="56" r="6" fill="#E8B84A"/><circle cx="74" cy="56" r="6" fill="#E8B84A"/>
+  <circle cx="46" cy="56" r="2.6" fill="#111"/><circle cx="74" cy="56" r="2.6" fill="#111"/>
+  <!-- 口（紅）と歯 -->
+  <path d="M40 68c6 8 34 8 40 0l-3 10c-10 5-24 5-34 0z" fill="#B3262E"/>
+  <path d="M44 69l3 4 3-4 3 4 3-4 3 4 3-4 3 4 3-4 3 4 3-4" stroke="#F4EFE6" stroke-width="2" fill="none" stroke-linejoin="round"/>
+  <!-- 白い髭 -->
+  <g stroke="#EDE7DA" stroke-width="2.2" stroke-linecap="round" fill="none">
+    <path d="M42 82c-2 8-1 14 2 20M50 84c-1 8 0 14 2 19M60 85v19M70 84c1 8 0 14-2 19M78 82c2 8 1 14-2 20"/>
+  </g>
+  <!-- 獅子幕の唐草（金） -->
+  <path d="M8 112c10-8 20 8 30 0s20 8 30 0 20 8 30 0 14 6 20 2" stroke="#C99A3A" stroke-width="2" fill="none" opacity=".8"/>
+</svg>
