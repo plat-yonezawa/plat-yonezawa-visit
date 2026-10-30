@@ -619,5 +619,106 @@ for k,v in {'{herocap}':herocap,'{visitor}':visitor_block,
             '{phrases}':phrase_rows,'{nav}':nav_html,'{scenes}':"\n".join(scene_html),
             '{faq}':faq_rows,'{colors}':color_rows,'{gloss}':gloss_rows,'{timing}':timing_rows,'{aud}':aud_rows}.items():
     HTML=HTML.replace(k,v)
-open(OUT,'w',encoding='utf-8').write(HTML)
-print('written',OUT,'bytes',len(HTML))
+
+# ============================================================
+#  ガイドアプリ（YONEZAWA GUIDES）用に2つの版へ出し分ける（2026-10-30）
+#    guides/nitta/index.html        … 来訪者向けだけ。ガイド向けの中身はHTMLに出さない
+#    guides/staff/nitta/index.html  … 完全版。暗証番号（Cloudflare の門番）の内側に置くので、
+#                                     メール入力の暫定ゲートは外す
+#    guides/nitta-guide.html        … 旧URL。新しい来訪者向けページへ転送するだけ
+# ============================================================
+from html.parser import HTMLParser
+import re
+
+GUIDES=os.path.join(os.path.dirname(os.path.abspath(__file__)),'..')
+LANG_KEY='yonezawa-guides-lang'   # ガイドアプリ・他のガイドと共有する言語の記憶
+
+class _Spans(HTMLParser):
+    """class で選んだ要素の開始〜終了位置を取る（入れ子の div を数えて正しく切るため）。"""
+    VOID={'area','base','br','col','embed','hr','img','input','link','meta','param','source','track','wbr'}
+    def __init__(self,text,pred):
+        super().__init__(convert_charrefs=False)
+        self.text,self.pred,self.spans,self.cur=text,pred,[],None
+        self.lines=[0]
+        for ln in text.split('\n'): self.lines.append(self.lines[-1]+len(ln)+1)
+    def _pos(self):
+        l,c=self.getpos(); return self.lines[l-1]+c
+    def handle_starttag(self,tag,attrs):
+        if tag in self.VOID: return
+        if self.cur is None:
+            if self.pred(tag,(dict(attrs).get('class') or '').split()): self.cur=[tag,self._pos(),1]
+        elif tag==self.cur[0]: self.cur[2]+=1
+    def handle_endtag(self,tag):
+        if self.cur is None or tag!=self.cur[0]: return
+        self.cur[2]-=1
+        if self.cur[2]==0:
+            self.spans.append((self.cur[1],self.text.index('>',self._pos())+1)); self.cur=None
+
+def strip(text,pred):
+    p=_Spans(text,pred); p.feed(text); p.close()
+    assert p.cur is None, '閉じていない要素があります'
+    for a,b in reversed(p.spans): text=text[:a]+text[b:]
+    return text,len(p.spans)
+
+def appbar(staff):
+    span=lambda ja,en,fr,tw: t(en,fr,tw,ja)
+    out=['<nav class="guide-appbar" aria-label="YONEZAWA GUIDES">',
+         '<a class="appbar-home" data-keep-lang href="/guides/"><span aria-hidden="true">←</span>'
+         +span('ガイド一覧','All guides','Tous les guides','導覽一覽')+'</a>']
+    if staff:
+        out.append('<a class="appbar-staff" data-keep-lang href="/guides/staff/nitta/?mode=guide">'
+                   '<span aria-hidden="true">🔑</span>'+span('ガイド・通訳の方','For guides','Pour les guides','導覽員・口譯專用')+'</a>')
+    return '\n'.join(out+['</nav>'])
+
+APPBAR_CSS='''
+.guide-appbar{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:0 12px;background:var(--deep);font-family:var(--f-ui);font-size:13px}
+.guide-appbar a{color:#f3e9dd;text-decoration:none;min-height:44px;display:inline-flex;align-items:center;gap:6px;padding:0 4px}
+.guide-appbar .appbar-staff{margin-left:auto}
+'''
+
+# 言語：?lang= → 前回選んだ言語（ガイドアプリと共有）→ English。モード：?mode=
+INIT_OLD="  setMode('visitor'); setLang('en');"
+INIT_NEW='''  function keepLang(l){document.querySelectorAll('a[data-keep-lang]').forEach(function(a){
+    try{var u=new URL(a.getAttribute('href'),location.href);u.searchParams.set('lang',l);a.setAttribute('href',u.pathname+u.search+u.hash);}catch(e){}});}
+  langBtns.forEach(function(b){b.addEventListener('click',function(){var l=b.dataset.lang;keepLang(l);
+    try{localStorage.setItem('%s',l);}catch(e){}
+    try{var u=new URL(location.href);u.searchParams.set('lang',l);history.replaceState(null,'',u.pathname+u.search+u.hash);}catch(e){}});});
+  var Q;try{Q=new URLSearchParams(location.search);}catch(e){Q={get:function(){return null;}};}
+  var m=Q.get('mode'); setMode(m&&document.querySelector('.sw .modes button[data-mode="'+m+'"]')?m:'visitor');
+  var s=null;try{s=localStorage.getItem('%s');}catch(e){}
+  var want=Q.get('lang')||s||'en', ok=document.querySelector('.sw .langs button[data-lang="'+want+'"]:not(.hide)');
+  setLang(ok?want:(body.classList.contains('mode-guide')?'ja':'en')); keepLang(ok?want:'en');''' % (LANG_KEY,LANG_KEY)
+assert INIT_OLD in HTML
+
+def variant(full):
+    h=HTML.replace(INIT_OLD,INIT_NEW)
+    h=re.sub(r'\b(src|poster)="images/',r'\1="/guides/images/',h)
+    if full:
+        h,n=strip(h,lambda tg,c:'gate' in c); assert n==1
+        h=h.replace('<body class="mode-visitor lang-en">','<body class="mode-visitor lang-en guide-unlocked">')
+        h=h.replace('Visitors = public ／ Staff Only = authenticated (interim gate; production via Cloudflare Access)',
+                    'Visitors = public ／ Staff Only = PIN required')
+    else:
+        h,n=strip(h,lambda tg,c:'guide-only' in c); assert n==1
+        h,n=strip(h,lambda tg,c:'row' in c and 'modes' in c); assert n==1
+        h=h.replace('Visitors = public ／ Staff Only = authenticated (interim gate; production via Cloudflare Access)','')
+        assert 'class="guide-body"' not in h and '現場フレーズ集' not in h, '来訪者向けにガイド向けの中身が残っています'
+    h=h.replace('</style>',APPBAR_CSS+'</style>',1)
+    h=re.sub(r'(<body[^>]*>)',lambda mm:mm.group(1)+'\n'+appbar(not full),h,count=1)
+    return h
+
+for full,rel in ((False,'nitta/index.html'),(True,'staff/nitta/index.html')):
+    path=os.path.join(GUIDES,rel); os.makedirs(os.path.dirname(path),exist_ok=True)
+    out=variant(full); open(path,'w',encoding='utf-8').write(out)
+    print('nitta           %s %7s bytes' % ('完全版    ' if full else '来訪者向け', f'{len(out.encode("utf-8")):,}'))
+
+# 旧URL（guides/nitta-guide.html）は転送だけにする。?lang= などはそのまま引き継ぐ
+open(OUT,'w',encoding='utf-8').write('''<!DOCTYPE html>
+<html lang="ja"><head><meta charset="UTF-8">
+<meta name="robots" content="noindex,nofollow">
+<title>新田織物 コンテンツガイド｜PLAT YONEZAWA</title>
+<link rel="canonical" href="/guides/nitta/">
+<script>location.replace('/guides/nitta/'+location.search+location.hash);</script>
+<meta http-equiv="refresh" content="0;url=/guides/nitta/">
+</head><body><p><a href="/guides/nitta/">新田織物 コンテンツガイドへ / Nitta Textile guide</a></p></body></html>
+''')

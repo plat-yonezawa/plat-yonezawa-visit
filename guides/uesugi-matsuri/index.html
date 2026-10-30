@@ -1,0 +1,2955 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>米沢上杉まつり 多言語ガイド｜Yonezawa Uesugi Festival Multilingual Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600;700&family=Noto+Serif+TC:wght@400;600;700&family=Cormorant+Garamond:wght@400;600;700&family=Shippori+Mincho:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --c-bg-deep:#1a3a32;        /* 上杉軍陣幕の深緑 */
+  --c-bg-deeper:#11241f;
+  --c-nav:#1d3a6e;             /* 公式ナビの紺 */
+  --c-cream:#f5f1e6;           /* 和紙クリーム */
+  --c-cream-dark:#e8dfc8;
+  --c-paper:#fbf7ec;
+  --c-white:#ffffff;
+  --c-crimson:#a01818;         /* 「祝」朱 */
+  --c-crimson-soft:#c14040;
+  --c-gold:#c9a64a;            /* 兜・装飾の金 */
+  --c-gold-dark:#9a7c2a;
+  --c-ink:#1a1a1a;             /* 墨 */
+  --c-ink-soft:#3a3a3a;
+  --c-gray:#6a6a6a;
+  --c-line:#d4c896;            /* 区切り線 */
+  --c-tatami:#c8b878;
+  --c-tan:#e6d9b8;
+
+  --font-ja:"Shippori Mincho","Noto Serif JP","游明朝","Yu Mincho",serif;
+  --font-en:"Cormorant Garamond","Noto Serif JP",serif;
+  --font-tw:"Noto Serif TC","Noto Serif JP",serif;
+
+  --max-w:1100px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{font-family:var(--font-ja);color:var(--c-ink);background:var(--c-paper);line-height:1.8;font-size:16px}
+body.lang-en{font-family:var(--font-en);font-size:17px;line-height:1.7}
+body.lang-tw{font-family:var(--font-tw);font-size:16px;line-height:1.85}
+
+/* 和紙テクスチャ（軽いノイズ） */
+body{
+  background-image:
+    radial-gradient(circle at 20% 30%, rgba(201,166,74,0.04) 0%, transparent 50%),
+    radial-gradient(circle at 80% 70%, rgba(160,24,24,0.03) 0%, transparent 50%),
+    linear-gradient(180deg, var(--c-paper) 0%, #f6f0df 100%);
+  min-height:100vh;
+}
+
+/* ====== HEADER ====== */
+.hero{
+  background:linear-gradient(135deg, var(--c-bg-deep) 0%, var(--c-bg-deeper) 100%);
+  color:var(--c-cream);
+  padding:0;
+  position:relative;
+  overflow:hidden;
+  border-bottom:4px solid var(--c-gold);
+}
+.hero::before{
+  content:"";position:absolute;inset:0;
+  background-image:radial-gradient(circle at 80% 50%, rgba(201,166,74,0.08) 0%, transparent 60%);
+  pointer-events:none;
+}
+.hero-inner{
+  max-width:var(--max-w);margin:0 auto;padding:28px 24px 18px;position:relative;
+}
+.hero-top{display:flex;align-items:center;gap:16px;margin-bottom:14px}
+.kamon{width:56px;height:56px;flex-shrink:0}
+.title-block h1{
+  font-family:var(--font-ja);font-weight:700;font-size:1.9rem;letter-spacing:0.04em;color:var(--c-white);
+  text-shadow:0 2px 8px rgba(0,0,0,0.5);line-height:1.2;
+}
+.title-block .sub{font-family:var(--font-en);font-size:0.95rem;color:var(--c-gold);letter-spacing:0.15em;margin-top:4px}
+.title-block .tag-tw{font-size:0.85rem;color:var(--c-cream-dark);margin-top:2px;font-family:var(--font-tw)}
+
+.hero-meta{font-size:0.85rem;color:var(--c-cream-dark);margin-top:8px;letter-spacing:0.05em}
+.hero-meta .date-jp{color:var(--c-gold);font-weight:700;font-size:1rem}
+
+/* ====== TAB SWITCHERS ====== */
+.switchers{
+  background:var(--c-nav);
+  border-top:1px solid rgba(255,255,255,0.1);
+  position:sticky;top:0;z-index:100;
+  box-shadow:0 2px 12px rgba(0,0,0,0.25);
+}
+.switcher-row{
+  max-width:var(--max-w);margin:0 auto;padding:0 16px;
+  display:flex;flex-wrap:wrap;gap:0;
+  border-bottom:1px solid rgba(255,255,255,0.12);
+}
+.switcher-row:last-child{border-bottom:none;background:rgba(0,0,0,0.18)}
+.tab{
+  flex:1;min-width:90px;
+  padding:12px 14px;text-align:center;
+  background:transparent;border:none;color:var(--c-cream-dark);
+  font-family:inherit;font-size:0.95rem;cursor:pointer;
+  transition:all 0.2s;letter-spacing:0.05em;
+  border-bottom:3px solid transparent;
+}
+.tab:hover{background:rgba(255,255,255,0.08);color:var(--c-white)}
+.tab.active{
+  color:var(--c-white);font-weight:600;
+  border-bottom-color:var(--c-gold);
+  background:rgba(201,166,74,0.12);
+}
+.tab .ico{font-size:1.1rem;margin-right:4px}
+.switcher-row.modes .tab.active{border-bottom-color:var(--c-crimson-soft)}
+
+/* ====== CONTENT WRAPPER ====== */
+main{max-width:var(--max-w);margin:0 auto;padding:32px 24px 80px}
+
+/* 言語切替: 親要素にlang-XX、子要素のクラス.ja/.en/.twで表示制御 */
+.ja,.en,.tw{display:none}
+body.lang-ja .ja{display:revert}
+body.lang-ja span.ja, body.lang-ja .inline.ja{display:inline}
+body.lang-en .en{display:revert}
+body.lang-en span.en, body.lang-en .inline.en{display:inline}
+body.lang-tw .tw{display:revert}
+body.lang-tw span.tw, body.lang-tw .inline.tw{display:inline}
+
+/* モード切替 */
+body.mode-tourist .interpreter-only{display:none !important}
+body.mode-interpreter .tourist-only{display:none !important}
+
+/* ====== SECTIONS ====== */
+section.chapter{
+  margin-bottom:48px;
+  background:var(--c-white);
+  border:1px solid var(--c-line);
+  border-radius:6px;
+  padding:32px 36px;
+  box-shadow:0 2px 14px rgba(26,58,50,0.06);
+  position:relative;
+}
+section.chapter::before{
+  content:"";position:absolute;top:-1px;left:32px;right:32px;height:3px;
+  background:linear-gradient(90deg,transparent 0%, var(--c-gold) 30%, var(--c-gold) 70%, transparent 100%);
+}
+.chapter h2{
+  font-family:var(--font-ja);font-size:1.7rem;font-weight:700;
+  color:var(--c-bg-deep);
+  border-left:6px solid var(--c-crimson);
+  padding-left:14px;margin-bottom:8px;line-height:1.3;
+  letter-spacing:0.03em;
+}
+body.lang-en .chapter h2{font-family:var(--font-en)}
+body.lang-tw .chapter h2{font-family:var(--font-tw)}
+.chapter .chapter-num{
+  display:inline-block;font-size:0.75rem;font-family:var(--font-en);
+  color:var(--c-gold-dark);letter-spacing:0.3em;margin-bottom:8px;text-transform:uppercase;
+}
+.chapter h3{
+  font-size:1.2rem;color:var(--c-bg-deep);margin:28px 0 12px;
+  padding-left:12px;border-left:4px solid var(--c-gold);
+  font-weight:600;
+}
+.chapter h4{font-size:1.05rem;color:var(--c-ink-soft);margin:20px 0 8px;font-weight:600}
+.chapter p{margin-bottom:14px;text-align:justify}
+.chapter ul,.chapter ol{margin:10px 0 14px 24px}
+.chapter li{margin-bottom:6px}
+
+.lead{font-size:1.05rem;color:var(--c-ink-soft);margin-bottom:18px;line-height:1.9}
+
+/* 強調ブロック */
+.callout{
+  background:linear-gradient(135deg, #fffbf0 0%, #fff5d8 100%);
+  border-left:5px solid var(--c-gold);
+  padding:18px 22px;margin:20px 0;border-radius:0 4px 4px 0;
+}
+.callout.crimson{background:linear-gradient(135deg,#fff5f5 0%,#ffe8e8 100%);border-left-color:var(--c-crimson)}
+.callout.deep{background:linear-gradient(135deg,#eef2ee 0%,#dde6df 100%);border-left-color:var(--c-bg-deep)}
+.callout-title{font-weight:700;color:var(--c-crimson);margin-bottom:6px;font-size:1rem}
+.callout.deep .callout-title{color:var(--c-bg-deep)}
+.callout.crimson .callout-title{color:var(--c-crimson)}
+
+/* 通訳者向け特殊ブロック */
+.interpreter-box{
+  background:#f7f2e3;
+  border:2px dashed var(--c-gold-dark);
+  padding:20px 24px;margin:24px 0;border-radius:8px;
+  position:relative;
+}
+.interpreter-box::before{
+  content:"📚 INTERPRETER NOTES";
+  position:absolute;top:-12px;left:20px;background:var(--c-gold-dark);color:var(--c-white);
+  padding:2px 12px;font-size:0.7rem;letter-spacing:0.2em;font-family:var(--font-en);font-weight:700;
+  border-radius:3px;
+}
+.translate-tip{
+  background:#f0eee0;border-left:4px solid var(--c-crimson);
+  padding:14px 18px;margin:14px 0;border-radius:0 4px 4px 0;
+}
+.translate-tip .term{
+  display:inline-block;background:var(--c-crimson);color:var(--c-white);
+  padding:2px 10px;border-radius:3px;font-weight:700;margin-right:8px;font-size:0.95rem;
+}
+
+/* タイムライン（観光客向け） */
+.timeline{
+  position:relative;margin:24px 0;padding-left:30px;
+  border-left:3px solid var(--c-gold);
+}
+.tl-item{position:relative;margin-bottom:24px}
+.tl-item::before{
+  content:"";position:absolute;left:-37px;top:6px;
+  width:14px;height:14px;background:var(--c-crimson);border-radius:50%;
+  border:3px solid var(--c-paper);box-shadow:0 0 0 2px var(--c-crimson);
+}
+.tl-item.major::before{background:var(--c-gold);box-shadow:0 0 0 2px var(--c-gold-dark);width:18px;height:18px;left:-39px}
+.tl-item.major .tl-time{color:var(--c-gold-dark);font-size:1.05rem}
+.tl-time{font-family:var(--font-en);font-size:0.95rem;color:var(--c-crimson);font-weight:700;letter-spacing:0.05em}
+.tl-title{font-size:1.1rem;font-weight:700;color:var(--c-bg-deep);margin:2px 0 4px}
+.tl-meta{font-size:0.85rem;color:var(--c-gray)}
+.tl-desc{margin-top:6px}
+
+/* 日付バッジ */
+.day-badge{
+  display:inline-block;background:var(--c-bg-deep);color:var(--c-gold);
+  padding:6px 14px;border-radius:4px;font-weight:700;letter-spacing:0.05em;
+  margin-right:10px;font-size:0.95rem;
+}
+.day-header{
+  display:flex;align-items:center;gap:12px;margin:24px 0 12px;
+  padding-bottom:8px;border-bottom:2px dotted var(--c-line);
+}
+
+/* 武将系譜・人物カード */
+.figure-grid{
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px;margin:18px 0;
+}
+.figure-card{
+  background:var(--c-cream);border:1px solid var(--c-line);
+  padding:14px 16px;border-radius:6px;
+}
+.figure-card .name-jp{font-weight:700;font-size:1.1rem;color:var(--c-bg-deep)}
+.figure-card .name-en{font-family:var(--font-en);font-size:0.85rem;color:var(--c-gold-dark);letter-spacing:0.05em}
+.figure-card .role{font-size:0.85rem;color:var(--c-crimson);margin:4px 0;font-weight:600}
+.figure-card .desc{font-size:0.85rem;color:var(--c-ink-soft);margin-top:6px;line-height:1.6}
+
+/* 系譜図 */
+.lineage{
+  background:var(--c-cream);border:1px solid var(--c-line);
+  padding:24px;border-radius:6px;margin:18px 0;
+  display:flex;flex-direction:column;gap:8px;align-items:center;
+  font-family:var(--font-ja);
+}
+.lineage .gen{
+  display:flex;align-items:center;gap:12px;flex-wrap:wrap;justify-content:center;
+}
+.lineage .person{
+  background:var(--c-white);border:2px solid var(--c-bg-deep);
+  padding:8px 14px;border-radius:4px;text-align:center;min-width:110px;
+}
+.lineage .person.highlight{background:var(--c-gold);color:var(--c-white);border-color:var(--c-gold-dark)}
+.lineage .person .pn{font-weight:700;font-size:0.95rem}
+.lineage .person .pr{font-size:0.7rem;color:var(--c-gray)}
+.lineage .person.highlight .pr{color:var(--c-cream)}
+.lineage .arrow{color:var(--c-gold-dark);font-weight:700}
+
+/* 戦況図（簡易） */
+.battle-diagram{
+  background:var(--c-bg-deeper);color:var(--c-cream);padding:20px;border-radius:6px;margin:18px 0;
+  font-family:var(--font-ja);
+}
+.battle-diagram h4{color:var(--c-gold);font-size:1rem;margin-bottom:12px;border:none;padding:0}
+.armies{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.army{flex:1;min-width:240px;background:rgba(255,255,255,0.05);padding:14px;border-radius:4px;border-left:4px solid}
+.army.uesugi{border-left-color:#7ab8c8}
+.army.takeda{border-left-color:#c87a7a}
+.army h5{color:var(--c-cream);font-size:0.95rem;margin-bottom:6px;font-weight:700}
+.army .leader{font-size:1.1rem;font-weight:700;margin-bottom:6px}
+.army.uesugi .leader{color:#a8d8e8}
+.army.takeda .leader{color:#e8a8a8}
+.army .desc{font-size:0.85rem;line-height:1.6}
+
+/* 用語集テーブル */
+.glossary-wrap{margin:18px 0;overflow-x:auto;border:1px solid var(--c-line);border-radius:6px}
+table.glossary{
+  width:100%;border-collapse:collapse;background:var(--c-white);
+  font-size:0.92rem;
+}
+table.glossary thead{background:var(--c-bg-deep);color:var(--c-cream)}
+table.glossary thead th{padding:10px 12px;font-weight:700;text-align:left;font-size:0.85rem;letter-spacing:0.05em}
+table.glossary tbody tr{border-bottom:1px solid #ece4d0}
+table.glossary tbody tr:hover{background:#fdfaf0}
+table.glossary tbody td{padding:10px 12px;vertical-align:top}
+.cat-row td{
+  background:var(--c-tan) !important;font-weight:700;color:var(--c-bg-deep);
+  font-size:0.95rem;letter-spacing:0.03em;padding:8px 12px !important;
+}
+.term-jp{font-weight:700;color:var(--c-bg-deep);font-size:1rem;white-space:nowrap}
+.term-jp .yomi{display:block;font-size:0.72rem;color:var(--c-gray);font-weight:400;margin-top:2px}
+.term-en{font-family:var(--font-en);color:var(--c-ink-soft);font-style:italic}
+.term-en .ipa{display:block;font-family:monospace;font-size:0.78rem;color:var(--c-gold-dark);font-style:normal;margin-top:2px}
+.term-tw{font-family:var(--font-tw);color:var(--c-ink-soft)}
+.term-desc{font-size:0.82rem;color:var(--c-gray);line-height:1.5}
+
+/* Q&A */
+.qa-item{
+  margin:18px 0;padding:18px 22px;
+  background:var(--c-cream);border-left:5px solid var(--c-bg-deep);
+  border-radius:0 6px 6px 0;
+}
+.qa-q{font-weight:700;color:var(--c-bg-deep);font-size:1.02rem;margin-bottom:10px}
+.qa-q::before{content:"Q. ";color:var(--c-crimson);font-weight:700}
+.qa-a{padding-left:22px;position:relative}
+.qa-a::before{content:"A. ";position:absolute;left:0;color:var(--c-gold-dark);font-weight:700}
+
+/* マップ・スポット */
+.spots{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px;margin:14px 0}
+.spot{
+  background:linear-gradient(135deg,#fff8e0 0%,#ffeec0 100%);
+  border:1px solid var(--c-gold);border-radius:6px;
+  overflow:hidden;
+  transition:transform 0.2s, box-shadow 0.2s;
+}
+.spot:hover{transform:translateY(-2px);box-shadow:0 6px 18px rgba(160,24,24,0.18)}
+.spot .photo{
+  display:block;width:100%;height:160px;object-fit:cover;
+  border-bottom:2px solid var(--c-gold);
+}
+.spot .body{padding:14px}
+.spot .emoji{font-size:1.6rem;display:block;margin-bottom:4px}
+.spot .name{font-weight:700;color:var(--c-bg-deep);font-size:1rem;margin-bottom:4px}
+.spot .desc{font-size:0.85rem;color:var(--c-ink-soft)}
+
+/* 陣形図（SCENE 2用） */
+.formations-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:14px 0 6px;
+  align-items:start;
+}
+.formations-grid figure{
+  margin:0;background:var(--c-paper);
+  border:1px solid var(--c-line);border-radius:6px;
+  padding:6px;box-shadow:0 2px 8px rgba(26,58,50,0.08);
+  text-align:center;
+}
+.formations-grid img{
+  display:block;width:100%;height:auto;border-radius:4px;
+}
+.formations-grid figcaption{
+  font-size:0.78rem;color:var(--c-ink-soft);margin-top:6px;
+  font-style:italic;line-height:1.4;
+}
+@media (max-width:600px){
+  .formations-grid{grid-template-columns:1fr}
+}
+
+/* シーンカード（5シーン演武解説用） */
+.scene-list{margin:20px 0}
+.scene-card{
+  background:linear-gradient(135deg, #fdfaf0 0%, #fff8e0 100%);
+  border-left:5px solid var(--c-bg-deep);
+  padding:18px 22px 14px;margin-bottom:16px;
+  border-radius:0 6px 6px 0;
+  box-shadow:0 2px 8px rgba(26,58,50,0.06);
+  position:relative;
+}
+.scene-card.featured{border-left-color:var(--c-crimson);background:linear-gradient(135deg,#fff5f0 0%,#ffeae0 100%)}
+.scene-card .scene-num{
+  display:inline-block;font-family:var(--font-en);font-size:0.95rem;
+  font-weight:700;color:var(--c-gold-dark);letter-spacing:0.15em;
+  background:var(--c-gold);color:var(--c-white);padding:1px 10px;border-radius:3px;
+  margin-right:10px;vertical-align:1px;
+}
+.scene-card.featured .scene-num{background:var(--c-crimson)}
+.scene-card .scene-title{
+  display:inline-block;font-weight:700;font-size:1.05rem;
+  color:var(--c-bg-deep);
+}
+.scene-card .scene-en{
+  font-family:var(--font-en);font-size:0.85rem;color:var(--c-gold-dark);
+  display:block;margin-top:2px;margin-left:54px;letter-spacing:0.03em;
+}
+.scene-card p{margin:8px 0 0;font-size:0.92rem;line-height:1.75}
+.source-note{
+  font-size:0.72rem;color:var(--c-gray);font-style:italic;
+  margin-top:14px;text-align:right;letter-spacing:0.02em;
+}
+
+/* ヒーロー画像（章扉用） */
+.hero-photo{
+  display:block;width:100%;max-height:380px;object-fit:cover;
+  border-radius:6px;margin:8px 0 22px;
+  border:2px solid var(--c-gold);
+  box-shadow:0 4px 14px rgba(26,58,50,0.18);
+}
+.hero-photo-caption{
+  font-size:0.82rem;color:var(--c-gray);text-align:center;
+  margin-top:-16px;margin-bottom:20px;font-style:italic;
+}
+
+/* 動画プレイヤー */
+.video-wrap{
+  margin:24px 0 28px;
+  background:#000;
+  border:2px solid var(--c-gold);
+  border-radius:6px;
+  overflow:hidden;
+  box-shadow:0 4px 14px rgba(26,58,50,0.18);
+}
+.video-wrap video{
+  display:block;width:100%;height:auto;
+}
+.video-caption{
+  background:linear-gradient(135deg, var(--c-bg-deep) 0%, var(--c-bg-deeper) 100%);
+  color:var(--c-cream);padding:10px 14px;
+  font-size:0.82rem;text-align:center;letter-spacing:0.03em;
+  border-top:1px solid var(--c-gold);
+}
+.video-caption .lang-label{
+  display:inline-block;background:var(--c-gold);color:var(--c-bg-deep);
+  font-weight:700;font-size:0.7rem;padding:2px 8px;border-radius:3px;
+  margin-right:8px;letter-spacing:0.1em;
+}
+
+/* 注意事項リスト */
+.notice-list{list-style:none !important;margin-left:0 !important}
+.notice-list li{padding:8px 0 8px 32px;position:relative;border-bottom:1px dotted var(--c-line)}
+.notice-list li::before{content:"✦";position:absolute;left:8px;color:var(--c-gold-dark);font-size:1rem;top:8px}
+
+/* フッター */
+footer{
+  background:var(--c-bg-deeper);color:var(--c-cream-dark);
+  padding:30px 24px;text-align:center;font-size:0.85rem;
+  border-top:4px solid var(--c-gold);margin-top:60px;
+}
+footer .footer-inner{max-width:var(--max-w);margin:0 auto}
+footer a{color:var(--c-gold);text-decoration:none}
+footer .small{font-size:0.75rem;color:var(--c-gray);margin-top:8px}
+
+/* ====== レスポンシブ ====== */
+@media (max-width:768px){
+  .hero-inner{padding:20px 16px 14px}
+  .title-block h1{font-size:1.4rem}
+  .title-block .sub{font-size:0.8rem}
+  .tab{padding:10px 6px;font-size:0.82rem;min-width:auto}
+  .tab .ico{font-size:1rem;margin-right:2px}
+  main{padding:18px 14px 60px}
+  section.chapter{padding:20px 18px;margin-bottom:24px}
+  .chapter h2{font-size:1.3rem}
+  .chapter h3{font-size:1.05rem;margin:20px 0 10px}
+  .figure-grid{grid-template-columns:1fr}
+  .lineage .gen{flex-direction:column;gap:8px}
+  .lineage .arrow{transform:rotate(90deg)}
+  table.glossary{font-size:0.82rem}
+  table.glossary thead th, table.glossary tbody td{padding:7px 8px}
+}
+
+/* ====== 印刷用 ====== */
+@media print{
+  body{background:var(--c-white);font-size:10pt}
+  .switchers,footer .footer-inner > *:not(.copyright){display:none !important}
+  .hero{background:var(--c-white) !important;color:var(--c-ink) !important;border-bottom:2px solid var(--c-ink)}
+  .hero-inner{padding:14px 0}
+  .title-block h1{color:var(--c-ink) !important;text-shadow:none}
+  .title-block .sub, .title-block .tag-tw{color:var(--c-ink-soft) !important}
+  main{max-width:none;padding:10px 0}
+  section.chapter{
+    box-shadow:none;border:1px solid #999;page-break-inside:avoid;
+    padding:18px 20px;margin-bottom:18px;
+  }
+  .chapter h2{color:var(--c-ink) !important;border-left-color:#666}
+  .chapter h3{color:var(--c-ink) !important}
+  .callout, .interpreter-box, .qa-item{
+    background:var(--c-white) !important;border:1px solid #999 !important;
+    page-break-inside:avoid;
+  }
+  table.glossary thead{background:#ddd !important;color:var(--c-ink) !important}
+  .battle-diagram{background:var(--c-white) !important;color:var(--c-ink) !important;border:1px solid #999}
+  .lineage{background:var(--c-white) !important;border:1px solid #999}
+  a{color:var(--c-ink) !important;text-decoration:underline}
+  .tl-item::before{background:#666 !important}
+  footer{background:var(--c-white);color:var(--c-ink);border-top:1px solid #999}
+}
+</style>
+<style>
+/* ガイドアプリの帯（build.py --home-url / --staff-url） */
+.guide-appbar{display:flex;justify-content:space-between;align-items:center;gap:8px;
+  padding:0 12px;background:var(--c-bg-deeper);font-size:13px;line-height:1.3}
+.guide-appbar a{color:#fff;text-decoration:none;min-height:44px;display:inline-flex;
+  align-items:center;gap:6px;padding:0 4px}
+.guide-appbar a:focus-visible{outline:2px solid #fff;outline-offset:2px}
+.guide-appbar .appbar-staff{margin-left:auto;opacity:.9}
+@media print{.guide-appbar{display:none}}
+</style>
+</head>
+<body data-variant="visitor" class="lang-ja mode-tourist">
+<nav class="guide-appbar" aria-label="YONEZAWA GUIDES">
+  <a class="appbar-home" data-keep-lang href="/guides/"><span aria-hidden="true">←</span><span class="ja">ガイド一覧</span><span class="en">All guides</span><span class="tw">導覽一覽</span></a>
+  <a class="appbar-staff" data-keep-lang href="/guides/staff/uesugi-matsuri/?mode=interpreter"><span aria-hidden="true">🔑</span><span class="ja">ガイド・通訳の方</span><span class="en">For guides</span><span class="tw">導覽員・口譯專用</span></a>
+</nav>
+
+<!-- ============== HERO ============== -->
+<header class="hero">
+  <div class="hero-inner">
+    <div class="hero-top">
+      <!-- 上杉家「竹に雀」家紋（簡略SVG） -->
+      <svg class="kamon" viewBox="0 0 100 100" aria-hidden="true">
+        <defs>
+          <radialGradient id="kg" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#e8c870"/>
+            <stop offset="100%" stop-color="#9a7c2a"/>
+          </radialGradient>
+        </defs>
+        <circle cx="50" cy="50" r="46" fill="none" stroke="url(#kg)" stroke-width="2.2"/>
+        <circle cx="50" cy="50" r="40" fill="none" stroke="url(#kg)" stroke-width="1.4"/>
+        <!-- 笹葉 -->
+        <g fill="url(#kg)" stroke="#3a2a10" stroke-width="0.3">
+          <path d="M50 14 Q56 26 50 38 Q44 26 50 14 Z"/>
+          <path d="M28 24 Q38 32 38 46 Q26 38 28 24 Z"/>
+          <path d="M72 24 Q62 32 62 46 Q74 38 72 24 Z"/>
+          <path d="M18 50 Q30 50 38 60 Q24 60 18 50 Z"/>
+          <path d="M82 50 Q70 50 62 60 Q76 60 82 50 Z"/>
+          <path d="M30 70 Q40 64 46 70 Q40 78 30 70 Z"/>
+          <path d="M70 70 Q60 64 54 70 Q60 78 70 70 Z"/>
+        </g>
+        <!-- 雀（向かい合う2羽） -->
+        <g fill="#3a2a10">
+          <ellipse cx="40" cy="54" rx="6" ry="4.5"/>
+          <circle cx="35" cy="51" r="2.2"/>
+          <path d="M44 53 L48 50 L48 56 Z" fill="#9a7c2a"/>
+          <ellipse cx="60" cy="54" rx="6" ry="4.5"/>
+          <circle cx="65" cy="51" r="2.2"/>
+          <path d="M56 53 L52 50 L52 56 Z" fill="#9a7c2a"/>
+        </g>
+      </svg>
+      <div class="title-block">
+        <h1>
+          <span class="ja">米沢上杉まつり 多言語ガイド</span>
+          <span class="en">Yonezawa Uesugi Festival Guide</span>
+          <span class="tw">米澤上杉祭典 多語言導覽</span>
+        </h1>
+        <div class="sub">YONEZAWA UESUGI FESTIVAL · MULTILINGUAL GUIDE</div>
+        <div class="tag-tw">
+          <span class="ja">通訳者・観光客のための学習＆案内ページ</span>
+          <span class="en">For interpreters and international visitors</span>
+          <span class="tw">為口譯員與外國旅客準備的學習＆導覽頁</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero-meta">
+      <span class="date-jp">2026.4.29 (Wed) – 5.3 (Sun)</span>
+      <span class="ja">　松が岬公園・松川河川敷・米沢市内</span>
+      <span class="en">　Matsugasaki Park · Matsukawa Riverbank · City of Yonezawa</span>
+      <span class="tw">　松岬公園・松川河岸・米澤市內</span>
+    </div>
+  </div>
+</header>
+
+<!-- ============== TAB SWITCHERS ============== -->
+<nav class="switchers" aria-label="Language and Mode Switcher">
+  <div class="switcher-row langs" role="tablist" aria-label="Language">
+    <button class="tab lang-tab active" data-lang="ja"><span class="ico">🇯🇵</span>日本語</button>
+    <button class="tab lang-tab" data-lang="en"><span class="ico">🇬🇧</span>English</button>
+    <button class="tab lang-tab" data-lang="tw"><span class="ico">🇹🇼</span>繁體中文</button>
+  </div>
+  
+</nav>
+
+<main>
+
+<!-- ============================================================ -->
+<!-- 第1章 はじめに / Welcome / 歡迎 -->
+<!-- ============================================================ -->
+<section class="chapter" id="ch1">
+  <div class="chapter-num">CHAPTER 01</div>
+  <h2>
+    <span class="ja">🌸 はじめに ─ このページの使い方</span>
+    <span class="en">🌸 Welcome ─ How to Use This Guide</span>
+    <span class="tw">🌸 開始之前 ─ 本頁的使用方式</span>
+  </h2>
+
+  <!-- 観光客モード -->
+  <div class="tourist-only">
+    <div class="ja">
+      <p class="lead">米沢の春、最大の見どころ「米沢上杉まつり」へようこそ。<br>
+      戦国時代の名将・<strong>上杉謙信</strong>と<strong>武田信玄</strong>が激突した「川中島の戦い」を、約750名の甲冑武者が松川河川敷で再現します。</p>
+      <div class="callout">
+        <div class="callout-title">🗓 開催期間</div>
+        2026年4月29日（水・祝）〜 5月3日（日・祝）<br>
+        メインイベント「川中島合戦」は <strong>5月3日 14:00〜15:30</strong>（松川河川敷）。
+      </div>
+      <div class="callout deep">
+        <div class="callout-title">🎌 祭りのコンセプト：<strong>敬・楽・伝・招</strong></div>
+        <strong>敬</strong>（敬う）= 上杉謙信公・鷹山公への尊崇　／　<strong>楽</strong>（楽しむ）= 観客も参加者も全力で楽しむ<br>
+        <strong>伝</strong>（伝える）= 戦国の歴史と義の精神を未来へ　／　<strong>招</strong>（招く）= 国内外からのゲストを温かく迎える
+      </div>
+      <p>このページは、上杉まつりを訪れる外国人の方にも、案内する通訳者の方にも使えるよう、<strong>3言語（日本語／英語／繁體中文）×2モード（観光客向け／通訳者向け）</strong>で構成されています。上のタブで切り替えてご覧ください。</p>
+    </div>
+    <div class="en">
+      <p class="lead">Welcome to <strong>Yonezawa Uesugi Festival</strong>, the centerpiece of spring in Yonezawa City, Yamagata.<br>
+      Over 750 armored warriors gather at the Matsukawa Riverbank to recreate the legendary <em>Battle of Kawanakajima</em>, where two of Japan's greatest Sengoku-era generals — <strong>Uesugi Kenshin</strong> and <strong>Takeda Shingen</strong> — once clashed.</p>
+      <div class="callout">
+        <div class="callout-title">🗓 Festival Dates</div>
+        April 29 (Wed) – May 3 (Sun), 2026.<br>
+        The main event, the <strong>Kawanakajima Battle Reenactment</strong>, takes place on <strong>May 3, 14:00–15:30</strong>, at the Matsukawa Riverbank.
+      </div>
+      <div class="callout deep">
+        <div class="callout-title">🎌 Festival Concept: <strong>Kei · Raku · Den · Shō</strong> (敬・楽・伝・招)</div>
+        <strong>Kei (敬, Respect)</strong> = honoring Lord Kenshin and Lord Yōzan　／　<strong>Raku (楽, Enjoyment)</strong> = visitors and participants alike enjoying to the fullest<br>
+        <strong>Den (伝, Tradition)</strong> = passing the spirit of <em>gi</em> (righteousness) and Sengoku history to the next generation　／　<strong>Shō (招, Welcome)</strong> = warmly inviting guests from Japan and abroad
+      </div>
+      <p>This guide is designed both for international visitors and for the interpreters and volunteers who assist them — in three languages (Japanese / English / Traditional Chinese) and two modes (Visitor Guide / Interpreter Study). Use the tabs above to switch.</p>
+    </div>
+    <div class="tw">
+      <p class="lead">歡迎來到山形米澤的春日盛事 ─ <strong>米澤上杉祭典</strong>。<br>
+      戰國時代名將<strong>上杉謙信</strong>與<strong>武田信玄</strong>對峙的「川中島之戰」，由約750位身著甲冑的武者於松川河岸盛大重現。</p>
+      <div class="callout">
+        <div class="callout-title">🗓 舉辦期間</div>
+        2026年4月29日（週三・國定假日）〜 5月3日（週日・國定假日）<br>
+        主軸活動「川中島合戰」於 <strong>5月3日 14:00〜15:30</strong>（松川河岸）。
+      </div>
+      <div class="callout deep">
+        <div class="callout-title">🎌 祭典理念：<strong>敬・樂・傳・招</strong></div>
+        <strong>敬</strong>（崇敬）= 對上杉謙信公與鷹山公的尊崇　／　<strong>樂</strong>（享樂）= 觀眾與參加者皆全力同樂<br>
+        <strong>傳</strong>（傳承）= 將戰國歷史與「義」之精神傳給未來　／　<strong>招</strong>（迎賓）= 熱情迎接國內外賓客
+      </div>
+      <p>本頁同時為外國旅客與導覽口譯員設計，提供 <strong>三語（日／英／繁中）× 雙模式（遊客／口譯員）</strong>。請使用上方分頁切換。</p>
+    </div>
+  </div>
+
+  <!-- 通訳者モード -->
+  
+</section>
+
+<!-- ============================================================ -->
+<!-- 第2章 祭りの歴史と上杉家 -->
+<!-- ============================================================ -->
+<section class="chapter" id="ch2">
+  <div class="chapter-num">CHAPTER 02</div>
+  <h2>
+    <span class="ja">🏯 祭りの歴史 ─ なぜ米沢で上杉？</span>
+    <span class="en">🏯 History ─ Why the Uesugi Clan in Yonezawa?</span>
+    <span class="tw">🏯 祭典歷史 ─ 上杉家為何落腳米澤？</span>
+  </h2>
+
+  <!-- 観光客モード -->
+  <div class="tourist-only">
+    <div class="ja">
+      <p class="lead">上杉まつりは、米沢藩の祖である<strong>上杉謙信公</strong>と中興の名君<strong>上杉鷹山公</strong>を祀る、上杉神社・松岬神社の春の大祭です。</p>
+      <h3>📜 ざっくり言うと</h3>
+      <ul>
+        <li>上杉謙信（1530–1578）は新潟（越後）の戦国大名。「越後の龍」「軍神」と呼ばれた最強クラスの武将です。</li>
+        <li>謙信の死後、養子の<strong>上杉景勝</strong>が会津120万石へ移り、関ヶ原の戦いを経て1601年に米沢30万石へ減封。以来、明治維新まで上杉家が米沢を統治しました。</li>
+        <li>江戸中期には<strong>上杉鷹山</strong>が藩政改革で米沢を救い、「為せば成る」の名言で知られています。</li>
+        <li>米沢にとって上杉家＝<strong>町のアイデンティティそのもの</strong>。城跡（松が岬公園）は今も街の中心です。</li>
+      </ul>
+      <div class="callout">
+        <div class="callout-title">💡 一言まとめ</div>
+        「上杉謙信は実は米沢の人ではない」── でも子孫が米沢に来て270年治めたから、米沢では <strong>謙信公が始祖</strong> として大切にされている、というのがポイントです。
+      </div>
+    </div>
+    <div class="en">
+      <p class="lead">The Uesugi Festival is the spring grand festival of <strong>Uesugi Shrine</strong> and <strong>Matsugasaki Shrine</strong>, which enshrine the founder of the Yonezawa domain, <strong>Uesugi Kenshin</strong>, and the great reformer <strong>Uesugi Yōzan</strong>.</p>
+      <h3>📜 The Short Version</h3>
+      <ul>
+        <li><strong>Uesugi Kenshin</strong> (1530–1578) was a Sengoku-period warlord of Echigo (modern Niigata), revered as the "Dragon of Echigo" and "God of War" (<em>Gunshin</em>).</li>
+        <li>After Kenshin's death, his adopted son <strong>Uesugi Kagekatsu</strong> was relocated to Aizu (1.2 million <em>koku</em>), and after the Battle of Sekigahara (1600), reduced to Yonezawa (300,000 <em>koku</em>) in 1601. The Uesugi clan ruled Yonezawa until the Meiji Restoration.</li>
+        <li>In the mid-Edo period, <strong>Uesugi Yōzan</strong> (1751–1822) saved the domain through bold reforms. His maxim "<em>Naseba naru</em> — if you do it, it will be done" is still beloved in Japan.</li>
+        <li>For Yonezawa, the Uesugi clan <em>is</em> the city's identity. The castle ruins (Matsugasaki Park) remain its civic heart.</li>
+      </ul>
+      <div class="callout">
+        <div class="callout-title">💡 In One Line</div>
+        Uesugi Kenshin himself never lived in Yonezawa — but his descendants ruled here for 270 years, so Yonezawa honors him as its <strong>spiritual founder</strong>.
+      </div>
+    </div>
+    <div class="tw">
+      <p class="lead">上杉祭典是供奉米澤藩之祖<strong>上杉謙信公</strong>與中興名君<strong>上杉鷹山公</strong>的上杉神社、松岬神社春季大祭。</p>
+      <h3>📜 簡單來說</h3>
+      <ul>
+        <li>上杉謙信（1530–1578）是新潟（越後）的戰國大名，被尊稱為「越後之龍」「軍神」，是當時最強的武將之一。</li>
+        <li>謙信去世後，養子<strong>上杉景勝</strong>移封會津120萬石；經關原之戰後於1601年減封至米澤30萬石。此後直到明治維新，上杉家統治米澤約270年。</li>
+        <li>江戶中期，<strong>上杉鷹山</strong>透過藩政改革挽救米澤，名言「若做必成」流傳至今。</li>
+        <li>對米澤而言，上杉家就是這座城市的身份本身。城跡（松岬公園）至今仍是市區中心。</li>
+      </ul>
+      <div class="callout">
+        <div class="callout-title">💡 一句話總結</div>
+        「上杉謙信其實不是米澤人」── 但子孫來到米澤統治270年，因此米澤將謙信公奉為<strong>精神始祖</strong>。
+      </div>
+    </div>
+  </div>
+
+  <!-- 通訳者モード -->
+  
+</section>
+
+<!-- ============================================================ -->
+<!-- 第2.5章 日本史と戦国時代 -->
+<!-- ============================================================ -->
+<section class="chapter" id="ch25">
+  <div class="chapter-num">CHAPTER 02.5</div>
+  <h2>
+    <span class="ja">📜 日本史と戦国時代 ─ なぜ武将たちは戦い続けたのか</span>
+    <span class="en">📜 Japanese History &amp; the Sengoku Era ─ Why Did the Warlords Fight?</span>
+    <span class="tw">📜 日本史與戰國時代 ─ 武將為何不斷交戰？</span>
+  </h2>
+
+  <!-- ===== 観光客モード ===== -->
+  <div class="tourist-only">
+    <div class="ja">
+      <p class="lead">川中島合戦（1561年）は<strong>戦国時代</strong>のクライマックス。なぜ日本はこんな戦争の世になったのか、そしてどう終わったのか。上杉まつりを楽しむための背景を一気に押さえましょう。</p>
+
+      <h3>🌪 戦国時代とは</h3>
+      <p>15世紀後半から16世紀末まで、約130年続いた<strong>内戦の時代</strong>。中央政府（室町幕府）の力が衰え、各地の大名が独立勢力として戦い続けました。下の身分が上の身分を倒す「<strong>下剋上（げこくじょう）</strong>」が常態化した、激動の時代です。</p>
+
+      <h3>📅 ざっくりタイムライン</h3>
+      <div class="timeline">
+        <div class="tl-item major">
+          <div class="tl-time">1467年</div>
+          <div class="tl-title">応仁の乱 ─ 戦国時代の幕開け</div>
+          <div class="tl-desc">京都で11年続いた大内乱。室町幕府の権威が崩壊し、全国の大名が独立化。日本の中世社会が音を立てて崩れた起点。</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">1467〜1568</div>
+          <div class="tl-title">戦国時代まっただ中</div>
+          <div class="tl-desc">上杉謙信（1530–78）と武田信玄（1521–73）の<strong>川中島5回の戦い（1553〜64）</strong>はこの時代を象徴する死闘。</div>
+        </div>
+        <div class="tl-item major">
+          <div class="tl-time">1568〜1582</div>
+          <div class="tl-title">織田信長 ─ 第一の天下人</div>
+          <div class="tl-desc">京都に進軍し室町幕府を滅亡させる。鉄砲・経済政策で旧体制を破壊。1582年、家臣・明智光秀に討たれる（本能寺の変）。</div>
+        </div>
+        <div class="tl-item major">
+          <div class="tl-time">1582〜1598</div>
+          <div class="tl-title">豊臣秀吉 ─ 第二の天下人</div>
+          <div class="tl-desc">信長の家臣から成り上がり、ついに天下統一を達成（1590）。朝鮮出兵を行うも、1598年病死。</div>
+        </div>
+        <div class="tl-item major">
+          <div class="tl-time">1600年</div>
+          <div class="tl-title">関ヶ原の戦い ─ 米沢の運命の分岐点</div>
+          <div class="tl-desc">徳川家康（東軍）vs 石田三成（西軍）の天下分け目の戦い。<strong>上杉景勝は西軍に味方</strong>し、敗戦後120万石→30万石に減封。これが米沢移封の直接の原因。</div>
+        </div>
+        <div class="tl-item major">
+          <div class="tl-time">1603年</div>
+          <div class="tl-title">江戸幕府成立 ─ 第三の天下人</div>
+          <div class="tl-desc">徳川家康が征夷大将軍に。260年続く江戸時代の始まり。</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">1615年</div>
+          <div class="tl-title">大坂の陣 ─ 戦国の終焉</div>
+          <div class="tl-desc">豊臣家最後の砦・大坂城が陥落、豊臣家滅亡。これをもって<strong>戦国時代の完全終結</strong>とされる。</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">1603〜1868</div>
+          <div class="tl-title">江戸時代 ─ 260年の平和</div>
+          <div class="tl-desc">武士の世が続くが戦争はほぼなし。<strong>米沢では上杉家が藩主として12代にわたり統治</strong>。中興の祖・上杉鷹山もこの時代の人物。</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">1868年</div>
+          <div class="tl-title">明治維新 ─ 武士の時代の終わり</div>
+          <div class="tl-desc">天皇親政の近代国家へ。藩は廃止され、武士という身分も消滅。</div>
+        </div>
+      </div>
+
+      <h3>👑 戦国を終わらせた3人の天下人</h3>
+      <div class="figure-grid">
+        <div class="figure-card">
+          <div class="name-jp">織田信長</div>
+          <div class="name-en">Oda Nobunaga (1534–82)</div>
+          <div class="role">破壊者</div>
+          <div class="desc">旧体制を打ち壊し、近代化への道を開いた革命児。「<strong>鳴かぬなら殺してしまえホトトギス</strong>」</div>
+        </div>
+        <div class="figure-card">
+          <div class="name-jp">豊臣秀吉</div>
+          <div class="name-en">Toyotomi Hideyoshi (1537–98)</div>
+          <div class="role">統一者</div>
+          <div class="desc">農民から天下人へ。日本史上最大の出世物語。「<strong>鳴かぬなら鳴かせてみせようホトトギス</strong>」</div>
+        </div>
+        <div class="figure-card">
+          <div class="name-jp">徳川家康</div>
+          <div class="name-en">Tokugawa Ieyasu (1543–1616)</div>
+          <div class="role">完成者</div>
+          <div class="desc">忍耐の末に天下を取り、260年の平和を築く。「<strong>鳴かぬなら鳴くまで待とうホトトギス</strong>」</div>
+        </div>
+      </div>
+
+      <div class="callout deep">
+        <div class="callout-title">💡 川中島合戦の歴史的位置</div>
+        川中島の戦い（1561）は、戦国時代の<strong>真ん中あたり</strong>。信長が天下統一に動き出す7年前、まだ「群雄割拠」の時代。<strong>謙信も信玄も「天下を取る」より「自分の領地を守る」ことに熱中していた</strong>のがポイント。だからこそ、純粋な武勇のぶつかり合いになったのです。
+      </div>
+    </div>
+
+    <div class="en">
+      <p class="lead">The Battle of Kawanakajima (1561) sits at the climax of the <strong>Sengoku Period</strong>. Why did Japan descend into a century of war, and how did it end? Here is the broader history that frames the festival.</p>
+
+      <h3>🌪 What Was the Sengoku Era?</h3>
+      <p>From the late 15th to the late 16th century — about <strong>130 years of civil war</strong>. The central government (the Ashikaga Shogunate) lost power; regional warlords (<em>daimyō</em>) became independent and fought each other constantly. It was the age of <strong><em>gekokujō</em> — "the lower overthrows the higher"</strong>.</p>
+
+      <h3>📅 Quick Timeline</h3>
+      <div class="timeline">
+        <div class="tl-item major">
+          <div class="tl-time">1467</div>
+          <div class="tl-title">Ōnin War ─ The Sengoku Begins</div>
+          <div class="tl-desc">An 11-year civil war that devastated Kyoto and shattered the authority of the Ashikaga Shogunate. Daimyō across Japan turned independent.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">1467–1568</div>
+          <div class="tl-title">Height of the Sengoku</div>
+          <div class="tl-desc">The <strong>Five Battles of Kawanakajima (1553–64)</strong> between Uesugi Kenshin (1530–78) and Takeda Shingen (1521–73) symbolize the era.</div>
+        </div>
+        <div class="tl-item major">
+          <div class="tl-time">1568–1582</div>
+          <div class="tl-title">Oda Nobunaga ─ The First Unifier</div>
+          <div class="tl-desc">Marched into Kyoto and ended the Ashikaga Shogunate. Used firearms and economic reforms to dismantle the old order. Killed by his retainer Akechi Mitsuhide in 1582 (the Honnō-ji Incident).</div>
+        </div>
+        <div class="tl-item major">
+          <div class="tl-time">1582–1598</div>
+          <div class="tl-title">Toyotomi Hideyoshi ─ The Second Unifier</div>
+          <div class="tl-desc">Rose from peasant origins to complete the unification of Japan in 1590. Launched invasions of Korea, then died of illness in 1598.</div>
+        </div>
+        <div class="tl-item major">
+          <div class="tl-time">1600</div>
+          <div class="tl-title">Battle of Sekigahara ─ The Turning Point for Yonezawa</div>
+          <div class="tl-desc">Tokugawa Ieyasu (East) vs. Ishida Mitsunari (West). <strong>Uesugi Kagekatsu sided with the losing West.</strong> The Uesugi domain was slashed from 1.2 million to 300,000 koku — the direct cause of the move to Yonezawa.</div>
+        </div>
+        <div class="tl-item major">
+          <div class="tl-time">1603</div>
+          <div class="tl-title">Edo Shogunate Founded</div>
+          <div class="tl-desc">Tokugawa Ieyasu becomes Shōgun, beginning 260 years of Tokugawa rule.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">1615</div>
+          <div class="tl-title">Siege of Osaka ─ The End of the Sengoku</div>
+          <div class="tl-desc">The fall of Osaka Castle and the destruction of the Toyotomi clan. Considered the formal end of the Sengoku Era.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">1603–1868</div>
+          <div class="tl-title">Edo Period ─ 260 Years of Peace</div>
+          <div class="tl-desc">Samurai rule continued, but virtually no warfare. <strong>The Uesugi clan ruled Yonezawa as lords for 12 generations</strong>, including the great reformer Uesugi Yōzan.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">1868</div>
+          <div class="tl-title">Meiji Restoration ─ End of the Samurai Age</div>
+          <div class="tl-desc">Direct imperial rule resumes; the domains are abolished, and the samurai class itself dissolves.</div>
+        </div>
+      </div>
+
+      <h3>👑 The Three Unifiers Who Ended the Sengoku</h3>
+      <div class="figure-grid">
+        <div class="figure-card">
+          <div class="name-jp">Oda Nobunaga</div>
+          <div class="name-en">織田信長 (1534–82)</div>
+          <div class="role">The Destroyer</div>
+          <div class="desc">A revolutionary who tore down the old order. Famous saying: "<em>If the cuckoo will not sing, kill it.</em>"</div>
+        </div>
+        <div class="figure-card">
+          <div class="name-jp">Toyotomi Hideyoshi</div>
+          <div class="name-en">豊臣秀吉 (1537–98)</div>
+          <div class="role">The Unifier</div>
+          <div class="desc">Rose from peasant to ruler — the greatest rags-to-riches story in Japanese history. "<em>If the cuckoo will not sing, make it sing.</em>"</div>
+        </div>
+        <div class="figure-card">
+          <div class="name-jp">Tokugawa Ieyasu</div>
+          <div class="name-en">徳川家康 (1543–1616)</div>
+          <div class="role">The Completer</div>
+          <div class="desc">Patient through decades, he finally won and built 260 years of peace. "<em>If the cuckoo will not sing, wait until it does.</em>"</div>
+        </div>
+      </div>
+
+      <div class="callout deep">
+        <div class="callout-title">💡 Where Does Kawanakajima Fit?</div>
+        Kawanakajima (1561) sits roughly in the <strong>middle</strong> of the Sengoku Era — seven years before Nobunaga began his unification campaign. <strong>Both Kenshin and Shingen were focused on protecting their territory, not conquering Japan.</strong> That's precisely why the clashes became such pure tests of valor and tactics.
+      </div>
+    </div>
+
+    <div class="tw">
+      <p class="lead">川中島合戰（1561年）正是<strong>戰國時代</strong>的高潮。日本為何陷入百年戰亂？又如何收場？讓我們快速掌握上杉祭典背後的歷史脈絡。</p>
+
+      <h3>🌪 什麼是戰國時代？</h3>
+      <p>15世紀後半至16世紀末，約130年的<strong>內戰時代</strong>。中央政府（室町幕府）權力衰退，各地大名獨立爭戰。<strong>「下剋上」</strong>（下位推翻上位）成為常態，是社會劇烈動盪的時期。</p>
+
+      <h3>📅 簡明時間軸</h3>
+      <div class="timeline">
+        <div class="tl-item major">
+          <div class="tl-time">1467年</div>
+          <div class="tl-title">應仁之亂 ─ 戰國揭幕</div>
+          <div class="tl-desc">京都長達11年的大內亂。室町幕府權威崩潰，全國大名獨立化，日本中世社會解體的起點。</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">1467〜1568</div>
+          <div class="tl-title">戰國全盛期</div>
+          <div class="tl-desc">上杉謙信（1530–78）與武田信玄（1521–73）的<strong>5次川中島合戰（1553〜64）</strong>是此時代的象徵。</div>
+        </div>
+        <div class="tl-item major">
+          <div class="tl-time">1568〜1582</div>
+          <div class="tl-title">織田信長 ─ 第一位天下人</div>
+          <div class="tl-desc">進軍京都消滅室町幕府。以鐵砲與經濟改革破壞舊體制。1582年遭家臣明智光秀討伐（本能寺之變）。</div>
+        </div>
+        <div class="tl-item major">
+          <div class="tl-time">1582〜1598</div>
+          <div class="tl-title">豐臣秀吉 ─ 第二位天下人</div>
+          <div class="tl-desc">由信長家臣崛起，1590年完成天下統一。曾出兵朝鮮，1598年病逝。</div>
+        </div>
+        <div class="tl-item major">
+          <div class="tl-time">1600年</div>
+          <div class="tl-title">關原之戰 ─ 米澤命運的轉折點</div>
+          <div class="tl-desc">徳川家康（東軍）對石田三成（西軍）的天下決戰。<strong>上杉景勝屬西軍</strong>，戰敗後石高從120萬減為30萬，這是上杉家移封米澤的直接原因。</div>
+        </div>
+        <div class="tl-item major">
+          <div class="tl-time">1603年</div>
+          <div class="tl-title">江戶幕府成立 ─ 第三位天下人</div>
+          <div class="tl-desc">徳川家康受封征夷大將軍，開啟長達260年的江戶時代。</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">1615年</div>
+          <div class="tl-title">大坂之陣 ─ 戰國終結</div>
+          <div class="tl-desc">豐臣家最後堡壘大坂城陷落、豐臣家滅亡。此役被視為<strong>戰國時代的正式結束</strong>。</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">1603〜1868</div>
+          <div class="tl-title">江戶時代 ─ 260年和平</div>
+          <div class="tl-desc">武士仍居統治地位但幾無戰事。<strong>米澤由上杉家12代藩主延續統治</strong>，中興之祖上杉鷹山亦為此時代人物。</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">1868年</div>
+          <div class="tl-title">明治維新 ─ 武士時代結束</div>
+          <div class="tl-desc">天皇親政、廢藩置縣、武士階級瓦解，邁入近代化國家。</div>
+        </div>
+      </div>
+
+      <h3>👑 終結戰國的三位天下人</h3>
+      <div class="figure-grid">
+        <div class="figure-card">
+          <div class="name-jp">織田信長</div>
+          <div class="name-en">Oda Nobunaga (1534–82)</div>
+          <div class="role">破壞者</div>
+          <div class="desc">摧毀舊體制、開拓近代化道路的革命兒。名言：「<strong>杜鵑不啼便殺之</strong>」</div>
+        </div>
+        <div class="figure-card">
+          <div class="name-jp">豐臣秀吉</div>
+          <div class="name-en">Toyotomi Hideyoshi (1537–98)</div>
+          <div class="role">統一者</div>
+          <div class="desc">由農民躍升天下人，日本史上最大的逆襲故事。名言：「<strong>杜鵑不啼便逼其啼</strong>」</div>
+        </div>
+        <div class="figure-card">
+          <div class="name-jp">徳川家康</div>
+          <div class="name-en">Tokugawa Ieyasu (1543–1616)</div>
+          <div class="role">完成者</div>
+          <div class="desc">忍耐至終取得天下，建立260年太平。名言：「<strong>杜鵑不啼便等其啼</strong>」</div>
+        </div>
+      </div>
+
+      <div class="callout deep">
+        <div class="callout-title">💡 川中島合戰的歷史定位</div>
+        川中島之戰（1561）約位於戰國時代的<strong>中期</strong>，距信長啟動天下統一尚有7年。<strong>謙信與信玄皆專注於守護領地，而非爭天下。</strong>正因如此，這場合戰才能成為純粹的武勇與戰術較量。
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== 通訳者モード ===== -->
+  
+</section>
+
+<!-- ============================================================ -->
+<!-- 第3章 川中島合戦の解説（最重要・最大ボリューム） -->
+<!-- ============================================================ -->
+<section class="chapter" id="ch3">
+  <div class="chapter-num">CHAPTER 03 · MAIN SECTION</div>
+  <h2>
+    <span class="ja">⚔️ 川中島合戦 ─ 戦国最大の死闘</span>
+    <span class="en">⚔️ The Battle of Kawanakajima ─ The Sengoku Era's Greatest Duel</span>
+    <span class="tw">⚔️ 川中島合戰 ─ 戰國史上最大死鬥</span>
+  </h2>
+
+  <img class="hero-photo" src="/guides/assets/uesugi-matsuri/images/DSC00164.jpg" alt="毘・龍の旗印を掲げる上杉軍" loading="lazy">
+  <div class="hero-photo-caption">
+    <span class="ja">▲ 上杉軍の象徴「毘」（毘沙門天）と「龍」（不動明王）の旗印</span>
+    <span class="en">▲ The iconic "Bi" (Bishamonten) and "Ryū" (Fudō Myō-ō) banners of the Uesugi army</span>
+    <span class="tw">▲ 上杉軍象徵「毘」（毘沙門天）與「龍」（不動明王）的旗印</span>
+  </div>
+
+  <!-- 2026年謙信役 -->
+  <div class="callout deep" style="border-left-color:var(--c-crimson)">
+    <div class="callout-title" style="color:var(--c-crimson)">
+      <span class="ja">🎭 2026年の上杉謙信役は…渡辺 稔（わたなべ みのる）さん！</span>
+      <span class="en">🎭 The 2026 Lord Uesugi Kenshin is… Mr. Watanabe Minoru!</span>
+      <span class="tw">🎭 2026年的上杉謙信由⋯渡邊 稔先生擔任！</span>
+    </div>
+    <p style="margin-bottom:0">
+      <span class="ja">公式コメント：「<strong>戦場の緊張感を表現します！</strong>」<br>
+      白馬に跨り、白頭巾姿で武田本陣に斬り込む ── あの三太刀七太刀の名場面を、毎年違う方が演じます。観客はぜひ「今年の謙信公」のお顔を覚えて、写真に収めてください。</span>
+      <span class="en">Official statement: "<strong>I will express the tension of the battlefield!</strong>"<br>
+      Mounted on a white horse and clad in his iconic white headcloth, this year's Kenshin will charge into Shingen's headquarters in the famous "Three Strikes, Seven Strikes" scene. A different actor takes the role each year — be sure to capture this year's Kenshin in your photos.</span>
+      <span class="tw">官方留言：「<strong>我將呈現戰場的緊張感！</strong>」<br>
+      騎乘白馬、頭戴白巾衝入武田本陣的「三太刀七太刀」名場景，每年由不同人飾演。請記下今年謙信公的容貌並拍照留念。</span>
+    </p>
+  </div>
+
+  <!-- バイリンガル動画（繁体字+英字幕） -->
+  <div class="video-wrap">
+    <video controls preload="metadata" poster="/guides/assets/uesugi-matsuri/images/video_poster.jpg">
+      <source src="/guides/assets/uesugi-matsuri/videos/Kawanakajima_bilingual.mp4" type="video/mp4">
+      <span class="ja">お使いのブラウザは動画再生に対応していません。</span>
+      <span class="en">Your browser does not support video playback.</span>
+      <span class="tw">您的瀏覽器不支援影片播放。</span>
+    </video>
+    <div class="video-caption">
+      <span class="lang-label">中 / EN</span>
+      <span class="ja">米沢上杉まつり 川中島合戦・公式紹介映像（繁體中文＋英語字幕付き／約2分）</span>
+      <span class="en">Yonezawa Uesugi Festival · Battle of Kawanakajima – Official Introduction (with Trad. Chinese &amp; English subtitles / ~2 min)</span>
+      <span class="tw">米澤上杉祭典 川中島合戰・官方介紹影片（繁體中文＋英語字幕／約2分鐘）</span>
+    </div>
+  </div>
+
+  <!-- 観光客モード -->
+  <div class="tourist-only">
+    <div class="ja">
+      <p class="lead">5月3日の午後14時、松川河川敷で約750名の武者が激突します。これは <strong>465年前（1561年）に実際に起きた戦い</strong> の再現です。</p>
+
+      <h3>🐉 vs 🐯 二人のスーパースター</h3>
+      <div class="battle-diagram">
+        <h4>戦国時代を代表する二大武将</h4>
+        <div class="armies">
+          <div class="army uesugi">
+            <h5>上杉軍</h5>
+            <div class="leader">🐉 上杉謙信</div>
+            <div class="desc">「越後の龍」「軍神」と呼ばれた最強の武将。毘沙門天を信仰し、「義」のために戦った。本拠地は新潟・春日山城。</div>
+          </div>
+          <div class="army takeda">
+            <h5>武田軍</h5>
+            <div class="leader">🐯 武田信玄</div>
+            <div class="desc">「甲斐の虎」と恐れられた猛将。優れた軍略家で、騎馬軍団「赤備え」を率いた。本拠地は山梨・甲府。</div>
+          </div>
+        </div>
+      </div>
+
+      <h3>📅 5回戦った川中島の戦い</h3>
+      <p>謙信と信玄は、信濃国（長野県）の <strong>川中島</strong>（千曲川と犀川の合流地点）の支配をめぐって、12年にわたり <strong>5回</strong> も戦いました。米沢で再現されるのは、最も激しかった <strong>第四次（1561年）</strong> です。</p>
+
+      <h3>⚔️ 第四次川中島の戦いの見どころ</h3>
+      <div class="callout deep">
+        <div class="callout-title">🌅 早朝、霧の中の奇襲</div>
+        武田信玄は「<strong>啄木鳥（きつつき）戦法</strong>」を計画。別働隊を上杉軍の背後に回して奇襲し、本隊で挟み撃ちにする作戦です。
+        ところが謙信はこれを察知し、夜のうちに密かに山を降りて武田本陣に先制突入！
+      </div>
+      <div class="callout crimson">
+        <div class="callout-title">🗡️ 三太刀七太刀の伝説</div>
+        混戦の中、白馬にまたがった上杉謙信が単騎で武田信玄の本陣に斬り込みました。信玄は咄嗟に <strong>軍配</strong>（指揮棒）で太刀を受け止めたという ── これが「三太刀七太刀」の名場面です。
+      </div>
+      <div class="callout">
+        <div class="callout-title">🎯 結末</div>
+        両軍合わせて死傷者2万7千名。日本の戦国史上、最も激しい戦いの一つとされます。勝敗は引き分け（または上杉のやや優勢）と評価されますが、決着はつきませんでした。
+      </div>
+
+      <h3>🎬 米沢上杉まつりでの再現演武</h3>
+      <ul>
+        <li><strong>会場</strong>：松川河川敷（米沢駅から徒歩約15分）</li>
+        <li><strong>時間</strong>：5月3日 14:00〜15:30</li>
+        <li><strong>規模</strong>：上杉軍・武田軍合わせて約750名の武者</li>
+        <li><strong>演出</strong>：火縄銃の一斉射撃で開戦の合図、両軍突撃、謙信単騎突撃、総がかり戦</li>
+      </ul>
+
+      <div class="callout crimson">
+        <div class="callout-title">✨ 注目！外国人参加者も馳せ参じる「香坂隊（こうさかたい）」</div>
+        <p>武田軍の中でひときわ目を引くのが「香坂隊」。歴史上は武田四天王の一人・<strong>高坂昌信（こうさかまさのぶ）</strong>が率いた精鋭の別働隊で、川中島合戦では <strong>「啄木鳥戦法」（敵の背後を奇襲する作戦）</strong> の実行部隊でした。</p>
+        <p>米沢上杉まつりでは、毎年この香坂隊に <strong>外国人参加者が公式プログラムとして加わります</strong>。動画92秒目の「武田増援の香坂兵団が川を渡って戦場に駆けつける」シーンが、まさにこの部隊の到着場面です。</p>
+        <p>🎌 <strong>観覧のヒント</strong>：「<strong>高坂弾正忠昌信（こうさかだんじょうのちゅうまさのぶ）</strong>」と書かれた白い旗印を探してみてください。</p>
+
+        <div style="background:rgba(255,255,255,0.55);border:1px dashed var(--c-crimson);border-radius:4px;padding:12px 16px;margin-top:12px;font-size:0.9rem">
+          <strong style="color:var(--c-crimson)">📋 参加者ハンドブック（公式英文ブリーフィングより）</strong>
+          <p style="margin:8px 0 4px"><strong>当日の流れ・装備</strong></p>
+          <ul style="margin:0 0 8px 22px">
+            <li>本格的な甲冑が支給される</li>
+            <li>整列行進・振付された動きを実施</li>
+            <li>誘導のもと川を渡る</li>
+            <li>安全配慮された模擬戦闘シーン</li>
+            <li>大歓声の観客と豊富な撮影機会</li>
+          </ul>
+          <p style="margin:8px 0 4px"><strong>参加のコツ</strong></p>
+          <ul style="margin:0 0 8px 22px">
+            <li>チームリーダーの指示に従う</li>
+            <li>キャラクターに入り込みつつ、接触は避ける</li>
+            <li>川を渡る際は慎重に</li>
+            <li>こまめに水分補給</li>
+            <li>そして全力で楽しむ！</li>
+          </ul>
+          <p style="margin:8px 0 0;font-size:0.85rem"><strong>文化的補足</strong>：このイベントは武士の精神と歴史を称えるもの。皆様の参加がその精神を未来へつなぎます。地元の方々は皆様の熱意と尽力に深く感謝しています。</p>
+        </div>
+        <p class="source-note" style="margin-top:6px">※ 米沢上杉まつり川中島合戦保存会・公式英文ブリーフィングより</p>
+      </div>
+
+      <h3>❓ なぜ米沢で再現するの？</h3>
+      <p>米沢藩の祖は上杉謙信公。米沢は「上杉家を260年以上守り続けた町」だからこそ、謙信公が最も輝いた瞬間 ── 川中島の戦い ── を、子孫の街として誇りをもって再現しているのです。</p>
+    </div>
+
+    <div class="en">
+      <p class="lead">At 2 PM on May 3, around 750 armored warriors clash on the Matsukawa Riverbank. This is a recreation of an <strong>actual battle fought 465 years ago in 1561</strong>.</p>
+
+      <h3>🐉 vs 🐯 Two Sengoku Superstars</h3>
+      <div class="battle-diagram">
+        <h4>The Two Greatest Generals of the Era</h4>
+        <div class="armies">
+          <div class="army uesugi">
+            <h5>The Uesugi Army</h5>
+            <div class="leader">🐉 Uesugi Kenshin</div>
+            <div class="desc">Revered as the "Dragon of Echigo" and "God of War." A devout follower of Bishamonten (the Buddhist god of war), he fought for <em>gi</em> — righteousness. Based at Kasugayama Castle in Echigo (Niigata).</div>
+          </div>
+          <div class="army takeda">
+            <h5>The Takeda Army</h5>
+            <div class="leader">🐯 Takeda Shingen</div>
+            <div class="desc">Feared as the "Tiger of Kai." A brilliant strategist who led the famed red-armored cavalry. Based at Kōfu in Kai Province (Yamanashi).</div>
+          </div>
+        </div>
+      </div>
+
+      <h3>📅 Five Battles of Kawanakajima</h3>
+      <p>Over twelve years, Kenshin and Shingen fought <strong>five times</strong> for control of the <strong>Kawanakajima</strong> plain — the confluence of the Chikuma and Sai Rivers in Shinano (Nagano). What Yonezawa recreates is the <strong>fiercest of all: the Fourth Battle of 1561</strong>.</p>
+
+      <h3>⚔️ Highlights of the Fourth Battle</h3>
+      <div class="callout deep">
+        <div class="callout-title">🌅 A Misty Dawn Ambush</div>
+        Takeda Shingen devised the <strong>"Woodpecker Strategy" (Kitsutsuki no Senpō)</strong>: a detached force would strike Kenshin from behind, driving the Uesugi army into the open where the main Takeda force lay in wait — like a woodpecker tapping a tree to flush out insects.
+        But Kenshin saw through it. Under cover of darkness, he silently descended the mountain and struck the Takeda main camp first.
+      </div>
+      <div class="callout crimson">
+        <div class="callout-title">🗡️ The Legend of "Three Sword Strikes, Seven Sword Strikes"</div>
+        Amid the chaos, Kenshin on his white horse charged single-handedly into Shingen's headquarters. Shingen reportedly parried the blade with his <strong>gunbai</strong> (war fan / commander's baton) — the unforgettable scene known as <em>"San-tachi Nana-tachi"</em> (three strikes, seven strikes).
+      </div>
+      <div class="callout">
+        <div class="callout-title">🎯 The Outcome</div>
+        Combined casualties of 27,000 — one of the bloodiest battles of the entire Sengoku era. Most historians call it a draw (with a slight Uesugi advantage). Neither side achieved a decisive victory.
+      </div>
+
+      <h3>🎬 The Reenactment at the Yonezawa Festival</h3>
+      <ul>
+        <li><strong>Venue:</strong> Matsukawa Riverbank (15-min walk from Yonezawa Station)</li>
+        <li><strong>Time:</strong> May 3, 14:00–15:30</li>
+        <li><strong>Scale:</strong> About 750 armored warriors on both sides</li>
+        <li><strong>Highlights:</strong> Volley of matchlock guns to open the battle, dual cavalry charges, Kenshin's solo charge, and an all-out final melee</li>
+      </ul>
+
+      <div class="callout crimson">
+        <div class="callout-title">✨ Spotlight: The "Kōsaka Unit" — Where International Visitors Join the Battle</div>
+        <p>Within the Takeda army, the <strong>Kōsaka Unit (香坂隊)</strong> is a must-watch. Historically, this was the elite detached force led by <strong>Kōsaka Masanobu</strong> — one of Takeda's "Four Heavenly Kings" — who executed the famous <strong>"Woodpecker Strategy"</strong> (a maneuver to ambush the enemy's rear) at the Fourth Battle of Kawanakajima.</p>
+        <p>At the Yonezawa Uesugi Festival, this unit is the <strong>official program through which international participants join the battle</strong> each year. The scene at 1:32 of the video — "the Kōsaka troops cross the river as Takeda reinforcements" — is precisely this unit's arrival on the battlefield.</p>
+        <p>🎌 <strong>Spotting Tip</strong>: Look for the white banner reading "<strong>高坂弾正忠昌信</strong>" (Kōsaka Danjō no Chū Masanobu).</p>
+
+        <div style="background:rgba(255,255,255,0.55);border:1px dashed var(--c-crimson);border-radius:4px;padding:12px 16px;margin-top:12px;font-size:0.9rem">
+          <strong style="color:var(--c-crimson)">📋 Participant Handbook (from the Official Briefing)</strong>
+          <p style="margin:8px 0 4px"><strong>Your Role in the Reenactment</strong></p>
+          <p style="margin:0 0 8px">You are part of the Takeda Army's Kosaka Unit. You will cross the river to reinforce the main army during a key moment of the battle. Your arrival will energize the scene and represent the dramatic turning point.</p>
+          <p style="margin:8px 0 4px"><strong>What to Expect</strong></p>
+          <ul style="margin:0 0 8px 22px">
+            <li>Full samurai armor provided</li>
+            <li>Marching and choreographed movements</li>
+            <li>River crossing under guidance</li>
+            <li>Mock battle scenes with safety measures</li>
+            <li>Excited crowd and photo opportunities</li>
+          </ul>
+          <p style="margin:8px 0 4px"><strong>Tips for Participants</strong></p>
+          <ul style="margin:0 0 8px 22px">
+            <li>Follow team leader instructions</li>
+            <li>Stay in character, but avoid contact</li>
+            <li>Cross the river carefully</li>
+            <li>Stay hydrated</li>
+            <li>Enjoy the performance!</li>
+          </ul>
+          <p style="margin:8px 0 0;font-size:0.85rem"><strong>Cultural Notes</strong>: This event honors samurai values and history. Your participation helps keep this spirit alive. Locals appreciate your enthusiasm and effort.</p>
+        </div>
+        <p class="source-note" style="margin-top:6px">※ From the official English-language briefing by the Kawanakajima Battle Preservation Society.</p>
+      </div>
+
+      <h3>❓ Why Yonezawa?</h3>
+      <p>Because Yonezawa was the seat of the Uesugi clan for over 260 years. As Kenshin's spiritual descendants, the people of Yonezawa proudly recreate his most legendary moment — the Battle of Kawanakajima.</p>
+    </div>
+
+    <div class="tw">
+      <p class="lead">5月3日下午14時，約750名武者於松川河岸激戰。這是<strong>465年前（1561年）真實發生的戰役</strong>之重現。</p>
+
+      <h3>🐉 vs 🐯 兩位超級巨星</h3>
+      <div class="battle-diagram">
+        <h4>戰國時代最具代表性的兩大武將</h4>
+        <div class="armies">
+          <div class="army uesugi">
+            <h5>上杉軍</h5>
+            <div class="leader">🐉 上杉謙信</div>
+            <div class="desc">被尊為「越後之龍」「軍神」的最強武將。篤信毘沙門天，為「義」而戰。據點為新潟春日山城。</div>
+          </div>
+          <div class="army takeda">
+            <h5>武田軍</h5>
+            <div class="leader">🐯 武田信玄</div>
+            <div class="desc">令人聞之色變的「甲斐之虎」。優秀的軍事戰略家，率領赤備騎兵團。據點為山梨甲府。</div>
+          </div>
+        </div>
+      </div>
+
+      <h3>📅 五次川中島之戰</h3>
+      <p>謙信與信玄為爭奪信濃國（長野縣）的<strong>川中島</strong>（千曲川與犀川匯流處）支配權，12年間共交手 <strong>5 次</strong>。米澤所重現的是其中最激烈的<strong>第四次（1561年）</strong>。</p>
+
+      <h3>⚔️ 第四次川中島合戰看點</h3>
+      <div class="callout deep">
+        <div class="callout-title">🌅 晨霧中的奇襲</div>
+        武田信玄擬定<strong>「啄木鳥戰法」</strong>：派分遣隊繞到上杉軍背後奇襲，將敵驅入平原，由本隊伏擊夾擊 ── 如啄木鳥啄樹驚出蟲子。
+        然而謙信識破此計，趁夜悄然下山，先發制人衝入武田本陣！
+      </div>
+      <div class="callout crimson">
+        <div class="callout-title">🗡️ 三太刀七太刀的傳說</div>
+        混戰中，騎乘白馬的上杉謙信單騎衝入武田信玄本陣。信玄倉促間以<strong>軍配</strong>（指揮扇）擋下太刀 ── 此即「三太刀七太刀」的傳奇名場面。
+      </div>
+      <div class="callout">
+        <div class="callout-title">🎯 結局</div>
+        兩軍死傷合計約2萬7千人，被視為日本戰國史上最慘烈的戰役之一。勝負評為平手（或上杉略佔上風），雙方皆未取得決定性勝利。
+      </div>
+
+      <h3>🎬 米澤上杉祭典的重現演武</h3>
+      <ul>
+        <li><strong>會場</strong>：松川河岸（自米澤車站徒步約15分鐘）</li>
+        <li><strong>時間</strong>：5月3日 14:00〜15:30</li>
+        <li><strong>規模</strong>：上杉軍・武田軍合計約750名武者</li>
+        <li><strong>演出</strong>：火繩槍齊射宣告開戰、兩軍衝鋒、謙信單騎突擊、最後總攻</li>
+      </ul>
+
+      <div class="callout crimson">
+        <div class="callout-title">✨ 焦點：外國旅客也親身參戰的「香坂隊」</div>
+        <p>武田軍中最引人注目的就是「香坂隊」。歷史上由武田四天王之一・<strong>高坂昌信</strong>率領的精銳別動隊，川中島合戰中正是執行<strong>「啄木鳥戰法」（奇襲敵後之計）</strong>的實戰部隊。</p>
+        <p>米澤上杉祭典中，<strong>香坂隊作為官方計畫每年接納外國旅客一同參戰</strong>。影片92秒處「武田增援的香坂兵團渡河奔赴戰場」一幕，正是此部隊的到達場景。</p>
+        <p>🎌 <strong>觀賞重點</strong>：尋找寫有「<strong>高坂弾正忠昌信</strong>」的白色字旗。</p>
+
+        <div style="background:rgba(255,255,255,0.55);border:1px dashed var(--c-crimson);border-radius:4px;padding:12px 16px;margin-top:12px;font-size:0.9rem">
+          <strong style="color:var(--c-crimson)">📋 參加者手冊（依官方英文簡介整理）</strong>
+          <p style="margin:8px 0 4px"><strong>當日內容・裝備</strong></p>
+          <ul style="margin:0 0 8px 22px">
+            <li>提供正規甲冑</li>
+            <li>整列行進與編排好的動作</li>
+            <li>由工作人員引導渡河</li>
+            <li>具安全考量的模擬戰鬥</li>
+            <li>滿場觀眾喝采與絕佳拍照機會</li>
+          </ul>
+          <p style="margin:8px 0 4px"><strong>參加要訣</strong></p>
+          <ul style="margin:0 0 8px 22px">
+            <li>遵從隊長指示</li>
+            <li>融入角色但避免實際接觸</li>
+            <li>渡河時請小心</li>
+            <li>記得隨時補充水分</li>
+            <li>盡情享受演出！</li>
+          </ul>
+          <p style="margin:8px 0 0;font-size:0.85rem"><strong>文化補充</strong>：此活動旨在傳承武士精神與歷史。各位的參與有助延續此精神。當地居民由衷感謝您的熱情與努力。</p>
+        </div>
+        <p class="source-note" style="margin-top:6px">※ 米澤上杉祭典川中島合戰保存會・官方英文參加者簡介</p>
+      </div>
+
+      <h3>❓ 為何在米澤重現？</h3>
+      <p>米澤藩之祖即上杉謙信公。米澤是「守護上杉家260餘年的城市」，作為謙信的精神後裔，米澤人滿懷自豪地重現謙信最閃耀的瞬間 ── 川中島之戰。</p>
+    </div>
+  </div>
+
+  <!-- 通訳者モード -->
+  
+
+  <!-- ===== 演武5シーンの流れ（両モード共通表示） ===== -->
+  <h3>
+    <span class="ja">📖 演武5シーンの流れ（公式シナリオ）</span>
+    <span class="en">📖 The Five Scenes of the Reenactment (Official Scenario)</span>
+    <span class="tw">📖 演武五幕流程（官方腳本）</span>
+  </h3>
+
+  <div class="ja">
+    <p class="lead">90分の合戦は5つの章に分かれて進行します。観客が「今このシーン」と理解できるよう、公式参加者向け英文ブリーフィングに基づき各シーンの流れを整理しました。</p>
+
+    <p>1561年秋の川中島合戦が再現される。上杉行列の後、松川河川敷の南側に上杉軍、北側に武田軍が陣取る（吾妻連峰には残雪）。<strong>上杉本陣</strong>には頭巾姿の謙信を中心に28将が居並び、<strong>武田本陣</strong>では赤備えの軍団が諏訪法性の兜をかぶった信玄を守る。上杉は戦勝祈願の儀、武田は<strong>三献の儀（さんこんのぎ）</strong>を行う。儀式の後、上杉の30匁筒（雷筒）の一斉射撃で決戦の火蓋が切られる。</p>
+
+    <div class="scene-list">
+      <div class="scene-card">
+        <div><span class="scene-num">SCENE 1</span><span class="scene-title">霧晴れ・開戦</span></div>
+        <span class="scene-en">Morning Fog Clears</span>
+        <p>夜明けに朝霧が晴れた瞬間、信玄の眼前には妻女山にいるはずの<strong>1万を超える上杉軍</strong>が出現する。啄木鳥戦法が察知された証拠。不意を突かれた8,000の武田軍が動揺する中、上杉の総攻撃が始まる。</p>
+      </div>
+
+      <div class="scene-card">
+        <div><span class="scene-num">SCENE 2</span><span class="scene-title">陣形対決：車懸り vs 鶴翼</span></div>
+        <span class="scene-en">Kurumagakari no Jin vs Kakuyoku no Jin</span>
+        <p>武田軍は啄木鳥戦法の失策により少数で苦戦。<strong>12段の鶴翼の陣</strong>を組んで妻女山攻撃部隊（香坂隊）の到着を待つ。一方、上杉軍は<strong>車懸りの陣</strong>で武田の本陣を次々と突破していく。</p>
+        <div class="formations-grid">
+          <figure>
+            <img src="/guides/assets/uesugi-matsuri/images/Formation%20kuruma.png" alt="上杉軍 車懸りの陣の図解" loading="lazy">
+            <figcaption>上杉軍：車懸りの陣（円形に部隊を配置し、車輪のように回転攻撃）</figcaption>
+          </figure>
+          <figure>
+            <img src="/guides/assets/uesugi-matsuri/images/Formation%20kakuyoku.png" alt="武田軍 鶴翼の陣の図解" loading="lazy">
+            <figcaption>武田軍：鶴翼の陣（中央へ敵を引き込み、左右の翼で包囲）</figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <div class="scene-card featured">
+        <div><span class="scene-num">SCENE 3</span><span class="scene-title">一騎打ち（三太刀七太刀）</span></div>
+        <span class="scene-en">One-to-One Fight</span>
+        <p>武田軍が苦戦する乱戦の中、信玄が「風林火山」の軍旗に囲まれ単独でいたところへ、白馬の謙信が斬り込む。謙信が太刀を一の太刀、二の太刀、三の太刀と振るい、信玄は軍配で受け止める。武田の従者が槍で謙信の馬を傷つけ、馬は驚いて狂奔。信玄はかろうじて一命を取り留め、両雄の戦いは終わる。</p>
+      </div>
+
+      <div class="scene-card featured">
+        <div><span class="scene-num">SCENE 4</span><span class="scene-title">河越え増援（香坂隊到着）</span></div>
+        <span class="scene-en">River Crossing Reinforcements</span>
+        <p>合戦開始から3時間。20,000の戦闘で多くの武田武将が散る激戦。<strong>午前10時、妻女山を空しく攻撃した武田の12,000の別働隊（香坂隊）が山を下り、川を渡って八幡原へ駆けつける</strong>。この増援により、上杉軍は逆に挟撃される形となり、戦況が逆転し始める。<br><em>※ ここが外国人参加者が出陣する公式シーン。動画92秒目。</em></p>
+      </div>
+
+      <div class="scene-card">
+        <div><span class="scene-num">SCENE 5</span><span class="scene-title">収束</span></div>
+        <span class="scene-en">Convergence</span>
+        <p>武田増援の出現で上杉軍の陣列は崩れ、武田が勢いを盛り返す。疲れた上杉軍は新手の武田軍と苦戦。<strong>卯の刻（早朝）から辰の刻（午前）まで上杉が勝ち、辰の刻から巳の刻（昼前）にかけて武田が勝つ</strong>。両軍とも前代未聞の死傷者を出し、夕陽が西に沈む頃、謙信は善光寺へ帰還した。こうして「川中島の戦い」── 戦国史上最大の戦い ── は終結した。</p>
+      </div>
+    </div>
+
+    <p class="source-note">※ 本セクションは米沢上杉まつり川中島合戦保存会による公式参加者向け英文ブリーフィングを翻訳・要約したものです。</p>
+  </div>
+
+  <div class="en">
+    <p class="lead">The 90-minute reenactment unfolds in five distinct scenes. Based on the official English-language briefing for participants, here is the play-by-play guide so you can recognize each moment as it happens.</p>
+
+    <p>Kawanakajima in the fall of 1561 will be reenacted. After the Uesugi procession, a large army gathered on the banks of the Matsukawa River. <strong>Uesugi's army</strong> takes the south side and <strong>Takeda's army</strong> the north, with the Azuma mountain range covered with lingering snow. Uesugi's main camp is lined with <strong>28 warriors with Lord Kenshin in a hood</strong> at the center. On the other side, Takeda's army with red armor guards <strong>Lord Shingen in Suwa Hosei's helmet</strong>. The Uesugi camp holds a ceremony to pray for victory, and the Takeda camp holds a <strong>sankon-no-gi</strong> ceremony. After the ceremony, the decisive battle is set off by the simultaneous firing of Uesugi's thunderbolts — 30 monme cylinders.</p>
+
+    <div class="scene-list">
+      <div class="scene-card">
+        <div><span class="scene-num">SCENE 1</span><span class="scene-title">Morning Fog Clears</span></div>
+        <p>When the early morning fog cleared, Shingen saw in front of him the entire Uesugi army of over 10,000 men, which was supposed to be at Mt. Saijo. The battle of Kawanakajima had finally begun. The Uesugi forces launched a furious attack against the 8,000 Takeda officers and men who had been caught by surprise and were shaken.</p>
+      </div>
+
+      <div class="scene-card">
+        <div><span class="scene-num">SCENE 2</span><span class="scene-title">Kurumagakari vs Kakuyoku Formation</span></div>
+        <p>The Takeda forces, whose <em>"Kitsutsuki Senpo"</em> (the strategy of the woodpecker) had been discovered and had been reduced to a mere handful of men, were forced to fight an uphill battle. The Takeda forces fought desperately in a 12-tiered <em>"Kakuyoku no Jin"</em> formation to hold out until the Saijōsan attack force reached the battlefield. In contrast, the Uesugi forces, attacking by the <em>"Kurumagakari no Jin"</em> formation, broke through Shingen's 12-tiered preparations, which fortify Takeda's headquarters, one after another.</p>
+        <div class="formations-grid">
+          <figure>
+            <img src="/guides/assets/uesugi-matsuri/images/Formation%20kuruma.png" alt="Diagram of the Uesugi Wheel Formation (Kurumagakari no Jin)" loading="lazy">
+            <figcaption>Uesugi: Kurumagakari no Jin — units arranged in a circle, rotating like a wheel for relentless attacks.</figcaption>
+          </figure>
+          <figure>
+            <img src="/guides/assets/uesugi-matsuri/images/Formation%20kakuyoku.png" alt="Diagram of the Takeda Crane-Wing Formation (Kakuyoku no Jin)" loading="lazy">
+            <figcaption>Takeda: Kakuyoku no Jin — main camp at center, wings spread left and right to encircle the enemy.</figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <div class="scene-card featured">
+        <div><span class="scene-num">SCENE 3</span><span class="scene-title">One-to-One Fight</span></div>
+        <p>The Takeda forces continued to struggle. In the midst of the melee, Shingen was alone when Kenshin rode into Takeda's main camp, which was surrounded by the military banner of the <em>Furin Kazan</em>. The fateful rivals of the Warring States period were now about to meet in a showdown. On horseback, Lord Kenshin brandished his sword and slashed, while Shingen received the blow with his military fan — first sword, second sword, and then third sword. Soon Shingen's samurai servants rushed in, their outstretched spears wounding Kenshin's riding horse. The horse reared up in surprise, then ran off like a madman. Shingen narrowly escaped with his life, and the battle between the two heroes was over.</p>
+      </div>
+
+      <div class="scene-card featured">
+        <div><span class="scene-num">SCENE 4</span><span class="scene-title">River Crossing Reinforcements</span></div>
+        <p>Three hours have passed since the battle began. The battle was a bloody one, and many generals of the Takeda army were scattered in the fight that involved a total of 20,000 large forces. <strong>At 10:00 a.m., a detachment of 12,000 of Takeda's army, which had vacantly attacked Mt. Saijo, descended the mountain and rushed across the river to Hachimanbara.</strong> With these reinforcements, the Uesugi forces were caught in a pincer attack and their position began to reverse.<br><em>※ This is the official scene where international participants charge in. Video timestamp: 1:32.</em></p>
+      </div>
+
+      <div class="scene-card">
+        <div><span class="scene-num">SCENE 5</span><span class="scene-title">Convergence</span></div>
+        <p>The Uesugi forces' ranks begin to break down with the appearance of Takeda's reinforcements, and Takeda's forces regain their strength and pursue them. The Uesugi forces, beginning to show signs of fatigue, were forced to fight hard against the new Takeda forces. <strong>From the hour of the Rabbit to the hour of the Dragon, Uesugi was the victor. From the hour of the Dragon to the hour of the Snake, Takeda wins.</strong> In this fierce battle, both the Uesugi and Takeda armies suffered unprecedented casualties. When Kenshin and his men returned to Zenkoji Temple, the sun was setting in the west. Thus ended the "Battle of Kawanakajima," the greatest battle in the history of the Warring States period.</p>
+      </div>
+    </div>
+
+    <p class="source-note">※ Based on the official English-language briefing prepared for Kosaka Unit participants by the Kawanakajima Battle Preservation Society.</p>
+  </div>
+
+  <div class="tw">
+    <p class="lead">90分鐘的合戰分為五幕進行。基於官方英文簡介，整理出讓觀眾「正在看哪一幕」的時序指南。</p>
+
+    <p>1561年秋的川中島合戰將被重現。上杉行列之後，大軍於松川河岸聚集。<strong>上杉軍</strong>佈陣於南側，<strong>武田軍</strong>於北側，吾妻山脈尚有殘雪。上杉本陣以頭巾姿的謙信為中心，28將並列；對面武田軍紅色甲冑護衛<strong>戴諏訪法性兜的信玄</strong>。上杉陣中舉行戰勝祈願儀式，武田陣中舉行<strong>三獻之儀</strong>。儀式後，上杉的30匁筒（雷筒）齊射揭開決戰序幕。</p>
+
+    <div class="scene-list">
+      <div class="scene-card">
+        <div><span class="scene-num">SCENE 1</span><span class="scene-title">拂曉霧散・開戰</span></div>
+        <span class="scene-en">Morning Fog Clears</span>
+        <p>清晨霧氣散盡之際，信玄眼前出現本應在妻女山的<strong>逾1萬上杉大軍</strong>，正是啄木鳥戰法被識破的證據。對倉促應戰、士氣動搖的8,000武田軍，上杉展開總攻。</p>
+      </div>
+
+      <div class="scene-card">
+        <div><span class="scene-num">SCENE 2</span><span class="scene-title">陣形對決：車懸 vs 鶴翼</span></div>
+        <span class="scene-en">Kurumagakari vs Kakuyoku</span>
+        <p>武田因啄木鳥戰法落空，以少數兵力苦戰，組成<strong>12段鶴翼之陣</strong>等待妻女山攻擊隊（香坂隊）抵達。上杉則以<strong>車懸之陣</strong>突破武田12段防線。</p>
+        <div class="formations-grid">
+          <figure>
+            <img src="/guides/assets/uesugi-matsuri/images/Formation%20kuruma.png" alt="上杉軍 車懸之陣圖解" loading="lazy">
+            <figcaption>上杉軍：車懸之陣（部隊呈圓形配置，如車輪般輪轉攻擊）</figcaption>
+          </figure>
+          <figure>
+            <img src="/guides/assets/uesugi-matsuri/images/Formation%20kakuyoku.png" alt="武田軍 鶴翼之陣圖解" loading="lazy">
+            <figcaption>武田軍：鶴翼之陣（中央吸引敵軍，左右雙翼包圍）</figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <div class="scene-card featured">
+        <div><span class="scene-num">SCENE 3</span><span class="scene-title">單挑（三太刀七太刀）</span></div>
+        <span class="scene-en">One-to-One Fight</span>
+        <p>武田苦戰之際，被「風林火山」軍旗環繞的信玄獨自在本陣，白馬謙信衝入。謙信揮刀一・二・三太刀，信玄以軍配抵擋。武田家臣以長槍刺傷謙信坐騎，馬受驚狂奔。信玄險些喪命，兩雄之戰告終。</p>
+      </div>
+
+      <div class="scene-card featured">
+        <div><span class="scene-num">SCENE 4</span><span class="scene-title">渡河增援（香坂隊登場）</span></div>
+        <span class="scene-en">River Crossing Reinforcements</span>
+        <p>戰起3小時，2萬人混戰，武田將領散落各處。<strong>上午10時，原計畫攻擊妻女山落空的武田12,000別動隊（香坂隊）下山渡河奔赴八幡原。</strong>此增援使上杉反陷入夾擊，戰況逆轉。<br><em>※ 此為外國旅客出陣的官方場景。影片1分32秒處。</em></p>
+      </div>
+
+      <div class="scene-card">
+        <div><span class="scene-num">SCENE 5</span><span class="scene-title">終結</span></div>
+        <span class="scene-en">Convergence</span>
+        <p>武田增援登場後，上杉陣列開始崩潰，武田軍勢復振。疲憊的上杉軍與新銳武田軍激戰。<strong>卯時（清晨）至辰時（上午）上杉勝；辰時至巳時（中午前）武田勝。</strong>雙方傷亡前所未有，夕陽西沉時，謙信率部返回善光寺。如此「川中島之戰」── 戰國史上最大戰役 ── 落幕。</p>
+      </div>
+    </div>
+
+    <p class="source-note">※ 本節依據川中島合戰保存會編製的官方英文參加者簡介翻譯整理。</p>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- 第4章 日程と見どころ -->
+<!-- ============================================================ -->
+<section class="chapter" id="ch4">
+  <div class="chapter-num">CHAPTER 04</div>
+  <h2>
+    <span class="ja">📅 日程と見どころ</span>
+    <span class="en">📅 Schedule &amp; Highlights</span>
+    <span class="tw">📅 日程與看點</span>
+  </h2>
+
+  <!-- 観光客モード -->
+  <div class="tourist-only">
+    <div class="ja">
+      <p class="lead">5日間の祭りのうち、特に見逃せない3日（4/29、5/2夜、5/3）の流れを時系列でまとめました。</p>
+
+      <div class="day-header">
+        <span class="day-badge">DAY 1</span>
+        <strong style="font-size:1.15rem">4月29日（水・祝）開幕祭</strong>
+      </div>
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-time">8:30</div>
+          <div class="tl-title">オープニングセレモニー</div>
+          <div class="tl-meta">📍 伝国の杜前広場</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">10:00</div>
+          <div class="tl-title">上杉神社 春の例大祭</div>
+          <div class="tl-meta">📍 上杉神社</div>
+          <div class="tl-desc">謙信公・鷹山公への神事。荘厳な雰囲気。</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">11:15〜12:40</div>
+          <div class="tl-title">民踊流し（パレード）</div>
+          <div class="tl-meta">📍 市内目抜き通り</div>
+          <div class="tl-desc">花笠音頭で千人の踊り手が市内を練り歩きます。今年は25年ぶりに「新花笠音頭」も復活！</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">9:00〜17:30</div>
+          <div class="tl-title">ステージイベント・露店</div>
+          <div class="tl-meta">📍 伝国の杜周辺</div>
+        </div>
+      </div>
+
+      <div class="day-header">
+        <span class="day-badge">DAY 4</span>
+        <strong style="font-size:1.15rem">5月2日（土）武禘式（ぶていしき）</strong>
+      </div>
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-time">16:30</div>
+          <div class="tl-title">武禘式 軍団行列</div>
+          <div class="tl-meta">📍 上杉家廟所 → 上杉神社</div>
+          <div class="tl-desc">甲冑姿の武者が、上杉家代々の墓所から上杉神社へ行進。夕陽に照らされる甲冑が幻想的。</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">17:30</div>
+          <div class="tl-title">武禘式 軍陣式</div>
+          <div class="tl-meta">📍 伝国の杜前広場</div>
+          <div class="tl-desc">本式に向け陣形が整えられる。観覧者はこの時点までに到着推奨。</div>
+        </div>
+        <div class="tl-item major">
+          <div class="tl-time">18:30〜19:30</div>
+          <div class="tl-title">⭐ 武禘式 本式</div>
+          <div class="tl-meta">📍 伝国の杜前広場</div>
+          <div class="tl-desc">謙信公が出陣前に行った戦勝祈願の儀式を再現。<strong>夜のかがり火に照らされる武者は写真映え抜群</strong>。<br>
+          <strong>6ステップの進行</strong>：① 開式宣言 → ② 軍団集結 → ③ 軍神勧請 → ④ 五沾水の儀 → ⑤ 賜旗 → ⑥ 出陣（火縄銃の発砲）</div>
+        </div>
+      </div>
+
+      <div class="day-header">
+        <span class="day-badge">DAY 5</span>
+        <strong style="font-size:1.15rem">5月3日（日・祝）クライマックス！</strong>
+      </div>
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-time">9:30</div>
+          <div class="tl-title">みこし渡御</div>
+          <div class="tl-meta">📍 南部小学校 → 市内</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">10:20〜12:30</div>
+          <div class="tl-title">⚔️ 上杉軍団行列</div>
+          <div class="tl-meta">📍 興譲小学校 → 米沢信用金庫本店前合流 → 市内目抜き通り → 松川河川敷</div>
+          <div class="tl-desc">甲冑姿の上杉軍団500名が市内をパレード。装飾山車・騎馬武者・鼓笛隊あわせて千人超の大行列。観覧無料。<br>
+          <strong>ルート</strong>：10:30 興譲小学校出発 → 10:40 <strong>米沢信用金庫本店前で合流</strong>（みこし渡御と上杉軍団行列の集結地点）→ 市内パレード → 松川河川敷（合戦会場）</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">14:00〜15:30</div>
+          <div class="tl-title">⚔️⚔️ 川中島合戦 再現演武 ⚔️⚔️</div>
+          <div class="tl-meta">📍 松川河川敷</div>
+          <div class="tl-desc"><strong>祭り最大のクライマックス。</strong>上杉750名の武者が激突。火縄銃の轟音、騎馬突撃、謙信単騎駆け、総がかり戦。例年8万人が観覧。</div>
+        </div>
+      </div>
+
+      <h3>📷 写真映えスポット</h3>
+      <div class="spots">
+        <div class="spot">
+          <img class="photo" src="/guides/assets/uesugi-matsuri/images/%E4%B8%8A%E6%9D%89%E3%81%BE%E3%81%A4%E3%82%8A1%20(1).jpg" alt="上杉神社・松が岬公園の様子" loading="lazy">
+          <div class="body">
+            <span class="emoji">🌸</span>
+            <div class="name">上杉神社（松が岬公園）</div>
+            <div class="desc">満開の桜と神社が同時に楽しめる時期。武者と桜の組み合わせは絶景。</div>
+          </div>
+        </div>
+        <div class="spot">
+          <img class="photo" src="/guides/assets/uesugi-matsuri/images/DSC00180.jpg" alt="武禘式で祈りを捧げる謙信" loading="lazy">
+          <div class="body">
+            <span class="emoji">🔥</span>
+            <div class="name">武禘式（伝国の杜前）</div>
+            <div class="desc">夜のかがり火に照らされる甲冑武者。シネマティック度MAX。</div>
+          </div>
+        </div>
+        <div class="spot">
+          <img class="photo" src="/guides/assets/uesugi-matsuri/images/DSC00007.jpg" alt="上杉行列の騎馬武者" loading="lazy">
+          <div class="body">
+            <span class="emoji">🐎</span>
+            <div class="name">上杉行列（市内目抜き通り）</div>
+            <div class="desc">騎馬武者がいちばん近くで撮れる。沿道に立てばOK。</div>
+          </div>
+        </div>
+        <div class="spot">
+          <img class="photo" src="/guides/assets/uesugi-matsuri/images/DSC00518.jpg" alt="川中島合戦・火縄銃の硝煙" loading="lazy">
+          <div class="body">
+            <span class="emoji">⚔️</span>
+            <div class="name">川中島合戦（松川河川敷）</div>
+            <div class="desc">迫力の戦闘シーン。望遠レンズ推奨。<strong>有料桟敷席</strong>なら正面ベスト位置。</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="callout">
+        <div class="callout-title">🎫 有料桟敷席の予約</div>
+        川中島合戦をベストポジションで観たい方は、有料桟敷席（<strong>3,000円／席</strong>）がおすすめ。クッション・タオル・保冷剤・ドリンク付き。約920席限定で楽天チケットにて販売。
+      </div>
+    </div>
+
+    <div class="en">
+      <p class="lead">Out of the festival's five days, here are the must-see three (April 29, May 2 evening, May 3) in chronological order.</p>
+
+      <div class="day-header">
+        <span class="day-badge">DAY 1</span>
+        <strong style="font-size:1.15rem">April 29 (Wed) — Opening Day</strong>
+      </div>
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-time">8:30</div>
+          <div class="tl-title">Opening Ceremony</div>
+          <div class="tl-meta">📍 Denkoku-no-Mori Plaza</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">10:00</div>
+          <div class="tl-title">Spring Grand Festival at Uesugi Shrine</div>
+          <div class="tl-meta">📍 Uesugi Shrine</div>
+          <div class="tl-desc">Solemn Shinto rites honoring Lord Kenshin and Lord Yōzan.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">11:15–12:40</div>
+          <div class="tl-title">Folk Dance Parade (<em>Min-yō Nagashi</em>)</div>
+          <div class="tl-meta">📍 Main Street</div>
+          <div class="tl-desc">A thousand dancers in traditional costume parade through the city to the <em>Hanagasa</em> folk song. This year, the "New Hanagasa" returns after 25 years!</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">9:00–17:30</div>
+          <div class="tl-title">Stage Events &amp; Food Stalls</div>
+          <div class="tl-meta">📍 Around Denkoku-no-Mori</div>
+        </div>
+      </div>
+
+      <div class="day-header">
+        <span class="day-badge">DAY 4</span>
+        <strong style="font-size:1.15rem">May 2 (Sat) — Buteishiki Ritual</strong>
+      </div>
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-time">16:30</div>
+          <div class="tl-title">Buteishiki Procession</div>
+          <div class="tl-meta">📍 Uesugi Family Mausoleum → Uesugi Shrine</div>
+          <div class="tl-desc">Armored warriors march from the ancestral mausoleum to the shrine. The afternoon sun on the armor is breathtaking.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">17:30</div>
+          <div class="tl-title">Buteishiki Battle Formation</div>
+          <div class="tl-meta">📍 Denkoku-no-Mori Plaza</div>
+          <div class="tl-desc">Formations prepared for the main rite. Arrive by this time to secure a viewing spot.</div>
+        </div>
+        <div class="tl-item major">
+          <div class="tl-time">18:30–19:30</div>
+          <div class="tl-title">⭐ Buteishiki Ritual (Main)</div>
+          <div class="tl-meta">📍 Denkoku-no-Mori Plaza</div>
+          <div class="tl-desc">A reenactment of Lord Kenshin's pre-battle prayer for victory. <strong>Warriors lit by torches at night make for unforgettable photos.</strong><br>
+          <strong>Six-step sequence</strong>: ① Opening declaration → ② Army assembly → ③ Invocation of war deities → ④ <em>Goten-sui</em> water rite → ⑤ Banner award → ⑥ Departure (matchlock volley)</div>
+        </div>
+      </div>
+
+      <div class="day-header">
+        <span class="day-badge">DAY 5</span>
+        <strong style="font-size:1.15rem">May 3 (Sun) — The Climax!</strong>
+      </div>
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-time">9:30</div>
+          <div class="tl-title"><em>Mikoshi</em> Procession</div>
+          <div class="tl-meta">📍 Nanbu Elementary School → city</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">10:20–12:30</div>
+          <div class="tl-title">⚔️ Uesugi Army Procession</div>
+          <div class="tl-meta">📍 Kōjō Elementary → Yonezawa Shinkin Bank HQ (merge point) → Main Street → Matsukawa Riverbank</div>
+          <div class="tl-desc">500 armored Uesugi warriors parade through the city. With floats, mounted samurai, and youth marching bands, the whole procession exceeds 1,000 participants. Free to watch.<br>
+          <strong>Route</strong>: 10:30 depart Kōjō Elementary → 10:40 <strong>merge in front of Yonezawa Shinkin Bank HQ</strong> (where the <em>Mikoshi</em> procession joins the Uesugi Army Procession) → Main Street parade → Matsukawa Riverbank (battle venue).</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">14:00–15:30</div>
+          <div class="tl-title">⚔️⚔️ KAWANAKAJIMA BATTLE REENACTMENT ⚔️⚔️</div>
+          <div class="tl-meta">📍 Matsukawa Riverbank</div>
+          <div class="tl-desc"><strong>The festival's grand climax.</strong> 750 warriors clash. Matchlock volleys, cavalry charges, Kenshin's solo strike, all-out melee. About 80,000 spectators each year.</div>
+        </div>
+      </div>
+
+      <h3>📷 Best Photo Spots</h3>
+      <div class="spots">
+        <div class="spot">
+          <img class="photo" src="/guides/assets/uesugi-matsuri/images/%E4%B8%8A%E6%9D%89%E3%81%BE%E3%81%A4%E3%82%8A1%20(1).jpg" alt="Uesugi Shrine at Matsugasaki Park" loading="lazy">
+          <div class="body">
+            <span class="emoji">🌸</span>
+            <div class="name">Uesugi Shrine (Matsugasaki Park)</div>
+            <div class="desc">Cherry blossoms in full bloom. The combination of warriors and sakura is iconic.</div>
+          </div>
+        </div>
+        <div class="spot">
+          <img class="photo" src="/guides/assets/uesugi-matsuri/images/DSC00180.jpg" alt="Lord Kenshin in prayer at Buteishiki ritual" loading="lazy">
+          <div class="body">
+            <span class="emoji">🔥</span>
+            <div class="name">Buteishiki (Denkoku Plaza)</div>
+            <div class="desc">Warriors lit by torchlight after dark. Maximum cinematic drama.</div>
+          </div>
+        </div>
+        <div class="spot">
+          <img class="photo" src="/guides/assets/uesugi-matsuri/images/DSC00007.jpg" alt="Mounted samurai in the Uesugi Procession" loading="lazy">
+          <div class="body">
+            <span class="emoji">🐎</span>
+            <div class="name">Procession (Main Street)</div>
+            <div class="desc">Closest you'll get to mounted samurai. Stand along the route.</div>
+          </div>
+        </div>
+        <div class="spot">
+          <img class="photo" src="/guides/assets/uesugi-matsuri/images/DSC00518.jpg" alt="Matchlock smoke at the Kawanakajima Battle reenactment" loading="lazy">
+          <div class="body">
+            <span class="emoji">⚔️</span>
+            <div class="name">Kawanakajima Battle (Riverbank)</div>
+            <div class="desc">Epic combat scenes. Telephoto lens recommended. <strong>Reserved seating</strong> gives the best front-row view.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="callout">
+        <div class="callout-title">🎫 Reserved Seating</div>
+        For the best view of the Kawanakajima reenactment, reserved seats are <strong>¥3,000 per seat</strong>, including a cushion, towel, ice pack, and drink. About 920 seats sold via Rakuten Ticket.
+      </div>
+    </div>
+
+    <div class="tw">
+      <p class="lead">為期5日的祭典中，最不可錯過的是 4/29、5/2 夜、5/3 三天，依時序整理如下。</p>
+
+      <div class="day-header">
+        <span class="day-badge">DAY 1</span>
+        <strong style="font-size:1.15rem">4月29日（週三・假日）開幕祭</strong>
+      </div>
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-time">8:30</div>
+          <div class="tl-title">開幕儀式</div>
+          <div class="tl-meta">📍 傳國之杜前廣場</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">10:00</div>
+          <div class="tl-title">上杉神社 春季例大祭</div>
+          <div class="tl-meta">📍 上杉神社</div>
+          <div class="tl-desc">向謙信公與鷹山公獻祭的神事，氣氛莊嚴。</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">11:15〜12:40</div>
+          <div class="tl-title">民俗舞蹈遊行</div>
+          <div class="tl-meta">📍 市區主幹道</div>
+          <div class="tl-desc">千人舞者隨花笠音頭穿城遊行。今年「新花笠音頭」睽違25年復活！</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">9:00〜17:30</div>
+          <div class="tl-title">舞台活動・小吃攤</div>
+          <div class="tl-meta">📍 傳國之杜周邊</div>
+        </div>
+      </div>
+
+      <div class="day-header">
+        <span class="day-badge">DAY 4</span>
+        <strong style="font-size:1.15rem">5月2日（週六）武禘式</strong>
+      </div>
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-time">16:30</div>
+          <div class="tl-title">武禘式 軍團行進</div>
+          <div class="tl-meta">📍 上杉家廟所 → 上杉神社</div>
+          <div class="tl-desc">甲冑武者由上杉家歷代墓所行進至上杉神社，夕陽下的甲冑映照堪稱夢幻。</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">17:30</div>
+          <div class="tl-title">武禘式 軍陣式</div>
+          <div class="tl-meta">📍 傳國之杜前廣場</div>
+          <div class="tl-desc">為本式整備陣形。觀眾建議於此時間前抵達就位。</div>
+        </div>
+        <div class="tl-item major">
+          <div class="tl-time">18:30〜19:30</div>
+          <div class="tl-title">⭐ 武禘式 本式</div>
+          <div class="tl-meta">📍 傳國之杜前廣場</div>
+          <div class="tl-desc">重現謙信公出陣前祈求戰勝的儀式。<strong>篝火映照下的武者最適合拍照。</strong><br>
+          <strong>六步驟流程</strong>：① 開式宣言 → ② 軍團集結 → ③ 軍神勸請 → ④ 五沾水之儀 → ⑤ 賜旗 → ⑥ 出陣（火繩槍齊射）</div>
+        </div>
+      </div>
+
+      <div class="day-header">
+        <span class="day-badge">DAY 5</span>
+        <strong style="font-size:1.15rem">5月3日（週日・假日）高潮日！</strong>
+      </div>
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-time">9:30</div>
+          <div class="tl-title">神轎渡御</div>
+          <div class="tl-meta">📍 南部小學校 → 市區</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">10:20〜12:30</div>
+          <div class="tl-title">⚔️ 上杉軍團行列</div>
+          <div class="tl-meta">📍 興讓小學校 → 米澤信用金庫本店前會合 → 市區主幹道 → 松川河岸</div>
+          <div class="tl-desc">500名甲冑姿上杉軍團遊行市區。連同裝飾山車、騎馬武者、鼓笛隊，超過千人的大遊行。免費觀賞。<br>
+          <strong>路線</strong>：10:30 興讓小學校出發 → 10:40 <strong>米澤信用金庫本店前會合</strong>（神轎渡御與上杉軍團行列匯合點）→ 市區遊行 → 松川河岸（合戰會場）</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">14:00〜15:30</div>
+          <div class="tl-title">⚔️⚔️ 川中島合戰 重現演武 ⚔️⚔️</div>
+          <div class="tl-meta">📍 松川河岸</div>
+          <div class="tl-desc"><strong>祭典最大高潮。</strong>750名武者激戰。火繩槍轟鳴、騎馬突擊、謙信單騎闖入、總攻 ── 每年約8萬人觀覽。</div>
+        </div>
+      </div>
+
+      <h3>📷 拍照熱點</h3>
+      <div class="spots">
+        <div class="spot">
+          <img class="photo" src="/guides/assets/uesugi-matsuri/images/%E4%B8%8A%E6%9D%89%E3%81%BE%E3%81%A4%E3%82%8A1%20(1).jpg" alt="上杉神社・松岬公園" loading="lazy">
+          <div class="body">
+            <span class="emoji">🌸</span>
+            <div class="name">上杉神社（松岬公園）</div>
+            <div class="desc">櫻花滿開時節，與武者同框堪稱絕景。</div>
+          </div>
+        </div>
+        <div class="spot">
+          <img class="photo" src="/guides/assets/uesugi-matsuri/images/DSC00180.jpg" alt="武禘式中祈禱的謙信" loading="lazy">
+          <div class="body">
+            <span class="emoji">🔥</span>
+            <div class="name">武禘式（傳國之杜前）</div>
+            <div class="desc">夜晚篝火下的甲冑武者，氣氛電影感MAX。</div>
+          </div>
+        </div>
+        <div class="spot">
+          <img class="photo" src="/guides/assets/uesugi-matsuri/images/DSC00007.jpg" alt="上杉行列的騎馬武者" loading="lazy">
+          <div class="body">
+            <span class="emoji">🐎</span>
+            <div class="name">上杉行列（市區主幹道）</div>
+            <div class="desc">最近距離拍攝騎馬武者，路邊即可。</div>
+          </div>
+        </div>
+        <div class="spot">
+          <img class="photo" src="/guides/assets/uesugi-matsuri/images/DSC00518.jpg" alt="川中島合戰・火繩槍硝煙" loading="lazy">
+          <div class="body">
+            <span class="emoji">⚔️</span>
+            <div class="name">川中島合戰（松川河岸）</div>
+            <div class="desc">魄力滿點的戰鬥場景。建議使用望遠鏡頭。<strong>付費觀覽席</strong>可獲得最佳正面位置。</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="callout">
+        <div class="callout-title">🎫 付費觀覽席預約</div>
+        欲以最佳位置觀賞川中島合戰，推薦付費觀覽席（<strong>每席3,000日圓</strong>）。附坐墊、毛巾、保冷劑、飲料。約920席，於樂天票務販售。
+      </div>
+    </div>
+  </div>
+
+  <!-- 通訳者モード -->
+  
+</section>
+
+<!-- ============================================================ -->
+<!-- 第5章 用語集（通訳実務の核） -->
+<!-- ============================================================ -->
+<section class="chapter" id="ch5">
+  <div class="chapter-num">CHAPTER 05 · GLOSSARY</div>
+  <h2>
+    <span class="ja">📚 用語集 ─ 武将・儀式・戦術・武具・地名（76語）</span>
+    <span class="en">📚 Glossary ─ Generals, Rituals, Tactics, Armor, Places (76 terms)</span>
+    <span class="tw">📚 用語集 ─ 武將・儀式・戰術・武具・地名（76語）</span>
+  </h2>
+
+  <p class="lead">
+    <span class="ja">通訳実務の核となる対訳テーブル。読み仮名・IPA発音・3言語訳・一行解説を併記しました。スマホは横スクロールで全列見られます。</span>
+    <span class="en">The interpreter's core reference. Each term includes furigana, IPA pronunciation, three-language equivalents, and a one-line gloss. Scroll horizontally on mobile.</span>
+    <span class="tw">口譯實務的核心對譯表。每詞並列讀音、IPA發音、三語譯、一行說明。手機可橫向滾動查看。</span>
+  </p>
+
+  <div class="glossary-wrap">
+    <table class="glossary">
+      <thead>
+        <tr>
+          <th style="width:22%">
+            <span class="ja">日本語（よみ）</span>
+            <span class="en">Japanese</span>
+            <span class="tw">日語（讀音）</span>
+          </th>
+          <th style="width:26%">
+            <span class="ja">英訳 / IPA</span>
+            <span class="en">English / IPA</span>
+            <span class="tw">英譯 / 國際音標</span>
+          </th>
+          <th style="width:18%">
+            <span class="ja">繁體中文</span>
+            <span class="en">Trad. Chinese</span>
+            <span class="tw">繁體中文</span>
+          </th>
+          <th style="width:34%">
+            <span class="ja">一行解説</span>
+            <span class="en">One-line gloss</span>
+            <span class="tw">簡要說明</span>
+          </th>
+        </tr>
+      </thead>
+
+      <!-- ==== カテゴリ1: 武将名 ==== -->
+      <tbody>
+        <tr class="cat-row"><td colspan="4">
+          <span class="ja">🗡️ ① 武将名 / Generals</span>
+          <span class="en">🗡️ ① Generals (Bushō)</span>
+          <span class="tw">🗡️ ① 武將名</span>
+        </td></tr>
+
+        <tr>
+          <td class="term-jp">上杉謙信<span class="yomi">うえすぎ けんしん</span></td>
+          <td class="term-en">Uesugi Kenshin<span class="ipa">/ɯ.e.sɯ.ɡʲi keɴ.ɕiɴ/</span></td>
+          <td class="term-tw">上杉謙信</td>
+          <td class="term-desc">
+            <span class="ja">越後の戦国大名（1530–1578）。「軍神」「越後の龍」。米沢藩の精神的始祖。</span>
+            <span class="en">Sengoku warlord of Echigo (1530–1578). "God of War," "Dragon of Echigo." Spiritual founder of Yonezawa Domain.</span>
+            <span class="tw">越後戰國大名（1530–1578）。「軍神」「越後之龍」，米澤藩精神始祖。</span>
+          </td>
+        </tr>
+        <tr>
+          <td class="term-jp">武田信玄<span class="yomi">たけだ しんげん</span></td>
+          <td class="term-en">Takeda Shingen<span class="ipa">/ta.ke.da ɕiɴ.ɡeɴ/</span></td>
+          <td class="term-tw">武田信玄</td>
+          <td class="term-desc">
+            <span class="ja">甲斐（山梨）の戦国大名（1521–1573）。「甲斐の虎」。謙信の最大のライバル。</span>
+            <span class="en">Sengoku warlord of Kai/Yamanashi (1521–1573). "Tiger of Kai." Kenshin's greatest rival.</span>
+            <span class="tw">甲斐（山梨）戰國大名（1521–1573）。「甲斐之虎」，謙信最大宿敵。</span>
+          </td>
+        </tr>
+        <tr>
+          <td class="term-jp">上杉景勝<span class="yomi">うえすぎ かげかつ</span></td>
+          <td class="term-en">Uesugi Kagekatsu<span class="ipa">/ɯ.e.sɯ.ɡʲi ka.ɡe.ka.tsɯ/</span></td>
+          <td class="term-tw">上杉景勝</td>
+          <td class="term-desc">
+            <span class="ja">謙信の養子（1556–1623）。会津→米沢へ。米沢藩初代藩主。</span>
+            <span class="en">Kenshin's adopted son (1556–1623). Relocated from Aizu to Yonezawa; first lord of Yonezawa Domain.</span>
+            <span class="tw">謙信養子（1556–1623）。由會津移封米澤，米澤藩首任藩主。</span>
+          </td>
+        </tr>
+        <tr>
+          <td class="term-jp">上杉鷹山<span class="yomi">うえすぎ ようざん</span></td>
+          <td class="term-en">Uesugi Yōzan<span class="ipa">/ɯ.e.sɯ.ɡʲi joː.zaɴ/</span></td>
+          <td class="term-tw">上杉鷹山</td>
+          <td class="term-desc">
+            <span class="ja">米沢藩9代藩主（1751–1822）、中興の祖。「為せば成る」。米国JFKが尊敬。</span>
+            <span class="en">9th lord of Yonezawa (1751–1822). The Great Reformer. Famed for the maxim "<em>Naseba naru</em>." Admired by JFK.</span>
+            <span class="tw">米澤藩第9代藩主（1751–1822）。中興之祖，名言「若做必成」，受美國甘迺迪總統景仰。</span>
+          </td>
+        </tr>
+        <tr>
+          <td class="term-jp">直江兼続<span class="yomi">なおえ かねつぐ</span></td>
+          <td class="term-en">Naoe Kanetsugu<span class="ipa">/na.o.e ka.ne.tsɯ.ɡɯ/</span></td>
+          <td class="term-tw">直江兼續</td>
+          <td class="term-desc">
+            <span class="ja">米沢藩家老（1560–1620）。「愛」の前立兜で有名。NHK大河『天地人』主人公。</span>
+            <span class="en">Chief minister of Yonezawa (1560–1620). Famed for his helmet bearing the kanji "愛" (love/compassion). Hero of NHK's <em>Tenchijin</em>.</span>
+            <span class="tw">米澤藩家老（1560–1620）。前立「愛」字頭盔聞名，NHK大河劇《天地人》主角。</span>
+          </td>
+        </tr>
+        <tr>
+          <td class="term-jp">武田勝頼<span class="yomi">たけだ かつより</span></td>
+          <td class="term-en">Takeda Katsuyori<span class="ipa">/ta.ke.da ka.tsɯ.jo.ɾi/</span></td>
+          <td class="term-tw">武田勝賴</td>
+          <td class="term-desc">
+            <span class="ja">信玄の四男（1546–1582）。武田家最後の当主。長篠の戦いで織田・徳川連合に敗北。</span>
+            <span class="en">Shingen's fourth son (1546–1582). Last head of the Takeda clan; defeated at Nagashino by the Oda-Tokugawa alliance.</span>
+            <span class="tw">信玄四男（1546–1582）。武田家末代當主，長篠之戰敗於織田徳川聯軍。</span>
+          </td>
+        </tr>
+        <tr>
+          <td class="term-jp">山本勘助<span class="yomi">やまもと かんすけ</span></td>
+          <td class="term-en">Yamamoto Kansuke<span class="ipa">/ja.ma.mo.to kaɴ.sɯ.ke/</span></td>
+          <td class="term-tw">山本勘助</td>
+          <td class="term-desc">
+            <span class="ja">武田信玄の軍師。啄木鳥戦法の立案者と伝わる。第四次川中島で戦死。</span>
+            <span class="en">Shingen's military strategist; said to have devised the Woodpecker Strategy. Killed at the Fourth Battle of Kawanakajima.</span>
+            <span class="tw">武田信玄軍師。傳為啄木鳥戰法策劃者，於第四次川中島戰中陣亡。</span>
+          </td>
+        </tr>
+        <tr>
+          <td class="term-jp">武田信繁<span class="yomi">たけだ のぶしげ</span></td>
+          <td class="term-en">Takeda Nobushige<span class="ipa">/ta.ke.da no.bɯ.ɕi.ɡe/</span></td>
+          <td class="term-tw">武田信繁</td>
+          <td class="term-desc">
+            <span class="ja">信玄の弟。信玄の左腕として活躍したが、第四次川中島で戦死。</span>
+            <span class="en">Shingen's younger brother and trusted second; killed at the Fourth Battle of Kawanakajima.</span>
+            <span class="tw">信玄之弟，左右手要員，於第四次川中島戰中陣亡。</span>
+          </td>
+        </tr>
+        <tr>
+          <td class="term-jp">柿崎景家<span class="yomi">かきざき かげいえ</span></td>
+          <td class="term-en">Kakizaki Kageie<span class="ipa">/ka.ki.za.ki ka.ɡe.i.e/</span></td>
+          <td class="term-tw">柿崎景家</td>
+          <td class="term-desc">
+            <span class="ja">上杉28将の筆頭格。「越後七槍」の一人として勇名。</span>
+            <span class="en">Foremost of Kenshin's 28 generals; one of the "Seven Spears of Echigo."</span>
+            <span class="tw">上杉28將之首，列「越後七槍」之一。</span>
+          </td>
+        </tr>
+        <tr>
+          <td class="term-jp">甘粕景持<span class="yomi">あまかす かげもち</span></td>
+          <td class="term-en">Amakasu Kagemochi<span class="ipa">/a.ma.ka.sɯ ka.ɡe.mo.tɕi/</span></td>
+          <td class="term-tw">甘粕景持</td>
+          <td class="term-desc">
+            <span class="ja">上杉家臣。第四次川中島で殿軍を務め、武田軍を抑えた猛将。</span>
+            <span class="en">Uesugi retainer; commanded the rearguard at the Fourth Kawanakajima.</span>
+            <span class="tw">上杉家臣。第四次川中島戰任後衛，抵禦武田軍突進。</span>
+          </td>
+        </tr>
+        <tr>
+          <td class="term-jp">高坂昌信<span class="yomi">こうさか まさのぶ</span></td>
+          <td class="term-en">Kōsaka Masanobu<span class="ipa">/koː.sa.ka ma.sa.no.bɯ/</span></td>
+          <td class="term-tw">高坂昌信</td>
+          <td class="term-desc">
+            <span class="ja">武田四天王の一人。第四次川中島では別働隊を率いた。</span>
+            <span class="en">One of the "Four Heavenly Kings of Takeda"; led the detached force at the Fourth Kawanakajima.</span>
+            <span class="tw">武田四天王之一。第四次川中島戰率分遣隊。</span>
+          </td>
+        </tr>
+        <tr>
+          <td class="term-jp">宇佐美定満<span class="yomi">うさみ さだみつ</span></td>
+          <td class="term-en">Usami Sadamitsu<span class="ipa">/ɯ.sa.mi sa.da.mi.tsɯ/</span></td>
+          <td class="term-tw">宇佐美定滿</td>
+          <td class="term-desc">
+            <span class="ja">越後の老臣。謙信の軍師として知られる伝説的人物。</span>
+            <span class="en">An elder retainer of Echigo, traditionally regarded as Kenshin's strategist.</span>
+            <span class="tw">越後老臣，傳為謙信的軍師，傳奇人物。</span>
+          </td>
+        </tr>
+      </tbody>
+
+      <!-- ==== カテゴリ2: 儀式・行事名 ==== -->
+      <tbody>
+        <tr class="cat-row"><td colspan="4">
+          <span class="ja">🏯 ② 儀式・行事名 / Rituals &amp; Events</span>
+          <span class="en">🏯 ② Rituals &amp; Events</span>
+          <span class="tw">🏯 ② 儀式・活動名</span>
+        </td></tr>
+
+        <tr>
+          <td class="term-jp">武禘式<span class="yomi">ぶていしき</span></td>
+          <td class="term-en">Buteishiki<span class="ipa">/bɯ.teː.ɕi.kʲi/</span></td>
+          <td class="term-tw">武禘式</td>
+          <td class="term-desc">
+            <span class="ja">出陣前の戦勝祈願儀式。謙信が生涯70数度行ったとされる。5/2に再現。</span>
+            <span class="en">A pre-battle ritual for victory; Kenshin reportedly performed it before each of his 70+ campaigns. Reenacted on May 2.</span>
+            <span class="tw">出陣前祈求戰勝的儀式。謙信一生據傳行此式70餘次。5/2重現。</span>
+          </td>
+        </tr>
+        <tr>
+          <td class="term-jp">上杉行列<span class="yomi">うえすぎ ぎょうれつ</span></td>
+          <td class="term-en">Uesugi Procession<span class="ipa">/ɯ.e.sɯ.ɡʲi ɡʲoː.ɾe.tsɯ/</span></td>
+          <td class="term-tw">上杉行列</td>
+          <td class="term-desc">
+            <span class="ja">5/3午前の甲冑行列。500名の武者が市内を行進し松川河川敷へ。</span>
+            <span class="en">May 3 morning armored procession; 500 warriors march through the city to the riverbank.</span>
+            <span class="tw">5/3上午的甲冑遊行，500名武者由市區行進至松川河岸。</span>
+          </td>
+        </tr>
+        <tr>
+          <td class="term-jp">川中島合戦<span class="yomi">かわなかじま かっせん</span></td>
+          <td class="term-en">Battle of Kawanakajima<span class="ipa">/ka.wa.na.ka.dʑi.ma kas.seɴ/</span></td>
+          <td class="term-tw">川中島合戰</td>
+          <td class="term-desc">
+            <span class="ja">5/3午後の合戦再現演武。750名が松川河川敷で激突する祭りのクライマックス。</span>
+            <span class="en">May 3 afternoon battle reenactment; 750 warriors clash on the riverbank — the festival's climax.</span>
+            <span class="tw">5/3下午合戰重現演武。750名武者於松川河岸激戰，祭典最大高潮。</span>
+          </td>
+        </tr>
+        <tr>
+          <td class="term-jp">例大祭<span class="yomi">れいたいさい</span></td>
+          <td class="term-en">Reitai-sai (Grand Festival)<span class="ipa">/ɾeː.tai.sai/</span></td>
+          <td class="term-tw">例大祭</td>
+          <td class="term-desc">
+            <span class="ja">神社の最も重要な年中行事。上杉神社では春に開催。</span>
+            <span class="en">The most important annual rite of a Shinto shrine; held in spring at Uesugi Shrine.</span>
+            <span class="tw">神社最重要的年度祭儀，上杉神社於春季舉行。</span>
+          </td>
+        </tr>
+        <tr>
+          <td class="term-jp">みこし渡御<span class="yomi">みこしとぎょ</span></td>
+          <td class="term-en">Mikoshi Procession<span class="ipa">/mi.ko.ɕi to.ɡʲo/</span></td>
+          <td class="term-tw">神轎渡御</td>
+          <td class="term-desc">
+            <span class="ja">神霊を乗せた神輿を担いで町を練り歩く行事。</span>
+            <span class="en">A procession in which a portable shrine (<em>mikoshi</em>) carrying the deity is paraded through the town.</span>
+            <span class="tw">抬載神靈的神轎遊行於市區之活動。</span>
+          </td>
+        </tr>
+        <tr>
+          <td class="term-jp">開幕祭<span class="yomi">かいまくさい</span></td>
+          <td class="term-en">Opening Ceremony<span class="ipa">/kai.ma.kɯ.sai/</span></td>
+          <td class="term-tw">開幕祭</td>
+          <td class="term-desc">
+            <span class="ja">4/29に開催される祭りのオープニング。民踊流し・例大祭を含む。</span>
+            <span class="en">The April 29 opening day, including the dance parade and the grand shrine festival.</span>
+            <span class="tw">4/29舉行的祭典揭幕，含民俗舞蹈遊行與例大祭。</span>
+          </td>
+        </tr>
+        <tr>
+          <td class="term-jp">民踊流し<span class="yomi">みんようながし</span></td>
+          <td class="term-en">Folk Dance Parade<span class="ipa">/miɴ.joː na.ɡa.ɕi/</span></td>
+          <td class="term-tw">民俗舞蹈遊行</td>
+          <td class="term-desc">
+            <span class="ja">4/29午前。「花笠音頭」に合わせて千人が踊り歩く市民パレード。</span>
+            <span class="en">April 29 morning. A thousand dancers parade through town to the <em>Hanagasa</em> folk song.</span>
+            <span class="tw">4/29上午。千人舞者隨「花笠音頭」遊行市區。</span>
+          </td>
+        </tr>
+        <tr>
+          <td class="term-jp">五沾水の儀<span class="yomi">ごてんすいのぎ</span></td>
+          <td class="term-en">Goten-sui Rite<span class="ipa">/ɡo.teɴ.sɯi no ɡʲi/</span></td>
+          <td class="term-tw">五沾水之儀</td>
+          <td class="term-desc">
+            <span class="ja">武禘式の中心儀式。神に水を捧げる神聖な所作。</span>
+            <span class="en">The central rite of Buteishiki; a sacred water offering to the war deities.</span>
+            <span class="tw">武禘式核心儀式，向戰神獻水的神聖儀式。</span>
+          </td>
+        </tr>
+      </tbody>
+
+      <!-- ==== カテゴリ3: 戦術・軍事用語 ==== -->
+      <tbody>
+        <tr class="cat-row"><td colspan="4">
+          <span class="ja">⚔️ ③ 戦術・軍事用語 / Tactics &amp; Military Terms</span>
+          <span class="en">⚔️ ③ Tactics &amp; Military Terms</span>
+          <span class="tw">⚔️ ③ 戰術・軍事用語</span>
+        </td></tr>
+
+        <tr>
+          <td class="term-jp">啄木鳥戦法<span class="yomi">きつつき せんぽう</span></td>
+          <td class="term-en">Woodpecker Strategy<span class="ipa">/kʲi.tsɯ.tsɯ.kʲi seɴ.poː/</span></td>
+          <td class="term-tw">啄木鳥戰法</td>
+          <td class="term-desc">
+            <span class="ja">武田軍が第四次川中島で計画した挟撃戦法。別働隊が敵を本隊へ追い込む。</span>
+            <span class="en">Pincer maneuver: a detached force flushes the enemy into the main force's ambush — like a woodpecker tapping wood.</span>
+            <span class="tw">武田於第四次川中島計畫的鉗形攻擊：分遣隊將敵驅入本隊伏擊圈。</span>
+          </td>
+        </tr>
+        <tr>
+          <td class="term-jp">車懸りの陣<span class="yomi">くるまがかりのじん</span></td>
+          <td class="term-en">Wheel Formation<span class="ipa">/kɯ.ɾɯ.ma.ɡa.ka.ɾi no dʑiɴ/</span></td>
+          <td class="term-tw">車懸之陣</td>
+          <td class="term-desc">
+            <span class="ja">上杉軍の陣形。前線部隊を後方と入れ替えて連続攻撃する円形陣。</span>
+            <span class="en">A circular rotating formation: front-line units constantly cycle to the rear while fresh units advance.</span>
+            <span class="tw">上杉陣形。前後輪轉部隊持續攻擊的圓形陣。</span>
+          </td>
+        </tr>
+        <tr>
+          <td class="term-jp">鶴翼の陣<span class="yomi">かくよくのじん</span></td>
+          <td class="term-en">Crane-Wing Formation<span class="ipa">/ka.kɯ.jo.kɯ no dʑiɴ/</span></td>
+          <td class="term-tw">鶴翼之陣</td>
+          <td class="term-desc">
+            <span class="ja">中央を引いて両翼を前に出した V字陣形。包囲攻撃に最適。</span>
+            <span class="en">A V-shaped formation with wings extended to envelop the enemy.</span>
+            <span class="tw">中央後縮、兩翼前突的V字陣形，利於包圍。</span>
+          </td>
+        </tr>
+        <tr>
+          <td class="term-jp">魚鱗の陣<span class="yomi">ぎょりんのじん</span></td>
+          <td class="term-en">Fish-Scale Formation<span class="ipa">/ɡʲo.ɾiɴ no dʑiɴ/</span></td>
+          <td class="term-tw">魚鱗之陣</td>
+          <td class="term-desc">
+            <span class="ja">中央を尖らせ突進する三角形の陣形。突破力に優れる。</span>
+            <span class="en">A wedge formation with a sharp center, ideal for penetration.</span>
+            <span class="tw">中央尖突的三角陣形，突破力強。</span>
+          </td>
+        </tr>
+        <tr>
+          <td class="term-jp">三太刀七太刀<span class="yomi">さんたち ななたち</span></td>
+          <td class="term-en">San-tachi Nana-tachi<span class="ipa">/saɴ.ta.tɕi na.na.ta.tɕi/</span></td>
+          <td class="term-tw">三太刀七太刀</td>
+          <td class="term-desc">
+            <span class="ja">川中島での謙信単騎駆け伝説。信玄を3度斬り、軍配に7つ傷が残ったとの逸話。</span>
+            <span class="en">Legend of Kenshin's solo charge — 3 sword strikes left 7 scars on Shingen's war fan.</span>
+            <span class="tw">謙信單騎闖入信玄本陣揮刀3次，軍配上留下7痕之傳說。</span>
+          </td>
+        </tr>
+        <tr>
+          <td class="term-jp">一騎打ち<span class="yomi">いっきうち</span></td>
+          <td class="term-en">Single Combat<span class="ipa">/ik.kʲi.ɯ.tɕi/</span></td>
+          <td class="term-tw">單挑／一騎當千</td>
+          <td class="term-desc">
+            <span class="ja">武将同士の一対一の戦い。中世日本では名誉ある戦闘形式。</span>
+            <span class="en">One-on-one combat between commanders; an honored form of warfare in medieval Japan.</span>
+            <span class="tw">武將間的一對一決戰，中世日本最榮譽的戰鬥形式。</span>
+          </td>
+        </tr>
+        <tr>
+          <td class="term-jp">本陣<span class="yomi">ほんじん</span></td>
+          <td class="term-en">Honjin (Main Camp)<span class="ipa">/hoɴ.dʑiɴ/</span></td>
+          <td class="term-tw">本陣</td>
+          <td class="term-desc">
+            <span class="ja">大将が指揮を執る軍営の中心。本陣突破は事実上の敗北。</span>
+            <span class="en">The headquarters where the supreme commander directs the battle; its breach generally meant defeat.</span>
+            <span class="tw">大將指揮的軍營中心，本陣被破即視同敗戰。</span>
+          </td>
+        </tr>
+        <tr>
+          <td class="term-jp">軍配<span class="yomi">ぐんばい</span></td>
+          <td class="term-en">Gunbai (War Fan)<span class="ipa">/ɡɯɴ.bai/</span></td>
+          <td class="term-tw">軍配</td>
+          <td class="term-desc">
+            <span class="ja">武将が部隊を指揮する団扇状の道具。相撲の行司の道具と同源。</span>
+            <span class="en">A fan-shaped baton for commanding troops; same word/origin as the sumo referee's fan.</span>
+            <span class="tw">武將指揮部隊的扇形指揮棒，與相撲行司用扇同源。</span>
+          </td>
+        </tr>
+        <tr>
+          <td class="term-jp">采配<span class="yomi">さいはい</span></td>
+          <td class="term-en">Saihai (Commander's Baton)<span class="ipa">/sai.hai/</span></td>
+          <td class="term-tw">采配</td>
+          <td class="term-desc">
+            <span class="ja">紙束を付けた指揮棒。「采配を振る」で「指揮を執る」の意。</span>
+            <span class="en">A baton with paper strips, used to direct troops; "<em>saihai o furu</em>" idiomatically means "to take command."</span>
+            <span class="tw">附紙束的指揮棒，「揮采配」指「執掌指揮」。</span>
+          </td>
+        </tr>
+        <tr>
+          <td class="term-jp">陣太鼓<span class="yomi">じんだいこ</span></td>
+          <td class="term-en">Battle Drum<span class="ipa">/dʑiɴ.dai.ko/</span></td>
+          <td class="term-tw">陣太鼓</td>
+          <td class="term-desc">
+            <span class="ja">戦場で命令や合図に使う大太鼓。突撃・撤退などを伝達。</span>
+            <span class="en">A large drum used on the battlefield to signal advance, retreat, etc.</span>
+            <span class="tw">戰場上傳達衝鋒、撤退等命令的大鼓。</span>
+          </td>
+        </tr>
+        <tr>
+          <td class="term-jp">法螺貝<span class="yomi">ほらがい</span></td>
+          <td class="term-en">Conch (Hora-gai)<span class="ipa">/ho.ɾa.ɡai/</span></td>
+          <td class="term-tw">法螺貝</td>
+          <td class="term-desc">
+            <span class="ja">巻貝を加工した号令用ラッパ。山伏も使う。長く響く独特の音色。</span>
+            <span class="en">A trumpet made from a conch shell, used for orders; also used by mountain ascetics. Distinctive sustained tone.</span>
+            <span class="tw">由螺殼製成的號角，山伏（修驗道）也使用，音色低沉悠長。</span>
+          </td>
+        </tr>
+        <tr>
+          <td class="term-jp">勝鬨<span class="yomi">かちどき</span></td>
+          <td class="term-en">Kachidoki (Victory Cry)<span class="ipa">/ka.tɕi.do.kʲi/</span></td>
+          <td class="term-tw">勝鬨</td>
+          <td class="term-desc">
+            <span class="ja">勝利時に全軍で上げる雄叫び。「えいえいおー！」が定型。</span>
+            <span class="en">The collective war shout of victory — "Ei, ei, ō!" Common cinematic image.</span>
+            <span class="tw">勝利時全軍齊呼之吶喊。「Ei, ei, oh!」為固定句式。</span>
+          </td>
+        </tr>
+      </tbody>
+
+      <!-- ==== カテゴリ4: 武具・装束 ==== -->
+      <tbody>
+        <tr class="cat-row"><td colspan="4">
+          <span class="ja">🛡️ ④ 武具・装束 / Armor &amp; Costume</span>
+          <span class="en">🛡️ ④ Armor &amp; Costume</span>
+          <span class="tw">🛡️ ④ 武具・裝束</span>
+        </td></tr>
+
+        <tr>
+          <td class="term-jp">甲冑<span class="yomi">かっちゅう</span></td>
+          <td class="term-en">Kacchū (Armor)<span class="ipa">/kat.tɕɯː/</span></td>
+          <td class="term-tw">甲冑</td>
+          <td class="term-desc">
+            <span class="ja">鎧と兜の総称。日本の甲冑は革・鉄板・絹紐の組み合わせ。</span>
+            <span class="en">General term for samurai armor (cuirass + helmet); built from leather, iron plates, and silk lacing.</span>
+            <span class="tw">鎧甲與頭盔總稱。日本甲冑由皮革、鐵板、絹繩編組而成。</span>
+          </td>
+        </tr>
+        <tr>
+          <td class="term-jp">兜<span class="yomi">かぶと</span></td>
+          <td class="term-en">Kabuto (Helmet)<span class="ipa">/ka.bɯ.to/</span></td>
+          <td class="term-tw">兜（頭盔）</td>
+          <td class="term-desc">
+            <span class="ja">武将の頭部防具。前立（飾り）で個性を表現。「鍬形」「鹿角」など。</span>
+            <span class="en">The samurai helmet; the front crest (<em>maedate</em>) — antlers, horns, kanji — expressed identity.</span>
+            <span class="tw">武將頭部防具。前立（裝飾）展現個性，如鍬形、鹿角等。</span>
+          </td>
+        </tr>
+        <tr>
+          <td class="term-jp">陣羽織<span class="yomi">じんばおり</span></td>
+          <td class="term-en">Jinbaori (Battle Surcoat)<span class="ipa">/dʑiɴ.ba.o.ɾi/</span></td>
+          <td class="term-tw">陣羽織</td>
+          <td class="term-desc">
+            <span class="ja">甲冑の上に羽織る装束。武将の威厳を示す。家紋入りが多い。</span>
+            <span class="en">A surcoat worn over armor for status display, often bearing the family crest.</span>
+            <span class="tw">穿於甲冑外的禮服，多繡家紋以彰顯武將威儀。</span>
+          </td>
+        </tr>
+        <tr>
+          <td class="term-jp">軍旗<span class="yomi">ぐんき</span></td>
+          <td class="term-en">Gunki (Battle Standard)<span class="ipa">/ɡɯɴ.kʲi/</span></td>
+          <td class="term-tw">軍旗</td>
+          <td class="term-desc">
+            <span class="ja">軍勢を示す旗。家紋・宗教的シンボル・標語を染め抜く。</span>
+            <span class="en">A military standard bearing crest, religious symbol, or motto.</span>
+            <span class="tw">標示軍勢的旗幟，染有家紋、宗教符號或座右銘。</span>
+          </td>
+        </tr>
+        <tr>
+          <td class="term-jp">「毘」の旗<span class="yomi">びのはた</span></td>
+          <td class="term-en">"Bi" (毘) Banner<span class="ipa">/bʲi no ha.ta/</span></td>
+          <td class="term-tw">「毘」字旗</td>
+          <td class="term-desc">
+            <span class="ja">上杉謙信の軍旗。毘沙門天の「毘」一字。謙信信仰の象徴。</span>
+            <span class="en">Kenshin's banner — the kanji "毘" stands for Bishamonten, the war god he worshipped.</span>
+            <span class="tw">上杉謙信軍旗。「毘」字代表毘沙門天，象徵謙信信仰。</span>
+          </td>
+        </tr>
+        <tr>
+          <td class="term-jp">「龍」の旗<span class="yomi">りゅうのはた</span></td>
+          <td class="term-en">"Ryū" (龍) Banner<span class="ipa">/ɾʲɯː no ha.ta/</span></td>
+          <td class="term-tw">「龍」字旗</td>
+          <td class="term-desc">
+            <span class="ja">謙信のもう一つの旗印。不動明王（仏教の忿怒尊）を表す。</span>
+            <span class="en">Kenshin's secondary banner — "龍" (dragon) symbolizing Fudō Myō-ō, the wrathful Buddhist guardian.</span>
+            <span class="tw">謙信另一面旗。「龍」代表不動明王（佛教忿怒明王）。</span>
+          </td>
+        </tr>
+        <tr>
+          <td class="term-jp">諏訪法性の兜<span class="yomi">すわほっしょうのかぶと</span></td>
+          <td class="term-en">Suwa Hosshō Helmet<span class="ipa">/sɯ.wa hos.ɕoː no ka.bɯ.to/</span></td>
+          <td class="term-tw">諏訪法性兜</td>
+          <td class="term-desc">
+            <span class="ja">武田信玄が着用したとされる、白毛の覆い付き角型兜。象徴的造形。</span>
+            <span class="en">Shingen's iconic horned helmet adorned with white yak hair.</span>
+            <span class="tw">傳為武田信玄所戴，附白毛覆蓋的角型頭盔，極具象徵性。</span>
+          </td>
+        </tr>
+        <tr>
+          <td class="term-jp">赤備え<span class="yomi">あかぞなえ</span></td>
+          <td class="term-en">Akazonae (Red Armor)<span class="ipa">/a.ka.zo.na.e/</span></td>
+          <td class="term-tw">赤備</td>
+          <td class="term-desc">
+            <span class="ja">武具すべてを朱漆で統一した精鋭部隊。武田の赤備えが戦国最強として有名。</span>
+            <span class="en">Elite unit with all armor lacquered red; Takeda's red-armored cavalry was legendary.</span>
+            <span class="tw">全副武具塗朱漆統一的精銳部隊，武田赤備騎兵聞名戰國。</span>
+          </td>
+        </tr>
+        <tr>
+          <td class="term-jp">風林火山<span class="yomi">ふうりんかざん</span></td>
+          <td class="term-en">Fūrin-Kazan<span class="ipa">/ɸɯː.ɾiɴ.ka.zaɴ/</span></td>
+          <td class="term-tw">風林火山</td>
+          <td class="term-desc">
+            <span class="ja">武田信玄の軍旗の標語。『孫子』に基づく「疾如風、徐如林、侵掠如火、不動如山」。</span>
+            <span class="en">Shingen's motto, from Sun Tzu: "Swift as wind, silent as forest, fierce as fire, immovable as mountain."</span>
+            <span class="tw">武田信玄軍旗座右銘，源自《孫子》：「疾如風、徐如林、侵掠如火、不動如山」。</span>
+          </td>
+        </tr>
+        <tr>
+          <td class="term-jp">火縄銃<span class="yomi">ひなわじゅう</span></td>
+          <td class="term-en">Hinawa-jū (Matchlock)<span class="ipa">/hʲi.na.wa.dʑɯː/</span></td>
+          <td class="term-tw">火繩槍</td>
+          <td class="term-desc">
+            <span class="ja">1543年にポルトガルから日本へ伝来した火縄式の鉄砲。戦国の戦術を一変させた。</span>
+            <span class="en">Matchlock arquebus brought to Japan from Portugal in 1543; revolutionized Sengoku warfare.</span>
+            <span class="tw">1543年由葡萄牙傳入日本的火繩式鐵砲，徹底改變戰國戰術。</span>
+          </td>
+        </tr>
+        <tr>
+          <td class="term-jp">長槍<span class="yomi">ながやり</span></td>
+          <td class="term-en">Nagayari (Long Spear)<span class="ipa">/na.ɡa.ja.ɾi/</span></td>
+          <td class="term-tw">長槍</td>
+          <td class="term-desc">
+            <span class="ja">5〜6mに及ぶ集団戦用の長い槍。徒歩兵の主力武器。</span>
+            <span class="en">A 5–6 m spear used in group infantry tactics; the primary weapon of foot soldiers.</span>
+            <span class="tw">長達5〜6公尺的集團戰用長槍，步兵主力武器。</span>
+          </td>
+        </tr>
+        <tr>
+          <td class="term-jp">弓矢<span class="yomi">ゆみや</span></td>
+          <td class="term-en">Yumiya (Bow &amp; Arrow)<span class="ipa">/jɯ.mʲi.ja/</span></td>
+          <td class="term-tw">弓箭</td>
+          <td class="term-desc">
+            <span class="ja">日本の弓は和弓。武士の本来の主武器（「弓馬の道」）。</span>
+            <span class="en">Japanese bow (<em>yumi</em>) and arrow. The original weapon of the samurai — "the way of bow and horse."</span>
+            <span class="tw">日本的弓為和弓，武士本來的主武器（「弓馬之道」）。</span>
+          </td>
+        </tr>
+      </tbody>
+
+      <!-- ==== カテゴリ5: 地名 ==== -->
+      <tbody>
+        <tr class="cat-row"><td colspan="4">
+          <span class="ja">🗾 ⑤ 地名 / Place Names</span>
+          <span class="en">🗾 ⑤ Place Names</span>
+          <span class="tw">🗾 ⑤ 地名</span>
+        </td></tr>
+
+        <tr>
+          <td class="term-jp">米沢<span class="yomi">よねざわ</span></td>
+          <td class="term-en">Yonezawa<span class="ipa">/jo.ne.za.wa/</span></td>
+          <td class="term-tw">米澤</td>
+          <td class="term-desc">
+            <span class="ja">山形県南部の都市。上杉藩30万石の城下町。米沢牛・米沢織で有名。</span>
+            <span class="en">Castle town of the Uesugi Domain (300,000 koku) in southern Yamagata; famous for Yonezawa beef and silk.</span>
+            <span class="tw">山形縣南部都市，上杉藩30萬石的城下町，以米澤牛和米澤織聞名。</span>
+          </td>
+        </tr>
+        <tr>
+          <td class="term-jp">川中島<span class="yomi">かわなかじま</span></td>
+          <td class="term-en">Kawanakajima<span class="ipa">/ka.wa.na.ka.dʑi.ma/</span></td>
+          <td class="term-tw">川中島</td>
+          <td class="term-desc">
+            <span class="ja">長野市南部、千曲川と犀川の合流地点。謙信と信玄が5度戦った戦場。</span>
+            <span class="en">The plain at the confluence of the Chikuma and Sai Rivers in southern Nagano; battlefield of the five battles.</span>
+            <span class="tw">長野市南部，千曲川與犀川匯流處。謙信與信玄五次交戰之古戰場。</span>
+          </td>
+        </tr>
+        <tr>
+          <td class="term-jp">春日山城<span class="yomi">かすがやまじょう</span></td>
+          <td class="term-en">Kasugayama Castle<span class="ipa">/ka.sɯ.ɡa.ja.ma dʑoː/</span></td>
+          <td class="term-tw">春日山城</td>
+          <td class="term-desc">
+            <span class="ja">越後（現・新潟県上越市）にあった上杉謙信の本拠地。山城。</span>
+            <span class="en">Kenshin's mountain stronghold in Echigo (present-day Jōetsu, Niigata).</span>
+            <span class="tw">越後（今新潟縣上越市）的山城，上杉謙信本據地。</span>
+          </td>
+        </tr>
+        <tr>
+          <td class="term-jp">米沢城<span class="yomi">よねざわじょう</span></td>
+          <td class="term-en">Yonezawa Castle<span class="ipa">/jo.ne.za.wa dʑoː/</span></td>
+          <td class="term-tw">米澤城</td>
+          <td class="term-desc">
+            <span class="ja">米沢藩の居城。明治期に廃城。現在は松が岬公園として整備され、上杉神社が鎮座。</span>
+            <span class="en">The seat of Yonezawa Domain. Abolished in Meiji; now Matsugasaki Park, with Uesugi Shrine at its center.</span>
+            <span class="tw">米澤藩居城。明治時廢城，今為松岬公園，上杉神社坐鎮其中。</span>
+          </td>
+        </tr>
+        <tr>
+          <td class="term-jp">松が岬公園<span class="yomi">まつがさきこうえん</span></td>
+          <td class="term-en">Matsugasaki Park<span class="ipa">/ma.tsɯ.ɡa.sa.kʲi koː.eɴ/</span></td>
+          <td class="term-tw">松岬公園</td>
+          <td class="term-desc">
+            <span class="ja">米沢城跡の公園。桜200本、上杉神社・松岬神社・伝国の杜が集まる祭りの中心地。</span>
+            <span class="en">Park on the castle ruins. Home to 200 cherry trees, Uesugi Shrine, Matsugasaki Shrine, and Denkoku-no-Mori — the festival's heart.</span>
+            <span class="tw">米澤城跡公園。200株櫻花、上杉神社、松岬神社、傳國之杜集於此地，為祭典中心。</span>
+          </td>
+        </tr>
+        <tr>
+          <td class="term-jp">伝国の杜<span class="yomi">でんこくのもり</span></td>
+          <td class="term-en">Denkoku-no-Mori<span class="ipa">/deɴ.ko.kɯ no mo.ɾi/</span></td>
+          <td class="term-tw">傳國之杜</td>
+          <td class="term-desc">
+            <span class="ja">米沢市上杉博物館を含む文化施設。上杉家の文書・甲冑を所蔵。武禘式会場。</span>
+            <span class="en">Cultural complex including the Uesugi Museum, housing Uesugi family documents and armor. Site of Buteishiki.</span>
+            <span class="tw">含上杉博物館的文化設施，藏上杉家文書、甲冑，武禘式會場。</span>
+          </td>
+        </tr>
+        <tr>
+          <td class="term-jp">松川河川敷<span class="yomi">まつかわかせんじき</span></td>
+          <td class="term-en">Matsukawa Riverbank<span class="ipa">/ma.tsɯ.ka.wa ka.seɴ.dʑi.kʲi/</span></td>
+          <td class="term-tw">松川河岸</td>
+          <td class="term-desc">
+            <span class="ja">川中島合戦の演武会場。米沢駅から徒歩約15分。相生橋〜万里橋の間。</span>
+            <span class="en">Venue for the Kawanakajima reenactment, between Aioi and Banri bridges. ~15-min walk from Yonezawa Station.</span>
+            <span class="tw">川中島合戰演武會場。自米澤車站徒步約15分鐘，位於相生橋與萬里橋之間。</span>
+          </td>
+        </tr>
+        <tr>
+          <td class="term-jp">妻女山<span class="yomi">さいじょさん</span></td>
+          <td class="term-en">Mt. Saijo<span class="ipa">/sai.dʑo.saɴ/</span></td>
+          <td class="term-tw">妻女山</td>
+          <td class="term-desc">
+            <span class="ja">第四次川中島合戦で上杉軍が陣を構えた山。武田の啄木鳥戦法の標的だった。</span>
+            <span class="en">The hill where the Uesugi army camped before the Fourth Kawanakajima — target of Takeda's Woodpecker Strategy.</span>
+            <span class="tw">第四次川中島戰中上杉軍紮營之山，武田啄木鳥戰法目標。</span>
+          </td>
+        </tr>
+      </tbody>
+
+      <!-- ==== カテゴリ6: 称号・役職 ==== -->
+      <tbody>
+        <tr class="cat-row"><td colspan="4">
+          <span class="ja">👑 ⑥ 称号・役職 / Titles &amp; Roles</span>
+          <span class="en">👑 ⑥ Titles &amp; Roles</span>
+          <span class="tw">👑 ⑥ 稱號・職位</span>
+        </td></tr>
+
+        <tr>
+          <td class="term-jp">越後の龍<span class="yomi">えちごのりゅう</span></td>
+          <td class="term-en">Dragon of Echigo<span class="ipa">/e.tɕi.ɡo no ɾʲɯː/</span></td>
+          <td class="term-tw">越後之龍</td>
+          <td class="term-desc">
+            <span class="ja">上杉謙信の異名。越後（新潟）出身で龍のように強かったことから。</span>
+            <span class="en">Epithet for Kenshin — fierce as a dragon, lord of Echigo.</span>
+            <span class="tw">上杉謙信異名。出身越後，戰鬥力如龍。</span>
+          </td>
+        </tr>
+        <tr>
+          <td class="term-jp">甲斐の虎<span class="yomi">かいのとら</span></td>
+          <td class="term-en">Tiger of Kai<span class="ipa">/kai no to.ɾa/</span></td>
+          <td class="term-tw">甲斐之虎</td>
+          <td class="term-desc">
+            <span class="ja">武田信玄の異名。甲斐（山梨）出身で虎のように猛々しかったことから。</span>
+            <span class="en">Epithet for Shingen — ferocious as a tiger, lord of Kai.</span>
+            <span class="tw">武田信玄異名。出身甲斐（山梨），戰鬥力如虎。</span>
+          </td>
+        </tr>
+        <tr>
+          <td class="term-jp">軍神<span class="yomi">ぐんしん</span></td>
+          <td class="term-en">God of War<span class="ipa">/ɡɯɴ.ɕiɴ/</span></td>
+          <td class="term-tw">軍神</td>
+          <td class="term-desc">
+            <span class="ja">謙信を称える尊称。戦に強く、毘沙門天の化身と信じられたことから。</span>
+            <span class="en">Honorific for Kenshin — believed to be the earthly incarnation of Bishamonten.</span>
+            <span class="tw">對謙信的尊稱。被視為毘沙門天化身。</span>
+          </td>
+        </tr>
+        <tr>
+          <td class="term-jp">軍師<span class="yomi">ぐんし</span></td>
+          <td class="term-en">Gunshi (Strategist)<span class="ipa">/ɡɯɴ.ɕi/</span></td>
+          <td class="term-tw">軍師</td>
+          <td class="term-desc">
+            <span class="ja">大将に作戦を進言する参謀。山本勘助、宇佐美定満が代表的。</span>
+            <span class="en">Strategic advisor to the warlord. Notable examples: Yamamoto Kansuke, Usami Sadamitsu.</span>
+            <span class="tw">為大將獻策的參謀。山本勘助、宇佐美定滿為代表。</span>
+          </td>
+        </tr>
+        <tr>
+          <td class="term-jp">大名<span class="yomi">だいみょう</span></td>
+          <td class="term-en">Daimyō (Feudal Lord)<span class="ipa">/dai.mʲoː/</span></td>
+          <td class="term-tw">大名</td>
+          <td class="term-desc">
+            <span class="ja">広大な領地を持つ武家の長。戦国時代の主役。</span>
+            <span class="en">A major feudal lord; the leading actor of the Sengoku period.</span>
+            <span class="tw">擁有廣大領地的武家領主，戰國時代的主角。</span>
+          </td>
+        </tr>
+        <tr>
+          <td class="term-jp">家臣<span class="yomi">かしん</span></td>
+          <td class="term-en">Kashin (Retainer)<span class="ipa">/ka.ɕiɴ/</span></td>
+          <td class="term-tw">家臣</td>
+          <td class="term-desc">
+            <span class="ja">大名に仕える武士。封建的主従関係で結ばれる。</span>
+            <span class="en">A samurai serving a daimyō under a bond of feudal loyalty.</span>
+            <span class="tw">侍奉大名的武士，以封建主從關係結合。</span>
+          </td>
+        </tr>
+        <tr>
+          <td class="term-jp">家老<span class="yomi">かろう</span></td>
+          <td class="term-en">Karō (Chief Retainer)<span class="ipa">/ka.ɾoː/</span></td>
+          <td class="term-tw">家老</td>
+          <td class="term-desc">
+            <span class="ja">家臣のトップ。藩政の実務を統括。直江兼続が米沢の代表例。</span>
+            <span class="en">Top retainer in charge of domain administration. Naoe Kanetsugu of Yonezawa is the most famous example.</span>
+            <span class="tw">家臣之首，主管藩政實務。直江兼續是米澤代表例。</span>
+          </td>
+        </tr>
+        <tr>
+          <td class="term-jp">藩主<span class="yomi">はんしゅ</span></td>
+          <td class="term-en">Hanshu (Domain Lord)<span class="ipa">/haɴ.ɕɯ/</span></td>
+          <td class="term-tw">藩主</td>
+          <td class="term-desc">
+            <span class="ja">江戸時代の藩の領主。米沢藩は上杉家12代が務めた。</span>
+            <span class="en">Lord of an Edo-period domain. The Uesugi family ruled Yonezawa through 12 generations.</span>
+            <span class="tw">江戶時代藩的領主。米澤藩由上杉家12代擔任。</span>
+          </td>
+        </tr>
+      </tbody>
+
+      <!-- ==== カテゴリ7: 文化用語 ==== -->
+      <tbody>
+        <tr class="cat-row"><td colspan="4">
+          <span class="ja">🌸 ⑦ 文化用語 / Cultural Terms</span>
+          <span class="en">🌸 ⑦ Cultural Terms</span>
+          <span class="tw">🌸 ⑦ 文化用語</span>
+        </td></tr>
+
+        <tr>
+          <td class="term-jp">戦国時代<span class="yomi">せんごくじだい</span></td>
+          <td class="term-en">Sengoku Period<span class="ipa">/seɴ.ɡo.kɯ dʑi.dai/</span></td>
+          <td class="term-tw">戰國時代</td>
+          <td class="term-desc">
+            <span class="ja">15世紀後半〜16世紀末の内戦時代。各地の大名が覇を競った。</span>
+            <span class="en">Japan's "Warring States" era, late 15th to late 16th c.; daimyō clashed across the country.</span>
+            <span class="tw">15世紀末至16世紀末的內戰時代，各地大名爭霸。</span>
+          </td>
+        </tr>
+        <tr>
+          <td class="term-jp">義<span class="yomi">ぎ</span></td>
+          <td class="term-en">Gi (Righteousness)<span class="ipa">/ɡʲi/</span></td>
+          <td class="term-tw">義</td>
+          <td class="term-desc">
+            <span class="ja">道義に基づき、私利私欲のためでなく行動する精神。謙信の根本思想。</span>
+            <span class="en">Acting on moral duty rather than self-interest — Kenshin's core philosophy.</span>
+            <span class="tw">基於道義、非為私利的行為精神，謙信的核心思想。</span>
+          </td>
+        </tr>
+        <tr>
+          <td class="term-jp">武士道<span class="yomi">ぶしどう</span></td>
+          <td class="term-en">Bushidō (Way of the Warrior)<span class="ipa">/bɯ.ɕi.doː/</span></td>
+          <td class="term-tw">武士道</td>
+          <td class="term-desc">
+            <span class="ja">武士の倫理規範。義・勇・仁・礼・誠・名誉・忠義の七徳。</span>
+            <span class="en">The samurai ethical code: righteousness, courage, benevolence, respect, honesty, honor, loyalty.</span>
+            <span class="tw">武士的倫理規範：義、勇、仁、禮、誠、名譽、忠義七德。</span>
+          </td>
+        </tr>
+        <tr>
+          <td class="term-jp">毘沙門天<span class="yomi">びしゃもんてん</span></td>
+          <td class="term-en">Bishamonten<span class="ipa">/bʲi.ɕa.moɴ.teɴ/</span></td>
+          <td class="term-tw">毘沙門天</td>
+          <td class="term-desc">
+            <span class="ja">仏教の四天王の一人で武神。謙信が篤く信仰した。</span>
+            <span class="en">One of the Four Heavenly Kings of Buddhism, the war god; deeply venerated by Kenshin.</span>
+            <span class="tw">佛教四天王之一的戰神，謙信篤信。</span>
+          </td>
+        </tr>
+        <tr>
+          <td class="term-jp">不動明王<span class="yomi">ふどうみょうおう</span></td>
+          <td class="term-en">Fudō Myō-ō<span class="ipa">/ɸɯ.doː mʲoː.oː/</span></td>
+          <td class="term-tw">不動明王</td>
+          <td class="term-desc">
+            <span class="ja">仏教の忿怒尊。煩悩を断ち切る象徴。「龍」の旗で表される。</span>
+            <span class="en">Wrathful Buddhist deity who severs delusions; represented by the "龍" banner.</span>
+            <span class="tw">佛教忿怒尊，象徵斬斷煩惱，由「龍」字旗代表。</span>
+          </td>
+        </tr>
+        <tr>
+          <td class="term-jp">神仏習合<span class="yomi">しんぶつしゅうごう</span></td>
+          <td class="term-en">Shinbutsu-shūgō (Shinto-Buddhist Syncretism)<span class="ipa">/ɕiɴ.bɯ.tsɯ ɕɯː.ɡoː/</span></td>
+          <td class="term-tw">神佛習合</td>
+          <td class="term-desc">
+            <span class="ja">神道と仏教を融合させた信仰形態。武禘式もこの伝統に基づく。</span>
+            <span class="en">The syncretic blending of Shinto and Buddhism; Buteishiki draws on this tradition.</span>
+            <span class="tw">神道與佛教融合的信仰形態，武禘式即源於此傳統。</span>
+          </td>
+        </tr>
+        <tr>
+          <td class="term-jp">忠義<span class="yomi">ちゅうぎ</span></td>
+          <td class="term-en">Chūgi (Loyalty)<span class="ipa">/tɕɯː.ɡʲi/</span></td>
+          <td class="term-tw">忠義</td>
+          <td class="term-desc">
+            <span class="ja">主君への絶対的忠誠。武士道の中核価値。</span>
+            <span class="en">Absolute loyalty to one's lord — a core value of bushidō.</span>
+            <span class="tw">對主君的絕對忠誠，武士道核心價值。</span>
+          </td>
+        </tr>
+        <tr>
+          <td class="term-jp">為せば成る<span class="yomi">なせばなる</span></td>
+          <td class="term-en">Naseba Naru<span class="ipa">/na.se.ba na.ɾɯ/</span></td>
+          <td class="term-tw">若做必成</td>
+          <td class="term-desc">
+            <span class="ja">「やればできる」の意。上杉鷹山の名言「為せば成る、為さねば成らぬ何事も」。</span>
+            <span class="en">"If you act, it will be done." Yōzan's maxim: "<em>Naseba naru, nasaneba naranu, nanigoto mo</em>" — anything is possible if you try.</span>
+            <span class="tw">「肯做就能成」之意。上杉鷹山名言「若做必成、不做不成、無事不然」。</span>
+          </td>
+        </tr>
+      </tbody>
+
+      <!-- ==== カテゴリ8: 実用フレーズ ==== -->
+      <tbody>
+        <tr class="cat-row"><td colspan="4">
+          <span class="ja">💬 ⑧ 実用フレーズ（現場頻出表現） / Practical Phrases</span>
+          <span class="en">💬 ⑧ Practical Phrases (On-Site Use)</span>
+          <span class="tw">💬 ⑧ 實用片語（現場常用）</span>
+        </td></tr>
+
+        <tr>
+          <td class="term-jp">合戦は14時から始まります</td>
+          <td class="term-en">"The battle starts at 2 PM."</td>
+          <td class="term-tw">合戰於14時開始。</td>
+          <td class="term-desc">
+            <span class="ja">最頻出。撮影位置確保のため早めに案内。</span>
+            <span class="en">Most-asked time. Guide visitors to positions early.</span>
+            <span class="tw">最常被問。早些引導觀眾選位。</span>
+          </td>
+        </tr>
+        <tr>
+          <td class="term-jp">ここから観覧できます</td>
+          <td class="term-en">"You can watch from here."</td>
+          <td class="term-tw">可從此處觀賞。</td>
+          <td class="term-desc">
+            <span class="ja">沿道での案内表現。</span>
+            <span class="en">Standard line for guiding to a roadside spot.</span>
+            <span class="tw">沿道引導常用句。</span>
+          </td>
+        </tr>
+        <tr>
+          <td class="term-jp">撮影は可能ですが、ドローンは禁止です</td>
+          <td class="term-en">"Photos are welcome, but drones are not allowed."</td>
+          <td class="term-tw">可拍照，但禁止使用無人機。</td>
+          <td class="term-desc">
+            <span class="ja">写真マナー説明。最頻出の禁止事項。</span>
+            <span class="en">Photo etiquette. Most-asked rule.</span>
+            <span class="tw">拍照守則，最常被問的禁止事項。</span>
+          </td>
+        </tr>
+        <tr>
+          <td class="term-jp">この後、火縄銃が発砲します</td>
+          <td class="term-en">"Matchlock guns will fire next — it will be loud."</td>
+          <td class="term-tw">接下來會有火繩槍發射，聲響很大。</td>
+          <td class="term-desc">
+            <span class="ja">耳の弱い方への配慮。発砲5秒前に告知。</span>
+            <span class="en">Warning for sensitive hearing; alert 5 seconds before.</span>
+            <span class="tw">為聽力敏感者預警，發射前5秒告知。</span>
+          </td>
+        </tr>
+        <tr>
+          <td class="term-jp">桟敷席はあちらです</td>
+          <td class="term-en">"The reserved seating is over there."</td>
+          <td class="term-tw">付費觀覽席在那邊。</td>
+          <td class="term-desc">
+            <span class="ja">桟敷席へ案内する際。</span>
+            <span class="en">Used when guiding to reserved seating.</span>
+            <span class="tw">引導至付費觀覽席時使用。</span>
+          </td>
+        </tr>
+        <tr>
+          <td class="term-jp">トイレはあちらにあります</td>
+          <td class="term-en">"The restrooms are over there."</td>
+          <td class="term-tw">洗手間在那邊。</td>
+          <td class="term-desc">
+            <span class="ja">必須表現。会場の仮設トイレ位置を事前確認。</span>
+            <span class="en">Essential phrase. Check location of portable toilets in advance.</span>
+            <span class="tw">必備片語，事前確認臨時廁所位置。</span>
+          </td>
+        </tr>
+        <tr>
+          <td class="term-jp">米沢駅まで徒歩15分です</td>
+          <td class="term-en">"It's about a 15-minute walk to Yonezawa Station."</td>
+          <td class="term-tw">徒步約15分鐘到米澤車站。</td>
+          <td class="term-desc">
+            <span class="ja">帰路の案内。新幹線停車駅。</span>
+            <span class="en">For guiding visitors back; Yonezawa is a Shinkansen stop.</span>
+            <span class="tw">引導返程用。米澤為新幹線停靠站。</span>
+          </td>
+        </tr>
+        <tr>
+          <td class="term-jp">気をつけて、馬が通ります</td>
+          <td class="term-en">"Please step back — horses are passing."</td>
+          <td class="term-tw">請後退，馬匹通過中。</td>
+          <td class="term-desc">
+            <span class="ja">安全配慮。馬は驚くと危険。</span>
+            <span class="en">Safety phrase. Horses can be dangerous if startled.</span>
+            <span class="tw">安全用語，馬匹受驚有危險。</span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout deep">
+    <div class="callout-title">
+      <span class="ja">🎓 用語集の使い方</span>
+      <span class="en">🎓 How to Use This Glossary</span>
+      <span class="tw">🎓 用語集使用方法</span>
+    </div>
+    <span class="ja">本ページ内の他の章で同じ語が出てきたら、必ずこの用語集の訳語を使ってください。一貫性のある訳語使用は、観光客の理解を大きく助けます。</span>
+    <span class="en">Whenever the same term appears in other chapters of this guide, use the translation defined here. Consistent terminology dramatically improves visitor comprehension.</span>
+    <span class="tw">本指南其他章節出現同一詞彙時，請務必使用此處定義的譯語。一致的用詞能大幅提升旅客理解度。</span>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- 第6章 アクセス・実用情報 -->
+<!-- ============================================================ -->
+<section class="chapter" id="ch6">
+  <div class="chapter-num">CHAPTER 06</div>
+  <h2>
+    <span class="ja">🚉 アクセス・実用情報</span>
+    <span class="en">🚉 Access &amp; Practical Information</span>
+    <span class="tw">🚉 交通與實用資訊</span>
+  </h2>
+
+  <!-- 観光客モード -->
+  <div class="tourist-only">
+    <div class="ja">
+      <h3>🚄 米沢への行き方</h3>
+      <ul>
+        <li><strong>東京から</strong>：山形新幹線「つばさ」で約2時間（東京 → 米沢、直通）</li>
+        <li><strong>仙台から</strong>：山形新幹線で約60分</li>
+        <li><strong>福島から</strong>：山形新幹線で約30分</li>
+        <li><strong>米沢駅 → 松が岬公園</strong>：徒歩約25分／タクシー約8分／山交バス（市内循環）約10分</li>
+        <li><strong>米沢駅 → 松川河川敷（合戦会場）</strong>：徒歩約15分</li>
+      </ul>
+
+      <h3>🅿️ 駐車場・シャトルバス</h3>
+      <div class="callout">
+        <div class="callout-title">🚗 重要</div>
+        <strong>合戦会場には駐車場はありません。</strong>近隣の臨時無料駐車場、または事前予約制の有料駐車場（akippa）から無料シャトルバスをご利用ください。
+      </div>
+
+      <h3>🚻 トイレ・休憩所</h3>
+      <ul>
+        <li><strong>松が岬公園</strong>：常設トイレあり（多目的トイレ含む）</li>
+        <li><strong>松川河川敷</strong>：祭り期間中は仮設トイレ多数設置</li>
+        <li><strong>伝国の杜</strong>：館内に冷暖房完備のトイレ・休憩スペース</li>
+      </ul>
+
+      <h3>🌧 雨天時の対応</h3>
+      <ul>
+        <li>武禘式・川中島合戦は<strong>原則小雨決行</strong>。荒天時は時間変更・短縮あり。</li>
+        <li>当日朝、公式サイト・SNS・観光協会に問い合わせて確認を。</li>
+        <li>傘より<strong>レインコート</strong>を推奨（傘は周囲の視界を遮ります）。コンビニで購入可。</li>
+      </ul>
+
+      <h3>📿 御朱印・写真マナー</h3>
+      <ul>
+        <li><strong>御朱印</strong>：上杉神社・松岬神社で授与。祭り期間限定の特別御朱印もあり。300〜500円。御朱印帳は神社で購入可（1,500円程度）。</li>
+        <li><strong>写真撮影</strong>：境内・パレード・合戦すべて撮影OK。ただし<strong>ドローンは禁止</strong>。武者の方を撮る際は、できれば一声かけると喜ばれます。</li>
+        <li><strong>神事の最中</strong>（祝詞奏上など）は静粛に。撮影は遠慮しましょう。</li>
+      </ul>
+
+      <h3>🍴 おすすめグルメ</h3>
+      <ul>
+        <li><strong>米沢牛</strong>：日本三大和牛の一つ。市内に多数の名店。</li>
+        <li><strong>米沢ラーメン</strong>：あっさり醤油・縮れ麺の郷土ラーメン。</li>
+        <li><strong>玉こんにゃく</strong>：祭り屋台の名物。</li>
+      </ul>
+
+      <h3>🌐 観光案内所</h3>
+      <ul>
+        <li><strong>米沢観光コンベンション協会</strong>：電話 0238-21-6226（英語対応可）</li>
+        <li><strong>米沢駅 観光案内所</strong>：駅構内、9:00〜18:00</li>
+      </ul>
+    </div>
+
+    <div class="en">
+      <h3>🚄 Getting to Yonezawa</h3>
+      <ul>
+        <li><strong>From Tokyo:</strong> ~2 hr by Yamagata Shinkansen "Tsubasa" (direct)</li>
+        <li><strong>From Sendai:</strong> ~60 min by Yamagata Shinkansen</li>
+        <li><strong>From Fukushima:</strong> ~30 min by Yamagata Shinkansen</li>
+        <li><strong>Yonezawa Station → Matsugasaki Park:</strong> 25-min walk / 8-min taxi / 10-min by Yamakō City Loop Bus</li>
+        <li><strong>Yonezawa Station → Matsukawa Riverbank (battle venue):</strong> 15-min walk</li>
+      </ul>
+
+      <h3>🅿️ Parking &amp; Shuttle Buses</h3>
+      <div class="callout">
+        <div class="callout-title">🚗 Important</div>
+        <strong>There is no parking at the battle venue.</strong> Use nearby temporary free lots, or book paid lots (via <em>akippa</em>) in advance and take the free shuttle bus.
+      </div>
+
+      <h3>🚻 Restrooms &amp; Rest Areas</h3>
+      <ul>
+        <li><strong>Matsugasaki Park:</strong> Permanent restrooms, including accessible toilets</li>
+        <li><strong>Matsukawa Riverbank:</strong> Many portable toilets during the festival</li>
+        <li><strong>Denkoku-no-Mori:</strong> Indoor air-conditioned rest areas</li>
+      </ul>
+
+      <h3>🌧 Rainy Weather</h3>
+      <ul>
+        <li>Buteishiki and the Kawanakajima reenactment <strong>proceed in light rain</strong>; severe weather may shorten or reschedule events.</li>
+        <li>Check official site, social media, or the Tourist Association on the morning of.</li>
+        <li>Bring a <strong>rain poncho rather than an umbrella</strong> (umbrellas block other viewers). Available at convenience stores.</li>
+      </ul>
+
+      <h3>📿 Goshuin &amp; Photo Etiquette</h3>
+      <ul>
+        <li><strong>Goshuin (calligraphic seals):</strong> Available at Uesugi Shrine and Matsugasaki Shrine. Special festival-period <em>goshuin</em> available. ¥300–500. <em>Goshuin-chō</em> books sold at shrines (~¥1,500).</li>
+        <li><strong>Photography:</strong> Permitted in shrines, parades, and the battle. <strong>Drones prohibited.</strong> When photographing warriors, a brief greeting is appreciated.</li>
+        <li><strong>During Shinto rites</strong> (prayers, etc.): Stay quiet and refrain from photography.</li>
+      </ul>
+
+      <h3>🍴 Local Cuisine</h3>
+      <ul>
+        <li><strong>Yonezawa beef:</strong> One of Japan's three premier wagyu brands. Many top restaurants in town.</li>
+        <li><strong>Yonezawa ramen:</strong> Local light soy-based ramen with curly noodles.</li>
+        <li><strong>Tama-konnyaku:</strong> Iconic festival street food.</li>
+      </ul>
+
+      <h3>🌐 Visitor Information</h3>
+      <ul>
+        <li><strong>Yonezawa Tourist Association:</strong> +81-238-21-6226 (English available)</li>
+        <li><strong>Yonezawa Station Information Desk:</strong> Inside the station, 9:00–18:00</li>
+      </ul>
+    </div>
+
+    <div class="tw">
+      <h3>🚄 前往米澤的方法</h3>
+      <ul>
+        <li><strong>由東京</strong>：山形新幹線「翼號（つばさ）」直達約2小時</li>
+        <li><strong>由仙台</strong>：山形新幹線約60分鐘</li>
+        <li><strong>由福島</strong>：山形新幹線約30分鐘</li>
+        <li><strong>米澤車站 → 松岬公園</strong>：徒步約25分鐘／計程車約8分鐘／山交巴士市內循環約10分鐘</li>
+        <li><strong>米澤車站 → 松川河岸（合戰會場）</strong>：徒步約15分鐘</li>
+      </ul>
+
+      <h3>🅿️ 停車場與接駁巴士</h3>
+      <div class="callout">
+        <div class="callout-title">🚗 重要提醒</div>
+        <strong>合戰會場無停車場。</strong>請利用附近臨時免費停車場，或事前預約制收費停車場（透過 akippa），並搭乘免費接駁巴士。
+      </div>
+
+      <h3>🚻 洗手間與休息區</h3>
+      <ul>
+        <li><strong>松岬公園</strong>：設有常設洗手間（含無障礙廁所）</li>
+        <li><strong>松川河岸</strong>：祭典期間設有多處臨時洗手間</li>
+        <li><strong>傳國之杜</strong>：館內冷暖氣完備，附休息區</li>
+      </ul>
+
+      <h3>🌧 雨天應對</h3>
+      <ul>
+        <li>武禘式與川中島合戰<strong>原則上小雨照常舉行</strong>。惡劣天氣可能縮短或延期。</li>
+        <li>當日上午請至官方網站、社群媒體或觀光協會確認。</li>
+        <li>建議使用<strong>雨衣</strong>而非雨傘（雨傘會遮擋他人視線）。便利商店可購買。</li>
+      </ul>
+
+      <h3>📿 御朱印與拍照禮儀</h3>
+      <ul>
+        <li><strong>御朱印</strong>：上杉神社、松岬神社均可請領，祭典期間有特別版御朱印。每枚300〜500日圓。御朱印帳神社販售（約1,500日圓）。</li>
+        <li><strong>拍照</strong>：神社境內、遊行、合戰皆可拍攝。<strong>禁止使用無人機</strong>。拍攝武者前若能輕聲招呼最佳。</li>
+        <li><strong>神事進行中</strong>（祝詞唸誦等）請保持肅靜，避免拍攝。</li>
+      </ul>
+
+      <h3>🍴 推薦美食</h3>
+      <ul>
+        <li><strong>米澤牛</strong>：日本三大和牛之一，市內名店眾多。</li>
+        <li><strong>米澤拉麵</strong>：清爽醬油湯底配捲縮麵的當地特色。</li>
+        <li><strong>玉蒟蒻（玉こんにゃく）</strong>：祭典攤位招牌小吃。</li>
+      </ul>
+
+      <h3>🌐 觀光諮詢</h3>
+      <ul>
+        <li><strong>米澤觀光會議協會</strong>：+81-238-21-6226（可用英語對應）</li>
+        <li><strong>米澤車站觀光案內所</strong>：站內，9:00〜18:00</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 通訳者モード -->
+  
+</section>
+
+<!-- 章末メッセージ -->
+<section class="chapter" id="end" style="background:linear-gradient(135deg,var(--c-bg-deep) 0%,var(--c-bg-deeper) 100%);color:var(--c-cream);border:none">
+  <h2 style="color:var(--c-gold);border-left-color:var(--c-gold)">
+    <span class="ja">🌸 米沢で、お会いしましょう</span>
+    <span class="en">🌸 See You in Yonezawa</span>
+    <span class="tw">🌸 米澤再相見</span>
+  </h2>
+  <p style="font-size:1.05rem;line-height:1.9">
+    <span class="ja">450年以上前の戦国の世から、現代の米沢市民が大切に受け継いできた上杉まつり。<br>
+    武者の甲冑が春の陽に輝き、火縄銃の轟音が河川敷に響き渡るその瞬間、戦国時代が確かに目の前に蘇ります。<br>
+    通訳者として案内する皆さま、観光客として訪れる皆さま、それぞれの立場でこの祭りを楽しんでください。</span>
+    <span class="en">From the Sengoku world of 465 years ago to the citizens of modern Yonezawa, the Uesugi Festival has been carefully passed down across generations.<br>
+    When samurai armor glints in the spring sun and matchlocks thunder across the riverbank, the Sengoku period truly returns to life.<br>
+    Whether you come as an interpreter to guide visitors, or as a visitor yourself, may you find your own way to enjoy this festival.</span>
+    <span class="tw">超過450年前的戰國世界，由現代米澤市民代代守護傳承下來的上杉祭典。<br>
+    武者的甲冑在春陽下閃耀、火繩槍的轟鳴響徹河岸的那一刻，戰國時代確實在眼前重現。<br>
+    無論您是引導旅客的口譯員，或是親臨現場的旅客，願您以自己的方式享受這場盛典。</span>
+  </p>
+</section>
+
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div class="ja">米沢上杉まつり 多言語ガイド｜制作：通訳者・観光案内向け学習教材</div>
+    <div class="en">Yonezawa Uesugi Festival Multilingual Guide · For interpreters & visitor support</div>
+    <div class="tw">米澤上杉祭典 多語言導覽｜口譯員＆遊客導覽用學習素材</div>
+    <div class="small copyright">
+      Sources: <a href="https://uesugi.yonezawa-matsuri.jp/" target="_blank" rel="noopener">米沢上杉まつり公式</a> ·
+      <a href="https://www.uesugi-jinja.or.jp/" target="_blank" rel="noopener">上杉神社</a> ·
+      <a href="https://www.city.yonezawa.yamagata.jp/" target="_blank" rel="noopener">米沢市</a>
+    </div>
+    <div class="small">
+      <span class="ja">最終更新：2026年4月27日</span>
+      <span class="en">Last updated: April 27, 2026</span>
+      <span class="tw">最後更新：2026年4月27日</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var body=document.body;
+  document.querySelectorAll('.lang-tab').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      var lang=this.dataset.lang;
+      body.classList.remove('lang-ja','lang-en','lang-tw');
+      body.classList.add('lang-'+lang);
+      document.documentElement.lang=lang==='tw'?'zh-Hant':lang;
+      document.querySelectorAll('.lang-tab').forEach(function(b){b.classList.remove('active')});
+      this.classList.add('active');
+      // スクロール位置維持
+    });
+  });
+  document.querySelectorAll('.mode-tab').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      var mode=this.dataset.mode;
+      body.classList.remove('mode-tourist','mode-interpreter');
+      body.classList.add('mode-'+mode);
+      document.querySelectorAll('.mode-tab').forEach(function(b){b.classList.remove('active')});
+      this.classList.add('active');
+    });
+  });
+})();
+</script>
+<script>
+(function(){
+  var KEY='yonezawa-guides-lang', Q; try{Q=new URLSearchParams(location.search);}catch(e){return;}
+  function keepLang(lang){
+    document.querySelectorAll('a[data-keep-lang]').forEach(function(a){
+      try{var u=new URL(a.getAttribute('href'),location.href);u.searchParams.set('lang',lang);
+        a.setAttribute('href',u.pathname+u.search+u.hash);}catch(e){}
+    });
+  }
+  document.querySelectorAll('.lang-tab').forEach(function(b){
+    b.addEventListener('click',function(){
+      var l=b.dataset.lang; keepLang(l);
+      try{localStorage.setItem(KEY,l);}catch(e){}
+      try{var u=new URL(location.href);u.searchParams.set('lang',l);history.replaceState(null,'',u.pathname+u.search+u.hash);}catch(e){}
+    });
+  });
+  var s=null; try{s=localStorage.getItem(KEY);}catch(e){}
+  var l=Q.get('lang')||s, btn=l&&document.querySelector('.lang-tab[data-lang="'+l+'"]');
+  if(btn) btn.click(); else keepLang('ja');
+  var m=Q.get('mode'), mb=m&&document.querySelector('.mode-tab[data-mode="'+m+'"]');
+  if(mb) mb.click();
+})();
+</script>
+</body>
+</html>

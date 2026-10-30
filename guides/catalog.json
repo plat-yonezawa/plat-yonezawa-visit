@@ -1,0 +1,100 @@
+{
+  "version": 1,
+  "note": "ガイドアプリの一覧（初期値）。本番では pm の管理画面（/dashboard/guide-app/）で編集した内容を Worker が返すので、このファイルは管理画面で一度も保存していないときの予備。",
+  "site": {
+    "name": "YONEZAWA GUIDES",
+    "tagline": {
+      "ja": "米沢を、\nことばで案内する。",
+      "en": "Yonezawa, in your language.",
+      "tw": "用你的語言，認識米澤。"
+    },
+    "links": {
+      "contact": "/lp#contact",
+      "booking": ""
+    },
+    "hero": {
+      "image": "/guides/assets/uesugi-jinja/images/uesugi-jinja-hori-sakura.jpg",
+      "credit": "Photo: PLAT YONEZAWA"
+    },
+    "about": {
+      "ja": "米沢・置賜の多言語ガイド集です。観光で訪れる方と、ご案内するガイド・通訳の方のために、プラットヨネザワがつくっています。",
+      "en": "Multilingual guides to Yonezawa and Okitama, made by PLAT YONEZAWA for visitors and for the guides and interpreters who show them around.",
+      "tw": "米澤・置賜的多語言導覽集，由 PLAT YONEZAWA 為來訪的旅客，以及為他們導覽的導覽員與口譯人員製作。"
+    },
+    "howto": {
+      "ja": "① 右上の地球マークで言語を選ぶ　② タイルからガイドを開く　③ ガイド・通訳の方は、各ガイド上部の「ガイド・通訳の方」から（暗証番号が必要です）",
+      "en": "1. Choose a language with the globe at the top right.  2. Open a guide from the tiles.  3. Guides and interpreters: use “For guides” at the top of each guide (PIN required).",
+      "tw": "① 從右上角的地球圖示選擇語言　② 點選圖塊開啟導覽　③ 導覽員・口譯人員請由各導覽上方的「導覽員・口譯專用」進入（需輸入密碼）"
+    }
+  },
+  "guides": [
+    {
+      "id": "uesugi-matsuri",
+      "appIcon": "/guides/icons/uesugi-matsuri.svg",
+      "status": "public",
+      "color": "#CA808C",
+      "icon": "flag",
+      "title": { "ja": "米沢上杉まつり", "en": "Yonezawa Uesugi Festival", "tw": "米澤上杉祭" },
+      "summary": {
+        "ja": "春の米沢を彩る上杉まつり。神事から川中島合戦の再現まで、見どころを案内します。",
+        "en": "Yonezawa's spring festival, from the shrine rites to the re-enacted Battle of Kawanakajima.",
+        "tw": "妝點米澤春天的上杉祭，從神事到重現川中島合戰，介紹各個看點。"
+      },
+      "image": "/guides/assets/uesugi-matsuri/images/DSC00007.jpg",
+      "url": "/guides/uesugi-matsuri/",
+      "staffUrl": "/guides/staff/uesugi-matsuri/?mode=interpreter",
+      "langs": ["ja", "en", "tw"]
+    },
+    {
+      "id": "sengoku-hanabi",
+      "appIcon": "/guides/icons/sengoku-hanabi.svg",
+      "status": "public",
+      "color": "#949BAA",
+      "icon": "fireworks",
+      "title": { "ja": "よねざわ戦国花火大会", "en": "Yonezawa Sengoku Fireworks", "tw": "米澤戰國煙火大會" },
+      "summary": {
+        "ja": "戦国武将の物語と花火が重なる夏の夜。会場と見どころを案内します。",
+        "en": "A summer night where samurai stories meet fireworks — the venue and the highlights.",
+        "tw": "戰國武將的故事與煙火交織的夏夜，介紹會場與看點。"
+      },
+      "image": "/guides/assets/sengoku-hanabi/images/sengoku-hanabi-finale.jpg",
+      "url": "/guides/sengoku-hanabi/",
+      "staffUrl": "/guides/staff/sengoku-hanabi/?mode=interpreter",
+      "langs": ["ja", "en", "tw"]
+    },
+    {
+      "id": "uesugi-jinja",
+      "appIcon": "/guides/icons/uesugi-jinja.svg",
+      "status": "draft",
+      "color": "#B8927B",
+      "icon": "torii",
+      "title": { "ja": "上杉神社 境内ガイド", "en": "Uesugi Shrine Grounds", "tw": "上杉神社 境內導覽" },
+      "summary": {
+        "ja": "お堀から参道、稽照殿まで。境内を歩きながら読むガイドです。",
+        "en": "From the moat and the approach to the Keishoden treasure hall — a guide to read as you walk.",
+        "tw": "從護城河、參道到稽照殿，邊走邊讀的境內導覽。"
+      },
+      "image": "/guides/assets/uesugi-jinja/images/uesugi-jinja-torii-sando.jpg",
+      "url": "/guides/uesugi-jinja/",
+      "staffUrl": "/guides/staff/uesugi-jinja/?mode=interpreter",
+      "langs": ["ja", "en", "tw"]
+    },
+    {
+      "id": "nitta",
+      "appIcon": "/guides/icons/nitta.svg",
+      "status": "public",
+      "color": "#92B09A",
+      "icon": "thread",
+      "title": { "ja": "新田織物", "en": "Nitta Textile", "tw": "新田織物" },
+      "summary": {
+        "ja": "140年続く米沢織と紅花染めの工房。五代つづく織りの家を訪ねます。",
+        "en": "A 140-year-old atelier of Yonezawa silk and safflower dye, run by five generations of weavers.",
+        "tw": "延續140年的米澤織與紅花染工房，拜訪五代相傳的織布之家。"
+      },
+      "image": "/guides/images/shot-01.jpg",
+      "url": "/guides/nitta/",
+      "staffUrl": "/guides/staff/nitta/?mode=guide",
+      "langs": ["ja", "en", "tw", "fr"]
+    }
+  ]
+}

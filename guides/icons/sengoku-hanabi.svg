@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120">
+  <!-- よねざわ戦国花火大会：夏の夜空にひらく花火と、城下のシルエット -->
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#121A3A"/><stop offset=".7" stop-color="#2C2758"/><stop offset="1" stop-color="#4A2F5E"/>
+    </linearGradient>
+    <radialGradient id="g1" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#FFE7A3"/><stop offset="1" stop-color="#FFE7A3" stop-opacity="0"/></radialGradient>
+    <radialGradient id="g2" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#FF9AB0"/><stop offset="1" stop-color="#FF9AB0" stop-opacity="0"/></radialGradient>
+  </defs>
+  <rect width="120" height="120" fill="url(#sky)"/>
+  <!-- 大きな花火（金） -->
+  <circle cx="62" cy="44" r="30" fill="url(#g1)" opacity=".5"/>
+  <g stroke="#FFD56B" stroke-width="2.2" stroke-linecap="round">
+    <path d="M62 44V18M62 44V70M62 44H36M62 44H88M62 44L44 26M62 44L80 62M62 44L44 62M62 44L80 26"/>
+    <path d="M62 44L52 20M62 44L72 20M62 44L86 34M62 44L86 54M62 44L72 68M62 44L52 68M62 44L38 54M62 44L38 34" stroke-width="1.4" opacity=".85"/>
+  </g>
+  <g fill="#FFF3C9"><circle cx="62" cy="16" r="1.8"/><circle cx="90" cy="44" r="1.8"/><circle cx="34" cy="44" r="1.8"/><circle cx="82" cy="24" r="1.6"/><circle cx="42" cy="24" r="1.6"/><circle cx="82" cy="64" r="1.6"/><circle cx="42" cy="64" r="1.6"/></g>
+  <!-- 小さな花火（ローズ） -->
+  <circle cx="26" cy="22" r="14" fill="url(#g2)" opacity=".5"/>
+  <g stroke="#FF9AB0" stroke-width="1.5" stroke-linecap="round">
+    <path d="M26 22V10M26 22V34M26 22H14M26 22H38M26 22l-8-8M26 22l8 8M26 22l-8 8M26 22l8-8"/>
+  </g>
+  <!-- 青い小花火 -->
+  <g stroke="#9FD3FF" stroke-width="1.3" stroke-linecap="round"><path d="M97 82v-9M97 82v9M97 82h-9M97 82h9M97 82l-6-6M97 82l6 6M97 82l-6 6M97 82l6-6"/></g>
+  <!-- 城下（櫓）のシルエット -->
+  <path d="M0 120V100h12v-6h6v6h10l6-8h20l6 8h8v-12l8-6 8 6v12h12v-5h8v5h16v20z" fill="#0B0F22"/>
+  <path d="M60 92h20l-10-7z" fill="#0B0F22"/>
+</svg>
