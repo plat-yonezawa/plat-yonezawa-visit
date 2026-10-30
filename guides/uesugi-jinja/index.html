@@ -1,0 +1,2040 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>上杉神社 境内ガイド 多言語ガイド｜Uesugi Shrine Grounds Guide Multilingual Guide</title>
+<meta name="description" content="上杉謙信をまつる米沢の上杉神社。境内と宝物殿・稽照殿を歩きながら読む多言語ガイド。">
+<meta name="robots" content="noindex,nofollow"><!-- 直URL配布・検索非掲載 -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600;700&amp;family=Noto+Serif+TC:wght@400;600;700&amp;family=Cormorant+Garamond:wght@400;600;700&amp;family=Shippori+Mincho:wght@500;700&amp;display=swap" rel="stylesheet">
+<style>
+:root{
+  --c-bg-deep:#00102e;
+  --c-bg-deeper:#000a1f;
+  --c-nav:#191970;
+  --c-cream:#f5f1e6;
+  --c-cream-dark:#e8dfc8;
+  --c-paper:#fbf7ec;
+  --c-white:#ffffff;
+  --c-crimson:#a01818;
+  --c-crimson-soft:#c14040;
+  --c-gold:#b8860b;
+  --c-gold-dark:#8a6508;
+  --c-ink:#1a1a1a;
+  --c-ink-soft:#233452;
+  --c-gray:#6a6a6a;
+  --c-line:#d4c896;
+  --c-tan:#e6d9b8;
+
+  --font-ja:"Shippori Mincho","Noto Serif JP","游明朝","Yu Mincho",serif;
+  --font-en:"Cormorant Garamond","Noto Serif JP",serif;
+  --font-tw:"Noto Serif TC","Noto Serif JP",serif;
+
+  --max-w:1100px;
+}
+
+/* =====================================================================
+ * multilingual-cultural-event-guide / base.css
+ * ---------------------------------------------------------------------
+ * 6ビュー（3言語 × 2モード）単一HTMLガイドの共通スタイル。
+ * 配色・フォントは :root の CSS変数だけを差し替えれば足りる設計。
+ * :root 自体は build.py が config の palette / fonts から生成して
+ * このファイルの先頭に差し込む（ここには含めない）。
+ *
+ * 出自：米沢上杉まつり多言語ガイド（参考実装）の実CSSを、
+ *       イベント固有の値を変数に寄せた状態で切り出したもの。
+ *       セレクタ名を変えると build.py の出力と噛み合わなくなるので、
+ *       改名は build.py / verify.py と同時に行うこと。
+ * ===================================================================== */
+
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{font-family:var(--font-ja);color:var(--c-ink);background:var(--c-paper);line-height:1.8;font-size:16px}
+body.lang-en{font-family:var(--font-en);font-size:17px;line-height:1.7}
+body.lang-tw{font-family:var(--font-tw);font-size:16px;line-height:1.85}
+
+/* 和紙テクスチャ（軽いノイズ） */
+body{
+  background-image:
+    radial-gradient(circle at 20% 30%, rgba(201,166,74,0.04) 0%, transparent 50%),
+    radial-gradient(circle at 80% 70%, rgba(160,24,24,0.03) 0%, transparent 50%),
+    linear-gradient(180deg, var(--c-paper) 0%, #f6f0df 100%);
+  min-height:100vh;
+}
+
+/* ====== HEADER ====== */
+.hero{
+  background:linear-gradient(135deg, var(--c-bg-deep) 0%, var(--c-bg-deeper) 100%);
+  color:var(--c-cream);
+  padding:0;
+  position:relative;
+  overflow:hidden;
+  border-bottom:4px solid var(--c-gold);
+}
+.hero::before{
+  content:"";position:absolute;inset:0;
+  background-image:radial-gradient(circle at 80% 50%, rgba(201,166,74,0.08) 0%, transparent 60%);
+  pointer-events:none;
+}
+.hero-inner{
+  max-width:var(--max-w);margin:0 auto;padding:28px 24px 18px;position:relative;
+}
+.hero-top{display:flex;align-items:center;gap:16px;margin-bottom:14px}
+.kamon{width:56px;height:56px;flex-shrink:0}
+.title-block h1{
+  font-family:var(--font-ja);font-weight:700;font-size:1.9rem;letter-spacing:0.04em;color:var(--c-white);
+  text-shadow:0 2px 8px rgba(0,0,0,0.5);line-height:1.2;
+}
+.title-block .sub{font-family:var(--font-en);font-size:0.95rem;color:var(--c-gold);letter-spacing:0.15em;margin-top:4px}
+.title-block .tag-tw{font-size:0.85rem;color:var(--c-cream-dark);margin-top:2px;font-family:var(--font-tw)}
+
+.hero-meta{font-size:0.85rem;color:var(--c-cream-dark);margin-top:8px;letter-spacing:0.05em}
+.hero-meta .date-jp{color:var(--c-gold);font-weight:700;font-size:1rem}
+
+/* ====== TAB SWITCHERS ====== */
+.switchers{
+  background:var(--c-nav);
+  border-top:1px solid rgba(255,255,255,0.1);
+  position:sticky;top:0;z-index:100;
+  box-shadow:0 2px 12px rgba(0,0,0,0.25);
+}
+.switcher-row{
+  max-width:var(--max-w);margin:0 auto;padding:0 16px;
+  display:flex;flex-wrap:wrap;gap:0;
+  border-bottom:1px solid rgba(255,255,255,0.12);
+}
+.switcher-row:last-child{border-bottom:none;background:rgba(0,0,0,0.18)}
+.tab{
+  flex:1;min-width:90px;
+  padding:12px 14px;text-align:center;
+  background:transparent;border:none;color:var(--c-cream-dark);
+  font-family:inherit;font-size:0.95rem;cursor:pointer;
+  transition:all 0.2s;letter-spacing:0.05em;
+  border-bottom:3px solid transparent;
+}
+.tab:hover{background:rgba(255,255,255,0.08);color:var(--c-white)}
+.tab.active{
+  color:var(--c-white);font-weight:600;
+  border-bottom-color:var(--c-gold);
+  background:rgba(201,166,74,0.12);
+}
+.tab .ico{font-size:1.1rem;margin-right:4px}
+.switcher-row.modes .tab.active{border-bottom-color:var(--c-crimson-soft)}
+
+/* ====== CONTENT WRAPPER ====== */
+main{max-width:var(--max-w);margin:0 auto;padding:32px 24px 80px}
+
+/* 言語切替: 親要素にlang-XX、子要素のクラス.ja/.en/.twで表示制御 */
+.ja,.en,.tw{display:none}
+body.lang-ja .ja{display:revert}
+body.lang-ja span.ja, body.lang-ja .inline.ja{display:inline}
+body.lang-en .en{display:revert}
+body.lang-en span.en, body.lang-en .inline.en{display:inline}
+body.lang-tw .tw{display:revert}
+body.lang-tw span.tw, body.lang-tw .inline.tw{display:inline}
+
+/* モード切替 */
+body.mode-tourist .interpreter-only{display:none !important}
+body.mode-interpreter .tourist-only{display:none !important}
+
+/* ====== SECTIONS ====== */
+section.chapter{
+  margin-bottom:48px;
+  background:var(--c-white);
+  border:1px solid var(--c-line);
+  border-radius:6px;
+  padding:32px 36px;
+  box-shadow:0 2px 14px rgba(26,58,50,0.06);
+  position:relative;
+}
+section.chapter::before{
+  content:"";position:absolute;top:-1px;left:32px;right:32px;height:3px;
+  background:linear-gradient(90deg,transparent 0%, var(--c-gold) 30%, var(--c-gold) 70%, transparent 100%);
+}
+.chapter h2{
+  font-family:var(--font-ja);font-size:1.7rem;font-weight:700;
+  color:var(--c-bg-deep);
+  border-left:6px solid var(--c-crimson);
+  padding-left:14px;margin-bottom:8px;line-height:1.3;
+  letter-spacing:0.03em;
+}
+body.lang-en .chapter h2{font-family:var(--font-en)}
+body.lang-tw .chapter h2{font-family:var(--font-tw)}
+.chapter .chapter-num{
+  display:inline-block;font-size:0.75rem;font-family:var(--font-en);
+  color:var(--c-gold-dark);letter-spacing:0.3em;margin-bottom:8px;text-transform:uppercase;
+}
+.chapter h3{
+  font-size:1.2rem;color:var(--c-bg-deep);margin:28px 0 12px;
+  padding-left:12px;border-left:4px solid var(--c-gold);
+  font-weight:600;
+}
+.chapter h4{font-size:1.05rem;color:var(--c-ink-soft);margin:20px 0 8px;font-weight:600}
+.chapter p{margin-bottom:14px;text-align:justify}
+.chapter ul,.chapter ol{margin:10px 0 14px 24px}
+.chapter li{margin-bottom:6px}
+
+.lead{font-size:1.05rem;color:var(--c-ink-soft);margin-bottom:18px;line-height:1.9}
+
+/* 強調ブロック */
+.callout{
+  background:linear-gradient(135deg, #fffbf0 0%, #fff5d8 100%);
+  border-left:5px solid var(--c-gold);
+  padding:18px 22px;margin:20px 0;border-radius:0 4px 4px 0;
+}
+.callout.crimson{background:linear-gradient(135deg,#fff5f5 0%,#ffe8e8 100%);border-left-color:var(--c-crimson)}
+.callout.deep{background:linear-gradient(135deg,#eef2ee 0%,#dde6df 100%);border-left-color:var(--c-bg-deep)}
+.callout-title{font-weight:700;color:var(--c-crimson);margin-bottom:6px;font-size:1rem}
+.callout.deep .callout-title{color:var(--c-bg-deep)}
+.callout.crimson .callout-title{color:var(--c-crimson)}
+
+/* 通訳者向け特殊ブロック */
+.interpreter-box{
+  background:#f7f2e3;
+  border:2px dashed var(--c-gold-dark);
+  padding:20px 24px;margin:24px 0;border-radius:8px;
+  position:relative;
+}
+.interpreter-box::before{
+  content:"📚 INTERPRETER NOTES";
+  position:absolute;top:-12px;left:20px;background:var(--c-gold-dark);color:var(--c-white);
+  padding:2px 12px;font-size:0.7rem;letter-spacing:0.2em;font-family:var(--font-en);font-weight:700;
+  border-radius:3px;
+}
+.translate-tip{
+  background:#f0eee0;border-left:4px solid var(--c-crimson);
+  padding:14px 18px;margin:14px 0;border-radius:0 4px 4px 0;
+}
+.translate-tip .term{
+  display:inline-block;background:var(--c-crimson);color:var(--c-white);
+  padding:2px 10px;border-radius:3px;font-weight:700;margin-right:8px;font-size:0.95rem;
+}
+
+/* タイムライン（観光客向け） */
+.timeline{
+  position:relative;margin:24px 0;padding-left:30px;
+  border-left:3px solid var(--c-gold);
+}
+.tl-item{position:relative;margin-bottom:24px}
+.tl-item::before{
+  content:"";position:absolute;left:-37px;top:6px;
+  width:14px;height:14px;background:var(--c-crimson);border-radius:50%;
+  border:3px solid var(--c-paper);box-shadow:0 0 0 2px var(--c-crimson);
+}
+.tl-item.major::before{background:var(--c-gold);box-shadow:0 0 0 2px var(--c-gold-dark);width:18px;height:18px;left:-39px}
+.tl-item.major .tl-time{color:var(--c-gold-dark);font-size:1.05rem}
+.tl-time{font-family:var(--font-en);font-size:0.95rem;color:var(--c-crimson);font-weight:700;letter-spacing:0.05em}
+.tl-title{font-size:1.1rem;font-weight:700;color:var(--c-bg-deep);margin:2px 0 4px}
+.tl-meta{font-size:0.85rem;color:var(--c-gray)}
+.tl-desc{margin-top:6px}
+
+/* 日付バッジ */
+.day-badge{
+  display:inline-block;background:var(--c-bg-deep);color:var(--c-gold);
+  padding:6px 14px;border-radius:4px;font-weight:700;letter-spacing:0.05em;
+  margin-right:10px;font-size:0.95rem;
+}
+.day-header{
+  display:flex;align-items:center;gap:12px;margin:24px 0 12px;
+  padding-bottom:8px;border-bottom:2px dotted var(--c-line);
+}
+
+/* 武将系譜・人物カード */
+.figure-grid{
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px;margin:18px 0;
+}
+.figure-card{
+  background:var(--c-cream);border:1px solid var(--c-line);
+  padding:14px 16px;border-radius:6px;
+}
+.figure-card .name-jp{font-weight:700;font-size:1.1rem;color:var(--c-bg-deep)}
+.figure-card .name-en{font-family:var(--font-en);font-size:0.85rem;color:var(--c-gold-dark);letter-spacing:0.05em}
+.figure-card .role{font-size:0.85rem;color:var(--c-crimson);margin:4px 0;font-weight:600}
+.figure-card .desc{font-size:0.85rem;color:var(--c-ink-soft);margin-top:6px;line-height:1.6}
+
+/* 系譜図 */
+.lineage{
+  background:var(--c-cream);border:1px solid var(--c-line);
+  padding:24px;border-radius:6px;margin:18px 0;
+  display:flex;flex-direction:column;gap:8px;align-items:center;
+  font-family:var(--font-ja);
+}
+.lineage .gen{
+  display:flex;align-items:center;gap:12px;flex-wrap:wrap;justify-content:center;
+}
+.lineage .person{
+  background:var(--c-white);border:2px solid var(--c-bg-deep);
+  padding:8px 14px;border-radius:4px;text-align:center;min-width:110px;
+}
+.lineage .person.highlight{background:var(--c-gold);color:var(--c-white);border-color:var(--c-gold-dark)}
+.lineage .person .pn{font-weight:700;font-size:0.95rem}
+.lineage .person .pr{font-size:0.7rem;color:var(--c-gray)}
+.lineage .person.highlight .pr{color:var(--c-cream)}
+.lineage .arrow{color:var(--c-gold-dark);font-weight:700}
+
+/* 戦況図（簡易） */
+.battle-diagram{
+  background:var(--c-bg-deeper);color:var(--c-cream);padding:20px;border-radius:6px;margin:18px 0;
+  font-family:var(--font-ja);
+}
+.battle-diagram h4{color:var(--c-gold);font-size:1rem;margin-bottom:12px;border:none;padding:0}
+.armies{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.army{flex:1;min-width:240px;background:rgba(255,255,255,0.05);padding:14px;border-radius:4px;border-left:4px solid}
+.army.uesugi{border-left-color:#7ab8c8}
+.army.takeda{border-left-color:#c87a7a}
+.army h5{color:var(--c-cream);font-size:0.95rem;margin-bottom:6px;font-weight:700}
+.army .leader{font-size:1.1rem;font-weight:700;margin-bottom:6px}
+.army.uesugi .leader{color:#a8d8e8}
+.army.takeda .leader{color:#e8a8a8}
+.army .desc{font-size:0.85rem;line-height:1.6}
+
+/* 用語集テーブル */
+.glossary-wrap{margin:18px 0;overflow-x:auto;border:1px solid var(--c-line);border-radius:6px}
+table.glossary{
+  width:100%;border-collapse:collapse;background:var(--c-white);
+  font-size:0.92rem;
+}
+table.glossary thead{background:var(--c-bg-deep);color:var(--c-cream)}
+table.glossary thead th{padding:10px 12px;font-weight:700;text-align:left;font-size:0.85rem;letter-spacing:0.05em}
+table.glossary tbody tr{border-bottom:1px solid #ece4d0}
+table.glossary tbody tr:hover{background:#fdfaf0}
+table.glossary tbody td{padding:10px 12px;vertical-align:top}
+.cat-row td{
+  background:var(--c-tan) !important;font-weight:700;color:var(--c-bg-deep);
+  font-size:0.95rem;letter-spacing:0.03em;padding:8px 12px !important;
+}
+.term-jp{font-weight:700;color:var(--c-bg-deep);font-size:1rem;white-space:nowrap}
+.term-jp .yomi{display:block;font-size:0.72rem;color:var(--c-gray);font-weight:400;margin-top:2px}
+.term-en{font-family:var(--font-en);color:var(--c-ink-soft);font-style:italic}
+.term-en .ipa{display:block;font-family:monospace;font-size:0.78rem;color:var(--c-gold-dark);font-style:normal;margin-top:2px}
+.term-tw{font-family:var(--font-tw);color:var(--c-ink-soft)}
+.term-desc{font-size:0.82rem;color:var(--c-gray);line-height:1.5}
+
+/* Q&A */
+.qa-item{
+  margin:18px 0;padding:18px 22px;
+  background:var(--c-cream);border-left:5px solid var(--c-bg-deep);
+  border-radius:0 6px 6px 0;
+}
+.qa-q{font-weight:700;color:var(--c-bg-deep);font-size:1.02rem;margin-bottom:10px}
+.qa-q::before{content:"Q. ";color:var(--c-crimson);font-weight:700}
+.qa-a{padding-left:22px;position:relative}
+.qa-a::before{content:"A. ";position:absolute;left:0;color:var(--c-gold-dark);font-weight:700}
+
+/* マップ・スポット */
+.spots{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px;margin:14px 0}
+.spot{
+  background:linear-gradient(135deg,#fff8e0 0%,#ffeec0 100%);
+  border:1px solid var(--c-gold);border-radius:6px;
+  overflow:hidden;
+  transition:transform 0.2s, box-shadow 0.2s;
+}
+.spot:hover{transform:translateY(-2px);box-shadow:0 6px 18px rgba(160,24,24,0.18)}
+.spot .photo{
+  display:block;width:100%;height:160px;object-fit:cover;
+  border-bottom:2px solid var(--c-gold);
+}
+.spot .body{padding:14px}
+.spot .emoji{font-size:1.6rem;display:block;margin-bottom:4px}
+.spot .name{font-weight:700;color:var(--c-bg-deep);font-size:1rem;margin-bottom:4px}
+.spot .desc{font-size:0.85rem;color:var(--c-ink-soft)}
+
+/* 陣形図（SCENE 2用） */
+.formations-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:14px 0 6px;
+  align-items:start;
+}
+.formations-grid figure{
+  margin:0;background:var(--c-paper);
+  border:1px solid var(--c-line);border-radius:6px;
+  padding:6px;box-shadow:0 2px 8px rgba(26,58,50,0.08);
+  text-align:center;
+}
+.formations-grid img{
+  display:block;width:100%;height:auto;border-radius:4px;
+}
+.formations-grid figcaption{
+  font-size:0.78rem;color:var(--c-ink-soft);margin-top:6px;
+  font-style:italic;line-height:1.4;
+}
+@media (max-width:600px){
+  .formations-grid{grid-template-columns:1fr}
+}
+
+/* シーンカード（5シーン演武解説用） */
+.scene-list{margin:20px 0}
+.scene-card{
+  background:linear-gradient(135deg, #fdfaf0 0%, #fff8e0 100%);
+  border-left:5px solid var(--c-bg-deep);
+  padding:18px 22px 14px;margin-bottom:16px;
+  border-radius:0 6px 6px 0;
+  box-shadow:0 2px 8px rgba(26,58,50,0.06);
+  position:relative;
+}
+.scene-card.featured{border-left-color:var(--c-crimson);background:linear-gradient(135deg,#fff5f0 0%,#ffeae0 100%)}
+.scene-card .scene-num{
+  display:inline-block;font-family:var(--font-en);font-size:0.95rem;
+  font-weight:700;color:var(--c-gold-dark);letter-spacing:0.15em;
+  background:var(--c-gold);color:var(--c-white);padding:1px 10px;border-radius:3px;
+  margin-right:10px;vertical-align:1px;
+}
+.scene-card.featured .scene-num{background:var(--c-crimson)}
+.scene-card .scene-title{
+  display:inline-block;font-weight:700;font-size:1.05rem;
+  color:var(--c-bg-deep);
+}
+.scene-card .scene-en{
+  font-family:var(--font-en);font-size:0.85rem;color:var(--c-gold-dark);
+  display:block;margin-top:2px;margin-left:54px;letter-spacing:0.03em;
+}
+.scene-card p{margin:8px 0 0;font-size:0.92rem;line-height:1.75}
+.source-note{
+  font-size:0.72rem;color:var(--c-gray);font-style:italic;
+  margin-top:14px;text-align:right;letter-spacing:0.02em;
+}
+
+/* ヒーロー画像（章扉用） */
+.hero-photo{
+  display:block;width:100%;max-height:380px;object-fit:cover;
+  border-radius:6px;margin:8px 0 22px;
+  border:2px solid var(--c-gold);
+  box-shadow:0 4px 14px rgba(26,58,50,0.18);
+}
+.hero-photo-caption{
+  font-size:0.82rem;color:var(--c-gray);text-align:center;
+  margin-top:-16px;margin-bottom:20px;font-style:italic;
+}
+
+/* 動画プレイヤー */
+.video-wrap{
+  margin:24px 0 28px;
+  background:#000;
+  border:2px solid var(--c-gold);
+  border-radius:6px;
+  overflow:hidden;
+  box-shadow:0 4px 14px rgba(26,58,50,0.18);
+}
+.video-wrap video{
+  display:block;width:100%;height:auto;
+}
+.video-caption{
+  background:linear-gradient(135deg, var(--c-bg-deep) 0%, var(--c-bg-deeper) 100%);
+  color:var(--c-cream);padding:10px 14px;
+  font-size:0.82rem;text-align:center;letter-spacing:0.03em;
+  border-top:1px solid var(--c-gold);
+}
+.video-caption .lang-label{
+  display:inline-block;background:var(--c-gold);color:var(--c-bg-deep);
+  font-weight:700;font-size:0.7rem;padding:2px 8px;border-radius:3px;
+  margin-right:8px;letter-spacing:0.1em;
+}
+
+/* 注意事項リスト */
+.notice-list{list-style:none !important;margin-left:0 !important}
+.notice-list li{padding:8px 0 8px 32px;position:relative;border-bottom:1px dotted var(--c-line)}
+.notice-list li::before{content:"✦";position:absolute;left:8px;color:var(--c-gold-dark);font-size:1rem;top:8px}
+
+/* フッター */
+footer{
+  background:var(--c-bg-deeper);color:var(--c-cream-dark);
+  padding:30px 24px;text-align:center;font-size:0.85rem;
+  border-top:4px solid var(--c-gold);margin-top:60px;
+}
+footer .footer-inner{max-width:var(--max-w);margin:0 auto}
+footer a{color:var(--c-gold);text-decoration:none}
+footer .small{font-size:0.75rem;color:var(--c-gray);margin-top:8px}
+
+/* ====== レスポンシブ ====== */
+@media (max-width:768px){
+  .hero-inner{padding:20px 16px 14px}
+  .title-block h1{font-size:1.4rem}
+  .title-block .sub{font-size:0.8rem}
+  .tab{padding:10px 6px;font-size:0.82rem;min-width:auto}
+  .tab .ico{font-size:1rem;margin-right:2px}
+  main{padding:18px 14px 60px}
+  section.chapter{padding:20px 18px;margin-bottom:24px}
+  .chapter h2{font-size:1.3rem}
+  .chapter h3{font-size:1.05rem;margin:20px 0 10px}
+  .figure-grid{grid-template-columns:1fr}
+  .lineage .gen{flex-direction:column;gap:8px}
+  .lineage .arrow{transform:rotate(90deg)}
+  table.glossary{font-size:0.82rem}
+  table.glossary thead th, table.glossary tbody td{padding:7px 8px}
+}
+
+/* ====== 印刷用 ====== */
+@media print{
+  body{background:var(--c-white);font-size:10pt}
+  section.chapter.closing{background:var(--c-white) !important;color:var(--c-ink)}
+  section.chapter.closing h2{color:var(--c-ink) !important}
+  .switchers,footer .footer-inner > *:not(.copyright){display:none !important}
+  .hero{background:var(--c-white) !important;color:var(--c-ink) !important;border-bottom:2px solid var(--c-ink)}
+  .hero-inner{padding:14px 0}
+  .title-block h1{color:var(--c-ink) !important;text-shadow:none}
+  .title-block .sub, .title-block .tag-tw{color:var(--c-ink-soft) !important}
+  main{max-width:none;padding:10px 0}
+  section.chapter{
+    box-shadow:none;border:1px solid #999;page-break-inside:avoid;
+    padding:18px 20px;margin-bottom:18px;
+  }
+  .chapter h2{color:var(--c-ink) !important;border-left-color:#666}
+  .chapter h3{color:var(--c-ink) !important}
+  .callout, .interpreter-box, .qa-item{
+    background:var(--c-white) !important;border:1px solid #999 !important;
+    page-break-inside:avoid;
+  }
+  table.glossary thead{background:#ddd !important;color:var(--c-ink) !important}
+  .battle-diagram{background:var(--c-white) !important;color:var(--c-ink) !important;border:1px solid #999}
+  .lineage{background:var(--c-white) !important;border:1px solid #999}
+  a{color:var(--c-ink) !important;text-decoration:underline}
+  .tl-item::before{background:#666 !important}
+  footer{background:var(--c-white);color:var(--c-ink);border-top:1px solid #999}
+}
+
+/* ---------------------------------------------------------------------
+ * クロージング章（config の chapter.variant = "closing"）
+ * 参考実装ではインライン style で書かれていた装飾をクラスに移したもの。
+ * 通し番号（chapter-num）は num_label: null で省く。
+ * ------------------------------------------------------------------- */
+section.chapter.closing{
+  background:linear-gradient(135deg,var(--c-bg-deep) 0%,var(--c-bg-deeper) 100%);
+  color:var(--c-cream);
+  border:none;
+}
+section.chapter.closing h2{color:var(--c-gold);border-left-color:var(--c-gold)}
+section.chapter.closing p{font-size:1.05rem;line-height:1.9}
+
+/* ---------------------------------------------------------------------
+ * コールアウトの枠色アクセント（config の callout.accent）
+ * 参考実装ではインライン style で border-left-color を上書きしていた。
+ * 「年次変動要素」など特に目立たせたい1枠に使う。
+ * ------------------------------------------------------------------- */
+.callout.accent-crimson{border-left-color:var(--c-crimson)}
+.callout.accent-crimson .callout-title{color:var(--c-crimson)}
+.callout.accent-gold{border-left-color:var(--c-gold)}
+.callout.accent-gold .callout-title{color:var(--c-gold-dark)}
+.callout.accent-sage{border-left-color:var(--c-tan)}
+.callout.accent-sage .callout-title{color:var(--c-gold-dark)}
+
+/* コールアウト内の最終段落は下マージンを詰める
+ * （参考実装では style="margin-bottom:0" をインラインで書いていた）*/
+.callout > p:last-child, .interpreter-box > p:last-child{margin-bottom:0}
+
+/* ---------------------------------------------------------------------
+ * スマホで片手操作する前提のとき、言語・モードタブを画面下部に固定する
+ * （config の directives.scene = "onsite" / features.bottom_tabs = true）
+ *
+ * 上部stickyだと、6ビューを切り替えるたびに画面上部まで指を伸ばすことになる。
+ * 375px幅で親指が自然に届くのは画面下1/3なので、現場で立って使うなら下部固定。
+ * body に余白を足してタブが本文末尾を隠さないようにする。
+ * ------------------------------------------------------------------- */
+body.tabs-bottom .switchers{
+  position:fixed;top:auto;bottom:0;left:0;right:0;
+  border-top:1px solid rgba(255,255,255,0.16);
+  box-shadow:0 -2px 14px rgba(0,0,0,0.3);
+}
+body.tabs-bottom{padding-bottom:108px}
+@media (max-width:768px){
+  body.tabs-bottom{padding-bottom:98px}
+}
+@media print{
+  body.tabs-bottom{padding-bottom:0}
+}
+
+/* ---------------------------------------------------------------------
+ * 専門用語のツールチップ（本文の [[語|用語ID]] → config の terms）
+ * タップ（キーボードは Enter）で開き、外側をタップすると閉じる。
+ * マウスのある端末ではホバーでも開く。位置の横ずれは TERMS_SCRIPT が直す。
+ * ------------------------------------------------------------------- */
+.tt{
+  position:relative;cursor:help;
+  text-decoration:underline dotted var(--c-gold-dark);
+  text-decoration-thickness:2px;text-underline-offset:4px;
+  border-radius:3px;
+}
+.tt:focus-visible{outline:2px solid var(--c-gold);outline-offset:2px}
+.tt.open{background:var(--c-tan)}
+.tt-pop{
+  display:none;position:absolute;left:0;top:calc(100% + 8px);z-index:60;
+  width:max-content;max-width:min(300px,86vw);
+  padding:10px 13px;border-radius:8px;
+  background:var(--c-bg-deep);color:var(--c-white);
+  border-top:3px solid var(--c-gold);
+  box-shadow:0 8px 22px rgba(0,0,0,0.28);
+  font-size:14px;font-weight:400;line-height:1.65;
+  text-align:left;text-indent:0;letter-spacing:normal;white-space:normal;
+  cursor:auto;
+}
+.tt.open .tt-pop{display:block}
+/* 指で押しやすいよう、行の高さを変えずに押せる範囲だけ上下に広げる */
+.tt{padding:6px 0;margin:-6px 0}
+@media (hover:hover){
+  .tt:hover .tt-pop{display:block}
+}
+@media print{
+  .tt{text-decoration:none}
+  .tt-pop{display:none !important}
+}
+
+/* ---------------------------------------------------------------------
+ * スマホ幅（640px以下）
+ * - 言語・モードのタブを指で押せる高さ（44px）にそろえる
+ * - 用語集（4列の表）は横スクロールさせず、1語1枚のカードにする。
+ *   検索の絞り込み（term-hidden / cat-hidden）はそのまま効く
+ * ------------------------------------------------------------------- */
+@media (max-width:640px){
+  .tab{min-height:44px}
+  .glossary-wrap{overflow-x:visible}
+  table.glossary-main thead{display:none}
+  table.glossary-main, table.glossary-main tbody{display:block;width:100%}
+  table.glossary-main tbody tr{
+    display:grid;grid-template-columns:1fr auto;gap:2px 12px;
+    padding:12px 14px;
+  }
+  table.glossary-main tbody td{display:block;padding:0 !important;width:auto !important}
+  table.glossary-main .term-jp{grid-column:1;grid-row:1;white-space:normal;font-size:1.05rem}
+  table.glossary-main .term-tw{grid-column:2;grid-row:1;text-align:right;font-size:0.95rem}
+  table.glossary-main .term-en{grid-column:1 / -1;font-size:1rem}
+  table.glossary-main .term-desc{grid-column:1 / -1;margin-top:6px;font-size:0.9rem;line-height:1.6;color:var(--c-ink-soft)}
+  table.glossary-main tbody tr.cat-row{display:block;padding:0}
+  table.glossary-main tbody tr.cat-row td{display:block;padding:10px 14px !important}
+  table.glossary-main tbody tr.term-hidden,
+  table.glossary-main tbody.cat-hidden{display:none}
+}
+
+/* 用語集の検索バー（directives.features.glossary_search）*/
+.glossary-search{display:flex;gap:10px;align-items:center;margin:0 0 12px}
+.glossary-search-input{
+  flex:1;min-height:44px;padding:10px 14px;font:inherit;font-size:16px;
+  color:var(--c-ink);background:var(--c-white);
+  border:2px solid var(--c-line);border-radius:8px;
+}
+.glossary-search-input:focus{outline:2px solid var(--c-gold);border-color:var(--c-gold)}
+.glossary-search-count{font-size:13px;color:var(--c-gray);white-space:nowrap}
+tr.term-hidden,tbody.cat-hidden{display:none}
+@media print{.glossary-search{display:none !important}}
+
+.kakunin{color:var(--c-crimson);font-weight:700;font-size:.85em}
+.video-wrap{max-width:360px;margin-left:auto;margin-right:auto}
+/* ガイドアプリの帯（build.py --home-url / --staff-url） */
+.guide-appbar{display:flex;justify-content:space-between;align-items:center;gap:8px;
+  padding:0 12px;background:var(--c-bg-deeper);font-size:13px;line-height:1.3}
+.guide-appbar a{color:#fff;text-decoration:none;min-height:44px;display:inline-flex;
+  align-items:center;gap:6px;padding:0 4px}
+.guide-appbar a:focus-visible{outline:2px solid #fff;outline-offset:2px}
+.guide-appbar .appbar-staff{margin-left:auto;opacity:.9}
+@media print{.guide-appbar{display:none}}
+
+</style>
+</head>
+<body class="lang-ja mode-tourist" data-variant="visitor">
+<nav class="guide-appbar" aria-label="YONEZAWA GUIDES">
+  <a class="appbar-home" data-keep-lang href="/guides/"><span aria-hidden="true">←</span><span class="ja">ガイド一覧</span><span class="en">All guides</span><span class="tw">導覽一覽</span></a>
+  <a class="appbar-staff" data-keep-lang href="/guides/staff/uesugi-jinja/?mode=interpreter"><span aria-hidden="true">🔑</span><span class="ja">ガイド・通訳の方</span><span class="en">For guides</span><span class="tw">導覽員・口譯專用</span></a>
+</nav>
+
+<header class="hero">
+  <div class="hero-inner">
+    <div class="hero-top"><span class="symbol">⛩</span></div>
+    <div class="title-block">
+      <h1><span class="ja">上杉神社 境内ガイド</span><span class="en">Uesugi Shrine Grounds Guide</span><span class="tw">上杉神社 境內導覽</span></h1>
+      <div class="sub">UESUGI SHRINE — A WALKING GUIDE</div>
+      <div class="tag-tw"><span class="ja">謙信公をまつる、米沢城本丸の杜を歩く</span><span class="en">Walk the shrine grove of Lord Kenshin, where Yonezawa Castle's inner citadel once stood</span><span class="tw">漫步供奉謙信公的米澤城本丸之森</span></div>
+    </div>
+    <div class="hero-meta">
+      <span class="date-jp">Yonezawa, Yamagata</span>
+      <span class="ja">境内と宝物殿・稽照殿／約30分〜1時間</span><span class="en">The grounds and the Keishōden treasure hall / about 30 minutes to 1 hour</span><span class="tw">境內與寶物殿「稽照殿」／約30分鐘〜1小時</span>
+    </div>
+  </div>
+</header>
+
+<nav class="switchers" aria-label="Language and Mode Switcher">
+  <div class="switcher-row langs" role="tablist" aria-label="Language">
+    <button class="tab lang-tab active" data-lang="ja" role="tab" aria-selected="true">日本語</button>
+    <button class="tab lang-tab" data-lang="en" role="tab" aria-selected="false">English</button>
+    <button class="tab lang-tab" data-lang="tw" role="tab" aria-selected="false">繁體中文</button>
+  </div>
+</nav>
+
+<main>
+
+<section class="chapter" id="ch1">
+  <div class="chapter-num">CHAPTER 01</div>
+  <h2>
+    <span class="ja">🏯 はじめに ─ このページの使い方</span>
+    <span class="en">🏯 Introduction — How to Use This Page</span>
+    <span class="tw">🏯 前言 ─ 本頁使用方式</span>
+  </h2>
+  <div class="ja">
+    <p class="lead">上杉神社は、戦国武将<strong>上杉謙信</strong>をまつる神社です。場所は米沢城の<span class="tt" tabindex="0" role="button" aria-expanded="false" data-term="honmaru">本丸<span class="tt-pop" role="tooltip">お城のいちばん中心の区画。殿様の住まいや政治の場があったところです。</span></span>の跡。社殿と宝物殿は、米沢生まれの建築家・伊東忠太が設計しました。</p>
+  </div>
+  <div class="en">
+    <p class="lead">Uesugi Shrine enshrines the Sengoku-period warlord <strong>Uesugi Kenshin</strong>. It stands on the site of the <span class="tt" tabindex="0" role="button" aria-expanded="false" data-term="honmaru">inner citadel<span class="tt-pop" role="tooltip">The innermost section of a castle. It held the lord's residence and the seat of government.</span></span> of Yonezawa Castle. The shrine buildings and the treasure hall were designed by Itō Chūta, an architect born in Yonezawa.</p>
+  </div>
+  <div class="tw">
+    <p class="lead">上杉神社是供奉戰國武將<strong>上杉謙信</strong>的神社，位於米澤城<span class="tt" tabindex="0" role="button" aria-expanded="false" data-term="honmaru">本丸<span class="tt-pop" role="tooltip">城堡最核心的區域，曾是城主的居所與處理政務的地方。</span></span>遺址。社殿與寶物殿由米澤出生的建築師伊東忠太設計。</p>
+  </div>
+  <img class="hero-photo" src="/guides/assets/uesugi-jinja/images/uesugi-jinja-hori-sakura.jpg" alt="桜が咲く米沢城の堀" loading="lazy">
+  <div class="hero-photo-caption"><span class="ja">米沢城の本丸を囲む堀。春は桜に包まれます。</span><span class="en">The moat around the inner citadel of Yonezawa Castle, wrapped in cherry blossoms in spring.</span><span class="tw">環繞米澤城本丸的護城河，春天被櫻花包圍。</span></div>
+  <div class="ja">
+    <p>このページは、境内を歩きながらスマートフォンで読むためのガイドです。下線のついた言葉は、タップすると説明が出ます。いちばん上のタブで、言葉（日本語・English・繁體中文）と、観光客向け／通訳者向けを切り替えられます。</p>
+    <div class="callout deep">
+      <div class="callout-title">⏱ 2つのコース</div>
+      <strong>30分コース</strong>：①〜⑤（鳥居・参道・お参り）と⑦授与所<br><strong>60分コース</strong>：30分コースに⑥稽照殿と⑧裏の境内を足して
+    </div>
+    <div class="callout">
+      <div class="callout-title">🕘 お参りできる時間</div>
+      4月〜10月は 6:00〜17:00、11月〜3月は 7:00〜17:00（元日は0時に開門）<br>境内に駐車場はありません。堀の外にある市の駐車場を使ってください。
+    </div>
+  </div>
+  <div class="en">
+    <p>This guide is made to be read on your smartphone as you walk the grounds. Tap any underlined word to see an explanation. Use the tabs at the very top to switch languages (日本語 / English / 繁體中文) and to switch between the visitor and interpreter views.</p>
+    <div class="callout deep">
+      <div class="callout-title">⏱ Two Courses</div>
+      <strong>30-minute course</strong>: stops ①–⑤ (torii gate, approach path, prayer) and ⑦ the amulet office<br><strong>60-minute course</strong>: the 30-minute course plus ⑥ the Keishōden and ⑧ the back grounds
+    </div>
+    <div class="callout">
+      <div class="callout-title">🕘 Visiting Hours</div>
+      April–October 6:00–17:00, November–March 7:00–17:00 (on New Year's Day the gates open at midnight)<br>There is no parking on the grounds. Please use the city parking lot outside the moat.
+    </div>
+  </div>
+  <div class="tw">
+    <p>本頁是讓您一邊漫步境內、一邊用手機閱讀的導覽。畫底線的詞語，點一下就會出現說明。可用最上方的分頁切換語言（日本語、English、繁體中文），以及觀光客版／口譯員版。</p>
+    <div class="callout deep">
+      <div class="callout-title">⏱ 2條路線</div>
+      <strong>30分鐘路線</strong>：①〜⑤（鳥居、參道、參拜）與⑦授與所<br><strong>60分鐘路線</strong>：30分鐘路線再加上⑥稽照殿與⑧境內後方
+    </div>
+    <div class="callout">
+      <div class="callout-title">🕘 參拜時間</div>
+      4月〜10月 6:00〜17:00，11月〜3月 7:00〜17:00（元旦0點開門）<br>境內沒有停車場，請使用護城河外的市營停車場。
+    </div>
+  </div>
+</section>
+
+<section class="chapter" id="ch2">
+  <div class="chapter-num">CHAPTER 02</div>
+  <h2>
+    <span class="ja">📜 歴史と背景 ─ 謙信公の長い旅</span>
+    <span class="en">📜 History and Background — Lord Kenshin's Long Journey</span>
+    <span class="tw">📜 歷史與背景 ─ 謙信公的漫長旅程</span>
+  </h2>
+  <div class="ja">
+    <p class="lead">謙信は新潟で亡くなりました。それなのに、なぜ山形の米沢にまつられているのでしょう。答えは、謙信が亡くなってから約300年かけてたどった<strong>長い旅</strong>にあります。</p>
+    <div class="timeline">
+      <div class="tl-item major">
+        <div class="tl-time">1578年</div>
+        <div class="tl-title">春日山城で急死</div>
+        <div class="tl-desc">謙信は越後（新潟）の春日山城で、49歳で突然亡くなります。遺骸は鎧を着せたまま大きな甕（かめ）に納められたと伝わり、城の中でお坊さんが供養しました。</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-time">1598年</div>
+        <div class="tl-title">会津へ</div>
+        <div class="tl-desc">跡を継いだ上杉景勝が、豊臣秀吉の命で会津（福島）へ<span class="tt" tabindex="0" role="button" aria-expanded="false" data-term="iten">移封<span class="tt-pop" role="tooltip">殿様が国の命令で領地を移されること。上杉家は越後（新潟）→会津（福島）→米沢と移りました。</span></span>。謙信の遺骸を納めた<span class="tt" tabindex="0" role="button" aria-expanded="false" data-term="mido">御堂<span class="tt-pop" role="tooltip">謙信の遺骸を納め、お坊さんが供養していたお堂。江戸時代は米沢城の本丸にありました。</span></span>も一緒に移ります。</div>
+      </div>
+      <div class="tl-item major">
+        <div class="tl-time">1601年</div>
+        <div class="tl-title">米沢へ</div>
+        <div class="tl-desc">関ヶ原の戦いで徳川方と対立した上杉家は、米沢へ移されます。御堂は米沢城の<span class="tt" tabindex="0" role="button" aria-expanded="false" data-term="honmaru">本丸<span class="tt-pop" role="tooltip">お城のいちばん中心の区画。殿様の住まいや政治の場があったところです。</span></span>の南東の隅に置かれ、ここから約270年、謙信はお城の中で供養されつづけました。</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-time">1871〜1872年</div>
+        <div class="tl-title">お寺から神社へ</div>
+        <div class="tl-desc">明治になり、仏教式の供養を神道式に改めます。御堂のお坊さんは神職になりました。1872年に「上杉神社」という名前が認められます。</div>
+      </div>
+      <div class="tl-item major">
+        <div class="tl-time">1876年</div>
+        <div class="tl-title">いまの場所に社殿</div>
+        <div class="tl-desc">お城の跡が公園になることになり、本丸の奥に新しい社殿が建ちます。謙信の遺骸は、このとき上杉家の<span class="tt" tabindex="0" role="button" aria-expanded="false" data-term="gobyosho">御廟所<span class="tt-pop" role="tooltip">米沢藩の歴代の殿様（上杉家）のお墓が並ぶ場所。中央の奥に謙信がまつられています。国の史跡です。</span></span>へ移されました。</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-time">1902年</div>
+        <div class="tl-title">松岬神社が分かれる</div>
+        <div class="tl-desc">国の格づけが上がり（<span class="tt" tabindex="0" role="button" aria-expanded="false" data-term="bekkaku">別格官幣社<span class="tt-pop" role="tooltip">明治の神社の格づけの一つで、国のために功績のあった人をまつる神社に与えられました。いまはこの制度はありません。</span></span>）、上杉神社の神さまは謙信だけになります。いっしょにまつられていた上杉鷹山は、新しく建てた松岬神社へ移りました。</div>
+      </div>
+      <div class="tl-item major">
+        <div class="tl-time">1919〜1923年</div>
+        <div class="tl-title">大火と再建</div>
+        <div class="tl-desc">米沢の大火で社殿が焼けてしまいます。4年後、米沢出身の建築家・伊東忠太の設計で、いまの社殿と宝物殿・稽照殿が建てられました。</div>
+      </div>
+    </div>
+    <div class="callout gold">
+      <div class="callout-title">🔥 町じゅうで建て直した</div>
+      再建にかかった費用は約46万円。そのころの米沢市の1年分の予算（約31万円）よりずっと大きな額でした。多くを国が出し、市民も延べ2,330人が、土をならしたり資材を運んだりして手伝いました。
+    </div>
+  </div>
+  <div class="en">
+    <p class="lead">Kenshin died in Niigata. So why is he enshrined here in Yonezawa, Yamagata? The answer lies in the <strong>long journey</strong> Kenshin made over roughly 300 years after his death.</p>
+    <div class="timeline">
+      <div class="tl-item major">
+        <div class="tl-time">1578</div>
+        <div class="tl-title">Sudden Death at Kasugayama Castle</div>
+        <div class="tl-desc">Kenshin dies suddenly at Kasugayama Castle in Echigo (Niigata), at the age of 49. According to tradition, his body was placed in a large jar still clad in armor, and monks performed memorial services for him inside the castle.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-time">1598</div>
+        <div class="tl-title">To Aizu</div>
+        <div class="tl-desc">His successor, Uesugi Kagekatsu, is <span class="tt" tabindex="0" role="button" aria-expanded="false" data-term="iten">transferred<span class="tt-pop" role="tooltip">When a lord was moved to a different territory by order of the national ruler. The Uesugi family moved from Echigo (Niigata) to Aizu (Fukushima), and then to Yonezawa.</span></span> to Aizu (Fukushima) by order of Toyotomi Hideyoshi. The <span class="tt" tabindex="0" role="button" aria-expanded="false" data-term="mido">memorial hall<span class="tt-pop" role="tooltip">The hall that held Kenshin's remains, where monks performed memorial services for him. In the Edo period it stood in the inner citadel of Yonezawa Castle.</span></span> holding Kenshin's remains moves with him.</div>
+      </div>
+      <div class="tl-item major">
+        <div class="tl-time">1601</div>
+        <div class="tl-title">To Yonezawa</div>
+        <div class="tl-desc">Having opposed the Tokugawa side at the Battle of Sekigahara, the Uesugi family is moved to Yonezawa. The memorial hall is placed in the southeast corner of the castle's <span class="tt" tabindex="0" role="button" aria-expanded="false" data-term="honmaru">inner citadel<span class="tt-pop" role="tooltip">The innermost section of a castle. It held the lord's residence and the seat of government.</span></span>, and for about 270 years, memorial services for Kenshin continue inside the castle.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-time">1871–1872</div>
+        <div class="tl-title">From Temple to Shrine</div>
+        <div class="tl-desc">In the Meiji era, the Buddhist memorial services are changed to Shinto rites. The monks of the memorial hall become Shinto priests. In 1872, the name "Uesugi Shrine" is officially approved.</div>
+      </div>
+      <div class="tl-item major">
+        <div class="tl-time">1876</div>
+        <div class="tl-title">Shrine Buildings at Today's Site</div>
+        <div class="tl-desc">With the castle site set to become a park, new shrine buildings are built at the back of the inner citadel. At this time, Kenshin's remains are moved to the Uesugi family <span class="tt" tabindex="0" role="button" aria-expanded="false" data-term="gobyosho">Mausoleum<span class="tt-pop" role="tooltip">The burial ground where the successive lords of the Yonezawa Domain (the Uesugi family) lie side by side. Kenshin is enshrined at the center, in the back. It is a National Historic Site.</span></span>.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-time">1902</div>
+        <div class="tl-title">Matsugasaki Shrine Branches Off</div>
+        <div class="tl-desc">The shrine is raised in national rank (to <span class="tt" tabindex="0" role="button" aria-expanded="false" data-term="bekkaku">Bekkaku Kanpeisha<span class="tt-pop" role="tooltip">One of the Meiji-era shrine ranks, given to shrines that enshrined people who had served the nation with distinction. The system no longer exists.</span></span>), and Kenshin becomes its only deity. Uesugi Yōzan, who had been enshrined alongside him, is moved to the newly built Matsugasaki Shrine.</div>
+      </div>
+      <div class="tl-item major">
+        <div class="tl-time">1919–1923</div>
+        <div class="tl-title">The Great Fire and Rebuilding</div>
+        <div class="tl-desc">A great fire in Yonezawa burns down the shrine buildings. Four years later, the current shrine buildings and the Keishōden treasure hall are built to designs by Yonezawa-born architect Itō Chūta.</div>
+      </div>
+    </div>
+    <div class="callout gold">
+      <div class="callout-title">🔥 Rebuilt by the Whole Town</div>
+      The rebuilding cost about ¥460,000, far more than Yonezawa City's entire annual budget at the time (about ¥310,000). The national government covered much of it, and citizens pitched in too: a total of 2,330 people helped level the ground and carry materials.
+    </div>
+  </div>
+  <div class="tw">
+    <p class="lead">謙信在新潟過世，為什麼會供奉在山形的米澤呢？答案就在謙信過世後、約300年間所走過的<strong>漫長旅程</strong>。</p>
+    <div class="timeline">
+      <div class="tl-item major">
+        <div class="tl-time">1578年</div>
+        <div class="tl-title">於春日山城猝逝</div>
+        <div class="tl-desc">謙信在越後（新潟）的春日山城突然辭世，享年49歲。據傳遺骸身穿鎧甲安放於大甕之中，由僧侶在城內供養。</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-time">1598年</div>
+        <div class="tl-title">前往會津</div>
+        <div class="tl-desc">繼承家業的上杉景勝奉豐臣秀吉之命<span class="tt" tabindex="0" role="button" aria-expanded="false" data-term="iten">移封<span class="tt-pop" role="tooltip">藩主奉國家之命被移轉領地。上杉家由越後（新潟）→會津（福島）→米澤一路遷移。</span></span>至會津（福島）。安放謙信遺骸的<span class="tt" tabindex="0" role="button" aria-expanded="false" data-term="mido">御堂<span class="tt-pop" role="tooltip">安放謙信遺骸、由僧侶供養的佛堂。江戶時代設於米澤城本丸內。</span></span>也一同遷移。</div>
+      </div>
+      <div class="tl-item major">
+        <div class="tl-time">1601年</div>
+        <div class="tl-title">前往米澤</div>
+        <div class="tl-desc">在關原之戰中與德川方對立的上杉家被移往米澤。御堂設於米澤城<span class="tt" tabindex="0" role="button" aria-expanded="false" data-term="honmaru">本丸<span class="tt-pop" role="tooltip">城堡最核心的區域，曾是城主的居所與處理政務的地方。</span></span>的東南角，此後約270年間，謙信一直在城內受到供養。</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-time">1871〜1872年</div>
+        <div class="tl-title">從寺院到神社</div>
+        <div class="tl-desc">進入明治時代後，佛教式的供養改為神道式。御堂的僧侶成為神職人員。1872年，「上杉神社」之名獲得認可。</div>
+      </div>
+      <div class="tl-item major">
+        <div class="tl-time">1876年</div>
+        <div class="tl-title">在現址建立社殿</div>
+        <div class="tl-desc">城址決定改建為公園，於是在本丸深處建起新社殿。謙信的遺骸也在此時移往上杉家的<span class="tt" tabindex="0" role="button" aria-expanded="false" data-term="gobyosho">御廟所<span class="tt-pop" role="tooltip">米澤藩歷代藩主（上杉家）的墓所並列之處。謙信供奉在中央的最深處。為日本國家指定史跡。</span></span>。</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-time">1902年</div>
+        <div class="tl-title">松岬神社分立</div>
+        <div class="tl-desc">國家給予的社格提升（<span class="tt" tabindex="0" role="button" aria-expanded="false" data-term="bekkaku">別格官幣社<span class="tt-pop" role="tooltip">明治時期神社的社格之一，授予供奉對國家有功之人的神社。現已沒有這項制度。</span></span>），上杉神社的祭神只剩謙信一位。原本一同供奉的上杉鷹山，則移至新建的松岬神社。</div>
+      </div>
+      <div class="tl-item major">
+        <div class="tl-time">1919〜1923年</div>
+        <div class="tl-title">大火與重建</div>
+        <div class="tl-desc">米澤大火燒毀了社殿。4年後，依米澤出身的建築師伊東忠太的設計，建起了現在的社殿與寶物殿「稽照殿」。</div>
+      </div>
+    </div>
+    <div class="callout gold">
+      <div class="callout-title">🔥 全城齊心重建</div>
+      重建費用約46萬日圓，遠遠超過當時米澤市1年的預算（約31萬日圓）。大部分由國家出資，市民也累計有2,330人次幫忙整地、搬運建材。
+    </div>
+  </div>
+</section>
+
+<section class="chapter" id="ch25">
+  <div class="chapter-num">CHAPTER 03</div>
+  <h2>
+    <span class="ja">⚔ 時代背景 ─ 上杉家の人びとと、伝説と史実</span>
+    <span class="en">⚔ The Times — The Uesugi Family, Legend and Fact</span>
+    <span class="tw">⚔ 時代背景 ─ 上杉家的人物，以及傳說與史實</span>
+  </h2>
+  <div class="ja">
+    <p class="lead">上杉神社を楽しむなら、4人の名前を覚えておくと話がぐっと分かりやすくなります。</p>
+    <ul>
+      <li><strong>上杉謙信（1530–1578）</strong>：越後（新潟）の戦国大名。武田信玄と何度も戦った川中島の戦いで有名です。<span class="tt" tabindex="0" role="button" aria-expanded="false" data-term="bishamonten">毘沙門天<span class="tt-pop" role="tooltip">仏教の守り神で、戦いの神としても信仰されました。謙信はとくに深く信じ、旗に「毘」の字を掲げたと伝わります。</span></span>を深く信じていました</li>
+      <li><strong>上杉景勝（1556–1623）</strong>：謙信の養子で跡継ぎ。会津、そして米沢へ移り、米沢藩の最初の殿様になりました</li>
+      <li><strong>直江兼続（1560–1620）</strong>：景勝を支えた家老。兜の「愛」の文字で知られ、米沢の町づくりの基礎を築きました</li>
+      <li><strong>上杉鷹山（1751–1822）</strong>：江戸時代の半ばに、借金だらけの米沢藩を立て直した殿様。「為せば成る」の言葉で知られます</li>
+    </ul>
+    <h3>120万石から30万石へ</h3>
+    <p>上杉家は、関ヶ原の戦い（1600年）で徳川家康と対立し、会津120万石から米沢30万石へと、領地を4分の1に減らされました。それでも家臣をほとんど手放さなかったため、米沢藩は長く苦しい財政に悩みます。その藩を立て直したのが鷹山です。鷹山は、殿様の心得を次の殿様に贈りました。これが松岬神社に碑がある<span class="tt" tabindex="0" role="button" aria-expanded="false" data-term="denkoku">「伝国の辞」<span class="tt-pop" role="tooltip">上杉鷹山が、次の殿様に心得として贈った3か条。「国と民は殿様のものではない」という考えを示しています。</span></span>です。</p>
+    <h3>伝説と、確かなこと</h3>
+    <p>謙信には有名な話がたくさんあります。でも、そのすべてが当時の記録で確かめられるわけではありません。</p>
+    <ul>
+      <li><strong>家訓十六ヶ条</strong>：謙信の教えとして広く知られていますが、江戸時代になってからまとめられたものと考えられています</li>
+      <li><strong>敵に塩を送る</strong>：武田信玄に塩を送ったという美談は、当時の記録では確かめられていません</li>
+      <li><strong>川中島の一騎打ち</strong>：謙信と信玄が一対一で切り結んだ場面は、のちの物語や屏風で広まったものです</li>
+    </ul>
+    <div class="callout deep">
+      <div class="callout-title">✨ それでも伝説が大切な理由</div>
+      伝説がたくさん生まれたのは、それだけ謙信が人びとに慕われてきたからです。上杉神社そのものが、「謙信を神さまとして大切にしてきた人びとの歴史」の証でもあります。<br>一方で、記録から確かに言えることもあります。謙信は多くの武将から<strong>頼りにされた</strong>こと。戦の前には神仏に<strong>厳しく祈った</strong>こと。そして<strong>お酒が好きで、字がとても美しかった</strong>ことです。
+    </div>
+  </div>
+  <div class="en">
+    <p class="lead">To enjoy Uesugi Shrine, it helps to remember four names. They make the story much easier to follow.</p>
+    <ul>
+      <li><strong>Uesugi Kenshin (1530–1578)</strong>: A Sengoku-period daimyō of Echigo (Niigata), famous for the Battles of Kawanakajima, which he fought again and again against Takeda Shingen. He was deeply devoted to <span class="tt" tabindex="0" role="button" aria-expanded="false" data-term="bishamonten">Bishamonten<span class="tt-pop" role="tooltip">A Buddhist guardian deity, also worshipped as a god of war. Kenshin was especially devoted to him and, according to tradition, flew the character "毘" (Bi) on his banners.</span></span>, the Buddhist guardian god of war</li>
+      <li><strong>Uesugi Kagekatsu (1556–1623)</strong>: Kenshin's adopted son and heir. He moved to Aizu and then to Yonezawa, becoming the first lord of the Yonezawa Domain</li>
+      <li><strong>Naoe Kanetsugu (1560–1620)</strong>: The chief retainer who supported Kagekatsu. Known for the character "愛" (love) on his helmet, he laid the foundations of the town of Yonezawa</li>
+      <li><strong>Uesugi Yōzan (1751–1822)</strong>: The lord who, in the mid-Edo period, turned around the debt-ridden Yonezawa Domain. He is known for the saying "Naseba naru" ("If you try, it can be done")</li>
+    </ul>
+    <h3>From 1.2 Million Koku to 300,000 Koku</h3>
+    <p>After opposing Tokugawa Ieyasu at the Battle of Sekigahara (1600), the Uesugi family saw its lands cut to a quarter: from 1.2 million koku (a measure of a domain's rice yield) in Aizu to 300,000 koku in Yonezawa. Even so, they let go of almost none of their retainers, so the Yonezawa Domain struggled with its finances for a long time. The lord who turned the domain around was Yōzan. Yōzan passed on his principles for a lord to his successor. These are the <span class="tt" tabindex="0" role="button" aria-expanded="false" data-term="denkoku">Denkoku no Ji<span class="tt-pop" role="tooltip">Three precepts that Uesugi Yōzan gave to the next lord as guidance. They express the idea that "the domain and its people do not belong to the lord."</span></span>, whose monument stands at Matsugasaki Shrine.</p>
+    <h3>Legend and Fact</h3>
+    <p>Many famous stories are told about Kenshin. But not all of them can be confirmed in records from his time.</p>
+    <ul>
+      <li><strong>The Sixteen House Precepts</strong>: Widely known as Kenshin's teachings, but thought to have been compiled later, in the Edo period</li>
+      <li><strong>Sending salt to an enemy</strong>: The famous tale of Kenshin sending salt to Takeda Shingen cannot be confirmed in records from the time</li>
+      <li><strong>The duel at Kawanakajima</strong>: The scene of Kenshin and Shingen crossing swords one-on-one spread later, through stories and folding screens</li>
+    </ul>
+    <div class="callout deep">
+      <div class="callout-title">✨ Why the Legends Still Matter</div>
+      So many legends grew up because Kenshin was so deeply loved. Uesugi Shrine itself stands as proof of "the history of people who have cherished Kenshin as a god."<br>At the same time, some things can be said for certain from the records: many warlords <strong>relied on</strong> Kenshin; he <strong>prayed earnestly</strong> to the gods and Buddhas before battle; and he <strong>loved sake and had beautiful handwriting</strong>.
+    </div>
+  </div>
+  <div class="tw">
+    <p class="lead">想好好欣賞上杉神社，先記住4個人的名字，故事就會好懂得多。</p>
+    <ul>
+      <li><strong>上杉謙信（1530–1578）</strong>：越後（新潟）的戰國大名。以與武田信玄多次交戰的川中島之戰聞名。深深信奉<span class="tt" tabindex="0" role="button" aria-expanded="false" data-term="bishamonten">毘沙門天<span class="tt-pop" role="tooltip">佛教的守護神，也被尊為戰神。據傳謙信對祂格外虔誠，並在軍旗上高舉「毘」字。</span></span></li>
+      <li><strong>上杉景勝（1556–1623）</strong>：謙信的養子與繼承人。先後移往會津與米澤，成為米澤藩的第一代藩主</li>
+      <li><strong>直江兼續（1560–1620）</strong>：輔佐景勝的家老。以頭盔上的「愛」字聞名，奠定了米澤城市建設的基礎</li>
+      <li><strong>上杉鷹山（1751–1822）</strong>：江戶時代中期，重整負債累累的米澤藩的藩主。以「為せば成る」（有志者事竟成）一語聞名</li>
+    </ul>
+    <h3>從120萬石到30萬石</h3>
+    <p>上杉家在關原之戰（1600年）中與德川家康對立，領地從會津120萬石被削減為米澤30萬石，只剩4分之1。即使如此，上杉家幾乎沒有遣散家臣，因此米澤藩長期苦於財政困難。重整這個藩的，正是鷹山。鷹山將身為藩主的心得贈予下一任藩主，這就是松岬神社內立有石碑的<span class="tt" tabindex="0" role="button" aria-expanded="false" data-term="denkoku">「傳國之辭」<span class="tt-pop" role="tooltip">上杉鷹山贈予下一任藩主作為心得的3條訓誡，表達「國家與人民並非藩主所有」的理念。</span></span>。</p>
+    <h3>傳說，與確實的史實</h3>
+    <p>關於謙信，流傳著許多有名的故事。不過，並非每一則都能在當時的紀錄中得到證實。</p>
+    <ul>
+      <li><strong>家訓十六條</strong>：雖然作為謙信的教誨廣為人知，但一般認為是進入江戶時代後才整理成文的</li>
+      <li><strong>送鹽給敵人</strong>：送鹽給武田信玄的美談，無法在當時的紀錄中獲得證實</li>
+      <li><strong>川中島的一對一單挑</strong>：謙信與信玄一對一交鋒的場面，是透過後世的故事與屏風畫流傳開來的</li>
+    </ul>
+    <div class="callout deep">
+      <div class="callout-title">✨ 即便如此，傳說仍然重要的理由</div>
+      之所以誕生這麼多傳說，正是因為謙信深受人們敬愛。上杉神社本身，也是「人們將謙信奉為神明、珍視至今的歷史」的見證。<br>另一方面，也有從紀錄中可以確定的事：謙信受到許多武將的<strong>倚重</strong>；出征前會向神佛<strong>嚴謹虔誠地祈禱</strong>；還有，他<strong>喜歡喝酒，字也寫得非常漂亮</strong>。
+    </div>
+  </div>
+</section>
+
+<section class="chapter" id="ch3">
+  <div class="chapter-num">CHAPTER 04</div>
+  <h2>
+    <span class="ja">⛩ 境内を歩く ─ 8つの立ち寄りどころ</span>
+    <span class="en">⛩ Walking the Grounds — 8 Stops</span>
+    <span class="tw">⛩ 漫步境內 ─ 8個停留點</span>
+  </h2>
+  <div class="ja">
+    <p class="lead">堀を渡って鳥居をくぐり、社殿にお参りしたら、宝物殿の稽照殿（けいしょうでん）へ。最後に、多くの人が見ないまま帰ってしまう「裏の境内」を回ります。<strong>表だけなら約30分、裏まで回ると約1時間</strong>です。</p>
+    <div class="callout deep">
+      <div class="callout-title">🗺 歩く順番</div>
+      ①舞鶴橋と堀 → ②一の鳥居と参道 → ③鳥居の下で一歩止まる → ④神門と狛犬 → ⑤拝殿でお参り → ⑥稽照殿 → ⑦授与所 → ⑧裏の境内
+    </div>
+    <h3>① 舞鶴橋と堀 ─ ここはお城の真ん中だった</h3>
+  </div>
+  <div class="en">
+    <p class="lead">Cross the moat, pass through the torii gate, pray at the shrine, then head to the Keishōden treasure hall. Finally, visit the "back grounds," which many people leave without ever seeing. <strong>The front alone takes about 30 minutes; with the back grounds, about 1 hour.</strong></p>
+    <div class="callout deep">
+      <div class="callout-title">🗺 Route</div>
+      ① Maizuru Bridge and the Moat → ② The First Torii and the Approach → ③ Pause Under the Torii → ④ The Shrine Gate and Lion-Dogs → ⑤ Pray at the Worship Hall → ⑥ Keishōden → ⑦ Amulet Office → ⑧ The Back Grounds
+    </div>
+    <h3>① Maizuru Bridge and the Moat — The Heart of the Castle</h3>
+  </div>
+  <div class="tw">
+    <p class="lead">走過護城河、穿過鳥居，在社殿參拜後，前往寶物殿稽照殿（けいしょうでん）。最後，再繞到許多人沒看到就離開的「境內後方」。<strong>只走前方約30分鐘，連後方都走完約1小時</strong>。</p>
+    <div class="callout deep">
+      <div class="callout-title">🗺 參觀順序</div>
+      ①舞鶴橋與護城河 → ②一之鳥居與參道 → ③在鳥居下停一步 → ④神門與狛犬 → ⑤在拜殿參拜 → ⑥稽照殿 → ⑦授與所 → ⑧境內後方
+    </div>
+    <h3>① 舞鶴橋與護城河 ─ 這裡曾是城的正中心</h3>
+  </div>
+  <img class="hero-photo" src="/guides/assets/uesugi-jinja/images/uesugi-jinja-hori-reflection.jpg" alt="水面に桜が映る堀と、奥の赤い橋" loading="lazy">
+  <div class="hero-photo-caption"><span class="ja">堀と桜。奥の赤い橋は菱門橋です（2026年10月現在、補修のため通れません）。</span><span class="en">The moat and cherry trees. The red bridge in the distance is the Hishimon Bridge (closed for repairs as of October 2026).</span><span class="tw">護城河與櫻花。遠方的紅色橋是菱門橋（截至2026年10月，因修繕禁止通行）。</span></div>
+  <div class="ja">
+    <p>いま立っているのは、米沢城の<span class="tt" tabindex="0" role="button" aria-expanded="false" data-term="honmaru">本丸<span class="tt-pop" role="tooltip">お城のいちばん中心の区画。殿様の住まいや政治の場があったところです。</span></span>の跡です。神社の境内は約6,300坪で、本丸の跡の6割ほどを占めています。目の前の<span class="tt" tabindex="0" role="button" aria-expanded="false" data-term="hori">堀<span class="tt-pop" role="tooltip">お城のまわりに掘った水路。敵が近づけないようにするための守りです。</span></span>も、お城だったころのものです。</p>
+    <p>堀にかかる石のアーチ橋が<strong>舞鶴橋（まいづるばし）</strong>。明治19年（1886）にかけられ、「めがね橋」とも呼ばれます。山形の道や橋を次々に整えた<span class="tt" tabindex="0" role="button" aria-expanded="false" data-term="kenrei">県令<span class="tt-pop" role="tooltip">明治のはじめの県の長官。いまの県知事にあたります。</span></span>・三島通庸（みしま みちつね）の時代の橋です。</p>
+    <p>参道に立つ旗の「毘」の字は、謙信が深く信じた<span class="tt" tabindex="0" role="button" aria-expanded="false" data-term="bishamonten">毘沙門天<span class="tt-pop" role="tooltip">仏教の守り神で、戦いの神としても信仰されました。謙信はとくに深く信じ、旗に「毘」の字を掲げたと伝わります。</span></span>の一文字です。</p>
+    <div class="callout gold">
+      <div class="callout-title">📷 写真のコツ</div>
+      春は堀沿いの桜がみごとです。見ごろは例大祭（4月29日）のころ。
+    </div>
+    <h3>② 一の鳥居と参道 ─ 足もとの石にも物語</h3>
+  </div>
+  <div class="en">
+    <p>You're standing on the site of Yonezawa Castle's <span class="tt" tabindex="0" role="button" aria-expanded="false" data-term="honmaru">inner citadel<span class="tt-pop" role="tooltip">The innermost section of a castle. It held the lord's residence and the seat of government.</span></span>. The shrine grounds cover about 6,300 tsubo (a traditional unit of area), taking up about 60% of the former inner citadel. The <span class="tt" tabindex="0" role="button" aria-expanded="false" data-term="hori">moat<span class="tt-pop" role="tooltip">A water channel dug around a castle. It was a defense to keep enemies from getting close.</span></span> in front of you also dates from the castle days.</p>
+    <p>The stone arch bridge over the moat is <strong>Maizuru Bridge</strong>. Built in 1886 (Meiji 19), it is also called "Megane-bashi" (Spectacles Bridge). It dates from the time of <span class="tt" tabindex="0" role="button" aria-expanded="false" data-term="kenrei">Prefectural Governor<span class="tt-pop" role="tooltip">The head of a prefecture in the early Meiji era, equivalent to a prefectural governor today.</span></span> Mishima Michitsune, who built road after road and bridge after bridge across Yamagata.</p>
+    <p>The character "毘" (Bi) on the banners along the approach is the first character of <span class="tt" tabindex="0" role="button" aria-expanded="false" data-term="bishamonten">Bishamonten<span class="tt-pop" role="tooltip">A Buddhist guardian deity, also worshipped as a god of war. Kenshin was especially devoted to him and, according to tradition, flew the character "毘" (Bi) on his banners.</span></span>, the deity Kenshin was so devoted to.</p>
+    <div class="callout gold">
+      <div class="callout-title">📷 Photo Tip</div>
+      In spring, the cherry blossoms along the moat are stunning. They're at their best around the Grand Festival (April 29).
+    </div>
+    <h3>② The First Torii and the Approach — Stories Even in the Stones Underfoot</h3>
+  </div>
+  <div class="tw">
+    <p>您現在站的地方，是米澤城<span class="tt" tabindex="0" role="button" aria-expanded="false" data-term="honmaru">本丸<span class="tt-pop" role="tooltip">城堡最核心的區域，曾是城主的居所與處理政務的地方。</span></span>的遺址。神社境內約6,300坪，約佔本丸遺址的6成。眼前的<span class="tt" tabindex="0" role="button" aria-expanded="false" data-term="hori">護城河<span class="tt-pop" role="tooltip">環繞城堡挖掘的水道，是讓敵人難以靠近的防禦設施。</span></span>也是當年城堡留下來的。</p>
+    <p>橫跨護城河的石造拱橋是<strong>舞鶴橋（まいづるばし）</strong>。建於明治19年（1886），又稱「眼鏡橋」。這是在陸續整修山形道路與橋梁的<span class="tt" tabindex="0" role="button" aria-expanded="false" data-term="kenrei">縣令<span class="tt-pop" role="tooltip">明治初年的縣首長，相當於現在的縣知事。</span></span>三島通庸（みしま みちつね）任內建造的橋。</p>
+    <p>參道上旗幟的「毘」字，取自謙信虔誠信奉的<span class="tt" tabindex="0" role="button" aria-expanded="false" data-term="bishamonten">毘沙門天<span class="tt-pop" role="tooltip">佛教的守護神，也被尊為戰神。據傳謙信對祂格外虔誠，並在軍旗上高舉「毘」字。</span></span>名號中的一個字。</p>
+    <div class="callout gold">
+      <div class="callout-title">📷 拍照小訣竅</div>
+      春天沿著護城河的櫻花美不勝收。最佳觀賞期約在例大祭（4月29日）前後。
+    </div>
+    <h3>② 一之鳥居與參道 ─ 腳下的石頭也有故事</h3>
+  </div>
+  <img class="hero-photo" src="/guides/assets/uesugi-jinja/images/uesugi-jinja-torii-sando.jpg" alt="鳥居から参道の奥に神門が見える" loading="lazy">
+  <div class="hero-photo-caption"><span class="ja">一の鳥居と参道。まっすぐ奥に神門が見えます。</span><span class="en">The first torii gate and the approach path, with the shrine gate straight ahead.</span><span class="tw">一之鳥居與參道，正前方可見神門。</span></div>
+  <div class="ja">
+    <p>この<span class="tt" tabindex="0" role="button" aria-expanded="false" data-term="torii">鳥居<span class="tt-pop" role="tooltip">神社の入口に立つ門。ここから先は神さまの場所、というしるしです。</span></span>から内側が神社、外側は市の公園です。鳥居の「上杉神社」の額は、皇族の閑院宮載仁親王（かんいんのみや ことひとしんのう）が書いたものです。</p>
+    <p><span class="tt" tabindex="0" role="button" aria-expanded="false" data-term="sando">参道<span class="tt-pop" role="tooltip">鳥居から社殿まで続く、お参りのための道。真ん中は神さまの通り道とされ、少し端を歩くのが作法です。</span></span>の石畳には、茨城で採れる上質な<span class="tt" tabindex="0" role="button" aria-expanded="false" data-term="inadaishi">稲田石<span class="tt-pop" role="tooltip">茨城県で採れる白っぽい花崗岩。東京駅や国会議事堂などにも使われた上質な石です。</span></span>が使われていると伝わります。地元の人いわく、いま同じように敷き直したら、とんでもない金額になるそうです。<span class="kakunin">【要確認】</span></p>
+    <h3>③ 鳥居の下で一歩止まる ─ 屋根がひとつに重なる</h3>
+    <p class="lead">このガイドでいちばんのおすすめです。</p>
+  </div>
+  <div class="en">
+    <p>Inside this <span class="tt" tabindex="0" role="button" aria-expanded="false" data-term="torii">torii gate<span class="tt-pop" role="tooltip">The gate at the entrance to a shrine. It marks the point where the realm of the gods begins.</span></span> is the shrine; outside is a city park. The "Uesugi Jinja" plaque on the torii was written by Prince Kan'in-no-miya Kotohito, a member of the imperial family.</p>
+    <p>The paving stones of the <span class="tt" tabindex="0" role="button" aria-expanded="false" data-term="sando">approach path<span class="tt-pop" role="tooltip">The path for worshippers, leading from the torii gate to the shrine buildings. The center is said to be the path of the gods, so it's good manners to walk a little to the side.</span></span> are said to be high-quality <span class="tt" tabindex="0" role="button" aria-expanded="false" data-term="inadaishi">Inada granite<span class="tt-pop" role="tooltip">A whitish granite quarried in Ibaraki Prefecture. This high-quality stone was also used for Tokyo Station and the National Diet Building.</span></span> from Ibaraki. According to locals, relaying them the same way today would cost an enormous amount. <span class="kakunin">[To be confirmed]</span></p>
+    <h3>③ Pause Under the Torii — The Roofs Merge into One</h3>
+    <p class="lead">This is our top recommendation in this guide.</p>
+  </div>
+  <div class="tw">
+    <p>從這座<span class="tt" tabindex="0" role="button" aria-expanded="false" data-term="torii">鳥居<span class="tt-pop" role="tooltip">立在神社入口的門，象徵從這裡開始就是神明的領域。</span></span>往內是神社，往外則是市立公園。鳥居上「上杉神社」的匾額，是皇族閑院宮載仁親王（かんいんのみや ことひとしんのう）所題。</p>
+    <p>據傳<span class="tt" tabindex="0" role="button" aria-expanded="false" data-term="sando">參道<span class="tt-pop" role="tooltip">從鳥居通往社殿、供參拜行走的道路。中央被視為神明通行之道，稍微靠邊走是應有的禮儀。</span></span>的石板路使用了茨城出產的上等<span class="tt" tabindex="0" role="button" aria-expanded="false" data-term="inadaishi">稻田石<span class="tt-pop" role="tooltip">茨城縣出產、偏白色的花崗岩。東京車站與國會議事堂等也使用過的上等石材。</span></span>。據當地人說，現在若要以同樣方式重新鋪設，將會是天價。<span class="kakunin">【待確認】</span></p>
+    <h3>③ 在鳥居下停一步 ─ 屋頂合而為一</h3>
+    <p class="lead">這是本導覽最推薦的一站。</p>
+  </div>
+  <div class="video-wrap">
+    <video controls preload="metadata" poster="/guides/assets/uesugi-jinja/images/uesugi-jinja-walk-poster.jpg">
+      <source src="/guides/assets/uesugi-jinja/videos/uesugi-jinja-walk.mp4" type="video/mp4">
+      <span class="ja">お使いのブラウザは動画再生に対応していません。</span><span class="en">Your browser does not support video playback.</span><span class="tw">您的瀏覽器不支援影片播放。</span>
+    </video>
+    <div class="video-caption"><span class="ja">鳥居をくぐって神門へ。境内を歩く約30秒の動画です（字幕は英語）。</span><span class="en">Through the torii toward the shrine gate — a 30-second walk around the grounds (English captions).</span><span class="tw">穿過鳥居走向神門，約30秒的境內漫步影片（英文字幕）。</span></div>
+  </div>
+  <div class="ja">
+    <p>鳥居の<strong>真下</strong>に立って、まっすぐ奥を見てください。手前の<span class="tt" tabindex="0" role="button" aria-expanded="false" data-term="shinmon">神門<span class="tt-pop" role="tooltip">社殿の手前にある門。上杉神社では屋根の反りが美しい「唐門（からもん）」の形をしています。</span></span>の屋根と、その奥の社殿の屋根がぴたりと重なって、<strong>大きなひとつの屋根</strong>のように見えます。</p>
+    <p>社殿を設計した伊東忠太が仕掛けた眺めだと伝わります。米沢の人でも知らない人が多い、とっておきの見方です。いまは手前の松の枝が伸びて、少し隠れています。</p>
+    <div class="callout gold">
+      <div class="callout-title">👣 立つ場所</div>
+      鳥居の柱と柱のちょうど真ん中、真下です。一歩前に出たり下がったりするだけで、重なり方が変わります。
+    </div>
+    <h3>④ 神門と狛犬 ─ 伊東忠太のまなざし</h3>
+    <p>社殿の入口の<span class="tt" tabindex="0" role="button" aria-expanded="false" data-term="shinmon">神門<span class="tt-pop" role="tooltip">社殿の手前にある門。上杉神社では屋根の反りが美しい「唐門（からもん）」の形をしています。</span></span>と、それに続く<span class="tt" tabindex="0" role="button" aria-expanded="false" data-term="sukashibei">透塀<span class="tt-pop" role="tooltip">向こうが透けて見えるように作った塀。本殿のまわりを囲み、内側を清らかに保ちます。</span></span>が、<span class="tt" tabindex="0" role="button" aria-expanded="false" data-term="honden">本殿<span class="tt-pop" role="tooltip">神さまがいらっしゃる、神社でいちばん大切な建物。ふだんは中に入れません。</span></span>のまわりを囲んでいます。大正12年（1923）に伊東忠太の設計で建て直されました。忠太自身、この一角を「引き締まって清らか」と書き残しています。</p>
+    <p>伊東忠太（1867–1954）は米沢藩の医者の家に生まれ、築地本願寺・平安神宮・明治神宮などを手がけた建築家です。それまで「造家」と呼ばれていたものを<strong>「建築」</strong>と呼ぼう、と唱えた人でもあります。</p>
+    <p>忠太は、妖怪や不思議な生き物の絵をたくさん描いたことでも知られます。<span class="tt" tabindex="0" role="button" aria-expanded="false" data-term="komainu">狛犬<span class="tt-pop" role="tooltip">神社の入口や社殿の前で、向かい合って守る一対の獅子のような像。</span></span>の顔と向きを、よく見てみてください。</p>
+    <h3>⑤ 拝殿でお参り ─ 謙信公に手を合わせる</h3>
+    <p><span class="tt" tabindex="0" role="button" aria-expanded="false" data-term="haiden">拝殿<span class="tt-pop" role="tooltip">お参りする人が手を合わせる建物。神さまがいらっしゃる本殿の手前にあります。</span></span>の奥にまつられているのが、<strong>上杉謙信</strong>です。社殿は大正8年（1919）の大火で焼け、4年後に建て直されました。その費用の多くを国が出し、市民も延べ2,330人が手伝ったことは、前の章で紹介したとおりです。</p>
+    <div class="callout deep">
+      <div class="callout-title">🙏 お参りの仕方</div>
+      鳥居の前で一礼 → <span class="tt" tabindex="0" role="button" aria-expanded="false" data-term="temizuya">手水舎<span class="tt-pop" role="tooltip">お参りの前に、手と口を水で清める場所。</span></span>で手と口を清める → 拝殿の前で<span class="tt" tabindex="0" role="button" aria-expanded="false" data-term="nihai">二礼・二拍手・一礼<span class="tt-pop" role="tooltip">神社の基本のお参りの仕方。2回おじぎ、2回手を打ち、最後にもう1回おじぎをします。</span></span>。お賽銭は拍手の前に入れます。
+    </div>
+    <h3>⑥ 稽照殿 ─ いにしえを考え、いまを照らす</h3>
+  </div>
+  <div class="en">
+    <p>Stand <strong>directly beneath</strong> the torii and look straight ahead. The roof of the <span class="tt" tabindex="0" role="button" aria-expanded="false" data-term="shinmon">shrine gate<span class="tt-pop" role="tooltip">The gate in front of the shrine buildings. At Uesugi Shrine it is a karamon-style gate with a beautifully curved roof.</span></span> in front and the roof of the shrine building behind it line up perfectly, looking like <strong>one great roof</strong>.</p>
+    <p>This view is said to have been designed on purpose by Itō Chūta, the architect of the shrine buildings. It's a special way of looking that even many Yonezawa locals don't know about. These days, the branches of a pine tree in front have grown and partly hide it.</p>
+    <div class="callout gold">
+      <div class="callout-title">👣 Where to Stand</div>
+      Exactly halfway between the two pillars of the torii, directly beneath it. Just one step forward or back changes how the roofs line up.
+    </div>
+    <h3>④ The Shrine Gate and Lion-Dogs — Through Itō Chūta's Eyes</h3>
+    <p>The <span class="tt" tabindex="0" role="button" aria-expanded="false" data-term="shinmon">shrine gate<span class="tt-pop" role="tooltip">The gate in front of the shrine buildings. At Uesugi Shrine it is a karamon-style gate with a beautifully curved roof.</span></span> at the entrance and the <span class="tt" tabindex="0" role="button" aria-expanded="false" data-term="sukashibei">openwork fence<span class="tt-pop" role="tooltip">A fence built so you can see through it. It surrounds the main sanctuary and keeps the space inside pure.</span></span> extending from it surround the <span class="tt" tabindex="0" role="button" aria-expanded="false" data-term="honden">main sanctuary<span class="tt-pop" role="tooltip">The most important building at a shrine, where the deity resides. Visitors normally cannot go inside.</span></span>. They were rebuilt in 1923 (Taishō 12) to Itō Chūta's design. Chūta himself wrote that this area felt "taut and pure."</p>
+    <p>Itō Chūta (1867–1954) was born into a family of doctors serving the Yonezawa Domain. He was the architect behind Tsukiji Hongan-ji, Heian Jingū, Meiji Jingū and more. He also argued that what had been called "zōka" (house-building) should be called <strong>"kenchiku" (architecture)</strong>.</p>
+    <p>Chūta is also known for drawing many pictures of yōkai (supernatural creatures) and strange beasts. Take a close look at the faces and the direction of the <span class="tt" tabindex="0" role="button" aria-expanded="false" data-term="komainu">lion-dogs<span class="tt-pop" role="tooltip">A pair of lion-like statues that face each other, guarding a shrine's entrance or the front of its buildings.</span></span>.</p>
+    <h3>⑤ Pray at the Worship Hall — Honoring Lord Kenshin</h3>
+    <p>Enshrined beyond the <span class="tt" tabindex="0" role="button" aria-expanded="false" data-term="haiden">worship hall<span class="tt-pop" role="tooltip">The building where visitors put their hands together to pray. It stands in front of the main sanctuary, where the deity resides.</span></span> is <strong>Uesugi Kenshin</strong>. The shrine buildings burned in the great fire of 1919 (Taishō 8) and were rebuilt four years later. As described in the previous chapter, the national government paid much of the cost, and a total of 2,330 citizens helped.</p>
+    <div class="callout deep">
+      <div class="callout-title">🙏 How to Pray</div>
+      Bow once before the torii → purify your hands and mouth at the <span class="tt" tabindex="0" role="button" aria-expanded="false" data-term="temizuya">purification fountain<span class="tt-pop" role="tooltip">A place to purify your hands and mouth with water before you pray.</span></span> → in front of the worship hall, <span class="tt" tabindex="0" role="button" aria-expanded="false" data-term="nihai">bow twice, clap twice, bow once<span class="tt-pop" role="tooltip">The basic way to pray at a shrine: bow twice, clap twice, then bow once more.</span></span>. Put your offering in the box before you clap.
+    </div>
+    <h3>⑥ Keishōden — Study the Past, Illuminate the Present</h3>
+  </div>
+  <div class="tw">
+    <p>請站在鳥居<strong>正下方</strong>，筆直往深處看。前方<span class="tt" tabindex="0" role="button" aria-expanded="false" data-term="shinmon">神門<span class="tt-pop" role="tooltip">位於社殿前方的門。上杉神社的神門採用屋頂曲線優美的「唐門（からもん）」形式。</span></span>的屋頂，與後方社殿的屋頂完美重疊，看起來就像<strong>一座巨大的屋頂</strong>。</p>
+    <p>據傳這是設計社殿的伊東忠太刻意安排的景觀。連許多米澤人都不知道，是私房的觀賞方式。現在前方松樹的枝葉長長了，稍微遮住了一些。</p>
+    <div class="callout gold">
+      <div class="callout-title">👣 站立位置</div>
+      鳥居兩根柱子的正中間、正下方。只要往前或往後一步，重疊的樣子就會改變。
+    </div>
+    <h3>④ 神門與狛犬 ─ 伊東忠太的眼光</h3>
+    <p>社殿入口的<span class="tt" tabindex="0" role="button" aria-expanded="false" data-term="shinmon">神門<span class="tt-pop" role="tooltip">位於社殿前方的門。上杉神社的神門採用屋頂曲線優美的「唐門（からもん）」形式。</span></span>與相連的<span class="tt" tabindex="0" role="button" aria-expanded="false" data-term="sukashibei">鏤空圍牆<span class="tt-pop" role="tooltip">刻意做成能透見另一側的圍牆。環繞本殿四周，保持內側的清淨。</span></span>，環繞著<span class="tt" tabindex="0" role="button" aria-expanded="false" data-term="honden">本殿<span class="tt-pop" role="tooltip">神明所在之處，是神社中最重要的建築。平時無法進入。</span></span>四周。於大正12年（1923）依伊東忠太的設計重建。忠太本人也曾寫下這一隅「嚴整而清淨」。</p>
+    <p>伊東忠太（1867–1954）出生於米澤藩的醫師世家，是設計築地本願寺、平安神宮、明治神宮等建築的建築師。他也主張將過去稱為「造家」的領域改稱為<strong>「建築」</strong>。</p>
+    <p>忠太也以畫了許多妖怪與奇異生物而聞名。請仔細看看<span class="tt" tabindex="0" role="button" aria-expanded="false" data-term="komainu">狛犬<span class="tt-pop" role="tooltip">在神社入口或社殿前相對而立、守護神社的一對獅子般的像。</span></span>的臉和朝向。</p>
+    <h3>⑤ 在拜殿參拜 ─ 向謙信公合掌</h3>
+    <p><span class="tt" tabindex="0" role="button" aria-expanded="false" data-term="haiden">拜殿<span class="tt-pop" role="tooltip">參拜者合掌祈禱的建築，位於神明所在的本殿前方。</span></span>深處供奉的，正是<strong>上杉謙信</strong>。社殿在大正8年（1919）的大火中燒毀，4年後重建。重建費用大多由國家支出，市民也累計有2,330人次協助，這在前一章已經介紹過。</p>
+    <div class="callout deep">
+      <div class="callout-title">🙏 參拜方式</div>
+      在鳥居前行一禮 → 在<span class="tt" tabindex="0" role="button" aria-expanded="false" data-term="temizuya">手水舍<span class="tt-pop" role="tooltip">參拜前用水清潔雙手與口的地方。</span></span>清潔雙手與口 → 在拜殿前<span class="tt" tabindex="0" role="button" aria-expanded="false" data-term="nihai">二拜、二拍手、一拜<span class="tt-pop" role="tooltip">神社基本的參拜方式。鞠躬2次、拍手2次，最後再鞠躬1次。</span></span>。香油錢請在拍手前投入。
+    </div>
+    <h3>⑥ 稽照殿 ─ 考察古事，照亮今日</h3>
+  </div>
+  <img class="hero-photo" src="/guides/assets/uesugi-jinja/images/uesugi-jinja-keishoden.jpg" alt="和風の屋根をもつ稽照殿の外観" loading="lazy">
+  <div class="hero-photo-caption"><span class="ja">稽照殿。鉄筋コンクリート造ですが、外観は木造の和風建築のように仕上げられています。</span><span class="en">The Keishōden. It is built of reinforced concrete, yet finished to look like a traditional wooden building.</span><span class="tw">稽照殿。雖為鋼筋混凝土結構，外觀卻打造得如同木造和風建築。</span></div>
+  <div class="ja">
+    <p>拝殿の脇に建つ2階建ての建物が、宝物殿の<strong>稽照殿（けいしょうでん）</strong>です。名前は、『古事記』の序文にある「稽古照今（けいこしょうこん）」── 昔のことをよく考えて、いまを照らす ── という言葉から取られています。</p>
+    <p>大火で社殿を失ったので、宝物を火から守れるよう<strong>鉄筋コンクリート</strong>で建て、見た目は木造の和風建築のように仕上げました。大正12年（1923）の建物で、国の<span class="tt" tabindex="0" role="button" aria-expanded="false" data-term="toroku">登録有形文化財<span class="tt-pop" role="tooltip">国に登録された、残していきたい建物など。指定より緩やかな守り方で、使いながら残せます。</span></span>です。</p>
+    <p>謙信・景勝・直江兼続・鷹山ゆかりの品を収め、国の<span class="tt" tabindex="0" role="button" aria-expanded="false" data-term="jubun">重要文化財<span class="tt-pop" role="tooltip">国が「とくに大切」と指定した文化財。国宝はその中でも最高のものです。</span></span>が16件あります。たとえば、こんなものがあります。</p>
+    <ul>
+      <li><strong>明の皇帝から景勝への辞令と官服</strong>：豊臣秀吉と明（中国）が和平の交渉をしたとき、景勝にも明の武官の位と、官服ひとそろいが贈られました</li>
+      <li><strong>直江兼続の<span class="tt" tabindex="0" role="button" aria-expanded="false" data-term="dofuku">胴服<span class="tt-pop" role="tooltip">武将がふだん着物の上にはおった上着。いまのジャケットのようなものです。</span></span></strong>：表の布は、南蛮貿易で入ってきたヨーロッパの織物と考えられています</li>
+      <li><strong>高麗の仏画（1309年）</strong>：日本に伝わる高麗の仏画は、とても数が少ないものです</li>
+      <li><strong>謙信が信じた毘沙門天の画像</strong>と、謙信が使ったと伝わる<strong>色々威<span class="tt" tabindex="0" role="button" aria-expanded="false" data-term="haramaki">腹巻<span class="tt-pop" role="tooltip">胴に巻きつけ、背中で合わせて着る軽めの鎧。</span></span>（いろいろおどしはらまき）</strong></li>
+    </ul>
+    <div class="callout crimson">
+      <div class="callout-title">⚠ 見られるものは時期で変わります</div>
+      宝物はいつも同じものが並んでいるわけではありません。とくに着物などは傷みやすく、実物を出せるのは<strong>一度に2週間ほど</strong>。展示は年に何度も入れ替わるので、見たいものがある人は前もって稽照殿に問い合わせてください。<br>館内は<strong>写真撮影ができません</strong>。
+    </div>
+    <div class="callout">
+      <div class="callout-title">🕘 稽照殿の案内</div>
+      開館：3月中旬〜11月25日（冬は休館。2月の雪灯篭まつりの間は開館）<br>時間：9:30〜16:00（入館は15:45まで）<br>拝観料：一般700円、高校・大学生400円、小・中学生300円（現金のみ）
+    </div>
+    <h3>⑦ 授与所 ─ 壊さずに、綱で引いて動かした</h3>
+    <p>お守りや御朱印を受ける<span class="tt" tabindex="0" role="button" aria-expanded="false" data-term="juyosho">授与所<span class="tt-pop" role="tooltip">お守り・お札・御朱印を受けるところ。神社では「買う」ではなく「受ける」と言います。</span></span>の建物も、大正12年（1923）の再建のときのものです。2026年の秋には、この建物を壊さずに綱で引いて動かす<span class="tt" tabindex="0" role="button" aria-expanded="false" data-term="hikiya">曳家<span class="tt-pop" role="tooltip">建物を壊さずに、そのまま持ち上げたり引っぱったりして別の場所へ動かす昔ながらの技術。</span></span>が行われ、参列した人たちも綱を引きました。<span class="kakunin">【要確認】</span></p>
+    <div class="callout gold">
+      <div class="callout-title">🧧 お守りと御朱印</div>
+      お守りはどれも700円。<span class="tt" tabindex="0" role="button" aria-expanded="false" data-term="goshuin">御朱印<span class="tt-pop" role="tooltip">参拝の証として、神社の名前と日付を墨で書き、印を押してもらうもの。専用の帳面に受けます。</span></span>は「上杉神社」と「松岬神社」の2種類あり、松岬神社の分もここで受けられます（現金のみ）。
+    </div>
+    <h3>⑧ 裏の境内 ─ 赤い幟（のぼり）を目じるしに</h3>
+    <p>社殿の北側へ回ると、赤い幟が見えてきます。ここから先は、地元の人でも「こんな場所があったのか」と驚く、静かな一角です。</p>
+    <ul>
+      <li><strong>春日神社</strong>：上杉家の氏神さま。もとは越後の春日山にまつられていて、上杉家といっしょに米沢へ来ました。大正の大火で焼けたあと長く建て直せず、昭和56年（1981）に市民の寄付で再建されました。藩の立て直しを誓った鷹山が、誓いの言葉を納めた社でもあります</li>
+      <li><strong>福徳稲荷神社</strong>：江戸時代の中ごろ、お城の守り神としてまつられた<span class="tt" tabindex="0" role="button" aria-expanded="false" data-term="inari">お稲荷さん<span class="tt-pop" role="tooltip">お稲荷さん。商売繁盛や家の守りの神さまで、狐がお使いとされます。</span></span>。鷹山があつく信じていました</li>
+      <li><strong><span class="tt" tabindex="0" role="button" aria-expanded="false" data-term="benten">弁天さま<span class="tt-pop" role="tooltip">弁財天。水辺にまつられることが多い、芸事や財の神さまです。</span></span></strong>：福徳稲荷の奥にまつられています</li>
+      <li><strong>池</strong>：滝の左右の苔むした石は、藩の時代からのものと伝わります</li>
+      <li><strong>灯籠</strong>：神門のそばにひっそり立つ灯籠は、昭和53年（1978）の謙信公四百年祭の<span class="tt" tabindex="0" role="button" aria-expanded="false" data-term="kenpai">献灯<span class="tt-pop" role="tooltip">「献灯」は、神さまに灯籠を奉納すること。灯籠には奉納した人や団体の名前が刻まれています。</span></span>です</li>
+    </ul>
+    <p>境内には、上杉家が米沢に来たころからの<strong>モミの古木</strong>もあると伝わります。鷹山も、この木を眺めたかもしれません。<span class="kakunin">【要確認】</span></p>
+    <div class="callout deep">
+      <div class="callout-title">⏱ もう少し歩くなら</div>
+      裏の境内まで回ると、全体で約1時間。そのあとは、鷹山をまつる<strong>松岬神社</strong>（<span class="tt" tabindex="0" role="button" aria-expanded="false" data-term="denkoku">「伝国の辞」<span class="tt-pop" role="tooltip">上杉鷹山が、次の殿様に心得として贈った3か条。「国と民は殿様のものではない」という考えを示しています。</span></span>の碑があります）や、謙信と歴代の殿様が眠る<span class="tt" tabindex="0" role="button" aria-expanded="false" data-term="gobyosho">上杉家御廟所<span class="tt-pop" role="tooltip">米沢藩の歴代の殿様（上杉家）のお墓が並ぶ場所。中央の奥に謙信がまつられています。国の史跡です。</span></span>へ足をのばせます。
+    </div>
+  </div>
+  <div class="en">
+    <p>The two-story building beside the worship hall is the <strong>Keishōden</strong> treasure hall. Its name comes from "keiko shōkon" (study the past well and use it to illuminate the present), a phrase from the preface of the <em>Kojiki</em>.</p>
+    <p>Since the shrine buildings had been lost in the great fire, the hall was built of <strong>reinforced concrete</strong> to protect the treasures from fire, and finished to look like a traditional wooden Japanese building. Built in 1923 (Taishō 12), it is a national <span class="tt" tabindex="0" role="button" aria-expanded="false" data-term="toroku">Registered Tangible Cultural Property<span class="tt-pop" role="tooltip">Buildings and other properties registered with the national government as worth preserving. It is a gentler form of protection than designation, so they can stay in use.</span></span>.</p>
+    <p>It houses items associated with Kenshin, Kagekatsu, Naoe Kanetsugu and Yōzan, including 16 national <span class="tt" tabindex="0" role="button" aria-expanded="false" data-term="jubun">Important Cultural Properties<span class="tt-pop" role="tooltip">Cultural properties that the national government has designated as "especially important." National Treasures are the very finest among them.</span></span>. Here are a few examples.</p>
+    <ul>
+      <li><strong>Letters of appointment and official robes from the Ming emperor to Kagekatsu</strong>: When Toyotomi Hideyoshi negotiated peace with Ming China, Kagekatsu also received a Ming military rank and a full set of official robes</li>
+      <li><strong>Naoe Kanetsugu's <span class="tt" tabindex="0" role="button" aria-expanded="false" data-term="dofuku">dōbuku coat<span class="tt-pop" role="tooltip">A coat that warlords wore over their kimono in everyday life, something like a jacket today.</span></span></strong>: The outer fabric is thought to be a European textile that came to Japan through the Nanban trade</li>
+      <li><strong>A Goryeo Buddhist painting (1309)</strong>: Goryeo (Korean) Buddhist paintings handed down in Japan are very rare</li>
+      <li><strong>A painting of Bishamonten, the deity Kenshin believed in</strong>, and <strong>multicolor-laced <span class="tt" tabindex="0" role="button" aria-expanded="false" data-term="haramaki">haramaki armor<span class="tt-pop" role="tooltip">Light armor wrapped around the torso and fastened at the back.</span></span> (iroiro-odoshi haramaki)</strong> said to have been used by Kenshin</li>
+    </ul>
+    <div class="callout crimson">
+      <div class="callout-title">⚠ What's on Display Changes Over the Year</div>
+      The same treasures aren't always on display. Garments and other textiles are especially fragile, so the originals can be shown for only <strong>about two weeks at a time</strong>. Exhibits change several times a year, so if there's something you want to see, contact the Keishōden in advance.<br><strong>Photography is not allowed</strong> inside.
+    </div>
+    <div class="callout">
+      <div class="callout-title">🕘 Keishōden Information</div>
+      Open: mid-March to November 25 (closed in winter; open during the Snow Lantern Festival in February)<br>Hours: 9:30–16:00 (last entry 15:45)<br>Admission: adults ¥700, high school & university students ¥400, elementary & junior high students ¥300 (cash only)
+    </div>
+    <h3>⑦ Amulet Office — Moved Whole, Pulled by Rope</h3>
+    <p>The <span class="tt" tabindex="0" role="button" aria-expanded="false" data-term="juyosho">amulet office<span class="tt-pop" role="tooltip">The place to receive amulets, talismans and goshuin. At a shrine, people say they "receive" these items rather than "buy" them.</span></span> building, where you receive amulets and goshuin, also dates from the 1923 (Taishō 12) rebuilding. In autumn 2026, the building was moved without being torn down, pulled by ropes in a <span class="tt" tabindex="0" role="button" aria-expanded="false" data-term="hikiya">hikiya<span class="tt-pop" role="tooltip">A traditional technique for moving a building to a new spot without tearing it down, by lifting or pulling it as it is.</span></span>, and the people who attended helped pull the ropes too. <span class="kakunin">[To be confirmed]</span></p>
+    <div class="callout gold">
+      <div class="callout-title">🧧 Amulets and Goshuin</div>
+      All amulets are ¥700. There are two kinds of <span class="tt" tabindex="0" role="button" aria-expanded="false" data-term="goshuin">goshuin<span class="tt-pop" role="tooltip">A record of your visit: the shrine's name and the date are brushed in ink and stamped with a seal. You receive it in a special book.</span></span>, "Uesugi Shrine" and "Matsugasaki Shrine," and you can receive the Matsugasaki Shrine one here as well (cash only).
+    </div>
+    <h3>⑧ The Back Grounds — Follow the Red Banners (Nobori)</h3>
+    <p>Walk around to the north side of the shrine buildings and you'll see red banners. Beyond here is a quiet corner that surprises even locals: "I had no idea this place was here!"</p>
+    <ul>
+      <li><strong>Kasuga Shrine</strong>: The Uesugi family's guardian deity (ujigami). Originally enshrined on Kasugayama in Echigo, it came to Yonezawa with the Uesugi family. After burning in the great fire of the Taishō era, it went unrebuilt for many years until 1981 (Shōwa 56), when citizens' donations paid for its reconstruction. It is also the shrine where Yōzan, vowing to restore the domain, offered his written oath</li>
+      <li><strong>Fukutoku Inari Shrine</strong>: An <span class="tt" tabindex="0" role="button" aria-expanded="false" data-term="inari">Inari shrine<span class="tt-pop" role="tooltip">"Oinari-san." A god of thriving business and household protection, whose messengers are said to be foxes.</span></span> established in the mid-Edo period as a guardian of the castle. Yōzan was deeply devoted to it</li>
+      <li><strong><span class="tt" tabindex="0" role="button" aria-expanded="false" data-term="benten">Benten<span class="tt-pop" role="tooltip">Benzaiten. A goddess of the arts and wealth, often enshrined near water.</span></span></strong>: Enshrined behind Fukutoku Inari</li>
+      <li><strong>Pond</strong>: The mossy stones on either side of the waterfall are said to date from the days of the domain</li>
+      <li><strong>Lantern</strong>: The lantern standing quietly near the shrine gate is a <span class="tt" tabindex="0" role="button" aria-expanded="false" data-term="kenpai">votive lantern<span class="tt-pop" role="tooltip">"Kentō" means offering a lantern to the gods. Each lantern is carved with the name of the person or group who offered it.</span></span> offered for Lord Kenshin's 400th Anniversary Festival in 1978 (Shōwa 53)</li>
+    </ul>
+    <p>The grounds are also said to have <strong>old fir trees</strong> dating back to when the Uesugi family came to Yonezawa. Perhaps Yōzan gazed at these very trees. <span class="kakunin">[To be confirmed]</span></p>
+    <div class="callout deep">
+      <div class="callout-title">⏱ If You Have More Time</div>
+      Including the back grounds, the whole walk takes about 1 hour. Afterward, you can go on to <strong>Matsugasaki Shrine</strong>, which enshrines Yōzan (home to the monument of the <span class="tt" tabindex="0" role="button" aria-expanded="false" data-term="denkoku">Denkoku no Ji<span class="tt-pop" role="tooltip">Three precepts that Uesugi Yōzan gave to the next lord as guidance. They express the idea that "the domain and its people do not belong to the lord."</span></span>), or to the <span class="tt" tabindex="0" role="button" aria-expanded="false" data-term="gobyosho">Uesugi Family Mausoleum<span class="tt-pop" role="tooltip">The burial ground where the successive lords of the Yonezawa Domain (the Uesugi family) lie side by side. Kenshin is enshrined at the center, in the back. It is a National Historic Site.</span></span>, where Kenshin and the successive lords rest.
+    </div>
+  </div>
+  <div class="tw">
+    <p>矗立在拜殿旁的2層樓建築，就是寶物殿<strong>稽照殿（けいしょうでん）</strong>。名稱取自《古事記》序文中的「稽古照今（けいこしょうこん）」── 深思往昔，以照今日 ── 這句話。</p>
+    <p>由於曾在大火中失去社殿，為了讓寶物免於火災，以<strong>鋼筋混凝土</strong>建造，外觀則修飾得宛如木造的和風建築。建於大正12年（1923），為日本國家<span class="tt" tabindex="0" role="button" aria-expanded="false" data-term="toroku">登錄有形文化財<span class="tt-pop" role="tooltip">向國家登錄、希望保存下來的建築等。保護方式比「指定」寬鬆，可以一邊使用一邊保存。</span></span>。</p>
+    <p>館內收藏與謙信、景勝、直江兼續、鷹山有淵源的文物，其中國家<span class="tt" tabindex="0" role="button" aria-expanded="false" data-term="jubun">重要文化財<span class="tt-pop" role="tooltip">由日本國家指定為「特別重要」的文化財。國寶則是其中最頂級者。</span></span>有16件。例如以下這些：</p>
+    <ul>
+      <li><strong>明朝皇帝授予景勝的任命書與官服</strong>：豐臣秀吉與明朝（中國）進行和談時，景勝也獲贈明朝武官的官位與一整套官服</li>
+      <li><strong>直江兼續的<span class="tt" tabindex="0" role="button" aria-expanded="false" data-term="dofuku">胴服<span class="tt-pop" role="tooltip">武將平時穿在和服外面的外衣，類似現在的外套。</span></span></strong>：表布被認為是經由南蠻貿易傳入的歐洲織品</li>
+      <li><strong>高麗佛畫（1309年）</strong>：流傳於日本的高麗佛畫，數量極為稀少</li>
+      <li><strong>謙信信奉的毘沙門天畫像</strong>，以及據傳為謙信所用的<strong>色色威<span class="tt" tabindex="0" role="button" aria-expanded="false" data-term="haramaki">腹卷<span class="tt-pop" role="tooltip">纏繞軀幹、在背後接合穿著的輕型鎧甲。</span></span>（いろいろおどしはらまき）</strong></li>
+    </ul>
+    <div class="callout crimson">
+      <div class="callout-title">⚠ 展出內容依時期而異</div>
+      寶物並非一直展出相同的物品。尤其和服等文物容易受損，真品<strong>一次只能展出約2週</strong>。展品一年會更換多次，有特別想看的文物，請事先向稽照殿洽詢。<br>館內<strong>禁止拍照</strong>。
+    </div>
+    <div class="callout">
+      <div class="callout-title">🕘 稽照殿資訊</div>
+      開館：3月中旬〜11月25日（冬季休館；2月雪燈籠祭期間開館）<br>時間：9:30〜16:00（15:45前入館）<br>參觀費：一般700日圓、高中及大學生400日圓、國小及國中生300日圓（僅收現金）
+    </div>
+    <h3>⑦ 授與所 ─ 不拆除，用繩索拉著移動</h3>
+    <p>領受御守與御朱印的<span class="tt" tabindex="0" role="button" aria-expanded="false" data-term="juyosho">授與所<span class="tt-pop" role="tooltip">領受御守、神札與御朱印的地方。在神社不說「買」，而是說「領受」。</span></span>建築，也是大正12年（1923）重建時的建物。2026年秋天，以不拆除建築、用繩索拉動的<span class="tt" tabindex="0" role="button" aria-expanded="false" data-term="hikiya">曳家<span class="tt-pop" role="tooltip">不拆除建築，直接將整棟抬起或拖拉、移到別處的傳統技術。</span></span>工法移動了這棟建築，參與儀式的人們也一起拉了繩索。<span class="kakunin">【待確認】</span></p>
+    <div class="callout gold">
+      <div class="callout-title">🧧 御守與御朱印</div>
+      御守一律700日圓。<span class="tt" tabindex="0" role="button" aria-expanded="false" data-term="goshuin">御朱印<span class="tt-pop" role="tooltip">作為參拜的證明，以墨書寫神社名稱與日期並蓋上印章。須以專用的冊子領受。</span></span>有「上杉神社」與「松岬神社」2種，松岬神社的御朱印也可在這裡領受（僅收現金）。
+    </div>
+    <h3>⑧ 境內後方 ─ 以紅色旗幟（のぼり）為標記</h3>
+    <p>繞到社殿北側，就會看到紅色旗幟。從這裡開始，是連當地人都會驚訝「原來有這樣的地方」的靜謐一隅。</p>
+    <ul>
+      <li><strong>春日神社</strong>：上杉家的氏神。原本供奉於越後的春日山，隨上杉家一起來到米澤。大正大火燒毀後長期無法重建，於昭和56年（1981）靠市民捐款重建。這裡也是誓言重整藩政的鷹山奉納誓詞的神社</li>
+      <li><strong>福德稻荷神社</strong>：江戶時代中期作為城的守護神而供奉的<span class="tt" tabindex="0" role="button" aria-expanded="false" data-term="inari">稻荷神<span class="tt-pop" role="tooltip">稻荷神。保佑生意興隆、守護家宅的神明，狐狸被視為祂的使者。</span></span>。鷹山對祂深為信奉</li>
+      <li><strong><span class="tt" tabindex="0" role="button" aria-expanded="false" data-term="benten">辯才天<span class="tt-pop" role="tooltip">辯才天（弁財天）。多供奉在水邊，是掌管技藝與財富的神明。</span></span></strong>：供奉在福德稻荷的後方</li>
+      <li><strong>水池</strong>：據傳瀑布左右長滿青苔的石頭，是從藩政時代留存至今的</li>
+      <li><strong>燈籠</strong>：靜靜立在神門旁的燈籠，是昭和53年（1978）謙信公四百年祭時的<span class="tt" tabindex="0" role="button" aria-expanded="false" data-term="kenpai">獻燈<span class="tt-pop" role="tooltip">「獻燈」是向神明奉納燈籠。燈籠上刻有奉納者個人或團體的名稱。</span></span></li>
+    </ul>
+    <p>據傳境內還有自上杉家來到米澤時就存在的<strong>冷杉古木</strong>。鷹山或許也曾眺望過這棵樹。<span class="kakunin">【待確認】</span></p>
+    <div class="callout deep">
+      <div class="callout-title">⏱ 想再多走一些的話</div>
+      走完境內後方，全程約1小時。之後還可以順道前往供奉鷹山的<strong>松岬神社</strong>（立有<span class="tt" tabindex="0" role="button" aria-expanded="false" data-term="denkoku">「傳國之辭」<span class="tt-pop" role="tooltip">上杉鷹山贈予下一任藩主作為心得的3條訓誡，表達「國家與人民並非藩主所有」的理念。</span></span>石碑），或是謙信與歷代藩主長眠的<span class="tt" tabindex="0" role="button" aria-expanded="false" data-term="gobyosho">上杉家御廟所<span class="tt-pop" role="tooltip">米澤藩歷代藩主（上杉家）的墓所並列之處。謙信供奉在中央的最深處。為日本國家指定史跡。</span></span>。
+    </div>
+  </div>
+</section>
+
+<section class="chapter" id="ch4">
+  <div class="chapter-num">CHAPTER 05</div>
+  <h2>
+    <span class="ja">🌸 季節と行事</span>
+    <span class="en">🌸 Seasons and Events</span>
+    <span class="tw">🌸 季節與祭典</span>
+  </h2>
+  <div class="ja">
+    <p class="lead">上杉神社は、季節ごとにまったく違う顔を見せます。いちばんにぎわうのは春の上杉まつり、いちばん幻想的なのは冬の雪灯篭まつりです。</p>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-time">1月1日</div>
+        <div class="tl-title">歳旦祭</div>
+        <div class="tl-desc">新しい年の最初のお祭り。元日は0時に門が開きます。</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-time">2月3日</div>
+        <div class="tl-title">節分祭</div>
+        <div class="tl-desc">年男・年女が福豆や福餅をまきます。</div>
+      </div>
+      <div class="tl-item major">
+        <div class="tl-time">2月第2土・日</div>
+        <div class="tl-title">上杉雪灯篭まつり</div>
+        <div class="tl-desc">雪で作った灯籠とぼんぼりに火がともる、冬の夜のお祭り。1978年の謙信公四百年祭に合わせて始まり、もともとは戦争で亡くなった人の鎮魂が目的でした。</div>
+      </div>
+      <div class="tl-item major">
+        <div class="tl-time">4月29日</div>
+        <div class="tl-title">例大祭</div>
+        <div class="tl-desc">上杉神社でいちばん大切なお祭り。謙信の命日（旧暦3月13日）を、いまの暦に直した日です。堀の桜もこのころが見ごろ。</div>
+      </div>
+      <div class="tl-item major">
+        <div class="tl-time">4月29日〜5月3日</div>
+        <div class="tl-title">米沢上杉まつり</div>
+        <div class="tl-desc">5月2日の夜には、謙信が戦の前に行った儀式を再現する<span class="tt" tabindex="0" role="button" aria-expanded="false" data-term="busai">武禘式<span class="tt-pop" role="tooltip">謙信が戦に出る前に行った、勝利を祈る儀式。上杉まつりで再現されます。</span></span>。5月3日には神輿が町をめぐり、松川の河原では川中島合戦が再現されます。</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-time">5月下旬／10月上旬</div>
+        <div class="tl-title">お田植祭と抜穂祭</div>
+        <div class="tl-desc">上杉鷹山が自ら田を耕した故事にちなむお祭り。秋に収穫したお米を神社に納めます。</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-time">11月23日</div>
+        <div class="tl-title">新穀感謝祭</div>
+        <div class="tl-desc">その年の実りに感謝するお祭りです。</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-time">12月31日</div>
+        <div class="tl-title">大祓式・除夜祭</div>
+        <div class="tl-desc">1年のけがれをはらい、新しい年を迎えます。</div>
+      </div>
+    </div>
+  </div>
+  <div class="en">
+    <p class="lead">Uesugi Shrine shows a completely different face each season. The liveliest time is the Uesugi Festival in spring; the most magical is the Snow Lantern Festival in winter.</p>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-time">January 1</div>
+        <div class="tl-title">Saitan-sai (New Year's Festival)</div>
+        <div class="tl-desc">The first festival of the new year. On New Year's Day, the gates open at midnight.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-time">February 3</div>
+        <div class="tl-title">Setsubun-sai</div>
+        <div class="tl-desc">People born in that year's zodiac sign scatter lucky beans and rice cakes.</div>
+      </div>
+      <div class="tl-item major">
+        <div class="tl-time">2nd Saturday & Sunday of February</div>
+        <div class="tl-title">Uesugi Snow Lantern Festival</div>
+        <div class="tl-desc">A winter night festival when lanterns and bonbori lamps made of snow are lit. It began in 1978, timed with Lord Kenshin's 400th Anniversary Festival, and was originally held to console the souls of those who died in war.</div>
+      </div>
+      <div class="tl-item major">
+        <div class="tl-time">April 29</div>
+        <div class="tl-title">Grand Festival (Reitaisai)</div>
+        <div class="tl-desc">Uesugi Shrine's most important festival. The date is the anniversary of Kenshin's death (the 13th day of the 3rd month of the old lunar calendar), converted to today's calendar. The cherry blossoms along the moat are also at their best around this time.</div>
+      </div>
+      <div class="tl-item major">
+        <div class="tl-time">April 29 – May 3</div>
+        <div class="tl-title">Yonezawa Uesugi Festival</div>
+        <div class="tl-desc">On the night of May 2 comes the <span class="tt" tabindex="0" role="button" aria-expanded="false" data-term="busai">Buteishiki<span class="tt-pop" role="tooltip">A ritual Kenshin performed before going into battle to pray for victory. It is reenacted at the Uesugi Festival.</span></span>, a reenactment of the ritual Kenshin performed before battle. On May 3, portable shrines (mikoshi) parade through the town, and the Battle of Kawanakajima is reenacted on the banks of the Matsukawa River.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-time">Late May / Early October</div>
+        <div class="tl-title">Otaue-sai & Nukiho-sai (Rice Planting and Harvest Festivals)</div>
+        <div class="tl-desc">Festivals inspired by the story of Uesugi Yōzan tilling a rice field himself. In autumn, the harvested rice is offered to the shrine.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-time">November 23</div>
+        <div class="tl-title">Shinkoku Kansha-sai (Harvest Thanksgiving Festival)</div>
+        <div class="tl-desc">A festival giving thanks for the year's harvest.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-time">December 31</div>
+        <div class="tl-title">Ōharae-shiki & Joya-sai (Great Purification and New Year's Eve Rites)</div>
+        <div class="tl-desc">Purifying the impurities of the past year to welcome the new one.</div>
+      </div>
+    </div>
+  </div>
+  <div class="tw">
+    <p class="lead">上杉神社每個季節都展現截然不同的面貌。最熱鬧的是春天的上杉祭，最夢幻的是冬天的雪燈籠祭。</p>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-time">1月1日</div>
+        <div class="tl-title">歲旦祭</div>
+        <div class="tl-desc">新年的第一場祭典。元旦0點開門。</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-time">2月3日</div>
+        <div class="tl-title">節分祭</div>
+        <div class="tl-desc">由「年男」「年女」（當年生肖相符的男女）撒福豆與福餅。</div>
+      </div>
+      <div class="tl-item major">
+        <div class="tl-time">2月第2個週六、週日</div>
+        <div class="tl-title">上杉雪燈籠祭</div>
+        <div class="tl-desc">用雪做成的燈籠與雪洞燈點亮燭火的冬夜祭典。配合1978年謙信公四百年祭而開始，原本的目的是悼念在戰爭中逝去的人們。</div>
+      </div>
+      <div class="tl-item major">
+        <div class="tl-time">4月29日</div>
+        <div class="tl-title">例大祭</div>
+        <div class="tl-desc">上杉神社最重要的祭典。將謙信的忌日（舊曆3月13日）換算成現行曆法的日子。護城河的櫻花也在這時正值最佳觀賞期。</div>
+      </div>
+      <div class="tl-item major">
+        <div class="tl-time">4月29日〜5月3日</div>
+        <div class="tl-title">米澤上杉祭</div>
+        <div class="tl-desc">5月2日晚上舉行重現謙信出征前儀式的<span class="tt" tabindex="0" role="button" aria-expanded="false" data-term="busai">武禘式<span class="tt-pop" role="tooltip">謙信出征前舉行、祈求勝利的儀式。在上杉祭中會重現。</span></span>。5月3日神轎巡行市區，松川河畔還會重現川中島合戰。</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-time">5月下旬／10月上旬</div>
+        <div class="tl-title">御田植祭與拔穗祭</div>
+        <div class="tl-desc">源自上杉鷹山親自下田耕作之典故的祭典。秋天收成的稻米會奉納給神社。</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-time">11月23日</div>
+        <div class="tl-title">新穀感謝祭</div>
+        <div class="tl-desc">感謝當年收成的祭典。</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-time">12月31日</div>
+        <div class="tl-title">大祓式、除夜祭</div>
+        <div class="tl-desc">祓除1年的污穢，迎接新年。</div>
+      </div>
+    </div>
+  </div>
+  <img class="hero-photo" src="/guides/assets/uesugi-jinja/images/uesugi-jinja-yukidoro.jpg" alt="雪灯篭に明かりがともる冬の夜の参道" loading="lazy">
+  <div class="hero-photo-caption"><span class="ja">上杉雪灯篭まつり。雪で作った灯籠に火がともります。</span><span class="en">The Uesugi Snow Lantern Festival: lanterns made of snow, lit from within.</span><span class="tw">上杉雪燈籠祭，以雪製成的燈籠點上燈火。</span></div>
+  <div class="ja">
+    <div class="callout gold">
+      <div class="callout-title">📷 季節の撮りどころ</div>
+      <strong>春</strong>：堀と舞鶴橋と桜<br><strong>夏</strong>：夏至からお盆のころ、朝6時ごろに東の参道から差しこむ強い光（毎朝見ている人のおすすめ）<span class="kakunin">【要確認】</span><br><strong>冬</strong>：雪灯篭まつりの夜
+    </div>
+    <h3>これからの節目</h3>
+    <p>謙信をめぐる大きな節目が、これから続けてやってきます。2027年は450回忌、2028年は亡くなって450年、そして<strong>2030年は生まれて500年</strong>です。</p>
+  </div>
+  <div class="en">
+    <div class="callout gold">
+      <div class="callout-title">📷 Seasonal Photo Spots</div>
+      <strong>Spring</strong>: The moat, Maizuru Bridge and cherry blossoms<br><strong>Summer</strong>: From the summer solstice to Obon, strong light streaming in along the east approach around 6 a.m. (recommended by someone who sees it every morning)<span class="kakunin">[To be confirmed]</span><br><strong>Winter</strong>: The night of the Snow Lantern Festival
+    </div>
+    <h3>Milestones Ahead</h3>
+    <p>A series of major milestones for Kenshin is coming up: 2027 brings his 450th memorial service, 2028 the 450th anniversary of his death, and <strong>2030 the 500th anniversary of his birth</strong>.</p>
+  </div>
+  <div class="tw">
+    <div class="callout gold">
+      <div class="callout-title">📷 各季節的拍照景點</div>
+      <strong>春</strong>：護城河、舞鶴橋與櫻花<br><strong>夏</strong>：夏至到盂蘭盆節期間，早上6點左右從東側參道射入的強烈陽光（每天早上都看著的人推薦）<span class="kakunin">【待確認】</span><br><strong>冬</strong>：雪燈籠祭之夜
+    </div>
+    <h3>接下來的重要年份</h3>
+    <p>與謙信相關的重要年份即將接連到來：2027年是450回忌（忌辰法會），2028年是逝世450年，而<strong>2030年是誕辰500年</strong>。</p>
+  </div>
+</section>
+
+<section class="chapter" id="ch5">
+  <div class="chapter-num">CHAPTER 06</div>
+  <h2>
+    <span class="ja">📖 用語集</span>
+    <span class="en">📖 Glossary</span>
+    <span class="tw">📖 用語集</span>
+  </h2>
+  <div class="ja">
+    <p>ガイドに出てくる言葉と、案内で使うフレーズをまとめました。上の検索窓で絞りこめます。</p>
+  </div>
+  <div class="en">
+    <p>Words that appear in this guide, plus handy phrases for guiding. Use the search box above to narrow them down.</p>
+  </div>
+  <div class="tw">
+    <p>整理了導覽中出現的詞語，以及導覽時會用到的實用句子。可用上方的搜尋欄篩選。</p>
+  </div>
+  <div class="glossary-search">
+    <input class="glossary-search-input ja" type="search" data-glossary-search="1" placeholder="用語を検索（日本語・英語・繁体字）" aria-label="用語を検索（日本語・英語・繁体字）">
+    <input class="glossary-search-input en" type="search" data-glossary-search="1" placeholder="Search terms (JA / EN / TW)" aria-label="Search terms (JA / EN / TW)">
+    <input class="glossary-search-input tw" type="search" data-glossary-search="1" placeholder="搜尋詞彙（日／英／繁）" aria-label="搜尋詞彙（日／英／繁）">
+    <span class="glossary-search-count" data-glossary-count="1"></span>
+  </div>
+  <div class="glossary-wrap">
+    <table class="glossary glossary-main" data-glossary="main">
+      <thead>
+        <tr>
+          <th style="width:22%"><span class="ja">日本語（よみ）</span><span class="en">Japanese</span><span class="tw">日語（讀音）</span></th>
+          <th style="width:26%"><span class="ja">英訳 / IPA</span><span class="en">English / IPA</span><span class="tw">英譯 / 國際音標</span></th>
+          <th style="width:18%"><span class="ja">繁體中文</span><span class="en">Trad. Chinese</span><span class="tw">繁體中文</span></th>
+          <th style="width:34%"><span class="ja">一行解説</span><span class="en">One-line gloss</span><span class="tw">簡要說明</span></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="cat-row"><td colspan="4"><span class="ja">🗡️ ① 武将名 / Generals</span><span class="en">🗡️ ① Generals (Bushō)</span><span class="tw">🗡️ ① 武將名</span></td></tr>
+        <tr>
+          <td class="term-jp">上杉謙信<span class="yomi">うえすぎ けんしん</span></td>
+          <td class="term-en">Uesugi Kenshin<span class="ipa">/ɯ.e.sɯ.ɡʲi keɴ.ɕiɴ/</span></td>
+          <td class="term-tw">上杉謙信</td>
+          <td class="term-desc"><span class="ja">越後の戦国大名（1530–1578）。「軍神」「越後の龍」。米沢藩の精神的始祖。</span><span class="en">Sengoku warlord of Echigo (1530–1578). "God of War," "Dragon of Echigo." Spiritual founder of Yonezawa Domain.</span><span class="tw">越後戰國大名（1530–1578）。「軍神」「越後之龍」，米澤藩精神始祖。</span></td>
+        </tr>
+        <tr>
+          <td class="term-jp">武田信玄<span class="yomi">たけだ しんげん</span></td>
+          <td class="term-en">Takeda Shingen<span class="ipa">/ta.ke.da ɕiɴ.ɡeɴ/</span></td>
+          <td class="term-tw">武田信玄</td>
+          <td class="term-desc"><span class="ja">甲斐（山梨）の戦国大名（1521–1573）。「甲斐の虎」。謙信の最大のライバル。</span><span class="en">Sengoku warlord of Kai/Yamanashi (1521–1573). "Tiger of Kai." Kenshin's greatest rival.</span><span class="tw">甲斐（山梨）戰國大名（1521–1573）。「甲斐之虎」，謙信最大宿敵。</span></td>
+        </tr>
+        <tr>
+          <td class="term-jp">上杉景勝<span class="yomi">うえすぎ かげかつ</span></td>
+          <td class="term-en">Uesugi Kagekatsu<span class="ipa">/ɯ.e.sɯ.ɡʲi ka.ɡe.ka.tsɯ/</span></td>
+          <td class="term-tw">上杉景勝</td>
+          <td class="term-desc"><span class="ja">謙信の養子（1556–1623）。会津→米沢へ。米沢藩初代藩主。</span><span class="en">Kenshin's adopted son (1556–1623). Relocated from Aizu to Yonezawa; first lord of Yonezawa Domain.</span><span class="tw">謙信養子（1556–1623）。由會津移封米澤，米澤藩首任藩主。</span></td>
+        </tr>
+        <tr>
+          <td class="term-jp">直江兼続<span class="yomi">なおえ かねつぐ</span></td>
+          <td class="term-en">Naoe Kanetsugu<span class="ipa">/na.o.e ka.ne.tsɯ.ɡɯ/</span></td>
+          <td class="term-tw">直江兼續</td>
+          <td class="term-desc"><span class="ja">米沢藩家老（1560–1620）。「愛」の前立兜で有名。NHK大河『天地人』主人公。</span><span class="en">Chief minister of Yonezawa (1560–1620). Famed for his helmet bearing the kanji "愛" (love/compassion). Hero of NHK's <em>Tenchijin</em>.</span><span class="tw">米澤藩家老（1560–1620）。前立「愛」字頭盔聞名，NHK大河劇《天地人》主角。</span></td>
+        </tr>
+        <tr>
+          <td class="term-jp">上杉鷹山<span class="yomi">うえすぎ ようざん</span></td>
+          <td class="term-en">Uesugi Yōzan</td>
+          <td class="term-tw">上杉鷹山</td>
+          <td class="term-desc"><span class="ja">江戸時代の米沢藩主（1751–1822）。苦しい藩の財政を立て直した名君。松岬神社にまつられています。</span><span class="en">Edo-period lord of the Yonezawa Domain (1751–1822). A great lord who restored the domain's struggling finances. Enshrined at Matsugasaki Shrine.</span><span class="tw">江戶時代的米澤藩主（1751–1822）。重整藩內困頓財政的明君。供奉於松岬神社。</span></td>
+        </tr>
+        <tr>
+          <td class="term-jp">伊東忠太<span class="yomi">いとう ちゅうた</span></td>
+          <td class="term-en">Itō Chūta</td>
+          <td class="term-tw">伊東忠太</td>
+          <td class="term-desc"><span class="ja">米沢出身の建築家（1867–1954）。いまの上杉神社の社殿と稽照殿を設計しました。</span><span class="en">Yonezawa-born architect (1867–1954). Designed Uesugi Shrine's current shrine buildings and the Keishōden.</span><span class="tw">米澤出身的建築師（1867–1954）。設計了現今上杉神社的社殿與稽照殿。</span></td>
+        </tr>
+        <tr>
+          <td class="term-jp">三島通庸<span class="yomi">みしま みちつね</span></td>
+          <td class="term-en">Mishima Michitsune</td>
+          <td class="term-tw">三島通庸</td>
+          <td class="term-desc"><span class="ja">明治の山形県令。道路や橋を次々に整えました。</span><span class="en">Meiji-era Governor of Yamagata Prefecture. Built roads and bridges one after another.</span><span class="tw">明治時期的山形縣令。陸續整修道路與橋梁。</span></td>
+        </tr>
+      </tbody>
+      <tbody>
+        <tr class="cat-row"><td colspan="4"><span class="ja">⛩ 神社 / Shrine</span><span class="en">⛩ Shrine</span><span class="tw">⛩ 神社</span></td></tr>
+        <tr>
+          <td class="term-jp">鳥居<span class="yomi">とりい</span></td>
+          <td class="term-en">torii gate</td>
+          <td class="term-tw">鳥居</td>
+          <td class="term-desc"><span class="ja">神社の入口の門。ここから先が神さまの場所というしるし。</span><span class="en">The gate at a shrine's entrance, marking where the realm of the gods begins.</span><span class="tw">神社入口的門，象徵從這裡開始是神明的領域。</span></td>
+        </tr>
+        <tr>
+          <td class="term-jp">参道<span class="yomi">さんどう</span></td>
+          <td class="term-en">approach path</td>
+          <td class="term-tw">參道</td>
+          <td class="term-desc"><span class="ja">鳥居から社殿へ続く、お参りの道。</span><span class="en">The path for worshippers, from the torii gate to the shrine buildings.</span><span class="tw">從鳥居通往社殿的參拜道路。</span></td>
+        </tr>
+        <tr>
+          <td class="term-jp">拝殿<span class="yomi">はいでん</span></td>
+          <td class="term-en">worship hall</td>
+          <td class="term-tw">拜殿</td>
+          <td class="term-desc"><span class="ja">参拝する人が手を合わせる建物。</span><span class="en">The building where worshippers put their hands together to pray.</span><span class="tw">參拜者合掌祈禱的建築。</span></td>
+        </tr>
+        <tr>
+          <td class="term-jp">本殿<span class="yomi">ほんでん</span></td>
+          <td class="term-en">main sanctuary</td>
+          <td class="term-tw">本殿</td>
+          <td class="term-desc"><span class="ja">神さまがいらっしゃる建物。ふだんは入れません。</span><span class="en">The building where the deity resides. Normally off-limits.</span><span class="tw">神明所在的建築。平時無法進入。</span></td>
+        </tr>
+        <tr>
+          <td class="term-jp">神門<span class="yomi">しんもん</span></td>
+          <td class="term-en">shrine gate</td>
+          <td class="term-tw">神門</td>
+          <td class="term-desc"><span class="ja">社殿の手前の門。</span><span class="en">The gate in front of the shrine buildings.</span><span class="tw">社殿前方的門。</span></td>
+        </tr>
+        <tr>
+          <td class="term-jp">狛犬<span class="yomi">こまいぬ</span></td>
+          <td class="term-en">guardian lion-dogs</td>
+          <td class="term-tw">狛犬</td>
+          <td class="term-desc"><span class="ja">社殿を守る一対の像。</span><span class="en">A pair of statues guarding the shrine.</span><span class="tw">守護社殿的一對像。</span></td>
+        </tr>
+        <tr>
+          <td class="term-jp">手水舎<span class="yomi">ちょうずや</span></td>
+          <td class="term-en">purification fountain</td>
+          <td class="term-tw">手水舍</td>
+          <td class="term-desc"><span class="ja">手と口を清める場所。</span><span class="en">A place to purify your hands and mouth.</span><span class="tw">清潔雙手與口的地方。</span></td>
+        </tr>
+        <tr>
+          <td class="term-jp">授与所<span class="yomi">じゅよしょ</span></td>
+          <td class="term-en">amulet office</td>
+          <td class="term-tw">授與所</td>
+          <td class="term-desc"><span class="ja">お守りや御朱印を受ける所。</span><span class="en">Where you receive amulets and goshuin.</span><span class="tw">領受御守與御朱印的地方。</span></td>
+        </tr>
+        <tr>
+          <td class="term-jp">お守り<span class="yomi">おまもり</span></td>
+          <td class="term-en">amulet (omamori)</td>
+          <td class="term-tw">御守</td>
+          <td class="term-desc"><span class="ja">身につけて持ち歩く、神さまのご加護のしるし。</span><span class="en">A token of divine protection that you carry with you.</span><span class="tw">隨身攜帶、象徵神明庇佑的護身符。</span></td>
+        </tr>
+        <tr>
+          <td class="term-jp">御朱印<span class="yomi">ごしゅいん</span></td>
+          <td class="term-en">shrine stamp (goshuin)</td>
+          <td class="term-tw">御朱印</td>
+          <td class="term-desc"><span class="ja">参拝の証の墨書きと印。</span><span class="en">Ink calligraphy and a seal stamp, as proof of your visit.</span><span class="tw">作為參拜證明的墨書與印章。</span></td>
+        </tr>
+        <tr>
+          <td class="term-jp">摂社<span class="yomi">せっしゃ</span></td>
+          <td class="term-en">affiliated shrine</td>
+          <td class="term-tw">攝社</td>
+          <td class="term-desc"><span class="ja">本社とゆかりの深い付属の神社。上杉神社では松岬神社。</span><span class="en">An affiliated shrine closely tied to the main shrine. At Uesugi Shrine, this is Matsugasaki Shrine.</span><span class="tw">與本社淵源深厚的附屬神社。上杉神社的攝社是松岬神社。</span></td>
+        </tr>
+        <tr>
+          <td class="term-jp">末社<span class="yomi">まっしゃ</span></td>
+          <td class="term-en">subsidiary shrine</td>
+          <td class="term-tw">末社</td>
+          <td class="term-desc"><span class="ja">境内の小さめの神社。春日神社・福徳稲荷神社など。</span><span class="en">Smaller shrines within the grounds, such as Kasuga Shrine and Fukutoku Inari Shrine.</span><span class="tw">境內規模較小的神社，如春日神社、福德稻荷神社等。</span></td>
+        </tr>
+        <tr>
+          <td class="term-jp">二礼二拍手一礼<span class="yomi">にれい にはくしゅ いちれい</span></td>
+          <td class="term-en">bow twice, clap twice, bow once</td>
+          <td class="term-tw">二拜二拍手一拜</td>
+          <td class="term-desc"><span class="ja">神社の基本のお参りの仕方。</span><span class="en">The basic way to pray at a shrine.</span><span class="tw">神社基本的參拜方式。</span></td>
+        </tr>
+      </tbody>
+      <tbody>
+        <tr class="cat-row"><td colspan="4"><span class="ja">🏯 お城と建物 / Castle & Buildings</span><span class="en">🏯 Castle & Buildings</span><span class="tw">🏯 城郭與建築</span></td></tr>
+        <tr>
+          <td class="term-jp">本丸<span class="yomi">ほんまる</span></td>
+          <td class="term-en">inner citadel (honmaru)</td>
+          <td class="term-tw">本丸</td>
+          <td class="term-desc"><span class="ja">お城のいちばん中心の区画。</span><span class="en">The innermost section of a castle.</span><span class="tw">城堡最核心的區域。</span></td>
+        </tr>
+        <tr>
+          <td class="term-jp">堀<span class="yomi">ほり</span></td>
+          <td class="term-en">moat</td>
+          <td class="term-tw">護城河</td>
+          <td class="term-desc"><span class="ja">お城のまわりの水路。</span><span class="en">The water channel around a castle.</span><span class="tw">環繞城堡的水道。</span></td>
+        </tr>
+        <tr>
+          <td class="term-jp">舞鶴橋<span class="yomi">まいづるばし</span></td>
+          <td class="term-en">Maizuru Bridge</td>
+          <td class="term-tw">舞鶴橋</td>
+          <td class="term-desc"><span class="ja">堀にかかる石のアーチ橋（1886年）。</span><span class="en">A stone arch bridge over the moat (1886).</span><span class="tw">橫跨護城河的石造拱橋（1886年）。</span></td>
+        </tr>
+        <tr>
+          <td class="term-jp">稽照殿<span class="yomi">けいしょうでん</span></td>
+          <td class="term-en">Keishōden (treasure hall)</td>
+          <td class="term-tw">稽照殿</td>
+          <td class="term-desc"><span class="ja">上杉神社の宝物殿（1923年）。国の登録有形文化財。</span><span class="en">Uesugi Shrine's treasure hall (1923). A national Registered Tangible Cultural Property.</span><span class="tw">上杉神社的寶物殿（1923年）。日本國家登錄有形文化財。</span></td>
+        </tr>
+        <tr>
+          <td class="term-jp">曳家<span class="yomi">ひきや</span></td>
+          <td class="term-en">hikiya (moving a building intact)</td>
+          <td class="term-tw">曳家</td>
+          <td class="term-desc"><span class="ja">建物を壊さずに動かす技術。</span><span class="en">A technique for moving a building without tearing it down.</span><span class="tw">不拆除建築而將其移動的技術。</span></td>
+        </tr>
+        <tr>
+          <td class="term-jp">稲田石<span class="yomi">いなだいし</span></td>
+          <td class="term-en">Inada granite</td>
+          <td class="term-tw">稻田石</td>
+          <td class="term-desc"><span class="ja">茨城県産の白っぽい花崗岩。</span><span class="en">A whitish granite from Ibaraki Prefecture.</span><span class="tw">茨城縣出產、偏白色的花崗岩。</span></td>
+        </tr>
+      </tbody>
+      <tbody>
+        <tr class="cat-row"><td colspan="4"><span class="ja">🗃 宝物 / Treasures</span><span class="en">🗃 Treasures</span><span class="tw">🗃 寶物</span></td></tr>
+        <tr>
+          <td class="term-jp">重要文化財<span class="yomi">じゅうようぶんかざい</span></td>
+          <td class="term-en">Important Cultural Property</td>
+          <td class="term-tw">重要文化財</td>
+          <td class="term-desc"><span class="ja">国が指定した大切な文化財。</span><span class="en">Important cultural properties designated by the national government.</span><span class="tw">由國家指定的珍貴文化財。</span></td>
+        </tr>
+        <tr>
+          <td class="term-jp">国宝<span class="yomi">こくほう</span></td>
+          <td class="term-en">National Treasure</td>
+          <td class="term-tw">國寶</td>
+          <td class="term-desc"><span class="ja">重要文化財の中でとくに価値が高いもの。</span><span class="en">Items of especially high value among Important Cultural Properties.</span><span class="tw">重要文化財中價值特別高者。</span></td>
+        </tr>
+        <tr>
+          <td class="term-jp">登録有形文化財<span class="yomi">とうろくゆうけいぶんかざい</span></td>
+          <td class="term-en">Registered Tangible Cultural Property</td>
+          <td class="term-tw">登錄有形文化財</td>
+          <td class="term-desc"><span class="ja">国に登録された、残していきたい建物など。</span><span class="en">Buildings and other properties registered with the national government as worth preserving.</span><span class="tw">向國家登錄、希望保存下來的建築等。</span></td>
+        </tr>
+        <tr>
+          <td class="term-jp">腹巻<span class="yomi">はらまき</span></td>
+          <td class="term-en">haramaki armor</td>
+          <td class="term-tw">腹卷</td>
+          <td class="term-desc"><span class="ja">胴に巻いて背中で合わせる軽めの鎧。</span><span class="en">Light armor wrapped around the torso and fastened at the back.</span><span class="tw">纏繞軀幹、在背後接合的輕型鎧甲。</span></td>
+        </tr>
+        <tr>
+          <td class="term-jp">胴服<span class="yomi">どうぶく</span></td>
+          <td class="term-en">dōbuku (outer coat)</td>
+          <td class="term-tw">胴服</td>
+          <td class="term-desc"><span class="ja">着物の上にはおる上着。</span><span class="en">A coat worn over a kimono.</span><span class="tw">穿在和服外面的外衣。</span></td>
+        </tr>
+      </tbody>
+      <tbody>
+        <tr class="cat-row"><td colspan="4"><span class="ja">⚔️ ② 戦術・軍事用語 / Tactics</span><span class="en">⚔️ ② Tactics & Military Terms</span><span class="tw">⚔️ ② 戰術・軍事用語</span></td></tr>
+        <tr>
+          <td class="term-jp">一騎打ち<span class="yomi">いっきうち</span></td>
+          <td class="term-en">Single Combat<span class="ipa">/ik.kʲi.ɯ.tɕi/</span></td>
+          <td class="term-tw">單挑／一騎當千</td>
+          <td class="term-desc"><span class="ja">武将同士の一対一の戦い。中世日本では名誉ある戦闘形式。</span><span class="en">One-on-one combat between commanders; an honored form of warfare in medieval Japan.</span><span class="tw">武將間的一對一決戰，中世日本最榮譽的戰鬥形式。</span></td>
+        </tr>
+        <tr>
+          <td class="term-jp">軍配<span class="yomi">ぐんばい</span></td>
+          <td class="term-en">Gunbai (War Fan)<span class="ipa">/ɡɯɴ.bai/</span></td>
+          <td class="term-tw">軍配</td>
+          <td class="term-desc"><span class="ja">武将が部隊を指揮する団扇状の道具。相撲の行司の道具と同源。</span><span class="en">A fan-shaped baton for commanding troops; same word/origin as the sumo referee's fan.</span><span class="tw">武將指揮部隊的扇形指揮棒，與相撲行司用扇同源。</span></td>
+        </tr>
+      </tbody>
+      <tbody>
+        <tr class="cat-row"><td colspan="4"><span class="ja">🛡️ ③ 武具・装束 / Armor & Costume</span><span class="en">🛡️ ③ Armor & Costume</span><span class="tw">🛡️ ③ 武具・裝束</span></td></tr>
+        <tr>
+          <td class="term-jp">甲冑<span class="yomi">かっちゅう</span></td>
+          <td class="term-en">Kacchū (Armor)<span class="ipa">/kat.tɕɯː/</span></td>
+          <td class="term-tw">甲冑</td>
+          <td class="term-desc"><span class="ja">鎧と兜の総称。日本の甲冑は革・鉄板・絹紐の組み合わせ。</span><span class="en">General term for samurai armor (cuirass + helmet); built from leather, iron plates, and silk lacing.</span><span class="tw">鎧甲與頭盔總稱。日本甲冑由皮革、鐵板、絹繩編組而成。</span></td>
+        </tr>
+        <tr>
+          <td class="term-jp">兜<span class="yomi">かぶと</span></td>
+          <td class="term-en">Kabuto (Helmet)<span class="ipa">/ka.bɯ.to/</span></td>
+          <td class="term-tw">兜（頭盔）</td>
+          <td class="term-desc"><span class="ja">武将の頭部防具。前立（飾り）で個性を表現。「鍬形」「鹿角」など。</span><span class="en">The samurai helmet; the front crest (<em>maedate</em>) — antlers, horns, kanji — expressed identity.</span><span class="tw">武將頭部防具。前立（裝飾）展現個性，如鍬形、鹿角等。</span></td>
+        </tr>
+        <tr>
+          <td class="term-jp">陣羽織<span class="yomi">じんばおり</span></td>
+          <td class="term-en">Jinbaori (Battle Surcoat)<span class="ipa">/dʑiɴ.ba.o.ɾi/</span></td>
+          <td class="term-tw">陣羽織</td>
+          <td class="term-desc"><span class="ja">甲冑の上に羽織る装束。武将の威厳を示す。家紋入りが多い。</span><span class="en">A surcoat worn over armor for status display, often bearing the family crest.</span><span class="tw">穿於甲冑外的禮服，多繡家紋以彰顯武將威儀。</span></td>
+        </tr>
+        <tr>
+          <td class="term-jp">軍旗<span class="yomi">ぐんき</span></td>
+          <td class="term-en">Gunki (Battle Standard)<span class="ipa">/ɡɯɴ.kʲi/</span></td>
+          <td class="term-tw">軍旗</td>
+          <td class="term-desc"><span class="ja">軍勢を示す旗。家紋・宗教的シンボル・標語を染め抜く。</span><span class="en">A military standard bearing crest, religious symbol, or motto.</span><span class="tw">標示軍勢的旗幟，染有家紋、宗教符號或座右銘。</span></td>
+        </tr>
+      </tbody>
+      <tbody>
+        <tr class="cat-row"><td colspan="4"><span class="ja">👑 ④ 称号・役職 / Titles & Roles</span><span class="en">👑 ④ Titles & Roles</span><span class="tw">👑 ④ 稱號・職位</span></td></tr>
+        <tr>
+          <td class="term-jp">越後の龍<span class="yomi">えちごのりゅう</span></td>
+          <td class="term-en">Dragon of Echigo<span class="ipa">/e.tɕi.ɡo no ɾʲɯː/</span></td>
+          <td class="term-tw">越後之龍</td>
+          <td class="term-desc"><span class="ja">上杉謙信の異名。越後（新潟）出身で龍のように強かったことから。</span><span class="en">Epithet for Kenshin — fierce as a dragon, lord of Echigo.</span><span class="tw">上杉謙信異名。出身越後，戰鬥力如龍。</span></td>
+        </tr>
+        <tr>
+          <td class="term-jp">軍神<span class="yomi">ぐんしん</span></td>
+          <td class="term-en">God of War<span class="ipa">/ɡɯɴ.ɕiɴ/</span></td>
+          <td class="term-tw">軍神</td>
+          <td class="term-desc"><span class="ja">謙信を称える尊称。戦に強く、毘沙門天の化身と信じられたことから。</span><span class="en">Honorific for Kenshin — believed to be the earthly incarnation of Bishamonten.</span><span class="tw">對謙信的尊稱。被視為毘沙門天化身。</span></td>
+        </tr>
+        <tr>
+          <td class="term-jp">大名<span class="yomi">だいみょう</span></td>
+          <td class="term-en">Daimyō (Feudal Lord)<span class="ipa">/dai.mʲoː/</span></td>
+          <td class="term-tw">大名</td>
+          <td class="term-desc"><span class="ja">広大な領地を持つ武家の長。戦国時代の主役。</span><span class="en">A major feudal lord; the leading actor of the Sengoku period.</span><span class="tw">擁有廣大領地的武家領主，戰國時代的主角。</span></td>
+        </tr>
+        <tr>
+          <td class="term-jp">家臣<span class="yomi">かしん</span></td>
+          <td class="term-en">Kashin (Retainer)<span class="ipa">/ka.ɕiɴ/</span></td>
+          <td class="term-tw">家臣</td>
+          <td class="term-desc"><span class="ja">大名に仕える武士。封建的主従関係で結ばれる。</span><span class="en">A samurai serving a daimyō under a bond of feudal loyalty.</span><span class="tw">侍奉大名的武士，以封建主從關係結合。</span></td>
+        </tr>
+        <tr>
+          <td class="term-jp">家老<span class="yomi">かろう</span></td>
+          <td class="term-en">Karō (Chief Retainer)<span class="ipa">/ka.ɾoː/</span></td>
+          <td class="term-tw">家老</td>
+          <td class="term-desc"><span class="ja">家臣のトップ。藩政の実務を統括。直江兼続が米沢の代表例。</span><span class="en">Top retainer in charge of domain administration. Naoe Kanetsugu of Yonezawa is the most famous example.</span><span class="tw">家臣之首，主管藩政實務。直江兼續是米澤代表例。</span></td>
+        </tr>
+        <tr>
+          <td class="term-jp">藩主<span class="yomi">はんしゅ</span></td>
+          <td class="term-en">Hanshu (Domain Lord)<span class="ipa">/haɴ.ɕɯ/</span></td>
+          <td class="term-tw">藩主</td>
+          <td class="term-desc"><span class="ja">江戸時代の藩の領主。米沢藩は上杉家12代が務めた。</span><span class="en">Lord of an Edo-period domain. The Uesugi family ruled Yonezawa through 12 generations.</span><span class="tw">江戶時代藩的領主。米澤藩由上杉家12代擔任。</span></td>
+        </tr>
+      </tbody>
+      <tbody>
+        <tr class="cat-row"><td colspan="4"><span class="ja">🌸 ⑤ 文化用語 / Cultural Terms</span><span class="en">🌸 ⑤ Cultural Terms</span><span class="tw">🌸 ⑤ 文化用語</span></td></tr>
+        <tr>
+          <td class="term-jp">戦国時代<span class="yomi">せんごくじだい</span></td>
+          <td class="term-en">Sengoku Period<span class="ipa">/seɴ.ɡo.kɯ dʑi.dai/</span></td>
+          <td class="term-tw">戰國時代</td>
+          <td class="term-desc"><span class="ja">15世紀後半〜16世紀末の内戦時代。各地の大名が覇を競った。</span><span class="en">Japan's "Warring States" era, late 15th to late 16th c.; daimyō clashed across the country.</span><span class="tw">15世紀末至16世紀末的內戰時代，各地大名爭霸。</span></td>
+        </tr>
+        <tr>
+          <td class="term-jp">義<span class="yomi">ぎ</span></td>
+          <td class="term-en">Gi (Righteousness)<span class="ipa">/ɡʲi/</span></td>
+          <td class="term-tw">義</td>
+          <td class="term-desc"><span class="ja">道義に基づき、私利私欲のためでなく行動する精神。謙信の根本思想。</span><span class="en">Acting on moral duty rather than self-interest — Kenshin's core philosophy.</span><span class="tw">基於道義、非為私利的行為精神，謙信的核心思想。</span></td>
+        </tr>
+        <tr>
+          <td class="term-jp">毘沙門天<span class="yomi">びしゃもんてん</span></td>
+          <td class="term-en">Bishamonten<span class="ipa">/bʲi.ɕa.moɴ.teɴ/</span></td>
+          <td class="term-tw">毘沙門天</td>
+          <td class="term-desc"><span class="ja">仏教の四天王の一人で武神。謙信が篤く信仰した。</span><span class="en">One of the Four Heavenly Kings of Buddhism, the war god; deeply venerated by Kenshin.</span><span class="tw">佛教四天王之一的戰神，謙信篤信。</span></td>
+        </tr>
+        <tr>
+          <td class="term-jp">不動明王<span class="yomi">ふどうみょうおう</span></td>
+          <td class="term-en">Fudō Myō-ō<span class="ipa">/ɸɯ.doː mʲoː.oː/</span></td>
+          <td class="term-tw">不動明王</td>
+          <td class="term-desc"><span class="ja">仏教の忿怒尊。煩悩を断ち切る象徴。「龍」の旗で表される。</span><span class="en">Wrathful Buddhist deity who severs delusions; represented by the "龍" banner.</span><span class="tw">佛教忿怒尊，象徵斬斷煩惱，由「龍」字旗代表。</span></td>
+        </tr>
+        <tr>
+          <td class="term-jp">神仏習合<span class="yomi">しんぶつしゅうごう</span></td>
+          <td class="term-en">Shinbutsu-shūgō (Shinto-Buddhist Syncretism)<span class="ipa">/ɕiɴ.bɯ.tsɯ ɕɯː.ɡoː/</span></td>
+          <td class="term-tw">神佛習合</td>
+          <td class="term-desc"><span class="ja">神道と仏教を融合させた信仰形態。武禘式もこの伝統に基づく。</span><span class="en">The syncretic blending of Shinto and Buddhism; Buteishiki draws on this tradition.</span><span class="tw">神道與佛教融合的信仰形態，武禘式即源於此傳統。</span></td>
+        </tr>
+      </tbody>
+      <tbody>
+        <tr class="cat-row"><td colspan="4"><span class="ja">🏯 ⑥ 祭事一般 / Festival Basics</span><span class="en">🏯 ⑥ Festival Basics</span><span class="tw">🏯 ⑥ 祭典通用語</span></td></tr>
+        <tr>
+          <td class="term-jp">例大祭<span class="yomi">れいたいさい</span></td>
+          <td class="term-en">Reitai-sai (Grand Festival)<span class="ipa">/ɾeː.tai.sai/</span></td>
+          <td class="term-tw">例大祭</td>
+          <td class="term-desc"><span class="ja">神社の最も重要な年中行事。上杉神社では春に開催。</span><span class="en">The most important annual rite of a Shinto shrine; held in spring at Uesugi Shrine.</span><span class="tw">神社最重要的年度祭儀，上杉神社於春季舉行。</span></td>
+        </tr>
+        <tr>
+          <td class="term-jp">みこし渡御<span class="yomi">みこしとぎょ</span></td>
+          <td class="term-en">Mikoshi Procession<span class="ipa">/mi.ko.ɕi to.ɡʲo/</span></td>
+          <td class="term-tw">神轎渡御</td>
+          <td class="term-desc"><span class="ja">神霊を乗せた神輿を担いで町を練り歩く行事。</span><span class="en">A procession in which a portable shrine (<em>mikoshi</em>) carrying the deity is paraded through the town.</span><span class="tw">抬載神靈的神轎遊行於市區之活動。</span></td>
+        </tr>
+      </tbody>
+      <tbody>
+        <tr class="cat-row"><td colspan="4"><span class="ja">💬 実用フレーズ / Phrases</span><span class="en">💬 Phrases</span><span class="tw">💬 實用會話</span></td></tr>
+        <tr>
+          <td class="term-jp">館内は撮影できません</td>
+          <td class="term-en">Photography is not allowed inside.</td>
+          <td class="term-tw">館內禁止拍照。</td>
+          <td class="term-desc"><span class="ja">稽照殿の中での案内に。</span><span class="en">For guiding inside the Keishōden.</span><span class="tw">在稽照殿內引導時使用。</span></td>
+        </tr>
+        <tr>
+          <td class="term-jp">お参りはこちらです</td>
+          <td class="term-en">This way to pray.</td>
+          <td class="term-tw">參拜請往這邊。</td>
+          <td class="term-desc"><span class="ja">拝殿への案内に。</span><span class="en">For directing visitors to the worship hall.</span><span class="tw">引導前往拜殿時使用。</span></td>
+        </tr>
+        <tr>
+          <td class="term-jp">現金のみです</td>
+          <td class="term-en">Cash only, please.</td>
+          <td class="term-tw">僅收現金。</td>
+          <td class="term-desc"><span class="ja">授与所・稽照殿で。</span><span class="en">At the amulet office and the Keishōden.</span><span class="tw">在授與所、稽照殿使用。</span></td>
+        </tr>
+        <tr>
+          <td class="term-jp">17時に閉門します</td>
+          <td class="term-en">The shrine closes at 5 p.m.</td>
+          <td class="term-tw">下午5點關門。</td>
+          <td class="term-desc"><span class="ja">夕方の案内に。</span><span class="en">For guiding in the late afternoon.</span><span class="tw">傍晚引導時使用。</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="chapter" id="ch6">
+  <div class="chapter-num">CHAPTER 07</div>
+  <h2>
+    <span class="ja">🚶 実用情報</span>
+    <span class="en">🚶 Practical Information</span>
+    <span class="tw">🚶 實用資訊</span>
+  </h2>
+  <div class="ja">
+    <div class="glossary-wrap">
+      <table class="glossary">
+        <thead>
+          <tr>
+            <th style="width:28%">項目</th>
+            <th style="width:72%">内容</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>お参りできる時間</td>
+            <td>4月〜10月 6:00〜17:00 ／ 11月〜3月 7:00〜17:00（元日は0時に開門）。17時を過ぎると社殿の前までは入れません</td>
+          </tr>
+          <tr>
+            <td>稽照殿</td>
+            <td>3月中旬〜11月25日 9:30〜16:00（入館は15:45まで）。一般700円、高校・大学生400円、小・中学生300円</td>
+          </tr>
+          <tr>
+            <td>お支払い</td>
+            <td>お守り・御朱印・ご祈祷・稽照殿の拝観料は、すべて現金のみ</td>
+          </tr>
+          <tr>
+            <td>駐車場</td>
+            <td>境内にはありません。堀の外の北側にある市営駐車場（おまつり広場）へ</td>
+          </tr>
+          <tr>
+            <td>撮影</td>
+            <td>稽照殿の館内は撮影禁止。お祭りやご祈祷の最中は、撮る前に周りへの配慮を</td>
+          </tr>
+          <tr>
+            <td>写真・動画</td>
+            <td>写真：米沢観光コンベンション協会・上杉伯爵邸ほか提供／動画：プラットヨネザワ（YonezawaABC）</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="callout deep">
+      <div class="callout-title">🙇 境内でのお願い</div>
+      参道の真ん中は神さまの通り道とされています。少し端を歩きましょう。<br>冬は雪で足もとがすべりやすくなります。歩きやすい靴でお越しください。
+    </div>
+  </div>
+  <div class="en">
+    <div class="glossary-wrap">
+      <table class="glossary">
+        <thead>
+          <tr>
+            <th style="width:28%">Item</th>
+            <th style="width:72%">Details</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Visiting hours</td>
+            <td>April–October 6:00–17:00 / November–March 7:00–17:00 (gates open at midnight on New Year's Day). After 17:00, you can't go up to the front of the shrine buildings</td>
+          </tr>
+          <tr>
+            <td>Keishōden</td>
+            <td>Mid-March to November 25, 9:30–16:00 (last entry 15:45). Adults ¥700, high school & university students ¥400, elementary & junior high students ¥300</td>
+          </tr>
+          <tr>
+            <td>Payment</td>
+            <td>Amulets, goshuin, prayer services and Keishōden admission are all cash only</td>
+          </tr>
+          <tr>
+            <td>Parking</td>
+            <td>None on the grounds. Use the city parking lot (Omatsuri Hiroba) on the north side, outside the moat</td>
+          </tr>
+          <tr>
+            <td>Photography</td>
+            <td>No photography inside the Keishōden. During festivals and prayer services, please be considerate of others before taking photos</td>
+          </tr>
+          <tr>
+            <td>Photos & video</td>
+            <td>Photos courtesy of the Yonezawa Convention and Visitors Association, Uesugi Hakushaku-tei and others / Video: Plat Yonezawa (YonezawaABC)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="callout deep">
+      <div class="callout-title">🙇 A Few Requests on the Grounds</div>
+      The center of the approach is said to be the path of the gods. Please walk a little to the side.<br>In winter, snow makes the ground slippery. Please wear shoes that are easy to walk in.
+    </div>
+  </div>
+  <div class="tw">
+    <div class="glossary-wrap">
+      <table class="glossary">
+        <thead>
+          <tr>
+            <th style="width:28%">項目</th>
+            <th style="width:72%">內容</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>參拜時間</td>
+            <td>4月〜10月 6:00〜17:00 ／ 11月〜3月 7:00〜17:00（元旦0點開門）。過了17點就無法進入到社殿前方</td>
+          </tr>
+          <tr>
+            <td>稽照殿</td>
+            <td>3月中旬〜11月25日 9:30〜16:00（15:45前入館）。一般700日圓、高中及大學生400日圓、國小及國中生300日圓</td>
+          </tr>
+          <tr>
+            <td>付款方式</td>
+            <td>御守、御朱印、祈禱、稽照殿參觀費，一律僅收現金</td>
+          </tr>
+          <tr>
+            <td>停車場</td>
+            <td>境內沒有停車場。請前往護城河外北側的市營停車場（祭典廣場）</td>
+          </tr>
+          <tr>
+            <td>拍照</td>
+            <td>稽照殿館內禁止拍照。祭典或祈禱進行中，拍照前請顧及周遭</td>
+          </tr>
+          <tr>
+            <td>照片與影片</td>
+            <td>照片：米澤觀光會議協會、上杉伯爵邸等提供／影片：Plat Yonezawa（YonezawaABC）</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="callout deep">
+      <div class="callout-title">🙇 境內參拜小叮嚀</div>
+      參道中央被視為神明通行之道，請稍微靠邊走。<br>冬天下雪時路面容易濕滑，請穿著好走的鞋子前來。
+    </div>
+  </div>
+</section>
+
+<section class="chapter closing" id="end">
+  <div class="chapter-num">CHAPTER 08</div>
+  <h2>
+    <span class="ja">🌙 むすび</span>
+    <span class="en">🌙 Closing</span>
+    <span class="tw">🌙 結語</span>
+  </h2>
+  <div class="ja">
+    <p>新潟で亡くなった謙信は、約300年かけて米沢にたどり着き、町の人びとの手で神さまとしてまつられてきました。大火のあとも、人びとは社を建て直しました。帰り道、もう一度鳥居をふり返ってみてください。</p>
+  </div>
+  <div class="en">
+    <p>Kenshin, who died in Niigata, reached Yonezawa after a journey of some 300 years, and the people of the town have honored him as a god ever since. Even after the great fire, they rebuilt his shrine. On your way out, take one more look back at the torii.</p>
+  </div>
+  <div class="tw">
+    <p>在新潟辭世的謙信，歷經約300年才來到米澤，由當地人們親手奉為神明供奉至今。大火之後，人們也重建了神社。回程時，請再回頭看一眼鳥居。</p>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div class="ja">上杉神社 境内ガイド</div>
+    <div class="en">Uesugi Shrine Grounds Guide</div>
+    <div class="tw">上杉神社 境內導覽</div>
+    <div class="small copyright">Sources: <a href="https://uesugi-jinja.or.jp/" target="_blank" rel="noopener">上杉神社 公式サイト</a> · <a href="https://uesugi-keishoden.jp/" target="_blank" rel="noopener">稽照殿 公式サイト</a> · <a href="https://kunishitei.bunka.go.jp/" target="_blank" rel="noopener">文化庁 国指定文化財等データベース</a> · <a href="https://www.city.yonezawa.yamagata.jp/soshiki/18/2/5/5/271.html" target="_blank" rel="noopener">米沢市「城下町ふらり歴史探訪 上杉神社」</a> · <a href="https://archives.bukkyo-u.ac.jp/rp-contents/HB/A115/HBA1151R001.pdf" target="_blank" rel="noopener">加澤昌人『上杉謙信の崇敬と祭祀』佛教大学博士論文（2020）</a> · <a href="https://www.pref.yamagata.jp/documents/42481/kankosyasuutyousa.pdf" target="_blank" rel="noopener">山形県『令和6年度 山形県観光者数調査』</a></div>
+    <div class="small"><span class="ja">2026年10月30日（下書き）</span><span class="en">October 30, 2026 (draft)</span><span class="tw">2026年10月30日（草稿）</span></div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var body=document.body, KEY='yonezawa-guides-lang';
+  var have=[].map.call(document.querySelectorAll('.lang-tab'),function(b){return b.dataset.lang;});
+  var Q; try{Q=new URLSearchParams(location.search);}catch(e){Q={get:function(){return null;}};}
+  // ガイド一覧・完全版へのリンクに、いま選んでいる言語を引き継ぐ
+  function keepLang(lang){
+    document.querySelectorAll('a[data-keep-lang]').forEach(function(a){
+      try{var u=new URL(a.getAttribute('href'),location.href);u.searchParams.set('lang',lang);
+        a.setAttribute('href',u.pathname+u.search+u.hash);}catch(e){}
+    });
+  }
+  function setLang(lang,save){
+    body.classList.remove('lang-ja','lang-en','lang-tw','lang-fr');
+    body.classList.add('lang-'+lang);
+    document.documentElement.lang = lang==='tw' ? 'zh-Hant' : lang;
+    document.querySelectorAll('.lang-tab').forEach(function(b){
+      var on = b.dataset.lang===lang;
+      b.classList.toggle('active',on);
+      b.setAttribute('aria-selected',on?'true':'false');
+    });
+    keepLang(lang);
+    if(save===false) return;
+    try{localStorage.setItem(KEY,lang);}catch(e){}
+    try{var u=new URL(location.href);u.searchParams.set('lang',lang);
+      history.replaceState(null,'',u.pathname+u.search+u.hash);}catch(e){}
+  }
+  function setMode(mode){
+    body.classList.remove('mode-tourist','mode-interpreter');
+    body.classList.add('mode-'+mode);
+    document.querySelectorAll('.mode-tab').forEach(function(b){
+      var on = b.dataset.mode===mode;
+      b.classList.toggle('active',on);
+      b.setAttribute('aria-selected',on?'true':'false');
+    });
+  }
+  document.querySelectorAll('.lang-tab').forEach(function(btn){
+    btn.addEventListener('click',function(){setLang(this.dataset.lang)});
+  });
+  document.querySelectorAll('.mode-tab').forEach(function(btn){
+    btn.addEventListener('click',function(){setMode(this.dataset.mode)});
+  });
+  // 初期表示：?lang= → 前回選んだ言語（ガイドアプリと共有）→ 日本語。?mode= も読む
+  var q=Q.get('lang'), s=null; try{s=localStorage.getItem(KEY);}catch(e){}
+  if(q && have.indexOf(q)>=0) setLang(q);
+  else if(s && have.indexOf(s)>=0) setLang(s,false);
+  else keepLang('ja');
+  var m=Q.get('mode');
+  if(m && document.querySelector('.mode-tab[data-mode="'+m+'"]')) setMode(m);
+})();
+</script>
+<script>
+(function(){
+  var inputs=[].slice.call(document.querySelectorAll('[data-glossary-search]'));
+  if(!inputs.length) return;
+  var table=document.querySelector('table[data-glossary="main"]');
+  var counter=document.querySelector('[data-glossary-count]');
+  if(!table) return;
+  var rows=[].slice.call(table.querySelectorAll('tbody tr:not(.cat-row)'));
+  function apply(){
+    var q=(this&&this.value!=null?this.value:'').trim().toLowerCase();
+    inputs.forEach(function(i){if(i.value!==q) i.value=q});
+    var hit=0;
+    rows.forEach(function(tr){
+      var show = !q || tr.textContent.toLowerCase().indexOf(q)>-1;
+      tr.classList.toggle('term-hidden',!show);
+      if(show) hit++;
+    });
+    [].slice.call(table.querySelectorAll('tbody')).forEach(function(tb){
+      var visible=[].slice.call(tb.querySelectorAll('tr:not(.cat-row)'))
+        .some(function(tr){return !tr.classList.contains('term-hidden')});
+      tb.classList.toggle('cat-hidden',!visible);
+    });
+    if(counter) counter.textContent = q ? (hit+' / '+rows.length) : '';
+  }
+  inputs.forEach(function(i){i.addEventListener('input',apply)});
+})();
+</script>
+<script>
+(function(){
+  var tts=[].slice.call(document.querySelectorAll('.tt'));
+  if(!tts.length) return;
+  function close(except){
+    tts.forEach(function(t){
+      if(t!==except){t.classList.remove('open');t.setAttribute('aria-expanded','false');}
+    });
+  }
+  function place(t){
+    var pop=t.querySelector('.tt-pop'); if(!pop) return;
+    pop.style.left='0px';
+    var r=pop.getBoundingClientRect(), vw=document.documentElement.clientWidth, m=8, s=0;
+    if(r.right>vw-m) s=vw-m-r.right;
+    if(r.left+s<m) s=m-r.left;
+    pop.style.left=s+'px';
+  }
+  tts.forEach(function(t){
+    t.addEventListener('click',function(e){
+      e.stopPropagation();
+      if(e.target.closest('.tt-pop')) return;
+      var on=!t.classList.contains('open');
+      close(t);
+      t.classList.toggle('open',on);
+      t.setAttribute('aria-expanded',on?'true':'false');
+      if(on) place(t);
+    });
+    t.addEventListener('keydown',function(e){
+      if(e.key==='Enter'||e.key===' '){e.preventDefault();t.click();}
+      if(e.key==='Escape') close();
+    });
+    t.addEventListener('mouseenter',function(){place(t)});
+  });
+  document.addEventListener('click',function(){close()});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape') close();});
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,1928 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第3回よねざわ戦国花火大会 多言語ガイド｜Yonezawa Sengoku Hanabi 2026 — The 3rd Warring-States Fireworks Festival Multilingual Guide</title>
+<meta name="description" content="全国で唯一「戦国」をテーマにした花火大会。通訳ボランティアと外国人来場者のための多言語ガイド。">
+<meta name="robots" content="noindex,nofollow"><!-- 直URL配布・検索非掲載 -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600;700&amp;family=Noto+Serif+TC:wght@400;600;700&amp;family=Cormorant+Garamond:wght@400;600;700&amp;family=Shippori+Mincho:wght@500;700&amp;display=swap" rel="stylesheet">
+<style>
+:root{
+  --c-bg-deep:#0E1424;
+  --c-bg-deeper:#070A14;
+  --c-nav:#1B2340;
+  --c-cream:#F4EFE4;
+  --c-cream-dark:#E3DCCB;
+  --c-paper:#FAF6EC;
+  --c-white:#FFFFFF;
+  --c-crimson:#B01E2E;
+  --c-crimson-soft:#C9505C;
+  --c-gold:#D4A93C;
+  --c-gold-dark:#A07E22;
+  --c-ink:#1A1A1A;
+  --c-ink-soft:#3A3A3A;
+  --c-gray:#6A6A6A;
+  --c-line:#D8CBA0;
+  --c-tan:#E8DCC0;
+
+  --font-ja:"Shippori Mincho","Noto Serif JP","游明朝","Yu Mincho",serif;
+  --font-en:"Cormorant Garamond","Noto Serif JP",serif;
+  --font-tw:"Noto Serif TC","Noto Serif JP",serif;
+
+  --max-w:1100px;
+}
+
+/* =====================================================================
+ * multilingual-cultural-event-guide / base.css
+ * ---------------------------------------------------------------------
+ * 6ビュー（3言語 × 2モード）単一HTMLガイドの共通スタイル。
+ * 配色・フォントは :root の CSS変数だけを差し替えれば足りる設計。
+ * :root 自体は build.py が config の palette / fonts から生成して
+ * このファイルの先頭に差し込む（ここには含めない）。
+ *
+ * 出自：米沢上杉まつり多言語ガイド（参考実装）の実CSSを、
+ *       イベント固有の値を変数に寄せた状態で切り出したもの。
+ *       セレクタ名を変えると build.py の出力と噛み合わなくなるので、
+ *       改名は build.py / verify.py と同時に行うこと。
+ * ===================================================================== */
+
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{font-family:var(--font-ja);color:var(--c-ink);background:var(--c-paper);line-height:1.8;font-size:16px}
+body.lang-en{font-family:var(--font-en);font-size:17px;line-height:1.7}
+body.lang-tw{font-family:var(--font-tw);font-size:16px;line-height:1.85}
+
+/* 和紙テクスチャ（軽いノイズ） */
+body{
+  background-image:
+    radial-gradient(circle at 20% 30%, rgba(201,166,74,0.04) 0%, transparent 50%),
+    radial-gradient(circle at 80% 70%, rgba(160,24,24,0.03) 0%, transparent 50%),
+    linear-gradient(180deg, var(--c-paper) 0%, #f6f0df 100%);
+  min-height:100vh;
+}
+
+/* ====== HEADER ====== */
+.hero{
+  background:linear-gradient(135deg, var(--c-bg-deep) 0%, var(--c-bg-deeper) 100%);
+  color:var(--c-cream);
+  padding:0;
+  position:relative;
+  overflow:hidden;
+  border-bottom:4px solid var(--c-gold);
+}
+.hero::before{
+  content:"";position:absolute;inset:0;
+  background-image:radial-gradient(circle at 80% 50%, rgba(201,166,74,0.08) 0%, transparent 60%);
+  pointer-events:none;
+}
+.hero-inner{
+  max-width:var(--max-w);margin:0 auto;padding:28px 24px 18px;position:relative;
+}
+.hero-top{display:flex;align-items:center;gap:16px;margin-bottom:14px}
+.kamon{width:56px;height:56px;flex-shrink:0}
+.title-block h1{
+  font-family:var(--font-ja);font-weight:700;font-size:1.9rem;letter-spacing:0.04em;color:var(--c-white);
+  text-shadow:0 2px 8px rgba(0,0,0,0.5);line-height:1.2;
+}
+.title-block .sub{font-family:var(--font-en);font-size:0.95rem;color:var(--c-gold);letter-spacing:0.15em;margin-top:4px}
+.title-block .tag-tw{font-size:0.85rem;color:var(--c-cream-dark);margin-top:2px;font-family:var(--font-tw)}
+
+.hero-meta{font-size:0.85rem;color:var(--c-cream-dark);margin-top:8px;letter-spacing:0.05em}
+.hero-meta .date-jp{color:var(--c-gold);font-weight:700;font-size:1rem}
+
+/* ====== TAB SWITCHERS ====== */
+.switchers{
+  background:var(--c-nav);
+  border-top:1px solid rgba(255,255,255,0.1);
+  position:sticky;top:0;z-index:100;
+  box-shadow:0 2px 12px rgba(0,0,0,0.25);
+}
+.switcher-row{
+  max-width:var(--max-w);margin:0 auto;padding:0 16px;
+  display:flex;flex-wrap:wrap;gap:0;
+  border-bottom:1px solid rgba(255,255,255,0.12);
+}
+.switcher-row:last-child{border-bottom:none;background:rgba(0,0,0,0.18)}
+.tab{
+  flex:1;min-width:90px;
+  padding:12px 14px;text-align:center;
+  background:transparent;border:none;color:var(--c-cream-dark);
+  font-family:inherit;font-size:0.95rem;cursor:pointer;
+  transition:all 0.2s;letter-spacing:0.05em;
+  border-bottom:3px solid transparent;
+}
+.tab:hover{background:rgba(255,255,255,0.08);color:var(--c-white)}
+.tab.active{
+  color:var(--c-white);font-weight:600;
+  border-bottom-color:var(--c-gold);
+  background:rgba(201,166,74,0.12);
+}
+.tab .ico{font-size:1.1rem;margin-right:4px}
+.switcher-row.modes .tab.active{border-bottom-color:var(--c-crimson-soft)}
+
+/* ====== CONTENT WRAPPER ====== */
+main{max-width:var(--max-w);margin:0 auto;padding:32px 24px 80px}
+
+/* 言語切替: 親要素にlang-XX、子要素のクラス.ja/.en/.twで表示制御 */
+.ja,.en,.tw{display:none}
+body.lang-ja .ja{display:revert}
+body.lang-ja span.ja, body.lang-ja .inline.ja{display:inline}
+body.lang-en .en{display:revert}
+body.lang-en span.en, body.lang-en .inline.en{display:inline}
+body.lang-tw .tw{display:revert}
+body.lang-tw span.tw, body.lang-tw .inline.tw{display:inline}
+
+/* モード切替 */
+body.mode-tourist .interpreter-only{display:none !important}
+body.mode-interpreter .tourist-only{display:none !important}
+
+/* ====== SECTIONS ====== */
+section.chapter{
+  margin-bottom:48px;
+  background:var(--c-white);
+  border:1px solid var(--c-line);
+  border-radius:6px;
+  padding:32px 36px;
+  box-shadow:0 2px 14px rgba(26,58,50,0.06);
+  position:relative;
+}
+section.chapter::before{
+  content:"";position:absolute;top:-1px;left:32px;right:32px;height:3px;
+  background:linear-gradient(90deg,transparent 0%, var(--c-gold) 30%, var(--c-gold) 70%, transparent 100%);
+}
+.chapter h2{
+  font-family:var(--font-ja);font-size:1.7rem;font-weight:700;
+  color:var(--c-bg-deep);
+  border-left:6px solid var(--c-crimson);
+  padding-left:14px;margin-bottom:8px;line-height:1.3;
+  letter-spacing:0.03em;
+}
+body.lang-en .chapter h2{font-family:var(--font-en)}
+body.lang-tw .chapter h2{font-family:var(--font-tw)}
+.chapter .chapter-num{
+  display:inline-block;font-size:0.75rem;font-family:var(--font-en);
+  color:var(--c-gold-dark);letter-spacing:0.3em;margin-bottom:8px;text-transform:uppercase;
+}
+.chapter h3{
+  font-size:1.2rem;color:var(--c-bg-deep);margin:28px 0 12px;
+  padding-left:12px;border-left:4px solid var(--c-gold);
+  font-weight:600;
+}
+.chapter h4{font-size:1.05rem;color:var(--c-ink-soft);margin:20px 0 8px;font-weight:600}
+.chapter p{margin-bottom:14px;text-align:justify}
+.chapter ul,.chapter ol{margin:10px 0 14px 24px}
+.chapter li{margin-bottom:6px}
+
+.lead{font-size:1.05rem;color:var(--c-ink-soft);margin-bottom:18px;line-height:1.9}
+
+/* 強調ブロック */
+.callout{
+  background:linear-gradient(135deg, #fffbf0 0%, #fff5d8 100%);
+  border-left:5px solid var(--c-gold);
+  padding:18px 22px;margin:20px 0;border-radius:0 4px 4px 0;
+}
+.callout.crimson{background:linear-gradient(135deg,#fff5f5 0%,#ffe8e8 100%);border-left-color:var(--c-crimson)}
+.callout.deep{background:linear-gradient(135deg,#eef2ee 0%,#dde6df 100%);border-left-color:var(--c-bg-deep)}
+.callout-title{font-weight:700;color:var(--c-crimson);margin-bottom:6px;font-size:1rem}
+.callout.deep .callout-title{color:var(--c-bg-deep)}
+.callout.crimson .callout-title{color:var(--c-crimson)}
+
+/* 通訳者向け特殊ブロック */
+.interpreter-box{
+  background:#f7f2e3;
+  border:2px dashed var(--c-gold-dark);
+  padding:20px 24px;margin:24px 0;border-radius:8px;
+  position:relative;
+}
+.interpreter-box::before{
+  content:"📚 INTERPRETER NOTES";
+  position:absolute;top:-12px;left:20px;background:var(--c-gold-dark);color:var(--c-white);
+  padding:2px 12px;font-size:0.7rem;letter-spacing:0.2em;font-family:var(--font-en);font-weight:700;
+  border-radius:3px;
+}
+.translate-tip{
+  background:#f0eee0;border-left:4px solid var(--c-crimson);
+  padding:14px 18px;margin:14px 0;border-radius:0 4px 4px 0;
+}
+.translate-tip .term{
+  display:inline-block;background:var(--c-crimson);color:var(--c-white);
+  padding:2px 10px;border-radius:3px;font-weight:700;margin-right:8px;font-size:0.95rem;
+}
+
+/* タイムライン（観光客向け） */
+.timeline{
+  position:relative;margin:24px 0;padding-left:30px;
+  border-left:3px solid var(--c-gold);
+}
+.tl-item{position:relative;margin-bottom:24px}
+.tl-item::before{
+  content:"";position:absolute;left:-37px;top:6px;
+  width:14px;height:14px;background:var(--c-crimson);border-radius:50%;
+  border:3px solid var(--c-paper);box-shadow:0 0 0 2px var(--c-crimson);
+}
+.tl-item.major::before{background:var(--c-gold);box-shadow:0 0 0 2px var(--c-gold-dark);width:18px;height:18px;left:-39px}
+.tl-item.major .tl-time{color:var(--c-gold-dark);font-size:1.05rem}
+.tl-time{font-family:var(--font-en);font-size:0.95rem;color:var(--c-crimson);font-weight:700;letter-spacing:0.05em}
+.tl-title{font-size:1.1rem;font-weight:700;color:var(--c-bg-deep);margin:2px 0 4px}
+.tl-meta{font-size:0.85rem;color:var(--c-gray)}
+.tl-desc{margin-top:6px}
+
+/* 日付バッジ */
+.day-badge{
+  display:inline-block;background:var(--c-bg-deep);color:var(--c-gold);
+  padding:6px 14px;border-radius:4px;font-weight:700;letter-spacing:0.05em;
+  margin-right:10px;font-size:0.95rem;
+}
+.day-header{
+  display:flex;align-items:center;gap:12px;margin:24px 0 12px;
+  padding-bottom:8px;border-bottom:2px dotted var(--c-line);
+}
+
+/* 武将系譜・人物カード */
+.figure-grid{
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px;margin:18px 0;
+}
+.figure-card{
+  background:var(--c-cream);border:1px solid var(--c-line);
+  padding:14px 16px;border-radius:6px;
+}
+.figure-card .name-jp{font-weight:700;font-size:1.1rem;color:var(--c-bg-deep)}
+.figure-card .name-en{font-family:var(--font-en);font-size:0.85rem;color:var(--c-gold-dark);letter-spacing:0.05em}
+.figure-card .role{font-size:0.85rem;color:var(--c-crimson);margin:4px 0;font-weight:600}
+.figure-card .desc{font-size:0.85rem;color:var(--c-ink-soft);margin-top:6px;line-height:1.6}
+
+/* 系譜図 */
+.lineage{
+  background:var(--c-cream);border:1px solid var(--c-line);
+  padding:24px;border-radius:6px;margin:18px 0;
+  display:flex;flex-direction:column;gap:8px;align-items:center;
+  font-family:var(--font-ja);
+}
+.lineage .gen{
+  display:flex;align-items:center;gap:12px;flex-wrap:wrap;justify-content:center;
+}
+.lineage .person{
+  background:var(--c-white);border:2px solid var(--c-bg-deep);
+  padding:8px 14px;border-radius:4px;text-align:center;min-width:110px;
+}
+.lineage .person.highlight{background:var(--c-gold);color:var(--c-white);border-color:var(--c-gold-dark)}
+.lineage .person .pn{font-weight:700;font-size:0.95rem}
+.lineage .person .pr{font-size:0.7rem;color:var(--c-gray)}
+.lineage .person.highlight .pr{color:var(--c-cream)}
+.lineage .arrow{color:var(--c-gold-dark);font-weight:700}
+
+/* 戦況図（簡易） */
+.battle-diagram{
+  background:var(--c-bg-deeper);color:var(--c-cream);padding:20px;border-radius:6px;margin:18px 0;
+  font-family:var(--font-ja);
+}
+.battle-diagram h4{color:var(--c-gold);font-size:1rem;margin-bottom:12px;border:none;padding:0}
+.armies{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.army{flex:1;min-width:240px;background:rgba(255,255,255,0.05);padding:14px;border-radius:4px;border-left:4px solid}
+.army.uesugi{border-left-color:#7ab8c8}
+.army.takeda{border-left-color:#c87a7a}
+.army h5{color:var(--c-cream);font-size:0.95rem;margin-bottom:6px;font-weight:700}
+.army .leader{font-size:1.1rem;font-weight:700;margin-bottom:6px}
+.army.uesugi .leader{color:#a8d8e8}
+.army.takeda .leader{color:#e8a8a8}
+.army .desc{font-size:0.85rem;line-height:1.6}
+
+/* 用語集テーブル */
+.glossary-wrap{margin:18px 0;overflow-x:auto;border:1px solid var(--c-line);border-radius:6px}
+table.glossary{
+  width:100%;border-collapse:collapse;background:var(--c-white);
+  font-size:0.92rem;
+}
+table.glossary thead{background:var(--c-bg-deep);color:var(--c-cream)}
+table.glossary thead th{padding:10px 12px;font-weight:700;text-align:left;font-size:0.85rem;letter-spacing:0.05em}
+table.glossary tbody tr{border-bottom:1px solid #ece4d0}
+table.glossary tbody tr:hover{background:#fdfaf0}
+table.glossary tbody td{padding:10px 12px;vertical-align:top}
+.cat-row td{
+  background:var(--c-tan) !important;font-weight:700;color:var(--c-bg-deep);
+  font-size:0.95rem;letter-spacing:0.03em;padding:8px 12px !important;
+}
+.term-jp{font-weight:700;color:var(--c-bg-deep);font-size:1rem;white-space:nowrap}
+.term-jp .yomi{display:block;font-size:0.72rem;color:var(--c-gray);font-weight:400;margin-top:2px}
+.term-en{font-family:var(--font-en);color:var(--c-ink-soft);font-style:italic}
+.term-en .ipa{display:block;font-family:monospace;font-size:0.78rem;color:var(--c-gold-dark);font-style:normal;margin-top:2px}
+.term-tw{font-family:var(--font-tw);color:var(--c-ink-soft)}
+.term-desc{font-size:0.82rem;color:var(--c-gray);line-height:1.5}
+
+/* Q&A */
+.qa-item{
+  margin:18px 0;padding:18px 22px;
+  background:var(--c-cream);border-left:5px solid var(--c-bg-deep);
+  border-radius:0 6px 6px 0;
+}
+.qa-q{font-weight:700;color:var(--c-bg-deep);font-size:1.02rem;margin-bottom:10px}
+.qa-q::before{content:"Q. ";color:var(--c-crimson);font-weight:700}
+.qa-a{padding-left:22px;position:relative}
+.qa-a::before{content:"A. ";position:absolute;left:0;color:var(--c-gold-dark);font-weight:700}
+
+/* マップ・スポット */
+.spots{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px;margin:14px 0}
+.spot{
+  background:linear-gradient(135deg,#fff8e0 0%,#ffeec0 100%);
+  border:1px solid var(--c-gold);border-radius:6px;
+  overflow:hidden;
+  transition:transform 0.2s, box-shadow 0.2s;
+}
+.spot:hover{transform:translateY(-2px);box-shadow:0 6px 18px rgba(160,24,24,0.18)}
+.spot .photo{
+  display:block;width:100%;height:160px;object-fit:cover;
+  border-bottom:2px solid var(--c-gold);
+}
+.spot .body{padding:14px}
+.spot .emoji{font-size:1.6rem;display:block;margin-bottom:4px}
+.spot .name{font-weight:700;color:var(--c-bg-deep);font-size:1rem;margin-bottom:4px}
+.spot .desc{font-size:0.85rem;color:var(--c-ink-soft)}
+
+/* 陣形図（SCENE 2用） */
+.formations-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:14px 0 6px;
+  align-items:start;
+}
+.formations-grid figure{
+  margin:0;background:var(--c-paper);
+  border:1px solid var(--c-line);border-radius:6px;
+  padding:6px;box-shadow:0 2px 8px rgba(26,58,50,0.08);
+  text-align:center;
+}
+.formations-grid img{
+  display:block;width:100%;height:auto;border-radius:4px;
+}
+.formations-grid figcaption{
+  font-size:0.78rem;color:var(--c-ink-soft);margin-top:6px;
+  font-style:italic;line-height:1.4;
+}
+@media (max-width:600px){
+  .formations-grid{grid-template-columns:1fr}
+}
+
+/* シーンカード（5シーン演武解説用） */
+.scene-list{margin:20px 0}
+.scene-card{
+  background:linear-gradient(135deg, #fdfaf0 0%, #fff8e0 100%);
+  border-left:5px solid var(--c-bg-deep);
+  padding:18px 22px 14px;margin-bottom:16px;
+  border-radius:0 6px 6px 0;
+  box-shadow:0 2px 8px rgba(26,58,50,0.06);
+  position:relative;
+}
+.scene-card.featured{border-left-color:var(--c-crimson);background:linear-gradient(135deg,#fff5f0 0%,#ffeae0 100%)}
+.scene-card .scene-num{
+  display:inline-block;font-family:var(--font-en);font-size:0.95rem;
+  font-weight:700;color:var(--c-gold-dark);letter-spacing:0.15em;
+  background:var(--c-gold);color:var(--c-white);padding:1px 10px;border-radius:3px;
+  margin-right:10px;vertical-align:1px;
+}
+.scene-card.featured .scene-num{background:var(--c-crimson)}
+.scene-card .scene-title{
+  display:inline-block;font-weight:700;font-size:1.05rem;
+  color:var(--c-bg-deep);
+}
+.scene-card .scene-en{
+  font-family:var(--font-en);font-size:0.85rem;color:var(--c-gold-dark);
+  display:block;margin-top:2px;margin-left:54px;letter-spacing:0.03em;
+}
+.scene-card p{margin:8px 0 0;font-size:0.92rem;line-height:1.75}
+.source-note{
+  font-size:0.72rem;color:var(--c-gray);font-style:italic;
+  margin-top:14px;text-align:right;letter-spacing:0.02em;
+}
+
+/* ヒーロー画像（章扉用） */
+.hero-photo{
+  display:block;width:100%;max-height:380px;object-fit:cover;
+  border-radius:6px;margin:8px 0 22px;
+  border:2px solid var(--c-gold);
+  box-shadow:0 4px 14px rgba(26,58,50,0.18);
+}
+.hero-photo-caption{
+  font-size:0.82rem;color:var(--c-gray);text-align:center;
+  margin-top:-16px;margin-bottom:20px;font-style:italic;
+}
+
+/* 動画プレイヤー */
+.video-wrap{
+  margin:24px 0 28px;
+  background:#000;
+  border:2px solid var(--c-gold);
+  border-radius:6px;
+  overflow:hidden;
+  box-shadow:0 4px 14px rgba(26,58,50,0.18);
+}
+.video-wrap video{
+  display:block;width:100%;height:auto;
+}
+.video-caption{
+  background:linear-gradient(135deg, var(--c-bg-deep) 0%, var(--c-bg-deeper) 100%);
+  color:var(--c-cream);padding:10px 14px;
+  font-size:0.82rem;text-align:center;letter-spacing:0.03em;
+  border-top:1px solid var(--c-gold);
+}
+.video-caption .lang-label{
+  display:inline-block;background:var(--c-gold);color:var(--c-bg-deep);
+  font-weight:700;font-size:0.7rem;padding:2px 8px;border-radius:3px;
+  margin-right:8px;letter-spacing:0.1em;
+}
+
+/* 注意事項リスト */
+.notice-list{list-style:none !important;margin-left:0 !important}
+.notice-list li{padding:8px 0 8px 32px;position:relative;border-bottom:1px dotted var(--c-line)}
+.notice-list li::before{content:"✦";position:absolute;left:8px;color:var(--c-gold-dark);font-size:1rem;top:8px}
+
+/* フッター */
+footer{
+  background:var(--c-bg-deeper);color:var(--c-cream-dark);
+  padding:30px 24px;text-align:center;font-size:0.85rem;
+  border-top:4px solid var(--c-gold);margin-top:60px;
+}
+footer .footer-inner{max-width:var(--max-w);margin:0 auto}
+footer a{color:var(--c-gold);text-decoration:none}
+footer .small{font-size:0.75rem;color:var(--c-gray);margin-top:8px}
+
+/* ====== レスポンシブ ====== */
+@media (max-width:768px){
+  .hero-inner{padding:20px 16px 14px}
+  .title-block h1{font-size:1.4rem}
+  .title-block .sub{font-size:0.8rem}
+  .tab{padding:10px 6px;font-size:0.82rem;min-width:auto}
+  .tab .ico{font-size:1rem;margin-right:2px}
+  main{padding:18px 14px 60px}
+  section.chapter{padding:20px 18px;margin-bottom:24px}
+  .chapter h2{font-size:1.3rem}
+  .chapter h3{font-size:1.05rem;margin:20px 0 10px}
+  .figure-grid{grid-template-columns:1fr}
+  .lineage .gen{flex-direction:column;gap:8px}
+  .lineage .arrow{transform:rotate(90deg)}
+  table.glossary{font-size:0.82rem}
+  table.glossary thead th, table.glossary tbody td{padding:7px 8px}
+}
+
+/* ====== 印刷用 ====== */
+@media print{
+  body{background:var(--c-white);font-size:10pt}
+  section.chapter.closing{background:var(--c-white) !important;color:var(--c-ink)}
+  section.chapter.closing h2{color:var(--c-ink) !important}
+  .switchers,footer .footer-inner > *:not(.copyright){display:none !important}
+  .hero{background:var(--c-white) !important;color:var(--c-ink) !important;border-bottom:2px solid var(--c-ink)}
+  .hero-inner{padding:14px 0}
+  .title-block h1{color:var(--c-ink) !important;text-shadow:none}
+  .title-block .sub, .title-block .tag-tw{color:var(--c-ink-soft) !important}
+  main{max-width:none;padding:10px 0}
+  section.chapter{
+    box-shadow:none;border:1px solid #999;page-break-inside:avoid;
+    padding:18px 20px;margin-bottom:18px;
+  }
+  .chapter h2{color:var(--c-ink) !important;border-left-color:#666}
+  .chapter h3{color:var(--c-ink) !important}
+  .callout, .interpreter-box, .qa-item{
+    background:var(--c-white) !important;border:1px solid #999 !important;
+    page-break-inside:avoid;
+  }
+  table.glossary thead{background:#ddd !important;color:var(--c-ink) !important}
+  .battle-diagram{background:var(--c-white) !important;color:var(--c-ink) !important;border:1px solid #999}
+  .lineage{background:var(--c-white) !important;border:1px solid #999}
+  a{color:var(--c-ink) !important;text-decoration:underline}
+  .tl-item::before{background:#666 !important}
+  footer{background:var(--c-white);color:var(--c-ink);border-top:1px solid #999}
+}
+
+/* ---------------------------------------------------------------------
+ * クロージング章（config の chapter.variant = "closing"）
+ * 参考実装ではインライン style で書かれていた装飾をクラスに移したもの。
+ * 通し番号（chapter-num）は num_label: null で省く。
+ * ------------------------------------------------------------------- */
+section.chapter.closing{
+  background:linear-gradient(135deg,var(--c-bg-deep) 0%,var(--c-bg-deeper) 100%);
+  color:var(--c-cream);
+  border:none;
+}
+section.chapter.closing h2{color:var(--c-gold);border-left-color:var(--c-gold)}
+section.chapter.closing p{font-size:1.05rem;line-height:1.9}
+
+/* ---------------------------------------------------------------------
+ * コールアウトの枠色アクセント（config の callout.accent）
+ * 参考実装ではインライン style で border-left-color を上書きしていた。
+ * 「年次変動要素」など特に目立たせたい1枠に使う。
+ * ------------------------------------------------------------------- */
+.callout.accent-crimson{border-left-color:var(--c-crimson)}
+.callout.accent-crimson .callout-title{color:var(--c-crimson)}
+.callout.accent-gold{border-left-color:var(--c-gold)}
+.callout.accent-gold .callout-title{color:var(--c-gold-dark)}
+.callout.accent-sage{border-left-color:var(--c-tan)}
+.callout.accent-sage .callout-title{color:var(--c-gold-dark)}
+
+/* コールアウト内の最終段落は下マージンを詰める
+ * （参考実装では style="margin-bottom:0" をインラインで書いていた）*/
+.callout > p:last-child, .interpreter-box > p:last-child{margin-bottom:0}
+
+/* ---------------------------------------------------------------------
+ * スマホで片手操作する前提のとき、言語・モードタブを画面下部に固定する
+ * （config の directives.scene = "onsite" / features.bottom_tabs = true）
+ *
+ * 上部stickyだと、6ビューを切り替えるたびに画面上部まで指を伸ばすことになる。
+ * 375px幅で親指が自然に届くのは画面下1/3なので、現場で立って使うなら下部固定。
+ * body に余白を足してタブが本文末尾を隠さないようにする。
+ * ------------------------------------------------------------------- */
+body.tabs-bottom .switchers{
+  position:fixed;top:auto;bottom:0;left:0;right:0;
+  border-top:1px solid rgba(255,255,255,0.16);
+  box-shadow:0 -2px 14px rgba(0,0,0,0.3);
+}
+body.tabs-bottom{padding-bottom:108px}
+@media (max-width:768px){
+  body.tabs-bottom{padding-bottom:98px}
+}
+@media print{
+  body.tabs-bottom{padding-bottom:0}
+}
+
+/* ---------------------------------------------------------------------
+ * 専門用語のツールチップ（本文の [[語|用語ID]] → config の terms）
+ * タップ（キーボードは Enter）で開き、外側をタップすると閉じる。
+ * マウスのある端末ではホバーでも開く。位置の横ずれは TERMS_SCRIPT が直す。
+ * ------------------------------------------------------------------- */
+.tt{
+  position:relative;cursor:help;
+  text-decoration:underline dotted var(--c-gold-dark);
+  text-decoration-thickness:2px;text-underline-offset:4px;
+  border-radius:3px;
+}
+.tt:focus-visible{outline:2px solid var(--c-gold);outline-offset:2px}
+.tt.open{background:var(--c-tan)}
+.tt-pop{
+  display:none;position:absolute;left:0;top:calc(100% + 8px);z-index:60;
+  width:max-content;max-width:min(300px,86vw);
+  padding:10px 13px;border-radius:8px;
+  background:var(--c-bg-deep);color:var(--c-white);
+  border-top:3px solid var(--c-gold);
+  box-shadow:0 8px 22px rgba(0,0,0,0.28);
+  font-size:14px;font-weight:400;line-height:1.65;
+  text-align:left;text-indent:0;letter-spacing:normal;white-space:normal;
+  cursor:auto;
+}
+.tt.open .tt-pop{display:block}
+/* 指で押しやすいよう、行の高さを変えずに押せる範囲だけ上下に広げる */
+.tt{padding:6px 0;margin:-6px 0}
+@media (hover:hover){
+  .tt:hover .tt-pop{display:block}
+}
+@media print{
+  .tt{text-decoration:none}
+  .tt-pop{display:none !important}
+}
+
+/* ---------------------------------------------------------------------
+ * スマホ幅（640px以下）
+ * - 言語・モードのタブを指で押せる高さ（44px）にそろえる
+ * - 用語集（4列の表）は横スクロールさせず、1語1枚のカードにする。
+ *   検索の絞り込み（term-hidden / cat-hidden）はそのまま効く
+ * ------------------------------------------------------------------- */
+@media (max-width:640px){
+  .tab{min-height:44px}
+  .glossary-wrap{overflow-x:visible}
+  table.glossary-main thead{display:none}
+  table.glossary-main, table.glossary-main tbody{display:block;width:100%}
+  table.glossary-main tbody tr{
+    display:grid;grid-template-columns:1fr auto;gap:2px 12px;
+    padding:12px 14px;
+  }
+  table.glossary-main tbody td{display:block;padding:0 !important;width:auto !important}
+  table.glossary-main .term-jp{grid-column:1;grid-row:1;white-space:normal;font-size:1.05rem}
+  table.glossary-main .term-tw{grid-column:2;grid-row:1;text-align:right;font-size:0.95rem}
+  table.glossary-main .term-en{grid-column:1 / -1;font-size:1rem}
+  table.glossary-main .term-desc{grid-column:1 / -1;margin-top:6px;font-size:0.9rem;line-height:1.6;color:var(--c-ink-soft)}
+  table.glossary-main tbody tr.cat-row{display:block;padding:0}
+  table.glossary-main tbody tr.cat-row td{display:block;padding:10px 14px !important}
+  table.glossary-main tbody tr.term-hidden,
+  table.glossary-main tbody.cat-hidden{display:none}
+}
+
+/* 用語集の検索バー（directives.features.glossary_search）*/
+.glossary-search{display:flex;gap:10px;align-items:center;margin:0 0 12px}
+.glossary-search-input{
+  flex:1;min-height:44px;padding:10px 14px;font:inherit;font-size:16px;
+  color:var(--c-ink);background:var(--c-white);
+  border:2px solid var(--c-line);border-radius:8px;
+}
+.glossary-search-input:focus{outline:2px solid var(--c-gold);border-color:var(--c-gold)}
+.glossary-search-count{font-size:13px;color:var(--c-gray);white-space:nowrap}
+tr.term-hidden,tbody.cat-hidden{display:none}
+@media print{.glossary-search{display:none !important}}
+
+/* ガイドアプリの帯（build.py --home-url / --staff-url） */
+.guide-appbar{display:flex;justify-content:space-between;align-items:center;gap:8px;
+  padding:0 12px;background:var(--c-bg-deeper);font-size:13px;line-height:1.3}
+.guide-appbar a{color:#fff;text-decoration:none;min-height:44px;display:inline-flex;
+  align-items:center;gap:6px;padding:0 4px}
+.guide-appbar a:focus-visible{outline:2px solid #fff;outline-offset:2px}
+.guide-appbar .appbar-staff{margin-left:auto;opacity:.9}
+@media print{.guide-appbar{display:none}}
+
+</style>
+</head>
+<body class="lang-ja mode-tourist" data-variant="visitor">
+<nav class="guide-appbar" aria-label="YONEZAWA GUIDES">
+  <a class="appbar-home" data-keep-lang href="/guides/"><span aria-hidden="true">←</span><span class="ja">ガイド一覧</span><span class="en">All guides</span><span class="tw">導覽一覽</span></a>
+  <a class="appbar-staff" data-keep-lang href="/guides/staff/sengoku-hanabi/?mode=interpreter"><span aria-hidden="true">🔑</span><span class="ja">ガイド・通訳の方</span><span class="en">For guides</span><span class="tw">導覽員・口譯專用</span></a>
+</nav>
+
+<header class="hero">
+  <div class="hero-inner">
+    <div class="hero-top"><span class="symbol">🎆</span></div>
+    <div class="title-block">
+      <h1><span class="ja">よねざわ戦国花火大会 多言語ガイド</span><span class="en">Yonezawa Sengoku Hanabi Guide</span><span class="tw">米澤戰國花火大會 多語言導覽</span></h1>
+      <div class="sub">YONEZAWA SENGOKU HANABI 2026 · MULTILINGUAL GUIDE</div>
+      <div class="tag-tw"><span class="ja">深化する戦国型花火エンターテイメント ─ 通訳ボランティアと来場者のために</span><span class="en">Sengoku-style fireworks entertainment — for volunteer interpreters and visitors</span><span class="tw">深化的戰國型花火娛樂 ─ 為口譯志工與來賓準備</span></div>
+    </div>
+    <div class="hero-meta">
+      <span class="date-jp">2026.10.10 (Sat) 18:30–</span>
+      <span class="ja">　米沢市営野球場（米沢総合公園内）</span><span class="en">　Yonezawa Municipal Baseball Stadium (Yonezawa Sports Park)</span><span class="tw">　米澤市營棒球場（米澤綜合公園內）</span>
+    </div>
+  </div>
+</header>
+
+<nav class="switchers" aria-label="Language and Mode Switcher">
+  <div class="switcher-row langs" role="tablist" aria-label="Language">
+    <button class="tab lang-tab active" data-lang="ja" role="tab" aria-selected="true"><span class="ico">🇯🇵</span>日本語</button>
+    <button class="tab lang-tab" data-lang="en" role="tab" aria-selected="false"><span class="ico">🇬🇧</span>English</button>
+    <button class="tab lang-tab" data-lang="tw" role="tab" aria-selected="false"><span class="ico">🇹🇼</span>繁體中文</button>
+  </div>
+</nav>
+
+<main>
+
+<section class="chapter" id="ch1">
+  <div class="chapter-num">CHAPTER 01</div>
+  <h2>
+    <span class="ja">🎆 はじめに ─ このページの使い方</span>
+    <span class="en">🎆 Introduction — How to Use This Page</span>
+    <span class="tw">🎆 前言 ─ 本頁的使用方式</span>
+  </h2>
+  <div class="ja">
+    <p class="lead">全国で唯一「戦国」をテーマにした花火大会です。<strong>約1時間ノンストップ</strong>で打ち上がります。</p>
+    <div class="callout">
+      <div class="callout-title">🗓 開催日と時間</div>
+      2026年10月10日（土）<br>サイドイベント <strong>11:30</strong> ／ 有料席開場 <strong>16:00</strong> ／ 打ち上げ <strong>18:30〜</strong>（約1時間）<br>雨天決行・荒天中止（<strong>延期なし</strong>）
+    </div>
+    <div class="callout deep accent-crimson">
+      <div class="callout-title">📵 通信が弱い会場です</div>
+      会場は電波が混み合います。<strong>到着前にこのページを開いて</strong>おいてください。第5章の用語集は検索窓で引けます。
+    </div>
+  </div>
+  <div class="en">
+    <p class="lead">Japan's only Sengoku-themed fireworks festival, running <strong>non-stop for about one hour</strong>.</p>
+    <div class="callout">
+      <div class="callout-title">🗓 Date & Times</div>
+      Saturday, October 10, 2026<br>Side events from <strong>11:30</strong> / Paid seating opens <strong>16:00</strong> / Fireworks from <strong>18:30</strong> (approx. 1 hour)<br>Held in rain; cancelled in severe weather (<strong>no rain date</strong>)
+    </div>
+    <div class="callout deep accent-crimson">
+      <div class="callout-title">📵 Weak signal at the venue</div>
+      Mobile networks get congested on site. <strong>Open this page before you arrive.</strong> The Chapter 5 glossary has a search box.
+    </div>
+  </div>
+  <div class="tw">
+    <p class="lead">全國唯一以「戰國」為主題的花火大會，<strong>約1小時不間斷</strong>施放。</p>
+    <div class="callout">
+      <div class="callout-title">🗓 舉辦日期與時間</div>
+      2026年10月10日（六）<br>周邊活動 <strong>11:30</strong> ／ 付費座席開放 <strong>16:00</strong> ／ 施放 <strong>18:30起</strong>（約1小時）<br>雨天照常、惡劣天氣取消（<strong>不延期</strong>）
+    </div>
+    <div class="callout deep accent-crimson">
+      <div class="callout-title">📵 會場通訊訊號微弱</div>
+      會場網路壅塞。請<strong>在抵達前先開啟本頁</strong>。第5章的詞彙表可用搜尋框查詢。
+    </div>
+  </div>
+</section>
+
+<section class="chapter" id="ch5">
+  <div class="chapter-num">CHAPTER 02 · GLOSSARY</div>
+  <h2>
+    <span class="ja">📚 用語集 ─ 花火・武将・座席（70語）</span>
+    <span class="en">📚 Glossary — Fireworks, Generals, Seating (70 terms)</span>
+    <span class="tw">📚 詞彙表 ─ 花火・武將・座位（70語）</span>
+  </h2>
+  <div class="ja">
+    <p class="lead">通訳実務の核となる対訳表。検索窓で絞り込めます。</p>
+  </div>
+  <div class="en">
+    <p class="lead">The interpreter's core reference. Use the search box to filter.</p>
+  </div>
+  <div class="tw">
+    <p class="lead">口譯實務的核心對譯表，可用搜尋框篩選。</p>
+  </div>
+  <div class="glossary-search">
+    <input class="glossary-search-input ja" type="search" data-glossary-search="1" placeholder="用語を検索（日本語・英語・繁体字）" aria-label="用語を検索（日本語・英語・繁体字）">
+    <input class="glossary-search-input en" type="search" data-glossary-search="1" placeholder="Search terms (JA / EN / TW)" aria-label="Search terms (JA / EN / TW)">
+    <input class="glossary-search-input tw" type="search" data-glossary-search="1" placeholder="搜尋詞彙（日／英／繁）" aria-label="搜尋詞彙（日／英／繁）">
+    <span class="glossary-search-count" data-glossary-count="1"></span>
+  </div>
+  <div class="glossary-wrap">
+    <table class="glossary glossary-main" data-glossary="main">
+      <thead>
+        <tr>
+          <th style="width:22%"><span class="ja">日本語（よみ）</span><span class="en">Japanese</span><span class="tw">日語（讀音）</span></th>
+          <th style="width:26%"><span class="ja">英訳 / IPA</span><span class="en">English / IPA</span><span class="tw">英譯 / 國際音標</span></th>
+          <th style="width:18%"><span class="ja">繁體中文</span><span class="en">Trad. Chinese</span><span class="tw">繁體中文</span></th>
+          <th style="width:34%"><span class="ja">一行解説</span><span class="en">One-line gloss</span><span class="tw">簡要說明</span></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="cat-row"><td colspan="4"><span class="ja">🗡️ ① 武将・歴史人物</span><span class="en">🗡️ ① Generals & Historical Figures</span><span class="tw">🗡️ ① 武將・歷史人物</span></td></tr>
+        <tr>
+          <td class="term-jp">上杉謙信<span class="yomi">うえすぎ けんしん</span></td>
+          <td class="term-en">Uesugi Kenshin<span class="ipa">/ɯ.e.sɯ.ɡʲi keɴ.ɕiɴ/</span></td>
+          <td class="term-tw">上杉謙信</td>
+          <td class="term-desc"><span class="ja">越後の戦国大名（1530–1578）。「軍神」「越後の龍」。米沢藩の精神的始祖。</span><span class="en">Sengoku warlord of Echigo (1530–1578). "God of War," "Dragon of Echigo." Spiritual founder of Yonezawa Domain.</span><span class="tw">越後戰國大名（1530–1578）。「軍神」「越後之龍」，米澤藩精神始祖。</span></td>
+        </tr>
+        <tr>
+          <td class="term-jp">上杉景勝<span class="yomi">うえすぎ かげかつ</span></td>
+          <td class="term-en">Uesugi Kagekatsu<span class="ipa">/ɯ.e.sɯ.ɡʲi ka.ɡe.ka.tsɯ/</span></td>
+          <td class="term-tw">上杉景勝</td>
+          <td class="term-desc"><span class="ja">謙信の養子（1556–1623）。会津→米沢へ。米沢藩初代藩主。</span><span class="en">Kenshin's adopted son (1556–1623). Relocated from Aizu to Yonezawa; first lord of Yonezawa Domain.</span><span class="tw">謙信養子（1556–1623）。由會津移封米澤，米澤藩首任藩主。</span></td>
+        </tr>
+        <tr>
+          <td class="term-jp">直江兼続<span class="yomi">なおえ かねつぐ</span></td>
+          <td class="term-en">Naoe Kanetsugu<span class="ipa">/na.o.e ka.ne.tsɯ.ɡɯ/</span></td>
+          <td class="term-tw">直江兼續</td>
+          <td class="term-desc"><span class="ja">米沢藩家老（1560–1620）。「愛」の前立兜で有名。NHK大河『天地人』主人公。</span><span class="en">Chief minister of Yonezawa (1560–1620). Famed for his helmet bearing the kanji "愛" (love/compassion). Hero of NHK's <em>Tenchijin</em>.</span><span class="tw">米澤藩家老（1560–1620）。前立「愛」字頭盔聞名，NHK大河劇《天地人》主角。</span></td>
+        </tr>
+        <tr>
+          <td class="term-jp">上杉鷹山<span class="yomi">うえすぎ ようざん</span></td>
+          <td class="term-en">Uesugi Yōzan<span class="ipa">/ɯ.e.sɯ.ɡʲi joː.zaɴ/</span></td>
+          <td class="term-tw">上杉鷹山</td>
+          <td class="term-desc"><span class="ja">江戸中期の米沢藩主（1751–1822）。破綻寸前の藩財政を改革した名君。座席名の由来。</span><span class="en">Mid-Edo lord of Yonezawa (1751–1822) who reformed the domain's near-bankrupt finances. A paid seat is named after him.</span><span class="tw">江戶中期的米澤藩主（1751–1822），改革瀕臨破產的藩財政。付費座位以其命名。</span></td>
+        </tr>
+        <tr>
+          <td class="term-jp">最上義光<span class="yomi">もがみ よしあき</span></td>
+          <td class="term-en">Mogami Yoshiaki<span class="ipa">/mo.ɡa.mi jo.ɕi.a.ki/</span></td>
+          <td class="term-tw">最上義光</td>
+          <td class="term-desc"><span class="ja">出羽（現在の山形）の戦国大名（1546–1614）。慶長出羽合戦で上杉軍と戦った側。</span><span class="en">Sengoku warlord of Dewa, today's Yamagata (1546–1614). He fought against the Uesugi in the Keichō Dewa campaign.</span><span class="tw">出羽（今山形）的戰國大名（1546–1614）。慶長出羽合戰中與上杉軍對戰的一方。</span></td>
+        </tr>
+        <tr>
+          <td class="term-jp">志村光安<span class="yomi">しむら あきやす</span></td>
+          <td class="term-en">Shimura Akiyasu<span class="ipa">/ɕi.mɯ.ɾa a.ki.ja.sɯ/</span></td>
+          <td class="term-tw">志村光安</td>
+          <td class="term-desc"><span class="ja">最上方の武将。長谷堂城に籠城し、上杉軍の攻勢を持ちこたえた。</span><span class="en">A Mogami commander who held Hasedō Castle and withstood the Uesugi assault.</span><span class="tw">最上方的武將，據守長谷堂城並擋住上杉軍的攻勢。</span></td>
+        </tr>
+        <tr>
+          <td class="term-jp">本庄繁長<span class="yomi">ほんじょう しげなが</span></td>
+          <td class="term-en">Honjō Shigenaga<span class="ipa">/hoɴ.dʑoː ɕi.ɡe.na.ɡa/</span></td>
+          <td class="term-tw">本庄繁長</td>
+          <td class="term-desc"><span class="ja">上杉方の武将。慶長出羽合戦では福島方面で戦った。</span><span class="en">A Uesugi commander who fought on the Fukushima front during the Keichō Dewa campaign.</span><span class="tw">上杉方的武將，慶長出羽合戰中於福島方面作戰。</span></td>
+        </tr>
+        <tr>
+          <td class="term-jp">伊達政宗<span class="yomi">だて まさむね</span></td>
+          <td class="term-en">Date Masamune<span class="ipa">/da.te ma.sa.mɯ.ne/</span></td>
+          <td class="term-tw">伊達政宗</td>
+          <td class="term-desc"><span class="ja">仙台藩の祖（1567–1636）。慶長出羽合戦では最上方に加勢した。</span><span class="en">Founder of the Sendai domain (1567–1636). He supported the Mogami side in the Keichō Dewa campaign.</span><span class="tw">仙台藩之祖（1567–1636）。慶長出羽合戰中支援最上方。</span></td>
+        </tr>
+        <tr>
+          <td class="term-jp">徳川家康<span class="yomi">とくがわ いえやす</span></td>
+          <td class="term-en">Tokugawa Ieyasu<span class="ipa">/to.kɯ.ɡa.wa i.e.ja.sɯ/</span></td>
+          <td class="term-tw">德川家康</td>
+          <td class="term-desc"><span class="ja">関ヶ原で東軍を率い、江戸幕府を開いた（1543–1616）。上杉家の減封を決めた側。</span><span class="en">He led the Eastern army at Sekigahara and founded the Tokugawa shogunate (1543–1616). It was his side that cut the Uesugi holdings.</span><span class="tw">於關原之戰率領東軍並開創江戶幕府（1543–1616）。決定上杉家減封的一方。</span></td>
+        </tr>
+        <tr>
+          <td class="term-jp">前田慶次<span class="yomi">まえだ けいじ</span></td>
+          <td class="term-en">Maeda Keiji<span class="ipa">/ma.e.da keː.dʑi/</span></td>
+          <td class="term-tw">前田慶次</td>
+          <td class="term-desc"><span class="ja">上杉家に仕えた武将。晩年を米沢で過ごした。「かぶき者」として知られる。</span><span class="en">A warrior in Uesugi service who spent his later years in Yonezawa; known as a flamboyant nonconformist (<em>kabukimono</em>).</span><span class="tw">曾任職於上杉家的武將，晚年在米澤度過。以「歌舞者」（不拘世俗）聞名。</span></td>
+        </tr>
+      </tbody>
+      <tbody>
+        <tr class="cat-row"><td colspan="4"><span class="ja">⚔️ ② 合戦・史実用語</span><span class="en">⚔️ ② Battles & Historical Terms</span><span class="tw">⚔️ ② 戰役・史實用語</span></td></tr>
+        <tr>
+          <td class="term-jp">慶長出羽合戦<span class="yomi">けいちょう でわ かっせん</span></td>
+          <td class="term-en">Battle of Keichō Dewa<span class="ipa">/keː.tɕoː de.wa kas.seɴ/</span></td>
+          <td class="term-tw">慶長出羽合戰</td>
+          <td class="term-desc"><span class="ja">1600年、関ヶ原と同時期に出羽で起きた合戦。2026年の大会テーマ。</span><span class="en">The 1600 campaign in Dewa Province, fought at the same time as Sekigahara. The 2026 festival theme.</span><span class="tw">1600年與關原同時期發生於出羽的戰役。2026年大會主題。</span></td>
+        </tr>
+        <tr>
+          <td class="term-jp">長谷堂城の戦い<span class="yomi">はせどうじょう の たたかい</span></td>
+          <td class="term-en">Siege of Hasedō Castle<span class="ipa">/ha.se.doː.dʑoː no ta.ta.ka.i/</span></td>
+          <td class="term-tw">長谷堂城之戰</td>
+          <td class="term-desc"><span class="ja">慶長出羽合戦の中心となった攻城戦。城は落ちなかった。</span><span class="en">The central siege of the Keichō Dewa campaign. The castle never fell.</span><span class="tw">慶長出羽合戰的核心攻城戰，該城最終未陷落。</span></td>
+        </tr>
+        <tr>
+          <td class="term-jp">関ヶ原の戦い<span class="yomi">せきがはら の たたかい</span></td>
+          <td class="term-en">Battle of Sekigahara<span class="ipa">/se.ki.ɡa.ha.ɾa no ta.ta.ka.i/</span></td>
+          <td class="term-tw">關原之戰</td>
+          <td class="term-desc"><span class="ja">1600年の東西決戦。徳川の260年の治世が始まった。</span><span class="en">The decisive east–west battle of 1600 that opened 260 years of Tokugawa rule.</span><span class="tw">1600年的東西決戰，開啟德川260年的統治。</span></td>
+        </tr>
+        <tr>
+          <td class="term-jp">殿軍<span class="yomi">しんがり</span></td>
+          <td class="term-en">rearguard<span class="ipa">/ɕiɴ.ɡa.ɾi/</span></td>
+          <td class="term-tw">殿軍</td>
+          <td class="term-desc"><span class="ja">撤退時に最後尾で敵を食い止める部隊。兼続が自ら務めた。</span><span class="en">The unit that holds off the enemy at the rear during a withdrawal. Kanetsugu commanded it personally.</span><span class="tw">撤退時在最後方阻擋敵軍的部隊。兼續親自擔任。</span></td>
+        </tr>
+        <tr>
+          <td class="term-jp">減封<span class="yomi">げんぽう</span></td>
+          <td class="term-en">reduction of domain<span class="ipa">/ɡeɴ.poː/</span></td>
+          <td class="term-tw">減封</td>
+          <td class="term-desc"><span class="ja">領地を削られること。上杉家は会津120万石から米沢30万石へ。</span><span class="en">A cut in a clan's landholding. The Uesugi went from 1.2 million koku at Aizu to 300,000 at Yonezawa.</span><span class="tw">領地被削減。上杉家由會津120萬石減至米澤30萬石。</span></td>
+        </tr>
+        <tr>
+          <td class="term-jp">石高<span class="yomi">こくだか</span></td>
+          <td class="term-en">koku (yield rating)<span class="ipa">/ko.kɯ.da.ka/</span></td>
+          <td class="term-tw">石高</td>
+          <td class="term-desc"><span class="ja">領地の生産力を米の量で表した単位。大名の格を示す。</span><span class="en">A domain's productive capacity expressed in volume of rice; it indicated a lord's standing.</span><span class="tw">以米量表示領地生產力的單位，顯示大名的等級。</span></td>
+        </tr>
+        <tr>
+          <td class="term-jp">城下町<span class="yomi">じょうかまち</span></td>
+          <td class="term-en">castle town<span class="ipa">/dʑoː.ka.ma.tɕi/</span></td>
+          <td class="term-tw">城下町</td>
+          <td class="term-desc"><span class="ja">城を中心に発達した町。米沢もその一つ。</span><span class="en">A town that grew up around a castle. Yonezawa is one.</span><span class="tw">以城為中心發展的城鎮，米澤即為其一。</span></td>
+        </tr>
+        <tr>
+          <td class="term-jp">本陣<span class="yomi">ほんじん</span></td>
+          <td class="term-en">Honjin (Main Camp)<span class="ipa">/hoɴ.dʑiɴ/</span></td>
+          <td class="term-tw">本陣</td>
+          <td class="term-desc"><span class="ja">大将が指揮を執る軍営の中心。本陣突破は事実上の敗北。</span><span class="en">The headquarters where the supreme commander directs the battle; its breach generally meant defeat.</span><span class="tw">大將指揮的軍營中心，本陣被破即視同敗戰。</span></td>
+        </tr>
+      </tbody>
+      <tbody>
+        <tr class="cat-row"><td colspan="4"><span class="ja">🎆 ③ 花火用語</span><span class="en">🎆 ③ Fireworks Terms</span><span class="tw">🎆 ③ 花火用語</span></td></tr>
+        <tr>
+          <td class="term-jp">打上花火<span class="yomi">うちあげはなび</span></td>
+          <td class="term-en">aerial firework<span class="ipa">/ɯ.tɕi.a.ɡe ha.na.bi/</span></td>
+          <td class="term-tw">升空煙火</td>
+          <td class="term-desc"><span class="ja">筒から打ち上げて空中で開く花火。この大会の主役。</span><span class="en">A shell launched from a mortar to burst in the air — the mainstay of this festival.</span><span class="tw">由發射筒射出並在空中綻放的煙火，本大會的主角。</span></td>
+        </tr>
+        <tr>
+          <td class="term-jp">尺玉<span class="yomi">しゃくだま</span></td>
+          <td class="term-en">shakudama (10-sun shell)<span class="ipa">/ɕa.kɯ.da.ma/</span></td>
+          <td class="term-tw">尺玉</td>
+          <td class="term-desc"><span class="ja">直径約30cmの大玉。開いた花は直径約320mになる。</span><span class="en">A large shell roughly 30 cm across; its burst spreads to about 320 m.</span><span class="tw">直徑約30公分的大型煙火彈，綻放直徑可達約320公尺。</span></td>
+        </tr>
+        <tr>
+          <td class="term-jp">スターマイン<span class="yomi">スターマイン</span></td>
+          <td class="term-en">starmine (rapid barrage)<span class="ipa">/sɯ.taː.ma.iɴ/</span></td>
+          <td class="term-tw">連發煙火</td>
+          <td class="term-desc"><span class="ja">多数の花火を短時間に連続で打ち上げる演出。和製英語。</span><span class="en">A rapid, continuous barrage of many shells. The term is Japanese-coined English.</span><span class="tw">在短時間內連續發射大量煙火的演出。此詞為日式英語。</span></td>
+        </tr>
+        <tr>
+          <td class="term-jp">菊<span class="yomi">きく</span></td>
+          <td class="term-en">kiku (chrysanthemum shell)<span class="ipa">/ki.kɯ/</span></td>
+          <td class="term-tw">菊</td>
+          <td class="term-desc"><span class="ja">光の尾を引いて球状に開く、最も基本的な型。</span><span class="en">The most basic burst pattern: a sphere of trailing stars.</span><span class="tw">帶著光尾呈球狀綻放，最基本的煙火型態。</span></td>
+        </tr>
+        <tr>
+          <td class="term-jp">牡丹<span class="yomi">ぼたん</span></td>
+          <td class="term-en">botan (peony shell)<span class="ipa">/bo.taɴ/</span></td>
+          <td class="term-tw">牡丹</td>
+          <td class="term-desc"><span class="ja">尾を引かず点で球状に開く型。菊との違いは尾の有無。</span><span class="en">A spherical burst of dots without trails; the difference from kiku is the absence of trails.</span><span class="tw">不帶尾跡、以點狀呈球形綻放。與菊的差別在於有無尾跡。</span></td>
+        </tr>
+        <tr>
+          <td class="term-jp">千輪<span class="yomi">せんりん</span></td>
+          <td class="term-en">senrin (multi-break shell)<span class="ipa">/seɴ.ɾiɴ/</span></td>
+          <td class="term-tw">千輪</td>
+          <td class="term-desc"><span class="ja">大玉が開いた後、内部の小玉が一斉に開く型。</span><span class="en">A shell that bursts, then releases many small shells which break together.</span><span class="tw">大型煙火彈綻放後，內部小彈同時綻放的型態。</span></td>
+        </tr>
+        <tr>
+          <td class="term-jp">仕掛花火<span class="yomi">しかけはなび</span></td>
+          <td class="term-en">set piece firework<span class="ipa">/ɕi.ka.ke ha.na.bi/</span></td>
+          <td class="term-tw">裝置煙火</td>
+          <td class="term-desc"><span class="ja">地上に組んだ枠で文字や絵を描く花火。</span><span class="en">Ground-mounted frames that spell out characters or draw pictures in fire.</span><span class="tw">在地面架設框架，以火焰描繪文字或圖案的煙火。</span></td>
+        </tr>
+        <tr>
+          <td class="term-jp">煙火<span class="yomi">えんか</span></td>
+          <td class="term-en">pyrotechnics<span class="ipa">/eɴ.ka/</span></td>
+          <td class="term-tw">煙火</td>
+          <td class="term-desc"><span class="ja">花火の業界用語。製造会社は「煙火店」と呼ばれる。</span><span class="en">The trade term for fireworks; manufacturers are called enka-ten.</span><span class="tw">煙火業界用語。製造公司稱為「煙火店」。</span></td>
+        </tr>
+        <tr>
+          <td class="term-jp">玉屋<span class="yomi">たまや</span></td>
+          <td class="term-en">shell maker<span class="ipa">/ta.ma.ja/</span></td>
+          <td class="term-tw">煙火師</td>
+          <td class="term-desc"><span class="ja">花火玉を作る職人。花火師のうち製造を担う人。</span><span class="en">The craftsperson who makes the shells — the manufacturing side of the pyrotechnician's trade.</span><span class="tw">製作煙火彈的職人，煙火師中負責製造的人。</span></td>
+        </tr>
+        <tr>
+          <td class="term-jp">段発<span class="yomi">だんぱつ</span></td>
+          <td class="term-en">staggered volley<span class="ipa">/daɴ.pa.tsɯ/</span></td>
+          <td class="term-tw">分段發射</td>
+          <td class="term-desc"><span class="ja">時間差をつけて連続的に打ち上げること。</span><span class="en">Launching shells in deliberately staggered succession.</span><span class="tw">以時間差連續發射煙火。</span></td>
+        </tr>
+        <tr>
+          <td class="term-jp">ワイドスターマイン<span class="yomi">ワイドスターマイン</span></td>
+          <td class="term-en">wide starmine<span class="ipa">/wa.i.do sɯ.taː.ma.iɴ/</span></td>
+          <td class="term-tw">寬幅連發煙火</td>
+          <td class="term-desc"><span class="ja">横に広く展開するスターマイン。会場の端から端まで使う。</span><span class="en">A starmine spread wide across the site, using its full width.</span><span class="tw">橫向大幅展開的連發煙火，使用會場的整個寬度。</span></td>
+        </tr>
+        <tr>
+          <td class="term-jp">グランドフィナーレ<span class="yomi">グランドフィナーレ</span></td>
+          <td class="term-en">grand finale<span class="ipa">/ɡɯ.ɾaɴ.do fi.naː.ɾe/</span></td>
+          <td class="term-tw">大結局</td>
+          <td class="term-desc"><span class="ja">最後に集中して打ち上げる締めの演出。</span><span class="en">The concentrated closing sequence at the end of the show.</span><span class="tw">最後集中施放的收尾演出。</span></td>
+        </tr>
+      </tbody>
+      <tbody>
+        <tr class="cat-row"><td colspan="4"><span class="ja">🛡️ ④ 武具・装束</span><span class="en">🛡️ ④ Armor & Costume</span><span class="tw">🛡️ ④ 武具・裝束</span></td></tr>
+        <tr>
+          <td class="term-jp">甲冑<span class="yomi">かっちゅう</span></td>
+          <td class="term-en">Kacchū (Armor)<span class="ipa">/kat.tɕɯː/</span></td>
+          <td class="term-tw">甲冑</td>
+          <td class="term-desc"><span class="ja">鎧と兜の総称。日本の甲冑は革・鉄板・絹紐の組み合わせ。</span><span class="en">General term for samurai armor (cuirass + helmet); built from leather, iron plates, and silk lacing.</span><span class="tw">鎧甲與頭盔總稱。日本甲冑由皮革、鐵板、絹繩編組而成。</span></td>
+        </tr>
+        <tr>
+          <td class="term-jp">兜<span class="yomi">かぶと</span></td>
+          <td class="term-en">Kabuto (Helmet)<span class="ipa">/ka.bɯ.to/</span></td>
+          <td class="term-tw">兜（頭盔）</td>
+          <td class="term-desc"><span class="ja">武将の頭部防具。前立（飾り）で個性を表現。「鍬形」「鹿角」など。</span><span class="en">The samurai helmet; the front crest (<em>maedate</em>) — antlers, horns, kanji — expressed identity.</span><span class="tw">武將頭部防具。前立（裝飾）展現個性，如鍬形、鹿角等。</span></td>
+        </tr>
+        <tr>
+          <td class="term-jp">陣羽織<span class="yomi">じんばおり</span></td>
+          <td class="term-en">Jinbaori (Battle Surcoat)<span class="ipa">/dʑiɴ.ba.o.ɾi/</span></td>
+          <td class="term-tw">陣羽織</td>
+          <td class="term-desc"><span class="ja">甲冑の上に羽織る装束。武将の威厳を示す。家紋入りが多い。</span><span class="en">A surcoat worn over armor for status display, often bearing the family crest.</span><span class="tw">穿於甲冑外的禮服，多繡家紋以彰顯武將威儀。</span></td>
+        </tr>
+        <tr>
+          <td class="term-jp">軍旗<span class="yomi">ぐんき</span></td>
+          <td class="term-en">Gunki (Battle Standard)<span class="ipa">/ɡɯɴ.kʲi/</span></td>
+          <td class="term-tw">軍旗</td>
+          <td class="term-desc"><span class="ja">軍勢を示す旗。家紋・宗教的シンボル・標語を染め抜く。</span><span class="en">A military standard bearing crest, religious symbol, or motto.</span><span class="tw">標示軍勢的旗幟，染有家紋、宗教符號或座右銘。</span></td>
+        </tr>
+        <tr>
+          <td class="term-jp">火縄銃<span class="yomi">ひなわじゅう</span></td>
+          <td class="term-en">Hinawa-jū (Matchlock)<span class="ipa">/hʲi.na.wa.dʑɯː/</span></td>
+          <td class="term-tw">火繩槍</td>
+          <td class="term-desc"><span class="ja">1543年にポルトガルから日本へ伝来した火縄式の鉄砲。戦国の戦術を一変させた。</span><span class="en">Matchlock arquebus brought to Japan from Portugal in 1543; revolutionized Sengoku warfare.</span><span class="tw">1543年由葡萄牙傳入日本的火繩式鐵砲，徹底改變戰國戰術。</span></td>
+        </tr>
+        <tr>
+          <td class="term-jp">長槍<span class="yomi">ながやり</span></td>
+          <td class="term-en">Nagayari (Long Spear)<span class="ipa">/na.ɡa.ja.ɾi/</span></td>
+          <td class="term-tw">長槍</td>
+          <td class="term-desc"><span class="ja">5〜6mに及ぶ集団戦用の長い槍。徒歩兵の主力武器。</span><span class="en">A 5–6 m spear used in group infantry tactics; the primary weapon of foot soldiers.</span><span class="tw">長達5〜6公尺的集團戰用長槍，步兵主力武器。</span></td>
+        </tr>
+        <tr>
+          <td class="term-jp">弓矢<span class="yomi">ゆみや</span></td>
+          <td class="term-en">Yumiya (Bow &amp; Arrow)<span class="ipa">/jɯ.mʲi.ja/</span></td>
+          <td class="term-tw">弓箭</td>
+          <td class="term-desc"><span class="ja">日本の弓は和弓。武士の本来の主武器（「弓馬の道」）。</span><span class="en">Japanese bow (<em>yumi</em>) and arrow. The original weapon of the samurai — "the way of bow and horse."</span><span class="tw">日本的弓為和弓，武士本來的主武器（「弓馬之道」）。</span></td>
+        </tr>
+        <tr>
+          <td class="term-jp">軍配<span class="yomi">ぐんばい</span></td>
+          <td class="term-en">Gunbai (War Fan)<span class="ipa">/ɡɯɴ.bai/</span></td>
+          <td class="term-tw">軍配</td>
+          <td class="term-desc"><span class="ja">武将が部隊を指揮する団扇状の道具。相撲の行司の道具と同源。</span><span class="en">A fan-shaped baton for commanding troops; same word/origin as the sumo referee's fan.</span><span class="tw">武將指揮部隊的扇形指揮棒，與相撲行司用扇同源。</span></td>
+        </tr>
+      </tbody>
+      <tbody>
+        <tr class="cat-row"><td colspan="4"><span class="ja">🗾 ⑤ 地名・会場</span><span class="en">🗾 ⑤ Places & Venue</span><span class="tw">🗾 ⑤ 地名・會場</span></td></tr>
+        <tr>
+          <td class="term-jp">米沢<span class="yomi">よねざわ</span></td>
+          <td class="term-en">Yonezawa<span class="ipa">/jo.ne.za.wa/</span></td>
+          <td class="term-tw">米澤</td>
+          <td class="term-desc"><span class="ja">山形県南部の市。上杉家の城下町で、この大会の開催地。</span><span class="en">A city in southern Yamagata; the Uesugi castle town and the host of this festival.</span><span class="tw">山形縣南部的城市，上杉家的城下町，本大會的舉辦地。</span></td>
+        </tr>
+        <tr>
+          <td class="term-jp">置賜<span class="yomi">おきたま</span></td>
+          <td class="term-en">Okitama<span class="ipa">/o.ki.ta.ma/</span></td>
+          <td class="term-tw">置賜</td>
+          <td class="term-desc"><span class="ja">米沢を含む山形県南部の地域名。読みが難しい地名。</span><span class="en">The name of the region in southern Yamagata that includes Yonezawa. Its reading is famously difficult.</span><span class="tw">包含米澤的山形縣南部地區名稱。讀音相當困難。</span></td>
+        </tr>
+        <tr>
+          <td class="term-jp">出羽<span class="yomi">でわ</span></td>
+          <td class="term-en">Dewa Province<span class="ipa">/de.wa/</span></td>
+          <td class="term-tw">出羽</td>
+          <td class="term-desc"><span class="ja">現在の山形県・秋田県にあたる旧国名。「慶長出羽合戦」の出羽。</span><span class="en">The old province covering today's Yamagata and Akita — the Dewa of the Keichō Dewa campaign.</span><span class="tw">相當於今山形縣與秋田縣的舊國名，即「慶長出羽合戰」的出羽。</span></td>
+        </tr>
+        <tr>
+          <td class="term-jp">米沢市営野球場<span class="yomi">よねざわ しえい やきゅうじょう</span></td>
+          <td class="term-en">Yonezawa Municipal Baseball Stadium<span class="ipa">/jo.ne.za.wa ɕi.eː ja.kʲɯː.dʑoː/</span></td>
+          <td class="term-tw">米澤市營棒球場</td>
+          <td class="term-desc"><span class="ja">この大会の会場。米沢総合公園の中にある。</span><span class="en">The venue for this festival, located inside Yonezawa Sports Park.</span><span class="tw">本大會的會場，位於米澤綜合公園內。</span></td>
+        </tr>
+        <tr>
+          <td class="term-jp">米沢総合公園<span class="yomi">よねざわ そうごう こうえん</span></td>
+          <td class="term-en">Yonezawa Sports Park<span class="ipa">/jo.ne.za.wa soː.ɡoː koː.eɴ/</span></td>
+          <td class="term-tw">米澤綜合公園</td>
+          <td class="term-desc"><span class="ja">野球場・サッカーフィールドを含む公園。サイドイベントの会場でもある。</span><span class="en">The park containing the baseball stadium and soccer field; it also hosts the side events.</span><span class="tw">包含棒球場與足球場的公園，也是周邊活動的會場。</span></td>
+        </tr>
+        <tr>
+          <td class="term-jp">長谷堂城<span class="yomi">はせどうじょう</span></td>
+          <td class="term-en">Hasedō Castle<span class="ipa">/ha.se.doː.dʑoː/</span></td>
+          <td class="term-tw">長谷堂城</td>
+          <td class="term-desc"><span class="ja">山形市南部の城跡。慶長出羽合戦の激戦地。</span><span class="en">A castle site in southern Yamagata City; the fiercest battleground of the Keichō Dewa campaign.</span><span class="tw">位於山形市南部的城跡，慶長出羽合戰的激戰地。</span></td>
+        </tr>
+        <tr>
+          <td class="term-jp">上杉神社<span class="yomi">うえすぎ じんじゃ</span></td>
+          <td class="term-en">Uesugi Shrine<span class="ipa">/ɯ.e.sɯ.ɡʲi dʑiɴ.dʑa/</span></td>
+          <td class="term-tw">上杉神社</td>
+          <td class="term-desc"><span class="ja">上杉謙信を祀る神社。米沢市街の中心にある。</span><span class="en">The shrine dedicated to Uesugi Kenshin, at the centre of Yonezawa.</span><span class="tw">祭祀上杉謙信的神社，位於米澤市中心。</span></td>
+        </tr>
+        <tr>
+          <td class="term-jp">松川<span class="yomi">まつかわ</span></td>
+          <td class="term-en">Matsukawa River<span class="ipa">/ma.tsɯ.ka.wa/</span></td>
+          <td class="term-tw">松川</td>
+          <td class="term-desc"><span class="ja">米沢市内を流れる川。春の上杉まつりでは河川敷で川中島合戦が再現される。</span><span class="en">The river running through Yonezawa; its bank hosts the Kawanakajima re-enactment at the spring Uesugi Festival.</span><span class="tw">流經米澤市內的河川。春季上杉祭典時在河岸重現川中島合戰。</span></td>
+        </tr>
+      </tbody>
+      <tbody>
+        <tr class="cat-row"><td colspan="4"><span class="ja">🎫 ⑥ 座席・チケット</span><span class="en">🎫 ⑥ Seating & Tickets</span><span class="tw">🎫 ⑥ 座位・票券</span></td></tr>
+        <tr>
+          <td class="term-jp">天地人シート<span class="yomi">てんちじん シート</span></td>
+          <td class="term-en">Tenchijin Seat<span class="ipa">/teɴ.tɕi.dʑiɴ ɕiː.to/</span></td>
+          <td class="term-tw">天地人座席</td>
+          <td class="term-desc"><span class="ja">最上位のVIP席（1ブース最大4名・120,000円）。名は大河ドラマ「天地人」に由来。</span><span class="en">The top VIP booth (up to 4 people, ¥120,000). Named after the NHK drama Tenchijin.</span><span class="tw">最高等級的VIP座席（1區最多4人、120,000日圓）。名稱源自大河劇《天地人》。</span></td>
+        </tr>
+        <tr>
+          <td class="term-jp">謙信公シート<span class="yomi">けんしんこう シート</span></td>
+          <td class="term-en">Lord Kenshin Seat<span class="ipa">/keɴ.ɕiɴ.koː ɕiː.to/</span></td>
+          <td class="term-tw">謙信公座席</td>
+          <td class="term-desc"><span class="ja">バックネット裏正面の1人席（8,000円）。家族向けの4名席もある。</span><span class="en">A single seat directly behind the backstop (¥8,000). A four-person family version is also offered.</span><span class="tw">本壘後方擋網正面的單人座席（8,000日圓）。另有4人家庭席。</span></td>
+        </tr>
+        <tr>
+          <td class="term-jp">兼続公シート<span class="yomi">かねつぐこう シート</span></td>
+          <td class="term-en">Lord Kanetsugu Seat<span class="ipa">/ka.ne.tsɯ.ɡɯ.koː ɕiː.to/</span></td>
+          <td class="term-tw">兼續公座席</td>
+          <td class="term-desc"><span class="ja">1・3塁側ベンチの2名席（14,000円）。</span><span class="en">A two-person seat in the first- or third-base dugout (¥14,000).</span><span class="tw">一・三壘側休息區的2人座席（14,000日圓）。</span></td>
+        </tr>
+        <tr>
+          <td class="term-jp">鷹山公シート<span class="yomi">ようざんこう シート</span></td>
+          <td class="term-en">Lord Yōzan Seat<span class="ipa">/joː.zaɴ.koː ɕiː.to/</span></td>
+          <td class="term-tw">鷹山公座席</td>
+          <td class="term-desc"><span class="ja">3塁側の4名席（16,000円）。打上場所に最も近い。</span><span class="en">A four-person seat on the third-base side (¥16,000) — the closest to the launch site.</span><span class="tw">三壘側的4人座席（16,000日圓），最接近施放地點。</span></td>
+        </tr>
+        <tr>
+          <td class="term-jp">カメラマン席<span class="yomi">カメラマンせき</span></td>
+          <td class="term-en">Photographer Seat<span class="ipa">/ka.me.ɾa.maɴ.se.ki/</span></td>
+          <td class="term-tw">攝影師座席</td>
+          <td class="term-desc"><span class="ja">バックネット裏最上部（8,000円）。<strong>三脚が使える唯一の席</strong>。</span><span class="en">Top of the backstop stand (¥8,000). <strong>The only seat where tripods are permitted.</strong></span><span class="tw">本壘後方擋網最上層（8,000日圓）。<strong>唯一可使用三腳架的座席</strong>。</span></td>
+        </tr>
+        <tr>
+          <td class="term-jp">ドライブイン席<span class="yomi">ドライブインせき</span></td>
+          <td class="term-en">Drive-in Seat<span class="ipa">/do.ɾa.i.bɯ.iɴ.se.ki/</span></td>
+          <td class="term-tw">汽車座席</td>
+          <td class="term-desc"><span class="ja">車1台で入れる区画（15,000円）。サッカーフィールド前の駐車場。</span><span class="en">A space for one vehicle (¥15,000), in the car park in front of the soccer field.</span><span class="tw">可停放1輛車的區域（15,000日圓），位於足球場前停車場。</span></td>
+        </tr>
+        <tr>
+          <td class="term-jp">駐車券<span class="yomi">ちゅうしゃけん</span></td>
+          <td class="term-en">parking ticket<span class="ipa">/tɕɯː.ɕa.keɴ/</span></td>
+          <td class="term-tw">停車券</td>
+          <td class="term-desc"><span class="ja">有料駐車場の事前券（4,000円）。座席券とは別売り。</span><span class="en">An advance ticket for paid parking (¥4,000), sold separately from seat tickets.</span><span class="tw">付費停車場的預售券（4,000日圓），與座席票分開販售。</span></td>
+        </tr>
+        <tr>
+          <td class="term-jp">有料席<span class="yomi">ゆうりょうせき</span></td>
+          <td class="term-en">paid seating<span class="ipa">/jɯː.ɾʲoː.se.ki/</span></td>
+          <td class="term-tw">付費座席</td>
+          <td class="term-desc"><span class="ja">チケットが必要な観覧席。16:00開場。</span><span class="en">Ticketed viewing areas; they open at 16:00.</span><span class="tw">需要購票的觀賞席，16:00開放入場。</span></td>
+        </tr>
+      </tbody>
+      <tbody>
+        <tr class="cat-row"><td colspan="4"><span class="ja">🌸 ⑦ 文化・概念</span><span class="en">🌸 ⑦ Culture & Concepts</span><span class="tw">🌸 ⑦ 文化・概念</span></td></tr>
+        <tr>
+          <td class="term-jp">戦国時代<span class="yomi">せんごくじだい</span></td>
+          <td class="term-en">Sengoku Period<span class="ipa">/seɴ.ɡo.kɯ dʑi.dai/</span></td>
+          <td class="term-tw">戰國時代</td>
+          <td class="term-desc"><span class="ja">15世紀後半〜16世紀末の内戦時代。各地の大名が覇を競った。</span><span class="en">Japan's "Warring States" era, late 15th to late 16th c.; daimyō clashed across the country.</span><span class="tw">15世紀末至16世紀末的內戰時代，各地大名爭霸。</span></td>
+        </tr>
+        <tr>
+          <td class="term-jp">義<span class="yomi">ぎ</span></td>
+          <td class="term-en">Gi (Righteousness)<span class="ipa">/ɡʲi/</span></td>
+          <td class="term-tw">義</td>
+          <td class="term-desc"><span class="ja">道義に基づき、私利私欲のためでなく行動する精神。謙信の根本思想。</span><span class="en">Acting on moral duty rather than self-interest — Kenshin's core philosophy.</span><span class="tw">基於道義、非為私利的行為精神，謙信的核心思想。</span></td>
+        </tr>
+        <tr>
+          <td class="term-jp">武士道<span class="yomi">ぶしどう</span></td>
+          <td class="term-en">Bushidō (Way of the Warrior)<span class="ipa">/bɯ.ɕi.doː/</span></td>
+          <td class="term-tw">武士道</td>
+          <td class="term-desc"><span class="ja">武士の倫理規範。義・勇・仁・礼・誠・名誉・忠義の七徳。</span><span class="en">The samurai ethical code: righteousness, courage, benevolence, respect, honesty, honor, loyalty.</span><span class="tw">武士的倫理規範：義、勇、仁、禮、誠、名譽、忠義七德。</span></td>
+        </tr>
+        <tr>
+          <td class="term-jp">忠義<span class="yomi">ちゅうぎ</span></td>
+          <td class="term-en">Chūgi (Loyalty)<span class="ipa">/tɕɯː.ɡʲi/</span></td>
+          <td class="term-tw">忠義</td>
+          <td class="term-desc"><span class="ja">主君への絶対的忠誠。武士道の中核価値。</span><span class="en">Absolute loyalty to one's lord — a core value of bushidō.</span><span class="tw">對主君的絕對忠誠，武士道核心價值。</span></td>
+        </tr>
+        <tr>
+          <td class="term-jp">毘沙門天<span class="yomi">びしゃもんてん</span></td>
+          <td class="term-en">Bishamonten<span class="ipa">/bʲi.ɕa.moɴ.teɴ/</span></td>
+          <td class="term-tw">毘沙門天</td>
+          <td class="term-desc"><span class="ja">仏教の四天王の一人で武神。謙信が篤く信仰した。</span><span class="en">One of the Four Heavenly Kings of Buddhism, the war god; deeply venerated by Kenshin.</span><span class="tw">佛教四天王之一的戰神，謙信篤信。</span></td>
+        </tr>
+        <tr>
+          <td class="term-jp">不動明王<span class="yomi">ふどうみょうおう</span></td>
+          <td class="term-en">Fudō Myō-ō<span class="ipa">/ɸɯ.doː mʲoː.oː/</span></td>
+          <td class="term-tw">不動明王</td>
+          <td class="term-desc"><span class="ja">仏教の忿怒尊。煩悩を断ち切る象徴。「龍」の旗で表される。</span><span class="en">Wrathful Buddhist deity who severs delusions; represented by the "龍" banner.</span><span class="tw">佛教忿怒尊，象徵斬斷煩惱，由「龍」字旗代表。</span></td>
+        </tr>
+        <tr>
+          <td class="term-jp">神仏習合<span class="yomi">しんぶつしゅうごう</span></td>
+          <td class="term-en">Shinbutsu-shūgō (Shinto-Buddhist Syncretism)<span class="ipa">/ɕiɴ.bɯ.tsɯ ɕɯː.ɡoː/</span></td>
+          <td class="term-tw">神佛習合</td>
+          <td class="term-desc"><span class="ja">神道と仏教を融合させた信仰形態。武禘式もこの伝統に基づく。</span><span class="en">The syncretic blending of Shinto and Buddhism; Buteishiki draws on this tradition.</span><span class="tw">神道與佛教融合的信仰形態，武禘式即源於此傳統。</span></td>
+        </tr>
+        <tr>
+          <td class="term-jp">風物詩<span class="yomi">ふうぶつし</span></td>
+          <td class="term-en">seasonal emblem<span class="ipa">/ɸɯː.bɯ.tsɯ.ɕi/</span></td>
+          <td class="term-tw">時令象徵</td>
+          <td class="term-desc"><span class="ja">その季節を象徴する風景や行事。この大会は「米沢の秋の風物詩」と呼ばれる。</span><span class="en">A scene or event that stands for a season. This festival is called “an emblem of autumn in Yonezawa.”</span><span class="tw">象徵某個季節的風景或活動。本大會被稱為「米澤秋季的時令象徵」。</span></td>
+        </tr>
+      </tbody>
+      <tbody>
+        <tr class="cat-row"><td colspan="4"><span class="ja">💬 ⑧ 実用フレーズ</span><span class="en">💬 ⑧ Practical Phrases</span><span class="tw">💬 ⑧ 實用短句</span></td></tr>
+        <tr>
+          <td class="term-jp">ここから観覧できます</td>
+          <td class="term-en">&quot;You can watch from here.&quot;</td>
+          <td class="term-tw">可從此處觀賞。</td>
+          <td class="term-desc"><span class="ja">沿道での案内表現。</span><span class="en">Standard line for guiding to a roadside spot.</span><span class="tw">沿道引導常用句。</span></td>
+        </tr>
+        <tr>
+          <td class="term-jp">撮影は可能ですが、ドローンは禁止です</td>
+          <td class="term-en">&quot;Photos are welcome, but drones are not allowed.&quot;</td>
+          <td class="term-tw">可拍照，但禁止使用無人機。</td>
+          <td class="term-desc"><span class="ja">写真マナー説明。最頻出の禁止事項。</span><span class="en">Photo etiquette. Most-asked rule.</span><span class="tw">拍照守則，最常被問的禁止事項。</span></td>
+        </tr>
+        <tr>
+          <td class="term-jp">トイレはあちらにあります</td>
+          <td class="term-en">&quot;The restrooms are over there.&quot;</td>
+          <td class="term-tw">洗手間在那邊。</td>
+          <td class="term-desc"><span class="ja">必須表現。会場の仮設トイレ位置を事前確認。</span><span class="en">Essential phrase. Check location of portable toilets in advance.</span><span class="tw">必備片語，事前確認臨時廁所位置。</span></td>
+        </tr>
+        <tr>
+          <td class="term-jp">17時から車も歩行者も通れません</td>
+          <td class="term-en">“From 5 p.m. this road is closed to cars and pedestrians.”</td>
+          <td class="term-tw">17點起車輛與行人皆無法通行。</td>
+          <td class="term-desc"><span class="ja">国道121号の規制。徒歩の人にも迂回が必要だと伝える。</span><span class="en">The Route 121 restriction. Make clear that even people on foot must detour.</span><span class="tw">國道121號的管制。需說明連步行者也必須繞道。</span></td>
+        </tr>
+        <tr>
+          <td class="term-jp">終わりまで席を離れられません</td>
+          <td class="term-en">“You won&#x27;t be able to leave your seat until the end.”</td>
+          <td class="term-tw">到結束前無法離席。</td>
+          <td class="term-desc"><span class="ja">1時間ノンストップのため。開始前にお手洗いをすすめる。</span><span class="en">Because the show runs non-stop for an hour. Recommend using the restrooms beforehand.</span><span class="tw">因為是1小時不間斷的演出。建議開始前先使用洗手間。</span></td>
+        </tr>
+        <tr>
+          <td class="term-jp">荒天のときは中止で、延期はありません</td>
+          <td class="term-en">“In severe weather it is cancelled — there is no rain date.”</td>
+          <td class="term-tw">惡劣天氣時取消，且不延期。</td>
+          <td class="term-desc"><span class="ja">必ず聞かれる。「順延」と誤解されないよう明確に。</span><span class="en">You will always be asked this. State it clearly so it is not mistaken for a postponement.</span><span class="tw">一定會被問到。請明確說明以免被誤解為順延。</span></td>
+        </tr>
+        <tr>
+          <td class="term-jp">上着があった方がいいです</td>
+          <td class="term-en">“You&#x27;ll want a warm coat.”</td>
+          <td class="term-tw">建議準備外套。</td>
+          <td class="term-desc"><span class="ja">10月の夜の屋外で1時間動かないため。</span><span class="en">Because visitors will be outdoors and still for an hour on an October night.</span><span class="tw">因為10月夜晚需在戶外靜坐1小時。</span></td>
+        </tr>
+        <tr>
+          <td class="term-jp">三脚はカメラマン席だけです</td>
+          <td class="term-en">“Tripods are only allowed in the Photographer Seats.”</td>
+          <td class="term-tw">三腳架僅限攝影師座席。</td>
+          <td class="term-desc"><span class="ja">一般席で三脚を立てようとする人がいるため。</span><span class="en">Some visitors try to set up tripods in general seating.</span><span class="tw">有些來賓會想在一般座席架設三腳架。</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="chapter" id="ch2">
+  <div class="chapter-num">CHAPTER 03</div>
+  <h2>
+    <span class="ja">🏯 歴史と背景</span>
+    <span class="en">🏯 History & Background</span>
+    <span class="tw">🏯 歷史與背景</span>
+  </h2>
+  <div class="ja">
+    <p class="lead">「米沢の秋の風物詩」として、過去2回で<strong>のべ約4万人</strong>を集めた花火大会です。始まったのは<strong>2024年</strong>、まだ3回目です。</p>
+  </div>
+  <div class="en">
+    <p class="lead">Now a fixture of autumn in Yonezawa, this festival drew <strong>a cumulative audience of about 40,000</strong> across its first two editions. It began in <strong>2024</strong>; 2026 is only the third edition.</p>
+  </div>
+  <div class="tw">
+    <p class="lead">作為「米澤秋季的代表活動」，前兩屆已累計吸引<strong>約4萬人</strong>。本活動始於<strong>2024年</strong>，2026年僅是第三屆。</p>
+  </div>
+  <div class="tourist-only">
+    <div class="ja">
+      <h3>🏯 なぜ米沢で「戦国 × 花火」なのか</h3>
+      <p>米沢は、戦国大名<strong>上杉謙信</strong>を祖とする上杉家が江戸時代を通じて治めた城下町です。市街の中心には上杉神社があり、春には上杉まつりで川中島合戦が再現されます。<strong>戦国の記憶が日常に残る土地</strong>だからこそ、花火に戦国を重ねる発想が生まれました。</p>
+      <div class="callout deep">
+        <div class="callout-title">🎆 発足の経緯</div>
+        米沢の青年経済3団体（米沢商工会議所とその青年部、米沢青年会議所、米沢観光コンベンション協会とその青年部）が、<strong>「地域の子どもたちに花火の風景を残したい」</strong>という思いから部会を設立し、2024年に第1回を開催しました。
+      </div>
+    </div>
+    <div class="en">
+      <h3>🏯 Why “Sengoku × Fireworks” in Yonezawa?</h3>
+      <p>Yonezawa is a castle town ruled throughout the Edo period by the Uesugi clan, whose spiritual founder was the Sengoku warlord <strong>Uesugi Kenshin</strong>. Uesugi Shrine stands at the centre of the city, and each spring the Uesugi Festival re-enacts the Battle of Kawanakajima. It is precisely because <strong>the Sengoku past is still part of everyday life here</strong> that the idea of layering it onto a fireworks show could take shape.</p>
+      <div class="callout deep">
+        <div class="callout-title">🎆 How it started</div>
+        Three of Yonezawa's young business organisations — the Chamber of Commerce &amp; Industry and its Youth Division, the Junior Chamber, and the Tourism &amp; Convention Association and its Youth Division — formed a dedicated committee out of the wish to <strong>“leave the sight of fireworks to the children of this region.”</strong> The first edition was held in 2024.
+      </div>
+    </div>
+    <div class="tw">
+      <h3>🏯 為何在米澤舉辦「戰國 × 花火」？</h3>
+      <p>米澤是江戶時代由上杉家治理的城下町，其精神始祖為戰國大名<strong>上杉謙信</strong>。市中心座落著上杉神社，每年春季的上杉祭典會重現川中島合戰。正因為<strong>戰國的記憶仍存在於日常之中</strong>，才會誕生將戰國與花火結合的構想。</p>
+      <div class="callout deep">
+        <div class="callout-title">🎆 創辦緣由</div>
+        米澤的三個青年經濟團體（米澤商工會議所及其青年部、米澤青年會議所、米澤觀光會議協會及其青年部）懷抱<strong>「希望為當地孩子留下花火風景」</strong>的心願設立部會，並於2024年舉辦第一屆。
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="chapter" id="ch2b">
+  <div class="chapter-num">CHAPTER 04</div>
+  <h2>
+    <span class="ja">📜 慶長出羽合戦とは</span>
+    <span class="en">📜 The Battle of Keichō Dewa</span>
+    <span class="tw">📜 慶長出羽合戰</span>
+  </h2>
+  <div class="ja">
+    <p class="lead">2026年のテーマは<strong>慶長出羽合戦</strong>（1600年）。関ヶ原の戦いと同じ年に、この東北で起きた合戦です。</p>
+  </div>
+  <div class="en">
+    <p class="lead">The 2026 theme is the <strong>Battle of Keichō Dewa</strong> (1600) — a campaign fought here in the Tōhoku region in the same year as Sekigahara.</p>
+  </div>
+  <div class="tw">
+    <p class="lead">2026年的主題是<strong>慶長出羽合戰</strong>（1600年）── 與關原之戰同年，發生在東北地區的戰役。</p>
+  </div>
+  <div class="tourist-only">
+    <div class="ja">
+      <div class="callout">
+        <div class="callout-title">⚔️ ひとことで言うと</div>
+        「<strong>東北版の関ヶ原</strong>」です。上杉軍が最上領（現在の山形）へ侵攻し、関ヶ原での敗報を受けて撤退しました。
+      </div>
+    </div>
+    <div class="en">
+      <div class="callout">
+        <div class="callout-title">⚔️ In one sentence</div>
+        It was <strong>Tōhoku's own Sekigahara</strong>: the Uesugi army invaded the Mogami domain (today's Yamagata) and withdrew on news of the defeat at Sekigahara.
+      </div>
+    </div>
+    <div class="tw">
+      <div class="callout">
+        <div class="callout-title">⚔️ 一句話說明</div>
+        可說是「<strong>東北版的關原之戰</strong>」：上杉軍進攻最上領（今山形），並在接到關原戰敗的消息後撤退。
+      </div>
+    </div>
+  </div>
+  <div class="ja">
+    <h3>📜 流れ</h3>
+    <div class="timeline">
+      <div class="tl-item major">
+        <div class="tl-time">1600年9月</div>
+        <div class="tl-title">関ヶ原の戦い</div>
+        <div class="tl-desc">美濃（現在の岐阜）で東西の決戦。上杉家は西軍側でした。</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-time">同時期</div>
+        <div class="tl-title">上杉軍が最上領へ侵攻</div>
+        <div class="tl-meta">指揮：直江兼続</div>
+        <div class="tl-desc">関ヶ原に呼応して、上杉軍が山形へ進みました。</div>
+      </div>
+      <div class="tl-item major">
+        <div class="tl-time">長谷堂城</div>
+        <div class="tl-title">長谷堂城の戦い</div>
+        <div class="tl-desc">最上方の<strong>志村光安</strong>が籠城し、上杉軍の攻勢を持ちこたえました。この城が落ちなかったことが戦局を決めました。</div>
+      </div>
+      <div class="tl-item major">
+        <div class="tl-time">撤退</div>
+        <div class="tl-title">兼続の殿軍（しんがり）</div>
+        <div class="tl-desc">関ヶ原の敗報が届き、上杉軍は撤退。<strong>兼続が自ら殿軍を務めた退却戦</strong>は、日本の戦史で名高いものです。</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-time">戦後</div>
+        <div class="tl-title">米沢30万石へ</div>
+        <div class="tl-desc">上杉家は会津120万石から<strong>米沢30万石</strong>へ減封されます。これが米沢の街の礎になりました。</div>
+      </div>
+    </div>
+  </div>
+  <div class="en">
+    <h3>📜 How it unfolded</h3>
+    <div class="timeline">
+      <div class="tl-item major">
+        <div class="tl-time">Sept 1600</div>
+        <div class="tl-title">The Battle of Sekigahara</div>
+        <div class="tl-desc">The decisive east–west clash in Mino (today's Gifu). The Uesugi sided with the Western army.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-time">Same period</div>
+        <div class="tl-title">The Uesugi invade Mogami territory</div>
+        <div class="tl-meta">Commander: Naoe Kanetsugu</div>
+        <div class="tl-desc">In concert with Sekigahara, the Uesugi advanced into Yamagata.</div>
+      </div>
+      <div class="tl-item major">
+        <div class="tl-time">Hasedō Castle</div>
+        <div class="tl-title">The Siege of Hasedō Castle</div>
+        <div class="tl-desc"><strong>Shimura Akiyasu</strong> held the castle for the Mogami side and withstood the Uesugi assault. That the castle never fell decided the campaign.</div>
+      </div>
+      <div class="tl-item major">
+        <div class="tl-time">The withdrawal</div>
+        <div class="tl-title">Kanetsugu's rearguard</div>
+        <div class="tl-desc">When news of Sekigahara arrived, the Uesugi withdrew. <strong>Kanetsugu personally commanded the rearguard</strong> — a retreat celebrated in Japanese military history.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-time">Aftermath</div>
+        <div class="tl-title">Reduced to Yonezawa, 300,000 koku</div>
+        <div class="tl-desc">The Uesugi were cut from 1.2 million koku at Aizu to <strong>300,000 koku at Yonezawa</strong> — the foundation of the city as it is today.</div>
+      </div>
+    </div>
+  </div>
+  <div class="tw">
+    <h3>📜 戰役經過</h3>
+    <div class="timeline">
+      <div class="tl-item major">
+        <div class="tl-time">1600年9月</div>
+        <div class="tl-title">關原之戰</div>
+        <div class="tl-desc">在美濃（今岐阜）的東西決戰。上杉家屬於西軍陣營。</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-time">同一時期</div>
+        <div class="tl-title">上杉軍進攻最上領</div>
+        <div class="tl-meta">指揮：直江兼續</div>
+        <div class="tl-desc">配合關原之戰，上杉軍向山形推進。</div>
+      </div>
+      <div class="tl-item major">
+        <div class="tl-time">長谷堂城</div>
+        <div class="tl-title">長谷堂城之戰</div>
+        <div class="tl-desc">最上方的<strong>志村光安</strong>據城堅守，擋住上杉軍的攻勢。此城未陷落決定了戰局。</div>
+      </div>
+      <div class="tl-item major">
+        <div class="tl-time">撤退</div>
+        <div class="tl-title">兼續的殿軍</div>
+        <div class="tl-desc">關原戰敗的消息傳來後，上杉軍撤退。<strong>兼續親自擔任殿軍</strong>的撤退戰，在日本戰史上頗負盛名。</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-time">戰後</div>
+        <div class="tl-title">減封至米澤30萬石</div>
+        <div class="tl-desc">上杉家由會津120萬石減封至<strong>米澤30萬石</strong>，這成為今日米澤城市的基礎。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="chapter" id="ch3">
+  <div class="chapter-num">CHAPTER 05 · MAIN SECTION</div>
+  <h2>
+    <span class="ja">🎇 戦国花火の見どころ</span>
+    <span class="en">🎇 The Sengoku Fireworks Show</span>
+    <span class="tw">🎇 戰國花火看點</span>
+  </h2>
+  <div class="ja">
+    <p class="lead">公式のキャッチコピーは<strong>「一発の玉、一振りの刀、一節の物語」</strong>。花火・演武・音楽を<strong>1時間ノンストップ</strong>でつなぐ構成です。</p>
+  </div>
+  <div class="en">
+    <p class="lead">The official tagline reads <strong>“one shell, one sword, one verse of story.”</strong> Fireworks, warrior performance and music run <strong>non-stop for one hour</strong>.</p>
+  </div>
+  <div class="tw">
+    <p class="lead">官方標語為<strong>「一發煙火、一振刀劍、一段故事」</strong>。花火、演武與音樂<strong>1小時不間斷</strong>地串連。</p>
+  </div>
+  <img class="hero-photo" src="/guides/assets/sengoku-hanabi/images/sengoku-hanabi-stadium.jpg" alt="米沢市営野球場の全景と観客席の上に広がる花火" loading="lazy">
+  <div class="hero-photo-caption"><span class="ja">▲ 会場は米沢市営野球場。観客席をぐるりと囲むように花火が上がります</span><span class="en">▲ The venue is Yonezawa Municipal Baseball Stadium; the shells rise all around the stands</span><span class="tw">▲ 會場為米澤市營棒球場，煙火環繞觀眾席升空</span></div>
+  <div class="ja">
+    <h3>🎆 3つの要素が同時に動きます</h3>
+    <ul>
+      <li><strong>花火</strong> ─ 本物の打上花火。音楽に合わせて演出が組まれます</li>
+      <li><strong>武将たちの演武</strong> ─ 全国から集結する武将隊が舞台に立ちます</li>
+      <li><strong>音楽と物語</strong> ─ 慶長出羽合戦の物語が音楽で語られます</li>
+    </ul>
+  </div>
+  <div class="en">
+    <h3>🎆 Three elements move at once</h3>
+    <ul>
+      <li><strong>Fireworks</strong> — real aerial shells, choreographed to the music</li>
+      <li><strong>Warrior performance</strong> — <em>bushō-tai</em> troupes gather from across Japan to perform on stage</li>
+      <li><strong>Music and narrative</strong> — the story of the Keichō Dewa campaign told through music</li>
+    </ul>
+  </div>
+  <div class="tw">
+    <h3>🎆 三個元素同時運作</h3>
+    <ul>
+      <li><strong>花火</strong> ─ 真正的升空煙火，配合音樂編排演出</li>
+      <li><strong>武將演武</strong> ─ 來自全國的武將隊登台演出</li>
+      <li><strong>音樂與故事</strong> ─ 以音樂敘述慶長出羽合戰的故事</li>
+    </ul>
+  </div>
+  <img class="hero-photo" src="/guides/assets/sengoku-hanabi/images/sengoku-hanabi-busho.jpg" alt="舞台に並ぶ甲冑姿の武将たちと背後に上がる金色の花火" loading="lazy">
+  <div class="hero-photo-caption"><span class="ja">▲ 舞台の武将たちと花火が同時に動きます。これが「戦国型花火エンターテイメント」</span><span class="en">▲ The warriors on stage and the fireworks move as one — this is what “Sengoku-style fireworks entertainment” means</span><span class="tw">▲ 舞台上的武將與煙火同時演出，這就是「戰國型花火娛樂」</span></div>
+  <div class="ja">
+    <div class="formations-grid">
+      <figure>
+        <img src="/guides/assets/sengoku-hanabi/images/sengoku-hanabi-finale.jpg" alt="扇状に広がる金色の花火" loading="lazy">
+        <figcaption>横に広く展開する演出（第5章の「ワイドスターマイン」）</figcaption>
+      </figure>
+      <figure>
+        <img src="/guides/assets/sengoku-hanabi/images/sengoku-hanabi-large-shell.jpg" alt="夜空に開く大玉の花火" loading="lazy">
+        <figcaption>大玉が球状に開く（第5章の「菊」「牡丹」の実例）</figcaption>
+      </figure>
+    </div>
+    <div class="callout accent-gold">
+      <div class="callout-title">⏱ 「1時間ノンストップ」の意味</div>
+      休憩や間延びがありません。<strong>18:30に始まったら終わりまで続きます</strong>。席を離れるタイミングが取りにくいので、開始前にお手洗いを済ませてください。
+    </div>
+  </div>
+  <div class="en">
+    <div class="formations-grid">
+      <figure>
+        <img src="/guides/assets/sengoku-hanabi/images/sengoku-hanabi-finale.jpg" alt="Golden fireworks fanning out across the sky" loading="lazy">
+        <figcaption>A wide, sweeping barrage — see “wide starmine” in Chapter 5</figcaption>
+      </figure>
+      <figure>
+        <img src="/guides/assets/sengoku-hanabi/images/sengoku-hanabi-large-shell.jpg" alt="A large shell bursting in the night sky" loading="lazy">
+        <figcaption>A large shell opening into a sphere — see “kiku” and “botan” in Chapter 5</figcaption>
+      </figure>
+    </div>
+    <div class="callout accent-gold">
+      <div class="callout-title">⏱ What “non-stop for one hour” means</div>
+      There are no intervals or lulls. <strong>Once it starts at 18:30 it runs straight through.</strong> It is hard to find a moment to leave your seat, so use the restrooms before it begins.
+    </div>
+  </div>
+  <div class="tw">
+    <div class="formations-grid">
+      <figure>
+        <img src="/guides/assets/sengoku-hanabi/images/sengoku-hanabi-finale.jpg" alt="呈扇形展開的金色煙火" loading="lazy">
+        <figcaption>橫向大幅展開的演出（第5章「寬幅連發煙火」）</figcaption>
+      </figure>
+      <figure>
+        <img src="/guides/assets/sengoku-hanabi/images/sengoku-hanabi-large-shell.jpg" alt="在夜空中綻放的大型煙火彈" loading="lazy">
+        <figcaption>大型煙火彈呈球狀綻放（第5章「菊」「牡丹」的實例）</figcaption>
+      </figure>
+    </div>
+    <div class="callout accent-gold">
+      <div class="callout-title">⏱「1小時不間斷」的意義</div>
+      沒有中場休息或空檔。<strong>18:30開始後將一路進行到結束</strong>。中途難以離席，請於開始前先使用洗手間。
+    </div>
+  </div>
+  <div class="tourist-only">
+    <div class="ja">
+      <div class="callout deep accent-crimson">
+        <div class="callout-title">🎭 2026年の演目</div>
+        出演する武将隊と演目の詳細は<strong>公式発表を待っている段階</strong>です（このページは発表後に更新します）。
+      </div>
+    </div>
+    <div class="en">
+      <div class="callout deep accent-crimson">
+        <div class="callout-title">🎭 The 2026 programme</div>
+        The line-up of warrior troupes and the detailed programme are <strong>still awaiting official announcement</strong>. This page will be updated once they are released.
+      </div>
+    </div>
+    <div class="tw">
+      <div class="callout deep accent-crimson">
+        <div class="callout-title">🎭 2026年的演出節目</div>
+        出演的武將隊與詳細節目<strong>尚待官方公布</strong>。本頁將於公布後更新。
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="chapter" id="ch4">
+  <div class="chapter-num">CHAPTER 06</div>
+  <h2>
+    <span class="ja">📅 当日の流れと座席</span>
+    <span class="en">📅 Schedule & Seating</span>
+    <span class="tw">📅 當日流程與座位</span>
+  </h2>
+  <div class="ja">
+    <div class="day-header"><span class="day-badge">10/10 (土)</span>当日のタイムテーブル</div>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-time">11:30</div>
+        <div class="tl-title">サイドイベント開始</div>
+        <div class="tl-meta">米沢総合運動公園・サッカーフィールド</div>
+        <div class="tl-desc">「第5回よねざわ肉の陣」と「戦国チャンバラ合戦イベント」が同時開催されます。</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-time">16:00</div>
+        <div class="tl-title">有料席開場</div>
+        <div class="tl-desc">チケットは<a href="https://eplus.jp/yonezawa_sengokuhanabi/" target="_blank" rel="noopener">イープラス</a>で販売。</div>
+      </div>
+      <div class="tl-item major">
+        <div class="tl-time">17:00</div>
+        <div class="tl-title">交通規制開始</div>
+        <div class="tl-meta">21:00まで</div>
+        <div class="tl-desc">国道121号（総合公園周辺）は<strong>車両・歩行者とも通行禁止</strong>。徒歩の方も迂回が必要です。</div>
+      </div>
+      <div class="tl-item major">
+        <div class="tl-time">18:30</div>
+        <div class="tl-title">打ち上げ開始</div>
+        <div class="tl-meta">約1時間ノンストップ</div>
+        <div class="tl-desc">2026年のテーマは<strong>「全国から集結する武将たちが慶長出羽合戦を蘇らせる」</strong>。打ち上げ数は約8,000発（公表値）。</div>
+      </div>
+    </div>
+    <h3>🎫 有料席の種類</h3>
+    <div class="glossary-wrap">
+      <table class="glossary">
+        <thead>
+          <tr>
+            <th style="width:30%">席種</th>
+            <th style="width:18%">料金</th>
+            <th style="width:22%">単位</th>
+            <th style="width:30%">位置</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>天地人シートVIP</td>
+            <td>120,000円</td>
+            <td>1ブース最大4名</td>
+            <td>グラウンド内バックネット前</td>
+          </tr>
+          <tr>
+            <td>謙信公シート</td>
+            <td>8,000円</td>
+            <td>1席1名</td>
+            <td>バックネット裏正面</td>
+          </tr>
+          <tr>
+            <td>謙信公シート ファミリー席</td>
+            <td>24,000円</td>
+            <td>4名（中学生以下1名以上を含む家族限定）</td>
+            <td>バックネット裏正面</td>
+          </tr>
+          <tr>
+            <td>兼続公シート</td>
+            <td>14,000円</td>
+            <td>1組2名</td>
+            <td>1・3塁側ベンチ</td>
+          </tr>
+          <tr>
+            <td>鷹山公シート</td>
+            <td>16,000円</td>
+            <td>1組4名</td>
+            <td>3塁側コンクリシート・<strong>打上最近接</strong></td>
+          </tr>
+          <tr>
+            <td>カメラマン席</td>
+            <td>8,000円</td>
+            <td>1区画1名</td>
+            <td>バックネット裏最上部・<strong>三脚可</strong></td>
+          </tr>
+          <tr>
+            <td>ドライブイン席</td>
+            <td>15,000円</td>
+            <td>1区画1台</td>
+            <td>サッカーフィールド前駐車場</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="callout">
+      <div class="callout-title">🅿️ 駐車券</div>
+      有料駐車券は <strong>4,000円</strong>。事前予約は<a href="https://www.akippa.com/event/sengokuhanabi" target="_blank" rel="noopener">akippa</a>から。
+    </div>
+  </div>
+  <div class="en">
+    <div class="day-header"><span class="day-badge">Oct 10 (Sat)</span>Timetable for the day</div>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-time">11:30</div>
+        <div class="tl-title">Side events begin</div>
+        <div class="tl-meta">Yonezawa Sports Park · Soccer Field</div>
+        <div class="tl-desc">The 5th Yonezawa Meat Festival and a Sengoku mock-battle event run concurrently.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-time">16:00</div>
+        <div class="tl-title">Paid seating opens</div>
+        <div class="tl-desc">Tickets are sold via <a href="https://eplus.jp/yonezawa_sengokuhanabi/" target="_blank" rel="noopener">e+ (eplus)</a>.</div>
+      </div>
+      <div class="tl-item major">
+        <div class="tl-time">17:00</div>
+        <div class="tl-title">Traffic restrictions begin</div>
+        <div class="tl-meta">until 21:00</div>
+        <div class="tl-desc">Route 121 near the park is closed to <strong>both vehicles and pedestrians</strong>. Even on foot, you must detour.</div>
+      </div>
+      <div class="tl-item major">
+        <div class="tl-time">18:30</div>
+        <div class="tl-title">Fireworks begin</div>
+        <div class="tl-meta">Non-stop for approx. 1 hour</div>
+        <div class="tl-desc">The 2026 theme: <strong>generals from across Japan bring the Battle of Keichō Dewa back to life</strong>. Approx. 8,000 shells (announced figure).</div>
+      </div>
+    </div>
+    <h3>🎫 Paid Seating</h3>
+    <div class="glossary-wrap">
+      <table class="glossary">
+        <thead>
+          <tr>
+            <th style="width:30%">Seat type</th>
+            <th style="width:18%">Price</th>
+            <th style="width:22%">Unit</th>
+            <th style="width:30%">Location</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Tenchijin VIP Booth</td>
+            <td>¥120,000</td>
+            <td>1 booth, up to 4 people</td>
+            <td>On the field, in front of the backstop</td>
+          </tr>
+          <tr>
+            <td>Lord Kenshin Seat</td>
+            <td>¥8,000</td>
+            <td>1 seat, 1 person</td>
+            <td>Directly behind the backstop</td>
+          </tr>
+          <tr>
+            <td>Lord Kenshin Family Seat</td>
+            <td>¥24,000</td>
+            <td>4 people (families including at least one child aged 15 or under)</td>
+            <td>Directly behind the backstop</td>
+          </tr>
+          <tr>
+            <td>Lord Kanetsugu Seat</td>
+            <td>¥14,000</td>
+            <td>1 unit, 2 people</td>
+            <td>First- and third-base dugouts</td>
+          </tr>
+          <tr>
+            <td>Lord Yōzan Seat</td>
+            <td>¥16,000</td>
+            <td>1 unit, 4 people</td>
+            <td>Third-base concrete seating — <strong>closest to the launch site</strong></td>
+          </tr>
+          <tr>
+            <td>Photographer Seat</td>
+            <td>¥8,000</td>
+            <td>1 space, 1 person</td>
+            <td>Top of the backstop stand — <strong>tripods permitted</strong></td>
+          </tr>
+          <tr>
+            <td>Drive-in Seat</td>
+            <td>¥15,000</td>
+            <td>1 space, 1 vehicle</td>
+            <td>Car park in front of the soccer field</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="callout">
+      <div class="callout-title">🅿️ Parking Ticket</div>
+      Paid parking tickets are <strong>¥4,000</strong>. Reserve in advance via <a href="https://www.akippa.com/event/sengokuhanabi" target="_blank" rel="noopener">akippa</a>.
+    </div>
+  </div>
+  <div class="tw">
+    <div class="day-header"><span class="day-badge">10/10（六）</span>當日時間表</div>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-time">11:30</div>
+        <div class="tl-title">周邊活動開始</div>
+        <div class="tl-meta">米澤綜合運動公園・足球場</div>
+        <div class="tl-desc">同時舉辦「第5屆米澤肉之陣」與「戰國刀劍對戰活動」。</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-time">16:00</div>
+        <div class="tl-title">付費座席開放</div>
+        <div class="tl-desc">票券於 <a href="https://eplus.jp/yonezawa_sengokuhanabi/" target="_blank" rel="noopener">e+（eplus）</a> 販售。</div>
+      </div>
+      <div class="tl-item major">
+        <div class="tl-time">17:00</div>
+        <div class="tl-title">交通管制開始</div>
+        <div class="tl-meta">至21:00</div>
+        <div class="tl-desc">國道121號（綜合公園周邊）<strong>車輛與行人皆禁止通行</strong>，步行者也需繞道。</div>
+      </div>
+      <div class="tl-item major">
+        <div class="tl-time">18:30</div>
+        <div class="tl-title">花火開始施放</div>
+        <div class="tl-meta">約1小時不間斷</div>
+        <div class="tl-desc">2026年主題為<strong>「來自全國的武將重現慶長出羽合戰」</strong>。施放數約8,000發（公布數值）。</div>
+      </div>
+    </div>
+    <h3>🎫 付費座位種類</h3>
+    <div class="glossary-wrap">
+      <table class="glossary">
+        <thead>
+          <tr>
+            <th style="width:30%">座位種類</th>
+            <th style="width:18%">費用</th>
+            <th style="width:22%">單位</th>
+            <th style="width:30%">位置</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>天地人座席VIP</td>
+            <td>120,000日圓</td>
+            <td>1區最多4人</td>
+            <td>球場內本壘後方擋網前</td>
+          </tr>
+          <tr>
+            <td>謙信公座席</td>
+            <td>8,000日圓</td>
+            <td>1席1人</td>
+            <td>本壘後方擋網正面</td>
+          </tr>
+          <tr>
+            <td>謙信公座席 家庭席</td>
+            <td>24,000日圓</td>
+            <td>4人（限含1名以上國中生以下的家庭）</td>
+            <td>本壘後方擋網正面</td>
+          </tr>
+          <tr>
+            <td>兼續公座席</td>
+            <td>14,000日圓</td>
+            <td>1組2人</td>
+            <td>一・三壘側休息區</td>
+          </tr>
+          <tr>
+            <td>鷹山公座席</td>
+            <td>16,000日圓</td>
+            <td>1組4人</td>
+            <td>三壘側水泥座席・<strong>最接近施放點</strong></td>
+          </tr>
+          <tr>
+            <td>攝影師座席</td>
+            <td>8,000日圓</td>
+            <td>1區1人</td>
+            <td>本壘後方擋網最上層・<strong>可使用三腳架</strong></td>
+          </tr>
+          <tr>
+            <td>汽車座席</td>
+            <td>15,000日圓</td>
+            <td>1區1輛</td>
+            <td>足球場前停車場</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="callout">
+      <div class="callout-title">🅿️ 停車券</div>
+      付費停車券 <strong>4,000日圓</strong>。可透過 <a href="https://www.akippa.com/event/sengokuhanabi" target="_blank" rel="noopener">akippa</a> 事先預約。
+    </div>
+  </div>
+</section>
+
+<section class="chapter" id="ch6">
+  <div class="chapter-num">CHAPTER 07</div>
+  <h2>
+    <span class="ja">🚉 アクセス・実用情報</span>
+    <span class="en">🚉 Access & Practical Information</span>
+    <span class="tw">🚉 交通與實用資訊</span>
+  </h2>
+  <div class="ja">
+    <h3>📍 会場</h3>
+    <ul>
+      <li><strong>米沢市営野球場</strong>（米沢総合公園内）</li>
+      <li>〒992-0042 山形県米沢市塩井町塩野1369 ／ <a href="https://maps.app.goo.gl/tNFRmtSQKjH2bacX9" target="_blank" rel="noopener">地図</a></li>
+    </ul>
+    <h3>🚌 アクセス</h3>
+    <ul>
+      <li><strong>公共交通</strong>：米沢駅前 →（バス約18分）→ 米沢市役所前 →（徒歩約3分）→ 総合公園口</li>
+      <li><strong>車</strong>：東北中央自動車道 米沢中央IC</li>
+    </ul>
+    <div class="callout crimson">
+      <div class="callout-title">🚧 交通規制 17:00〜21:00</div>
+      国道121号（総合公園周辺）は<strong>車両・歩行者とも通行禁止</strong>。春日3丁目美女塚線／総合公園西線／南線は<strong>車両通行止め</strong>。
+    </div>
+    <h3>🅿️ 無料駐車場</h3>
+    <ul>
+      <li>おおくぼ福餅駐車場（約60台）</li>
+      <li>ミユキ精機株式会社駐車場（約77台）</li>
+    </ul>
+    <h3>📞 主催・問い合わせ</h3>
+    <ul>
+      <li>主催：米沢四季のまつり委員会／よねざわ戦国花火大会部会</li>
+      <li>〒992-0052 山形県米沢市丸の内1丁目4-13 ／ TEL 0238-22-9607</li>
+      <li>企画：米沢商工会議所・同青年部／米沢青年会議所／米沢観光コンベンション協会・同青年部</li>
+    </ul>
+  </div>
+  <div class="en">
+    <h3>📍 Venue</h3>
+    <ul>
+      <li><strong>Yonezawa Municipal Baseball Stadium</strong> (Yonezawa Sports Park)</li>
+      <li>1369 Shiono, Shioimachi, Yonezawa, Yamagata 992-0042 / <a href="https://maps.app.goo.gl/tNFRmtSQKjH2bacX9" target="_blank" rel="noopener">Map</a></li>
+    </ul>
+    <h3>🚌 Getting There</h3>
+    <ul>
+      <li><strong>By bus</strong>: Yonezawa Station → approx. 18 min → Yonezawa City Hall → approx. 3 min on foot → Sports Park entrance</li>
+      <li><strong>By car</strong>: Yonezawa-Chūō IC, Tōhoku-Chūō Expressway</li>
+    </ul>
+    <div class="callout crimson">
+      <div class="callout-title">🚧 Traffic Restrictions 17:00–21:00</div>
+      Route 121 near the park is closed to <strong>both vehicles and pedestrians</strong>. The Kasuga 3-chōme Bijozuka line and the Sports Park west/south lines are <strong>closed to vehicles</strong>.
+    </div>
+    <h3>🅿️ Free Parking</h3>
+    <ul>
+      <li>Ōkubo Fukumochi car park (approx. 60 spaces)</li>
+      <li>Miyuki Seiki Co., Ltd. car park (approx. 77 spaces)</li>
+    </ul>
+    <h3>📞 Organizer & Contact</h3>
+    <ul>
+      <li>Host: Yonezawa Four Seasons Festival Committee / Yonezawa Sengoku Hanabi Division</li>
+      <li>1-4-13 Marunouchi, Yonezawa, Yamagata 992-0052 / Tel +81-238-22-9607</li>
+      <li>Planning: Yonezawa Chamber of Commerce & Industry and its Youth Division / Yonezawa Junior Chamber / Yonezawa Tourism & Convention Association and its Youth Division</li>
+    </ul>
+  </div>
+  <div class="tw">
+    <h3>📍 會場</h3>
+    <ul>
+      <li><strong>米澤市營棒球場</strong>（米澤綜合公園內）</li>
+      <li>〒992-0042 山形縣米澤市鹽井町鹽野1369 ／ <a href="https://maps.app.goo.gl/tNFRmtSQKjH2bacX9" target="_blank" rel="noopener">地圖</a></li>
+    </ul>
+    <h3>🚌 交通方式</h3>
+    <ul>
+      <li><strong>公共交通</strong>：米澤車站前 →（巴士約18分）→ 米澤市公所前 →（步行約3分）→ 綜合公園口</li>
+      <li><strong>自駕</strong>：東北中央自動車道 米澤中央IC</li>
+    </ul>
+    <div class="callout crimson">
+      <div class="callout-title">🚧 交通管制 17:00〜21:00</div>
+      國道121號（綜合公園周邊）<strong>車輛與行人皆禁止通行</strong>。春日3丁目美女塚線／綜合公園西線・南線<strong>禁止車輛通行</strong>。
+    </div>
+    <h3>🅿️ 免費停車場</h3>
+    <ul>
+      <li>大久保福餅停車場（約60輛）</li>
+      <li>Miyuki精機股份有限公司停車場（約77輛）</li>
+    </ul>
+    <h3>📞 主辦與洽詢</h3>
+    <ul>
+      <li>主辦：米澤四季祭典委員會／米澤戰國花火大會部會</li>
+      <li>〒992-0052 山形縣米澤市丸之內1丁目4-13 ／ 電話 0238-22-9607</li>
+      <li>企劃：米澤商工會議所及其青年部／米澤青年會議所／米澤觀光會議協會及其青年部</li>
+    </ul>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div class="ja">第3回よねざわ戦国花火大会 多言語ガイド</div>
+    <div class="en">Yonezawa Sengoku Hanabi 2026 — The 3rd Warring-States Fireworks Festival · Multilingual Guide</div>
+    <div class="tw">第三屆米澤戰國花火大會 2026 多語言導覽</div>
+    <div class="small copyright">Sources: <a href="https://sengokuhanabi.com/" target="_blank" rel="noopener">よねざわ戦国花火大会 公式</a> · <a href="https://eplus.jp/yonezawa_sengokuhanabi/" target="_blank" rel="noopener">チケット（イープラス）</a> · <a href="https://www.akippa.com/event/sengokuhanabi" target="_blank" rel="noopener">駐車場予約（akippa）</a></div>
+    <div class="small"><span class="ja">最終更新：2026年9月8日</span><span class="en">Last updated: 2026年9月8日</span><span class="tw">最後更新：2026年9月8日</span></div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var body=document.body, KEY='yonezawa-guides-lang';
+  var have=[].map.call(document.querySelectorAll('.lang-tab'),function(b){return b.dataset.lang;});
+  var Q; try{Q=new URLSearchParams(location.search);}catch(e){Q={get:function(){return null;}};}
+  // ガイド一覧・完全版へのリンクに、いま選んでいる言語を引き継ぐ
+  function keepLang(lang){
+    document.querySelectorAll('a[data-keep-lang]').forEach(function(a){
+      try{var u=new URL(a.getAttribute('href'),location.href);u.searchParams.set('lang',lang);
+        a.setAttribute('href',u.pathname+u.search+u.hash);}catch(e){}
+    });
+  }
+  function setLang(lang,save){
+    body.classList.remove('lang-ja','lang-en','lang-tw','lang-fr');
+    body.classList.add('lang-'+lang);
+    document.documentElement.lang = lang==='tw' ? 'zh-Hant' : lang;
+    document.querySelectorAll('.lang-tab').forEach(function(b){
+      var on = b.dataset.lang===lang;
+      b.classList.toggle('active',on);
+      b.setAttribute('aria-selected',on?'true':'false');
+    });
+    keepLang(lang);
+    if(save===false) return;
+    try{localStorage.setItem(KEY,lang);}catch(e){}
+    try{var u=new URL(location.href);u.searchParams.set('lang',lang);
+      history.replaceState(null,'',u.pathname+u.search+u.hash);}catch(e){}
+  }
+  function setMode(mode){
+    body.classList.remove('mode-tourist','mode-interpreter');
+    body.classList.add('mode-'+mode);
+    document.querySelectorAll('.mode-tab').forEach(function(b){
+      var on = b.dataset.mode===mode;
+      b.classList.toggle('active',on);
+      b.setAttribute('aria-selected',on?'true':'false');
+    });
+  }
+  document.querySelectorAll('.lang-tab').forEach(function(btn){
+    btn.addEventListener('click',function(){setLang(this.dataset.lang)});
+  });
+  document.querySelectorAll('.mode-tab').forEach(function(btn){
+    btn.addEventListener('click',function(){setMode(this.dataset.mode)});
+  });
+  // 初期表示：?lang= → 前回選んだ言語（ガイドアプリと共有）→ 日本語。?mode= も読む
+  var q=Q.get('lang'), s=null; try{s=localStorage.getItem(KEY);}catch(e){}
+  if(q && have.indexOf(q)>=0) setLang(q);
+  else if(s && have.indexOf(s)>=0) setLang(s,false);
+  else keepLang('ja');
+  var m=Q.get('mode');
+  if(m && document.querySelector('.mode-tab[data-mode="'+m+'"]')) setMode(m);
+})();
+</script>
+<script>
+(function(){
+  var inputs=[].slice.call(document.querySelectorAll('[data-glossary-search]'));
+  if(!inputs.length) return;
+  var table=document.querySelector('table[data-glossary="main"]');
+  var counter=document.querySelector('[data-glossary-count]');
+  if(!table) return;
+  var rows=[].slice.call(table.querySelectorAll('tbody tr:not(.cat-row)'));
+  function apply(){
+    var q=(this&&this.value!=null?this.value:'').trim().toLowerCase();
+    inputs.forEach(function(i){if(i.value!==q) i.value=q});
+    var hit=0;
+    rows.forEach(function(tr){
+      var show = !q || tr.textContent.toLowerCase().indexOf(q)>-1;
+      tr.classList.toggle('term-hidden',!show);
+      if(show) hit++;
+    });
+    [].slice.call(table.querySelectorAll('tbody')).forEach(function(tb){
+      var visible=[].slice.call(tb.querySelectorAll('tr:not(.cat-row)'))
+        .some(function(tr){return !tr.classList.contains('term-hidden')});
+      tb.classList.toggle('cat-hidden',!visible);
+    });
+    if(counter) counter.textContent = q ? (hit+' / '+rows.length) : '';
+  }
+  inputs.forEach(function(i){i.addEventListener('input',apply)});
+})();
+</script>
+</body>
+</html>

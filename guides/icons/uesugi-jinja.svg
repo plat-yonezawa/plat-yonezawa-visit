@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120">
+  <!-- 上杉神社：お堀の桜と鳥居。水面に映る -->
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#9CC3E4"/><stop offset="1" stop-color="#E8F1F6"/>
+    </linearGradient>
+    <linearGradient id="water" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#6E93AE"/><stop offset="1" stop-color="#3E5C76"/>
+    </linearGradient>
+  </defs>
+  <rect width="120" height="120" fill="url(#sky)"/>
+  <!-- 桜の木（左右） -->
+  <g fill="#F4B6C2">
+    <circle cx="8" cy="40" r="18"/><circle cx="22" cy="28" r="14"/><circle cx="6" cy="62" r="14"/>
+    <circle cx="112" cy="36" r="18"/><circle cx="98" cy="24" r="12"/><circle cx="114" cy="60" r="13"/>
+  </g>
+  <g fill="#FBD5DD" opacity=".9"><circle cx="16" cy="36" r="8"/><circle cx="104" cy="32" r="8"/></g>
+  <!-- 鳥居 -->
+  <g fill="#2E2A2B">
+    <path d="M26 30c12 3 56 3 68 0l-2 6c-14 2-50 2-64 0z"/>
+    <rect x="31" y="43" width="58" height="4"/>
+    <rect x="38" y="36" width="5" height="44"/><rect x="77" y="36" width="5" height="44"/>
+    <rect x="57.5" y="36" width="5" height="8"/>
+  </g>
+  <!-- 石垣とお堀 -->
+  <rect y="78" width="120" height="6" fill="#8D8A80"/>
+  <rect y="84" width="120" height="36" fill="url(#water)"/>
+  <!-- 水面に映る鳥居 -->
+  <g fill="#2E2A2B" opacity=".28">
+    <rect x="38" y="84" width="5" height="22"/><rect x="77" y="84" width="5" height="22"/>
+    <rect x="31" y="105" width="58" height="3"/>
+  </g>
+  <g stroke="#DDEAF2" stroke-width="1.2" stroke-linecap="round" opacity=".7">
+    <path d="M12 94h18M70 98h24M30 108h16M86 112h14"/>
+  </g>
+  <g fill="#F7C8D1"><circle cx="50" cy="96" r="1.6"/><circle cx="66" cy="112" r="1.4"/><circle cx="96" cy="92" r="1.5"/></g>
+</svg>
